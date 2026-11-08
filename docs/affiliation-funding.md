@@ -1,6 +1,6 @@
 # Affiliation-aware funding discovery
 
-Reviewed November 8, 2026. The registry now has 25 sources: 15 industry, three
+Reviewed November 8, 2026. The registry now has 26 sources: 15 industry, four
 professional-society, two institutional, three foundation and two government API
 sources. Source coverage is expandable, not exhaustive.
 

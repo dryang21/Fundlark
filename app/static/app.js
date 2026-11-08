@@ -52,8 +52,9 @@ async function refreshOverview(){
 }
 async function fetchMatches(){
   try{
-    state.results=await api('/api/match',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({keywords:state.profile.keywords||[],career_stage:state.profile.career_stage||'unspecified',query:state.query})});
+    const [matches,routes]=await Promise.all([api('/api/match',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({keywords:state.profile.keywords||[],career_stage:state.profile.career_stage||'unspecified',query:state.query,societies:state.profile.societies||[],institutions:state.profile.institutions||[]})}),api('/api/profile/sources',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({keywords:state.profile.keywords||[],societies:state.profile.societies||[],institutions:state.profile.institutions||[]})})]);
+    state.results=matches;state.discoveryRoutes=routes;
     renderResults();if(state.view==='saved')renderSaved();
   }catch(e){$('#resultsList').innerHTML=`<div class="empty-state">Could not load opportunities: ${esc(e.message)}</div>`;notify(e.message,true)}
 }
@@ -66,7 +67,7 @@ function filtered(items){
   }
   if(state.sort==='deadline')list.sort((a,b)=>((a.deadline||'9999')>(b.deadline||'9999')?1:-1));
   else if(state.sort==='new')list.sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));
-  else list.sort((a,b)=>(b.match_score||0)-(a.match_score||0));
+  else list.sort((a,b)=>(b.ranking_score??b.match_score??0)-(a.ranking_score??a.match_score??0));
   return list;
 }
 function renderResults(){
@@ -74,6 +75,18 @@ function renderResults(){
   $('#resultsCount').textContent=`Showing ${Math.min(items.length,state.visible)} of ${items.length} opportunities`;
   container.innerHTML=items.length?items.slice(0,state.visible).map(renderCard).join(''):`<div class="empty-state"><strong>No opportunities found</strong>Try broader keywords, another source category, or disable the open-only filter.</div>`;
   $('#showMoreBtn').hidden=items.length<=state.visible;
+  renderCategorySources(items.length);
+  if(!items.length){container.innerHTML=`<div class="empty-state"><strong>No indexed listings match these filters.</strong>This does not mean your society or institution has no funding. Check the official source links or broaden your filters.<br><button class="outline-btn" data-action="clearFilters">Clear search and show all statuses</button></div>`;}
+}
+function renderCategorySources(count){
+  const panel=$('#categorySourcePanel');
+  if(!['Society','Institution'].includes(state.category)){panel.hidden=true;return}
+  panel.hidden=false;
+  const routes=state.discoveryRoutes||{sources:[],society_discovery:[],institution_discovery:[]};
+  const selected=routes.sources.filter(s=>s.category===state.category);
+  const queries=state.category==='Society'?routes.society_discovery:routes.institution_discovery;
+  const records=state.results.filter(o=>o.category===state.category),open=records.filter(o=>['open','rolling'].includes(o.status)).length;
+  panel.innerHTML=`<div><strong>${records.length} indexed programs · ${open} listed open / rolling</strong><p>Saved affiliations help rank listings; they do not automatically establish eligibility. Closed and unverified programs are hidden by the open-only filter.</p><strong>Official funding sources to explore</strong>${selected.map(s=>`<p><a href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener noreferrer">${esc(s.name)} ↗</a></p>`).join('')}${queries.map(q=>`<p><a href="${esc(q.search_url)}" target="_blank" rel="noopener noreferrer">Search more funding for ${esc(q.society||q.institution)} ↗</a></p>`).join('')}${!selected.length&&!queries.length?'<p>Add a confirmed membership or current institution in My research profile for personalized source routes.</p>':''}</div>`;
 }
 function eligibilityText(value){return ({possible:'Career stage looks compatible',sponsor:'Faculty PI may be required',unlikely:'Review career-stage restrictions',check:'Check applicant eligibility'})[value]||'Check eligibility'}
 function renderCard(o){
@@ -96,7 +109,7 @@ function renderCard(o){
     <div class="opp-top-right"><span class="opp-type">${esc(labelCategory(o.category))}</span><button class="opp-save ${saved?'active':''}" data-action="save" data-id="${escapedId}" title="${saved?'Remove saved opportunity':'Save opportunity'}" aria-label="${saved?'Unsave':'Save'} ${esc(o.title)}">${icon('bookmark')}</button></div></div>
     <h3 class="opp-title">${esc(o.title)}</h3><p class="opp-desc">${esc(o.description)}</p>
     <div class="opp-meta"><span class="meta-tag ${statusClass}">${o.status==='open'?'● ':''}${esc(statusLabel(o.status))}</span><span class="meta-tag">${icon('clock')} ${esc(due)}</span><span class="meta-tag ${eligibility==='possible'?'green':eligibility==='sponsor'?'amber':''}">${esc(eligibilityText(eligibility))}</span></div>
-    ${matchTags?`<div class="opp-matches">${matchTags}</div>`:''}
+    ${matchTags?`<div class="opp-matches">${matchTags}</div>`:''}${o.affiliation_matches?.length?`<p class="affiliation-match">Related to ${esc(o.affiliation_matches.join(', '))} · check program eligibility</p>`:''}
     <div class="opp-bottom"><div class="opp-bottom-left"><div class="match-circle ${score==null?'no-match':''}">${esc(scoreText)}</div><div class="match-label"><strong>${score==null?'Research match':'Research match'}</strong><span>${esc(scoreDesc)}</span></div></div><div class="card-actions"><button class="card-detail-btn" data-action="details" data-id="${escapedId}">Details</button><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">Official source ${icon('external')}</a></div></div>
     <div class="opp-details" hidden><div class="detail-grid"><div><h4>About the opportunity</h4><p>${esc(o.description)}</p><h4>Type of support</h4><p>${esc(o.amount||o.funding_type||'See official source')}</p></div><div><h4>Eligibility · preliminary</h4><p>${esc(o.eligibility_reason||'Review official criteria')} ${esc(o.eligibility||'')}</p><h4>Topics</h4><p>${esc((o.topics||[]).join(' · '))}</p></div></div><div class="detail-foot">${esc(fidelity)} · Last verified: ${esc(o.last_verified_at?o.last_verified_at.slice(0,10):'unknown')} · Always confirm on the funder's website before applying.</div></div>
   </article>`;
@@ -113,6 +126,7 @@ function toggleSaved(id){
 function handleCardsClick(e){
   const target=e.target.closest('[data-action]');if(!target)return;
   const id=target.dataset.id,action=target.dataset.action;
+  if(action==='clearFilters'){state.query='';$('#searchInput').value='';state.onlyOpen=false;$('#openOnly').checked=false;state.visible=8;fetchMatches();return}
   if(action==='save'){toggleSaved(id);return}
   if(action==='details'){
     const card=target.closest('.opportunity-card'),details=$('.opp-details',card),expanded=details.hidden;
@@ -127,8 +141,21 @@ function renderProfileForm(){
   loadProfileSources();
 }
 function renderAffiliationChips(){
+  updateAffiliationOptions();
   for(const kind of ['society','institution']){
     $('#'+kind+'Chips').innerHTML=state.profileDraft[kind].map((name,index)=>`<span class="affiliation-chip">${esc(name)}<button type="button" data-kind="${kind}" data-index="${index}" aria-label="Remove ${esc(name)}">×</button></span>`).join('');
+  }
+}
+function updateAffiliationOptions(){
+  for(const kind of ['society','institution']){
+    const select=$('#'+kind+'Choice'),previous=select.value;
+    const old=select.querySelector('optgroup[data-personal]');if(old)old.remove();
+    const seen=new Set([...select.options].map(o=>o.value.toLowerCase()));
+    const candidates=[...(state.profileDraft?.[kind]||[]),...((kind==='society'?state.cvAffiliations?.societies:state.cvAffiliations?.institutions)||[]).map(x=>x.name)];
+    const group=document.createElement('optgroup');group.label='From your profile or CV · review before adding';group.dataset.personal='true';
+    for(const name of candidates){if(!name||seen.has(name.toLowerCase()))continue;seen.add(name.toLowerCase());const option=document.createElement('option');option.value=name;option.textContent=name;group.append(option)}
+    if(group.children.length)select.insertBefore(group,select.querySelector('option[value="__custom__"]'));
+    select.value=previous;
   }
 }
 function addAffiliationValue(kind,raw){
@@ -162,7 +189,7 @@ async function extractCV(file){
   const form=new FormData();form.append('file',file);
   try{
     const data=await api('/api/profile/extract',{method:'POST',body:form});
-    state.cvSuggestions=data.keywords||[];state.cvAffiliations=data.affiliations||{societies:[],institutions:[]};
+    state.cvSuggestions=data.keywords||[];state.cvAffiliations=data.affiliations||{societies:[],institutions:[]};updateAffiliationOptions();
     $('#affiliationSuggestions').innerHTML=[...state.cvAffiliations.societies,...state.cvAffiliations.institutions].map(a=>`<p><strong>${esc(a.name)}</strong> · ${esc(a.relationship.replaceAll('_',' '))}<br><small>${esc(a.evidence)}</small></p>`).join('')+'<p>Only explicit membership and current-affiliation suggestions are copied. Review them before saving.</p>';
     $('#cvFeedback').textContent=`Parsed ${data.characters_processed.toLocaleString()} characters. Review the suggestions below.`;
     $('#suggestionsContainer').hidden=false;

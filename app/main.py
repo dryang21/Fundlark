@@ -32,6 +32,8 @@ class MatchInput(BaseModel):
     keywords: list[Annotated[str, Field(max_length=120)]] = Field(default_factory=list, max_length=30)
     career_stage: str = "unspecified"
     query: str = Field(default="", max_length=300)
+    societies: list[Annotated[str, Field(max_length=160)]] = Field(default_factory=list, max_length=20)
+    institutions: list[Annotated[str, Field(max_length=160)]] = Field(default_factory=list, max_length=20)
 
 
 class SyncInput(BaseModel):
@@ -76,7 +78,8 @@ async def opportunities():
 
 @app.post("/api/match")
 async def match(payload:MatchInput):
-    return matching.match_all(storage.get_opportunities(),payload.keywords,payload.career_stage,payload.query)
+    return matching.match_all(storage.get_opportunities(),payload.keywords,payload.career_stage,payload.query,
+                              payload.societies,payload.institutions)
 
 
 @app.get("/api/overview")

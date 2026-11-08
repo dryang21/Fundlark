@@ -10,6 +10,8 @@ Fundlark is a runnable local-first MVP for discovering research funding from **g
 
 The standalone [Fundlark skill](skills/fundlark/SKILL.md) works through Codex, Claude Code, or another compatible agent. It uses available research context, a public funding snapshot when supplied, and live official sources to build a personalized shortlist. The web app and a central Fundlark server are optional. Users provide their own AI account and web tools; the optional Grants.gov helper uses Python's standard library and no API key.
 
+The starter source registry is not a discipline whitelist. The skill should discover additional funders, societies and institutions from each user's actual context. The local webpage combines a finite public catalog with source-search routes; saving a membership does not automatically crawl every grant from that society. See [how to test society discovery](docs/testing-funding-discovery.md). Profile/CV suggestions and custom organizations extend the pickers without publishing personal information.
+
 The maintainer can collect/review records locally, export public funding facts to GitHub, and publish the [static demo](docs/demo/) through GitHub Pages. Personal profiles, CVs and conversations are excluded from public exports. See [installation, local publishing and the demo workflow](docs/skill-distribution.md), and the [source review of popular skill projects](docs/research/skill-projects.md).
 
 ![Fundlark dashboard](dashboard-preview.png)

@@ -85,6 +85,7 @@ def init_db():
         """)
         # Additive migrations preserve databases from the original MVP.
         for table, columns in {
+            "opportunities": {"affiliation_tags": "TEXT NOT NULL DEFAULT '{}'"},
             "source_checks": {"review_needed": "INTEGER NOT NULL DEFAULT 0", "etag": "TEXT",
                               "last_modified": "TEXT", "final_url": "TEXT"},
             "candidate_links": {"reviewed_at": "TEXT", "review_note": "TEXT"},
@@ -111,12 +112,15 @@ def insert_opportunity(db, item, origin="federal_api", if_absent=False):
         int(item.get("faculty_sponsor_possible", False)), item["url"],
         item.get("source_date"), origin, item.get("last_checked_at", now if origin != "curated" else None),
         item.get("last_verified_at", item.get("source_date") if origin == "curated" else now),
-        0, now, now
+        0, now, now, json.dumps(item.get("affiliation_tags", {}))
     )
     placeholders = ",".join("?" for _ in record)
     cols = "id,title,funder,category,funding_type,amount,deadline,status,description,topics,eligibility,eligible_stages,faculty_sponsor_possible,url,source_date,origin,last_checked_at,last_verified_at,review_needed,created_at,updated_at"
+    cols += ",affiliation_tags"
     action = "INSERT OR IGNORE" if if_absent else "INSERT"
     update = "" if if_absent else " ON CONFLICT(id) DO UPDATE SET title=excluded.title,funder=excluded.funder,category=excluded.category,funding_type=excluded.funding_type,amount=excluded.amount,deadline=excluded.deadline,status=excluded.status,description=excluded.description,topics=excluded.topics,eligibility=excluded.eligibility,eligible_stages=excluded.eligible_stages,faculty_sponsor_possible=excluded.faculty_sponsor_possible,url=excluded.url,source_date=excluded.source_date,origin=excluded.origin,last_checked_at=excluded.last_checked_at,last_verified_at=excluded.last_verified_at,updated_at=excluded.updated_at"
+    if update:
+        update += ",affiliation_tags=excluded.affiliation_tags"
     db.execute(f"{action} INTO opportunities ({cols}) VALUES ({placeholders}){update}", record)
 
 
@@ -130,6 +134,7 @@ def dynamic_status(row):
 
 def decode_row(row):
     d = dict(row)
+    d["affiliation_tags"] = json.loads(d.get("affiliation_tags") or "{}")
     d["topics"] = json.loads(d.get("topics") or "[]")
     d["eligible_stages"] = json.loads(d.get("eligible_stages") or "[]")
     d["faculty_sponsor_possible"] = bool(d["faculty_sponsor_possible"])

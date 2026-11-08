@@ -1,7 +1,208 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-08T21:24:57+00:00",
+  "generated_at": "2026-11-08T21:42:39+00:00",
   "opportunities": [
+    {
+      "id": "curated:aapm-seed-2027",
+      "title": "2027 AAPM Research Seed Funding Grant",
+      "funder": "AAPM",
+      "category": "Society",
+      "funding_type": "Research grant",
+      "amount": null,
+      "deadline": "2027-03-22",
+      "status": "verify",
+      "description": "Early-career medical-physics research support. Published deadlines: mandatory letter of intent March 22, 2027; full application April 19, 2027, both 11:59 PM ET. Confirm current submission availability.",
+      "topics": [
+        "medical physics",
+        "medical imaging",
+        "radiotherapy"
+      ],
+      "eligibility": "AAPM membership required. PI eligibility, career timing, rank, funding history and concurrent-submission restrictions apply; postdocs/research scientists need a mentor.",
+      "eligible_stages": [],
+      "faculty_sponsor_possible": false,
+      "url": "https://aapm.secure-platform.com/gaf/page/seed",
+      "source_date": "2026-11-08",
+      "origin": "curated",
+      "last_checked_at": null,
+      "last_verified_at": "2026-11-08",
+      "review_needed": false,
+      "stale": false,
+      "affiliation_tags": {
+        "societies": [
+          "AAPM"
+        ]
+      }
+    },
+    {
+      "id": "curated:astro-aapm-seed",
+      "title": "ASTRO-AAPM Physics Residents / Postdoctoral Fellows Seed Grant",
+      "funder": "ASTRO / AAPM",
+      "category": "Society",
+      "funding_type": "Research grant",
+      "amount": null,
+      "deadline": null,
+      "status": "closed",
+      "description": "Joint seed program for radiation-oncology physics research. ASTRO currently lists this opportunity under past funding with a closed deadline.",
+      "topics": [
+        "medical physics",
+        "radiation oncology",
+        "radiotherapy"
+      ],
+      "eligibility": "For relevant medical-physics residents and postdoctoral fellows; verify the next call and detailed applicant rules. Society affiliation alone does not establish eligibility.",
+      "eligible_stages": [
+        "resident",
+        "postdoc"
+      ],
+      "faculty_sponsor_possible": false,
+      "url": "https://www.astro.org/provider-resources/research/funding-opportunities",
+      "source_date": "2026-11-08",
+      "origin": "curated",
+      "last_checked_at": null,
+      "last_verified_at": "2026-11-08",
+      "review_needed": false,
+      "stale": false,
+      "affiliation_tags": {
+        "societies": [
+          "ASTRO",
+          "AAPM"
+        ]
+      }
+    },
+    {
+      "id": "curated:astro-resident-seed",
+      "title": "ASTRO Residents/Fellows in Radiation Oncology Seed Grant",
+      "funder": "ASTRO",
+      "category": "Society",
+      "funding_type": "Research grant",
+      "amount": null,
+      "deadline": null,
+      "status": "closed",
+      "description": "Trainee research seed program in radiation oncology. The official ASTRO directory currently labels the deadline closed.",
+      "topics": [
+        "radiation oncology",
+        "oncology",
+        "radiotherapy"
+      ],
+      "eligibility": "The listed program requires enrollment in a U.S. residency or fellowship at application; check any future round and all criteria.",
+      "eligible_stages": [
+        "resident",
+        "postdoc"
+      ],
+      "faculty_sponsor_possible": false,
+      "url": "https://www.astro.org/provider-resources/research/funding-opportunities",
+      "source_date": "2026-11-08",
+      "origin": "curated",
+      "last_checked_at": null,
+      "last_verified_at": "2026-11-08",
+      "review_needed": false,
+      "stale": false,
+      "affiliation_tags": {
+        "societies": [
+          "ASTRO"
+        ]
+      }
+    },
+    {
+      "id": "curated:sigma-xi-giar",
+      "title": "Sigma Xi Grants in Aid of Research",
+      "funder": "Sigma Xi",
+      "category": "Society",
+      "funding_type": "Research grant",
+      "amount": null,
+      "deadline": null,
+      "status": "verify",
+      "description": "Student research grants across scientific fields. Recurring deadlines are March 15 and October 1; verify the applicable round and application window.",
+      "topics": [
+        "science",
+        "engineering",
+        "medical research",
+        "biology",
+        "physics"
+      ],
+      "eligibility": "For enrolled undergraduate and graduate degree-seeking students. Membership is not required; student or advisor membership can affect designated funds. Postdoc or resident status alone is not qualifying enrollment.",
+      "eligible_stages": [
+        "phd"
+      ],
+      "faculty_sponsor_possible": false,
+      "url": "https://sigmaxi.secure-platform.com/a/page/guidelines",
+      "source_date": "2026-11-08",
+      "origin": "curated",
+      "last_checked_at": null,
+      "last_verified_at": "2026-11-08",
+      "review_needed": false,
+      "stale": false,
+      "affiliation_tags": {
+        "societies": [
+          "Sigma Xi"
+        ]
+      }
+    },
+    {
+      "id": "curated:stanford-biox-seed",
+      "title": "Stanford Bio-X Interdisciplinary Initiatives Seed Grants",
+      "funder": "Stanford Bio-X",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "amount": null,
+      "deadline": null,
+      "status": "verify",
+      "description": "Interdisciplinary seed program for early-stage collaborative research in biosciences, bioengineering and biomedicine. Current page describes past awards; no new open round is inferred.",
+      "topics": [
+        "bioengineering",
+        "biomedical research",
+        "biology"
+      ],
+      "eligibility": "Faculty-team program at Stanford. Confirm current call and appointment/collaboration requirements; prior Stanford education alone is insufficient.",
+      "eligible_stages": [
+        "faculty"
+      ],
+      "faculty_sponsor_possible": true,
+      "url": "https://biox.stanford.edu/research/seed-grants",
+      "source_date": "2026-11-08",
+      "origin": "curated",
+      "last_checked_at": null,
+      "last_verified_at": "2026-11-08",
+      "review_needed": false,
+      "stale": false,
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      }
+    },
+    {
+      "id": "curated:ieee-photonics-scholarship",
+      "title": "IEEE Photonics Society Graduate Student Scholarship",
+      "funder": "IEEE Photonics Society",
+      "category": "Society",
+      "funding_type": "Graduate scholarship",
+      "amount": null,
+      "deadline": null,
+      "status": "verify",
+      "description": "Graduate research scholarship in photonics. Confirm the applicable cycle and current submission dates on the official program page.",
+      "topics": [
+        "photonics",
+        "optics",
+        "engineering",
+        "physics"
+      ],
+      "eligibility": "Requires active IEEE Photonics Society student membership and graduate study in the relevant field; general IEEE membership alone is not sufficient. Check study-year and other current requirements.",
+      "eligible_stages": [
+        "phd"
+      ],
+      "faculty_sponsor_possible": false,
+      "url": "https://ieeephotonics.org/awards/graduate-student-scholarship/",
+      "source_date": "2026-11-08",
+      "origin": "curated",
+      "last_checked_at": null,
+      "last_verified_at": "2026-11-08",
+      "review_needed": false,
+      "stale": false,
+      "affiliation_tags": {
+        "societies": [
+          "IEEE",
+          "IEEE Photonics Society"
+        ]
+      }
+    },
     {
       "id": "curated:program-microsoft-fellowship",
       "title": "Microsoft Research Fellowship",
@@ -26,7 +227,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-sony-research",
@@ -53,7 +255,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-cisco-research",
@@ -80,7 +283,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-aws-research",
@@ -106,7 +310,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-samsung-gro",
@@ -133,7 +338,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-adobe-india",
@@ -159,7 +365,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-varian-research",
@@ -186,7 +393,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-elekta-research",
@@ -213,7 +421,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-pfizer-research",
@@ -240,7 +449,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:program-merck-research",
@@ -266,7 +476,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-08",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:amazon-agentic-2026",
@@ -296,7 +507,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:openai-researcher-access",
@@ -332,7 +544,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:nvidia-academic",
@@ -363,7 +576,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:google-academic-2026",
@@ -393,7 +607,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:google-cloud-research",
@@ -427,7 +642,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:wellcome-early",
@@ -461,7 +677,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "curated:wellcome-discovery",
@@ -492,7 +709,8 @@
       "last_checked_at": null,
       "last_verified_at": "2026-11-07",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362857",
@@ -522,7 +740,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:343725",
@@ -554,7 +773,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361520",
@@ -588,7 +808,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:352810",
@@ -616,7 +837,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360375",
@@ -651,7 +873,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361284",
@@ -684,7 +907,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362961",
@@ -715,7 +939,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:327763",
@@ -742,7 +967,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361271",
@@ -770,7 +996,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359695",
@@ -804,7 +1031,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361282",
@@ -836,7 +1064,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361281",
@@ -868,7 +1097,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361833",
@@ -903,7 +1133,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:363834",
@@ -933,7 +1164,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:328902",
@@ -960,7 +1192,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359940",
@@ -995,7 +1228,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:344634",
@@ -1020,7 +1254,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:347026",
@@ -1050,7 +1285,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:356659",
@@ -1080,7 +1316,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:357206",
@@ -1111,7 +1348,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361104",
@@ -1146,7 +1384,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361216",
@@ -1176,7 +1415,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:357996",
@@ -1211,7 +1451,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360373",
@@ -1243,7 +1484,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360377",
@@ -1274,7 +1516,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361204",
@@ -1309,7 +1552,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360545",
@@ -1339,7 +1583,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:358998",
@@ -1374,7 +1619,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:358997",
@@ -1409,7 +1655,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:356316",
@@ -1438,7 +1685,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:320753",
@@ -1465,7 +1713,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:358687",
@@ -1493,7 +1742,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:364075",
@@ -1528,7 +1778,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362086",
@@ -1556,7 +1807,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361249",
@@ -1584,7 +1836,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:358004",
@@ -1611,7 +1864,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361604",
@@ -1646,7 +1900,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:363268",
@@ -1676,7 +1931,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361238",
@@ -1707,7 +1963,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359120",
@@ -1735,7 +1992,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:325932",
@@ -1765,7 +2023,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361526",
@@ -1794,7 +2053,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359003",
@@ -1826,7 +2086,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:358864",
@@ -1861,7 +2122,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359266",
@@ -1887,7 +2149,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362952",
@@ -1919,7 +2182,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362029",
@@ -1947,7 +2211,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:351404",
@@ -1979,7 +2244,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359152",
@@ -2008,7 +2274,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359070",
@@ -2043,7 +2310,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:351125",
@@ -2078,7 +2346,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360910",
@@ -2108,7 +2377,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360453",
@@ -2143,7 +2413,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:350230",
@@ -2169,7 +2440,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360639",
@@ -2201,7 +2473,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:324456",
@@ -2226,7 +2499,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362061",
@@ -2252,7 +2526,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362454",
@@ -2282,7 +2557,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:363874",
@@ -2317,7 +2593,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:339594",
@@ -2345,7 +2622,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:356763",
@@ -2376,7 +2654,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359894",
@@ -2411,7 +2690,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:363829",
@@ -2440,7 +2720,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:363055",
@@ -2475,7 +2756,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359676",
@@ -2510,7 +2792,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:357744",
@@ -2542,7 +2825,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:362581",
@@ -2573,7 +2857,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:356723",
@@ -2604,7 +2889,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360634",
@@ -2637,7 +2923,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359153",
@@ -2670,7 +2957,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:314743",
@@ -2696,7 +2984,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:45810",
@@ -2720,7 +3009,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:363800",
@@ -2750,7 +3040,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359653",
@@ -2783,7 +3074,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360638",
@@ -2816,7 +3108,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:328573",
@@ -2843,7 +3136,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:329432",
@@ -2867,7 +3161,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:360875",
@@ -2898,7 +3193,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361187",
@@ -2928,7 +3224,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:364161",
@@ -2960,7 +3257,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:364129",
@@ -2986,7 +3284,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:357201",
@@ -3017,7 +3316,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:358024",
@@ -3052,7 +3352,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359655",
@@ -3085,7 +3386,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:359130",
@@ -3117,7 +3419,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     },
     {
       "id": "grantsgov:361255",
@@ -3145,7 +3448,8 @@
       "last_checked_at": "2026-11-08T19:38:38+00:00",
       "last_verified_at": "2026-11-08T19:38:38+00:00",
       "review_needed": false,
-      "stale": false
+      "stale": false,
+      "affiliation_tags": {}
     }
   ],
   "sources": [
@@ -3632,6 +3936,25 @@
       ],
       "society": null,
       "institution": "Stanford University",
+      "source_reviewed_on": "2026-11-08",
+      "availability": "not_assessed",
+      "geography_note": null,
+      "access_note": null
+    },
+    {
+      "id": "sigma-xi",
+      "name": "Sigma Xi Grants in Aid of Research",
+      "category": "Society",
+      "mode": "watch",
+      "url": "https://www.sigmaxi.org/programs/grants-in-aid-of-research",
+      "description": "Student research grant program; membership can affect designated funding. Verify current round.",
+      "topics": [
+        "science",
+        "engineering",
+        "physics"
+      ],
+      "society": "Sigma Xi",
+      "institution": null,
       "source_reviewed_on": "2026-11-08",
       "availability": "not_assessed",
       "geography_note": null,

@@ -5,6 +5,14 @@ topics; career stage; professional memberships and grades; current institution,
 department and appointment; and location. Preserve the supporting CV line and any
 dates. Use only information needed for this search; do not publish these details.
 
+Cover the user's actual discipline, including engineering, natural/social sciences,
+humanities and interdisciplinary work. The registry and webpage picker are starter
+examples, not a whitelist of disciplines, organizations or institutions. Discover
+additional sources from the user's real profile even if none appear in the registry.
+Revisit the profile as new context arrives; propose additions/corrections for review
+and persist them only in the user's permitted local/host context. Do not assume a
+researcher is in medicine because the demo contains medical-physics examples.
+
 Distinguish membership evidence from a society mention in a publication, journal,
 conference, award or collaborator biography. A paper in IEEE Transactions is not
 proof of IEEE membership. Society Fellow status is not the same as a funded

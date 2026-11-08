@@ -3,6 +3,7 @@ import re
 from urllib.parse import quote_plus
 
 SOCIETIES = {
+    "Sigma Xi": r"\bSigma\s+Xi\b",
     "IEEE": r"\bIEEE\b|Institute of Electrical and Electronics Engineers",
     "ASTRO": r"\bASTRO\b|American Society for Radiation Oncology",
     "AAPM": r"\bAAPM\b|American Association of Physicists in Medicine",
@@ -35,6 +36,16 @@ def extract_affiliations(text):
                     former = bool(re.search(r"\b(former|expired|lapsed|past)\b", line, re.I))
                     societies[name] = {"name": name, "relationship": "former_membership" if former and explicit else "membership_evidence" if explicit else "mention_only",
                                        "evidence": line[:240], "needs_confirmation": True}
+        # Unknown organizations in an explicit membership section remain reviewable
+        # names rather than being discarded because they are outside the seed list.
+        if "membership" in section and not any(re.search(p, line, re.I) for p in SOCIETIES.values()):
+            if re.search(r"\b(society|association|academy|union|guild|institute|council)\b", line, re.I):
+                name = re.sub(r"^(?:(?:former|past|lapsed)\s+)?(?:member|fellow|student member|senior member)(?:\s+of)?[\s,:-]*", "", line, flags=re.I)
+                name = re.split(r"[,;–—]\s*(?:member|fellow|\d{4})|\s+\d{4}", name, maxsplit=1, flags=re.I)[0].strip(" ,;–—-")
+                if 4 < len(name) <= 160:
+                    relationship = "former_membership" if re.search(r"\b(former|past|lapsed|expired)\b", line, re.I) else "membership_evidence"
+                    societies[name] = {"name": name, "relationship": relationship,
+                                       "evidence": line[:240], "needs_confirmation": True}
         names = [name for name, pattern in INSTITUTIONS.items() if re.search(pattern, line, re.I)]
         # Discover additional university names without pretending to resolve their identity.
         names += re.findall(r"\bUniversity of [A-Z][A-Za-z]+(?: [A-Z][A-Za-z]+){0,3}", line)
@@ -65,7 +76,7 @@ def recommend_sources(sources, keywords=(), societies=(), institutions=()):
             if not aliases & affiliations:
                 continue
             reasons.append("Your confirmed institution matches this internal-funding source; appointment and PI rules still need checking.")
-        if source.get("society") in memberships:
+        if (source.get("society") or "").upper() in memberships:
             reasons.append("Your confirmed society affiliation suggests checking member-specific awards; membership grade and duration may matter.")
         matched = [topic for topic in source.get("topics", []) if topic.lower() in terms]
         if matched:

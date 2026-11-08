@@ -1,5 +1,5 @@
 {
-  "description": "Official discovery sources, not confirmed live calls. Affiliation and membership do not automatically establish eligibility.",
+  "description": "Official discovery sources, not confirmed live calls. Affiliation alone does not establish eligibility.",
   "sources": [
     {
       "id": "grants-gov",
@@ -317,6 +317,22 @@
       "source_reviewed_on": "2026-11-08",
       "availability": "not_assessed",
       "institution": "Stanford University"
+    },
+    {
+      "id": "sigma-xi",
+      "name": "Sigma Xi Grants in Aid of Research",
+      "category": "Society",
+      "mode": "watch",
+      "url": "https://www.sigmaxi.org/programs/grants-in-aid-of-research",
+      "description": "Student research grant program; membership can affect designated funding. Verify current round.",
+      "society": "Sigma Xi",
+      "topics": [
+        "science",
+        "engineering",
+        "physics"
+      ],
+      "source_reviewed_on": "2026-11-08",
+      "availability": "not_assessed"
     }
   ]
 }

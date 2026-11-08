@@ -405,5 +405,176 @@
     "faculty_sponsor_possible": false,
     "url": "https://www.merckmedicalportal.com/s/pipeline-and-research",
     "source_date": "2026-11-08"
+  },
+  {
+    "id": "curated:aapm-seed-2027",
+    "title": "2027 AAPM Research Seed Funding Grant",
+    "funder": "AAPM",
+    "category": "Society",
+    "url": "https://aapm.secure-platform.com/gaf/page/seed",
+    "status": "verify",
+    "description": "Early-career medical-physics research support. Published deadlines: mandatory letter of intent March 22, 2027; full application April 19, 2027, both 11:59 PM ET. Confirm current submission availability.",
+    "eligibility": "AAPM membership required. PI eligibility, career timing, rank, funding history and concurrent-submission restrictions apply; postdocs/research scientists need a mentor.",
+    "topics": [
+      "medical physics",
+      "medical imaging",
+      "radiotherapy"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "AAPM"
+      ]
+    },
+    "deadline": "2027-03-22",
+    "eligible_stages": [],
+    "faculty_sponsor_possible": false,
+    "funding_type": "Research grant",
+    "amount": null,
+    "source_date": "2026-11-08"
+  },
+  {
+    "id": "curated:astro-aapm-seed",
+    "title": "ASTRO-AAPM Physics Residents / Postdoctoral Fellows Seed Grant",
+    "funder": "ASTRO / AAPM",
+    "category": "Society",
+    "url": "https://www.astro.org/provider-resources/research/funding-opportunities",
+    "status": "closed",
+    "description": "Joint seed program for radiation-oncology physics research. ASTRO currently lists this opportunity under past funding with a closed deadline.",
+    "eligibility": "For relevant medical-physics residents and postdoctoral fellows; verify the next call and detailed applicant rules. Society affiliation alone does not establish eligibility.",
+    "topics": [
+      "medical physics",
+      "radiation oncology",
+      "radiotherapy"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "ASTRO",
+        "AAPM"
+      ]
+    },
+    "deadline": null,
+    "eligible_stages": [
+      "resident",
+      "postdoc"
+    ],
+    "faculty_sponsor_possible": false,
+    "funding_type": "Research grant",
+    "amount": null,
+    "source_date": "2026-11-08"
+  },
+  {
+    "id": "curated:astro-resident-seed",
+    "title": "ASTRO Residents/Fellows in Radiation Oncology Seed Grant",
+    "funder": "ASTRO",
+    "category": "Society",
+    "url": "https://www.astro.org/provider-resources/research/funding-opportunities",
+    "status": "closed",
+    "description": "Trainee research seed program in radiation oncology. The official ASTRO directory currently labels the deadline closed.",
+    "eligibility": "The listed program requires enrollment in a U.S. residency or fellowship at application; check any future round and all criteria.",
+    "topics": [
+      "radiation oncology",
+      "oncology",
+      "radiotherapy"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "ASTRO"
+      ]
+    },
+    "deadline": null,
+    "eligible_stages": [
+      "resident",
+      "postdoc"
+    ],
+    "faculty_sponsor_possible": false,
+    "funding_type": "Research grant",
+    "amount": null,
+    "source_date": "2026-11-08"
+  },
+  {
+    "id": "curated:sigma-xi-giar",
+    "title": "Sigma Xi Grants in Aid of Research",
+    "funder": "Sigma Xi",
+    "category": "Society",
+    "url": "https://sigmaxi.secure-platform.com/a/page/guidelines",
+    "status": "verify",
+    "description": "Student research grants across scientific fields. Recurring deadlines are March 15 and October 1; verify the applicable round and application window.",
+    "eligibility": "For enrolled undergraduate and graduate degree-seeking students. Membership is not required; student or advisor membership can affect designated funds. Postdoc or resident status alone is not qualifying enrollment.",
+    "topics": [
+      "science",
+      "engineering",
+      "medical research",
+      "biology",
+      "physics"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "Sigma Xi"
+      ]
+    },
+    "deadline": null,
+    "eligible_stages": [
+      "phd"
+    ],
+    "faculty_sponsor_possible": false,
+    "funding_type": "Research grant",
+    "amount": null,
+    "source_date": "2026-11-08"
+  },
+  {
+    "id": "curated:stanford-biox-seed",
+    "title": "Stanford Bio-X Interdisciplinary Initiatives Seed Grants",
+    "funder": "Stanford Bio-X",
+    "category": "Institution",
+    "url": "https://biox.stanford.edu/research/seed-grants",
+    "status": "verify",
+    "description": "Interdisciplinary seed program for early-stage collaborative research in biosciences, bioengineering and biomedicine. Current page describes past awards; no new open round is inferred.",
+    "eligibility": "Faculty-team program at Stanford. Confirm current call and appointment/collaboration requirements; prior Stanford education alone is insufficient.",
+    "topics": [
+      "bioengineering",
+      "biomedical research",
+      "biology"
+    ],
+    "affiliation_tags": {
+      "institution": "Stanford University"
+    },
+    "deadline": null,
+    "eligible_stages": [
+      "faculty"
+    ],
+    "faculty_sponsor_possible": true,
+    "funding_type": "Research grant",
+    "amount": null,
+    "source_date": "2026-11-08"
+  },
+  {
+    "id": "curated:ieee-photonics-scholarship",
+    "title": "IEEE Photonics Society Graduate Student Scholarship",
+    "funder": "IEEE Photonics Society",
+    "category": "Society",
+    "funding_type": "Graduate scholarship",
+    "amount": null,
+    "deadline": null,
+    "status": "verify",
+    "description": "Graduate research scholarship in photonics. Confirm the applicable cycle and current submission dates on the official program page.",
+    "topics": [
+      "photonics",
+      "optics",
+      "engineering",
+      "physics"
+    ],
+    "eligibility": "Requires active IEEE Photonics Society student membership and graduate study in the relevant field; general IEEE membership alone is not sufficient. Check study-year and other current requirements.",
+    "eligible_stages": [
+      "phd"
+    ],
+    "faculty_sponsor_possible": false,
+    "url": "https://ieeephotonics.org/awards/graduate-student-scholarship/",
+    "source_date": "2026-11-08",
+    "affiliation_tags": {
+      "societies": [
+        "IEEE",
+        "IEEE Photonics Society"
+      ]
+    }
   }
 ]

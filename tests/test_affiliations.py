@@ -15,6 +15,14 @@ def test_explicit_and_former_memberships():
     assert all(x["needs_confirmation"] for x in found.values())
 
 
+def test_membership_extraction_extends_beyond_medical_starter_list():
+    result=profiles.extract_affiliations('Professional Memberships\nMember, American Chemical Society, 2022\nSociety for Industrial and Applied Mathematics, member\nPublications\nAmerican Economic Association proceedings')
+    names={s['name'] for s in result['societies']}
+    assert 'American Chemical Society' in names
+    assert 'Society for Industrial and Applied Mathematics' in names
+    assert not any('Economic' in name for name in names)
+
+
 def test_education_and_current_appointments_are_distinct():
     result = profiles.extract_affiliations("Education\nStanford University, PhD 2020\nAppointments\nHarvard University, Postdoctoral Fellow, 2024–present")
     found = {x["name"]: x["relationship"] for x in result["institutions"]}
@@ -42,7 +50,7 @@ def test_societies_outside_registry_have_discovery_routes():
 
 
 def test_cv_api_returns_reviewable_affiliations_without_publishing(client):
-    response = client.post('/api/profile/extract',files={"file":("cv.txt",b"Professional Memberships\nAAPM member\nAppointments\nStanford University, Postdoctoral Fellow, 2024-present",'text/plain')})
+    response = client.post('/api/profile/extract',files={"file":("cv.txt",b"Professional Memberships\nAAPM member\nAppointments\nStanford University, Postdoctoral Fellow, 2024-present PRIVATE_CV_ONLY_48291",'text/plain')})
     assert response.status_code == 200
     assert response.json()['affiliations']['institutions'][0]['needs_confirmation']
-    assert 'Postdoctoral Fellow' not in __import__('json').dumps(publish.public_snapshot())
+    assert 'PRIVATE_CV_ONLY_48291' not in __import__('json').dumps(publish.public_snapshot())

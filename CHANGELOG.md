@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Extend affiliation pickers with reviewed profile/CV suggestions and cross-disciplinary examples; recognize unknown organizations in explicit CV membership sections.
+
+- Fix empty society/institution catalog categories with sourced program records and honest closed/verify states.
+- Send saved affiliations to Discover, retain affiliation metadata in SQLite/public exports, and explain affiliation ranking separately from eligibility.
+- Keep official funding-source routes visible when no indexed records match filters, with a clear-filter action and a testing guide.
+
 - Expand to 25 official source routes, including 15 industry sources and IEEE/ASTRO/AAPM/Stanford discovery.
 - Add reviewable CV affiliation evidence, editable browser-local memberships/institutions, and explained source recommendations without inferring eligibility.
 - Add 10 industry program records marked `verify`; seven additional affiliation/profile tests pass (41 total).
@@ -21,4 +27,4 @@
 - Protect CSV exports against formula execution; bound individual search terms and profile keywords.
 - Add GitHub contribution templates, an explicit Node.js CI runtime, Docker context exclusions and additive database migrations.
 
-Validation: 41 Python tests, JavaScript syntax validation, skill frontmatter validation, live keyless skill-helper retrieval on Python 3.9 and 3.12, live Grants.gov import, eight official-page baseline checks, and mobile inspection of the local dashboard and static demo. Static search/filter behavior and browser skill download were checked. Docker was unavailable locally. The authenticated Simpler adapter was checked against its official OpenAPI schema and mocked responses; a live authenticated request was not made. Actual Claude Code skill behavior has not been evaluated locally.
+Validation: 46 Python tests, JavaScript syntax validation, skill frontmatter validation, live keyless skill-helper retrieval on Python 3.9 and 3.12, live Grants.gov import, eight official-page baseline checks, and mobile inspection of the local dashboard and static demo. Static search/filter behavior and browser skill download were checked. Docker was unavailable locally. The authenticated Simpler adapter was checked against its official OpenAPI schema and mocked responses; a live authenticated request was not made. Actual Claude Code skill behavior has not been evaluated locally.

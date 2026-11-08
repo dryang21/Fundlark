@@ -105,6 +105,18 @@ def match_one(opp, keywords, stage=None, query=""):
             "eligibility_assessment":eligibility, "eligibility_reason":reason}
 
 
-def match_all(opportunities, keywords=None, stage=None, query=""):
+def match_all(opportunities, keywords=None, stage=None, query="", societies=None, institutions=None):
     results = [match_one(o, keywords or [], stage, query) for o in opportunities]
-    return sorted(results, key=lambda x: (x["match_score"] is not None, x["match_score"] or 0), reverse=True)
+    for result in results:
+        tags = result.get("affiliation_tags") or {}
+        selected_societies = {s.strip().casefold() for s in societies or []}
+        selected_institutions = {s.strip().casefold() for s in institutions or []}
+        matches = [name for name in tags.get("societies", []) if name.casefold() in selected_societies]
+        institution = tags.get("institution")
+        if institution and institution.casefold() in selected_institutions:
+            matches.append(institution)
+        result["affiliation_matches"] = matches
+        result["ranking_score"] = (result["match_score"] or 0) + 12 * len(matches)
+        result["affiliation_reason"] = ("Related to your saved affiliation; membership and appointment eligibility still require checking."
+                                        if matches else "")
+    return sorted(results, key=lambda x: x["ranking_score"], reverse=True)
