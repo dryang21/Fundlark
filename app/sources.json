@@ -1,12 +1,319 @@
 [
- {"id":"grants-gov","name":"Grants.gov","category":"Government","mode":"api","url":"https://www.grants.gov/","description":"US federal funding opportunities. Public search API, no key needed."},
- {"id":"simpler-grants","name":"Simpler.Grants.gov","category":"Government","mode":"optional_api","url":"https://simpler.grants.gov/developers","description":"Optional enhanced federal API; requires a free API key."},
- {"id":"amazon-science","name":"Amazon Research Awards","category":"Industry","mode":"watch","url":"https://www.amazon.science/research-awards/call-for-proposals","description":"Industry research awards and topic-specific calls."},
- {"id":"openai","name":"OpenAI Researcher Access","category":"Industry","mode":"watch","url":"https://openai.com/form/researcher-access-program/","description":"API credit support for responsible-AI research."},
- {"id":"nvidia","name":"NVIDIA Academic Grants","category":"Industry","mode":"watch","url":"https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/","description":"Compute, software and hardware academic support."},
- {"id":"google-research","name":"Google Research Awards","category":"Industry","mode":"watch","url":"https://research.google/programs-and-events/google-academic-research-awards/","description":"Faculty research awards and program announcements."},
- {"id":"google-cloud","name":"Google Cloud for Researchers","category":"Industry","mode":"watch","url":"https://research.google/programs-and-events/faculty-engagement/","description":"Cloud credit research support."},
- {"id":"wellcome","name":"Wellcome Early-Career Awards","category":"Foundation","mode":"watch","url":"https://wellcome.org/research-funding/schemes/wellcome-early-career-awards","description":"Early-career research awards and application windows."},
- {"id":"wellcome-schemes","name":"Wellcome Funding Schemes","category":"Foundation","mode":"watch","url":"https://wellcome.org/research-funding/schemes","description":"Other health and discovery research schemes."},
- {"id":"czi","name":"Chan Zuckerberg Initiative","category":"Foundation","mode":"watch","url":"https://chanzuckerberg.com/science/programs-resources/open-science/grants/","description":"Monitor an official science funding program directory; listings are not necessarily open calls."}
+  {
+    "id": "grants-gov",
+    "name": "Grants.gov",
+    "category": "Government",
+    "mode": "api",
+    "url": "https://www.grants.gov/",
+    "description": "US federal funding opportunities. Public search API, no key needed."
+  },
+  {
+    "id": "simpler-grants",
+    "name": "Simpler.Grants.gov",
+    "category": "Government",
+    "mode": "optional_api",
+    "url": "https://simpler.grants.gov/developers",
+    "description": "Optional enhanced federal API; requires a free API key."
+  },
+  {
+    "id": "amazon-science",
+    "name": "Amazon Research Awards",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.amazon.science/research-awards/call-for-proposals",
+    "description": "Industry research awards and topic-specific calls."
+  },
+  {
+    "id": "openai",
+    "name": "OpenAI Researcher Access",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://openai.com/form/researcher-access-program/",
+    "description": "API credit support for responsible-AI research."
+  },
+  {
+    "id": "nvidia",
+    "name": "NVIDIA Academic Grants",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/",
+    "description": "Compute, software and hardware academic support."
+  },
+  {
+    "id": "google-research",
+    "name": "Google Research Awards",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://research.google/programs-and-events/google-academic-research-awards/",
+    "description": "Faculty research awards and program announcements."
+  },
+  {
+    "id": "google-cloud",
+    "name": "Google Cloud for Researchers",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://research.google/programs-and-events/faculty-engagement/",
+    "description": "Cloud credit research support."
+  },
+  {
+    "id": "wellcome",
+    "name": "Wellcome Early-Career Awards",
+    "category": "Foundation",
+    "mode": "watch",
+    "url": "https://wellcome.org/research-funding/schemes/wellcome-early-career-awards",
+    "description": "Early-career research awards and application windows."
+  },
+  {
+    "id": "wellcome-schemes",
+    "name": "Wellcome Funding Schemes",
+    "category": "Foundation",
+    "mode": "watch",
+    "url": "https://wellcome.org/research-funding/schemes",
+    "description": "Other health and discovery research schemes."
+  },
+  {
+    "id": "czi",
+    "name": "Chan Zuckerberg Initiative",
+    "category": "Foundation",
+    "mode": "watch",
+    "url": "https://chanzuckerberg.com/science/programs-resources/open-science/grants/",
+    "description": "Monitor an official science funding program directory; listings are not necessarily open calls."
+  },
+  {
+    "id": "microsoft-fellowship",
+    "name": "Microsoft Research Fellowship",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "artificial intelligence",
+      "computer science",
+      "machine learning"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "sony-research",
+    "name": "Sony Research Award Program",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.sony.com/en/SonyInfo/research-award-program/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "computer vision",
+      "artificial intelligence",
+      "robotics",
+      "engineering"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "cisco-research",
+    "name": "Cisco Research Funding",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://research.cisco.com/research-funding",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "networking",
+      "cybersecurity",
+      "quantum computing",
+      "artificial intelligence"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "aws-research",
+    "name": "AWS Cloud Credit for Research",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/faqs/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "cloud computing",
+      "artificial intelligence",
+      "biomedical research"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "samsung-gro",
+    "name": "Samsung Global Research Outreach",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://semiconductor.samsung.com/sait/event/global-research-outreach/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "semiconductors",
+      "materials",
+      "artificial intelligence",
+      "engineering"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "adobe-india",
+    "name": "Adobe India AI Research Fellowship",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://research.adobe.com/india-ai-research-fellowship/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "computer vision",
+      "artificial intelligence",
+      "natural language processing"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed",
+    "geography_note": "India-focused program; verify current geographic and institution requirements."
+  },
+  {
+    "id": "varian-research",
+    "name": "Varian / Siemens Healthineers Investigator-Initiated Research",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://cancercare.siemens-healthineers.com/about-us/research/investigator-initiated-research-program",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "medical physics",
+      "radiotherapy",
+      "radiation oncology",
+      "treatment planning"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "elekta-research",
+    "name": "Elekta Investigator-Initiated Research",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.elekta.com/company/about-us/programs/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "medical physics",
+      "radiotherapy",
+      "radiation oncology",
+      "treatment planning"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "pfizer-research",
+    "name": "Pfizer Investigator Sponsored Research",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.pfizer.com/about/programs-policies/grants/investigator-sponsored-research",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "oncology",
+      "medical research",
+      "clinical research",
+      "biomedical research"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "merck-research",
+    "name": "Merck Investigator Studies Program",
+    "category": "Industry",
+    "mode": "watch",
+    "url": "https://www.merckmedicalportal.com/s/pipeline-and-research",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "oncology",
+      "medical research",
+      "clinical research"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed"
+  },
+  {
+    "id": "ieee-awards",
+    "name": "IEEE Student Funds and Awards",
+    "category": "Society",
+    "mode": "watch",
+    "url": "https://students.ieee.org/membership-benefits/ieee-benefits/funds-and-awards/",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "engineering",
+      "computer science",
+      "electrical engineering",
+      "artificial intelligence"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed",
+    "society": "IEEE",
+    "access_note": "Official page retrieval returned 403 during review; do not bypass access controls."
+  },
+  {
+    "id": "astro-funding",
+    "name": "ASTRO Funding Opportunities",
+    "category": "Society",
+    "mode": "watch",
+    "url": "https://www.astro.org/provider-resources/research/funding-opportunities",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "radiation oncology",
+      "radiotherapy",
+      "oncology",
+      "medical physics"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed",
+    "society": "ASTRO"
+  },
+  {
+    "id": "aapm-funding",
+    "name": "AAPM Grants and Fellowships",
+    "category": "Society",
+    "mode": "watch",
+    "url": "https://prod.aapm.org/advance/grants-and-fellowships",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "medical physics",
+      "radiotherapy",
+      "medical imaging",
+      "radiation therapy"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed",
+    "society": "AAPM"
+  },
+  {
+    "id": "stanford-seed",
+    "name": "Stanford Seed Funding",
+    "category": "Institution",
+    "mode": "watch",
+    "url": "https://seedfunding.stanford.edu/about",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed",
+    "institution": "Stanford University"
+  },
+  {
+    "id": "stanford-biox",
+    "name": "Stanford Bio-X Seed Grants",
+    "category": "Institution",
+    "mode": "watch",
+    "url": "https://biox.stanford.edu/research/seed-grants",
+    "description": "Official program/discovery source. Individual rounds, availability, location and applicant rules require verification.",
+    "topics": [
+      "bioengineering",
+      "biomedical research",
+      "biology"
+    ],
+    "source_reviewed_on": "2026-11-08",
+    "availability": "not_assessed",
+    "institution": "Stanford University"
+  }
 ]

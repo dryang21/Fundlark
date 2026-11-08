@@ -14,7 +14,7 @@ PUBLIC_OPPORTUNITY_FIELDS = (
     "faculty_sponsor_possible", "url", "source_date", "origin", "last_checked_at",
     "last_verified_at", "review_needed", "stale",
 )
-PUBLIC_SOURCE_FIELDS = ("id", "name", "category", "mode", "url", "description")
+PUBLIC_SOURCE_FIELDS = ("id", "name", "category", "mode", "url", "description", "topics", "society", "institution", "source_reviewed_on", "availability", "geography_note", "access_note")
 PUBLIC_CHECK_FIELDS = ("checked_at", "status", "last_changed_at", "review_needed")
 
 

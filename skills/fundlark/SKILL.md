@@ -28,6 +28,11 @@ CV upload before helping. Follow the user's language.
 
 ## Find candidates
 
+Use [affiliation-search.md](references/affiliation-search.md) when a CV, professional
+membership or institutional appointment is available. Search relevant societies,
+internal university/department programs and field-specific industry sponsors, not
+just broad government databases. Treat extracted affiliations as reviewable signals.
+
 Use a supplied Fundlark public snapshot URL/file as a discovery index, or try the
 optional project endpoint in [shared-data.md](references/shared-data.md) once.
 Its `generated_at` timestamp describes the export, not a new verification of every

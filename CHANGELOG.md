@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Expand to 25 official source routes, including 15 industry sources and IEEE/ASTRO/AAPM/Stanford discovery.
+- Add reviewable CV affiliation evidence, editable browser-local memberships/institutions, and explained source recommendations without inferring eligibility.
+- Add 10 industry program records marked `verify`; seven additional affiliation/profile tests pass (41 total).
+
 - Add a portable Fundlark agent skill, optional keyless standard-library federal search, and documented Codex/Claude Code installation.
 - Add an allowlisted public snapshot exporter, static catalog demo, skill ZIP packaging, and a manual GitHub Pages workflow.
 - Record a dated source review of six popular/scientific skill repositories and add host behavior evaluation scenarios (not yet run).
@@ -17,4 +21,4 @@
 - Protect CSV exports against formula execution; bound individual search terms and profile keywords.
 - Add GitHub contribution templates, an explicit Node.js CI runtime, Docker context exclusions and additive database migrations.
 
-Validation: 34 Python tests, JavaScript syntax validation, skill frontmatter validation, live keyless skill-helper retrieval on Python 3.9 and 3.12, live Grants.gov import, eight official-page baseline checks, and mobile inspection of the local dashboard and static demo. Static search/filter behavior and browser skill download were checked. Docker was unavailable locally. The authenticated Simpler adapter was checked against its official OpenAPI schema and mocked responses; a live authenticated request was not made. Actual Claude Code skill behavior has not been evaluated locally.
+Validation: 41 Python tests, JavaScript syntax validation, skill frontmatter validation, live keyless skill-helper retrieval on Python 3.9 and 3.12, live Grants.gov import, eight official-page baseline checks, and mobile inspection of the local dashboard and static demo. Static search/filter behavior and browser skill download were checked. Docker was unavailable locally. The authenticated Simpler adapter was checked against its official OpenAPI schema and mocked responses; a live authenticated request was not made. Actual Claude Code skill behavior has not been evaluated locally.

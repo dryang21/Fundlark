@@ -12,7 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, StringConstraints
 from pypdf import PdfReader
 
-from . import connectors, matching, storage
+from . import connectors, matching, storage, profiles
 
 STATIC = Path(__file__).parent / "static"
 MAX_FILE_BYTES = 8 * 1024 * 1024
@@ -36,6 +36,17 @@ class MatchInput(BaseModel):
 
 class SyncInput(BaseModel):
     queries: list[Annotated[str, StringConstraints(min_length=1, max_length=100, strip_whitespace=True)]] = Field(default_factory=list, max_length=5)
+
+
+class SourceProfileInput(BaseModel):
+    keywords: list[Annotated[str, Field(max_length=120)]] = Field(default_factory=list, max_length=30)
+    societies: list[Annotated[str, Field(max_length=160)]] = Field(default_factory=list, max_length=20)
+    institutions: list[Annotated[str, Field(max_length=160)]] = Field(default_factory=list, max_length=20)
+
+
+@app.post("/api/profile/sources")
+async def profile_sources(payload: SourceProfileInput):
+    return profiles.recommend_sources(connectors.SOURCES, payload.keywords, payload.societies, payload.institutions)
 
 
 class SourceReviewInput(BaseModel):
@@ -168,7 +179,7 @@ async def extract_cv(file:UploadFile=File(...)):
         raise HTTPException(422,"Could not extract text. Try a text-based PDF, DOCX or TXT CV.") from e
     if not text.strip():
         raise HTTPException(422,"No extractable text found. Scanned PDFs require OCR (not enabled).")
-    return {"keywords":matching.extract_keywords(text),"characters_processed":len(text),
+    return {"keywords":matching.extract_keywords(text),"affiliations":profiles.extract_affiliations(text),"characters_processed":len(text),
             "privacy":"Document processed in memory and discarded; no CV uploaded to third-party AI APIs."}
 
 

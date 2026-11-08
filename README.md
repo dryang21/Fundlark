@@ -16,6 +16,9 @@ The maintainer can collect/review records locally, export public funding facts t
 
 ## Screens / features
 
+- **Affiliation-aware discovery:** CV parsing suggests professional memberships and institutions with supporting lines for review. Confirmed affiliations route to society and internal-funding sources, including IEEE, ASTRO, AAPM and Stanford; other institutions receive discovery queries. Past education and publication mentions do not automatically establish membership or current affiliation.
+- **Broader industry coverage:** 15 registered industry sources span computing, cloud credits, medical devices and pharmaceutical investigator-sponsored research. Program-directory entries marked `verify` are not confirmed open calls.
+
 - **Discover:** search across all catalog records, filter by industry / government / foundation and by open status, sort by relevance or deadline.
 - **Research profile:** upload a **PDF / DOCX / TXT CV** (up to 8 MB) to extract candidate research keywords, review the suggestions, and select career stage.
 - **Explainable matching:** local keyword / phrase match and synonym expansion; explains preliminary career-stage compatibility. A relevance score **is not an application eligibility decision**.

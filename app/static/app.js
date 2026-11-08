@@ -16,7 +16,7 @@ function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].include
 function fmtDate(raw){if(!raw)return 'No fixed deadline';const d=new Date(`${raw}T12:00:00`);return isNaN(d)?'Check deadline':d.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}
 function daysUntil(raw){if(!raw)return null;const d=new Date(`${raw}T12:00:00`);if(isNaN(d))return null;const today=new Date();today.setHours(12,0,0,0);return Math.round((d-today)/86400000)}
 function statusLabel(status){return ({open:'Open',closed:'Closed',rolling:'Rolling',forecast:'Forecast',verify:'Verify status'})[status] || 'Verify status'}
-function labelCategory(cat){return cat==='Foundation'?'FOUNDATION':cat==='Industry'?'INDUSTRY':'GOVERNMENT'}
+function labelCategory(cat){return String(cat||'Other').toUpperCase()}
 function stageName(stage){return ({phd:'PhD student',postdoc:'Postdoctoral researcher',resident:'Research / medical resident',faculty:'Faculty / PI',staff:'Research staff',unspecified:'Not specified'})[stage]||'Not specified'}
 function notify(message,error=false){const node=$('#toast');node.textContent=message;node.className=`toast show ${error?'error':''}`;clearTimeout(notify.timer);notify.timer=setTimeout(()=>{node.className='toast'},4500)}
 async function api(path,options={}){
@@ -122,12 +122,15 @@ function handleCardsClick(e){
 function renderProfileForm(){
   $('#careerStage').value=state.profile.career_stage||'unspecified';
   $('#keywordsInput').value=(state.profile.keywords||[]).join(', ');
+  $('#societiesInput').value=(state.profile.societies||[]).join(', ');
+  $('#institutionsInput').value=(state.profile.institutions||[]).join('; ');
+  loadProfileSources();
 }
 function handleProfileSave(e){
   e.preventDefault();
   let keywords=$('#keywordsInput').value.split(/[,\n;]+/).map(s=>s.trim()).filter(Boolean);
   keywords=[...new Set(keywords.map(k=>k.toLowerCase()))].slice(0,25);
-  state.profile={career_stage:$('#careerStage').value,keywords,example:false};
+  state.profile={career_stage:$('#careerStage').value,keywords,example:false,societies:$('#societiesInput').value.split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean).slice(0,20),institutions:$('#institutionsInput').value.split(/[;\n]+/).map(s=>s.trim()).filter(Boolean).slice(0,20)};
   save('fundlark.profile',state.profile);updateMiniProfile();fetchMatches();notify('Research profile saved in this browser.');setView('discover');
 }
 async function extractCV(file){
@@ -136,7 +139,8 @@ async function extractCV(file){
   const form=new FormData();form.append('file',file);
   try{
     const data=await api('/api/profile/extract',{method:'POST',body:form});
-    state.cvSuggestions=data.keywords||[];
+    state.cvSuggestions=data.keywords||[];state.cvAffiliations=data.affiliations||{societies:[],institutions:[]};
+    $('#affiliationSuggestions').innerHTML=[...state.cvAffiliations.societies,...state.cvAffiliations.institutions].map(a=>`<p><strong>${esc(a.name)}</strong> · ${esc(a.relationship.replaceAll('_',' '))}<br><small>${esc(a.evidence)}</small></p>`).join('')+'<p>Only explicit membership and current-affiliation suggestions are copied. Review them before saving.</p>';
     $('#cvFeedback').textContent=`Parsed ${data.characters_processed.toLocaleString()} characters. Review the suggestions below.`;
     $('#suggestionsContainer').hidden=false;
     $('#suggestionChips').innerHTML=state.cvSuggestions.map(w=>`<span>${esc(w)}</span>`).join('')||'<em>No distinctive keywords found; enter interests manually.</em>';
@@ -146,7 +150,18 @@ function applyCVSuggestions(){
   const original=$('#keywordsInput').value.split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
   const combined=[...new Set([...original,...state.cvSuggestions])].slice(0,25);
   $('#keywordsInput').value=combined.join(', ');
-  notify('Suggested terms added. Review and click Save profile.');
+  const a=state.cvAffiliations||{societies:[],institutions:[]};
+  const members=a.societies.filter(x=>x.relationship==='membership_evidence').map(x=>x.name);
+  const institutions=a.institutions.filter(x=>x.relationship==='current_affiliation_evidence').map(x=>x.name);
+  if(members.length)$('#societiesInput').value=[...new Set([...$('#societiesInput').value.split(/[,;]+/).map(s=>s.trim()).filter(Boolean),...members])].join(', ');
+  if(institutions.length)$('#institutionsInput').value=[...new Set([...$('#institutionsInput').value.split(';').map(s=>s.trim()).filter(Boolean),...institutions])].join('; ');
+  notify('Suggestions added. Confirm memberships and current institutions, then save.');
+}
+async function loadProfileSources(){
+  const node=$('#profileSourceSuggestions');
+  try{const data=await api('/api/profile/sources',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({keywords:state.profile.keywords||[],societies:state.profile.societies||[],institutions:state.profile.institutions||[]})});
+    node.innerHTML='<strong>Funding sources for your saved profile</strong><p>Programs to investigate; current availability and eligibility require official checks.</p>'+data.sources.map(s=>`<p><a href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener noreferrer">${esc(s.name)} ↗</a> · ${esc(s.category)}<br>${esc(s.recommendation_reasons.join(' ')+' '+(s.geography_note||''))}</p>`).join('')+data.society_discovery.map(q=>`<p><a href="${esc(q.search_url)}" target="_blank" rel="noopener noreferrer">Search awards from ${esc(q.society)} ↗</a></p>`).join('')+data.institution_discovery.map(q=>`<p><a href="${esc(q.search_url)}" target="_blank" rel="noopener noreferrer">Search internal funding at ${esc(q.institution)} ↗</a><br>${esc(q.note)}</p>`).join('');
+  }catch(e){node.textContent='Could not load personalized funding sources: '+e.message}
 }
 async function loadSources(){
   $('#sourcesList').innerHTML='<div class="loading-card">Loading sources...</div>';
