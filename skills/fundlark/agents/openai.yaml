@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fundlark"
+  short_description: "Find research funding with official evidence"
+  default_prompt: "Use $fundlark to find current research funding for my topic and career stage."

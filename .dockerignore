@@ -1,0 +1,11 @@
+.git
+.venv
+.bootstrap
+.pytest_cache
+__pycache__
+**/__pycache__
+.env
+data/*
+*.zip
+*.png
+tests

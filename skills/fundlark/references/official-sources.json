@@ -1,0 +1,85 @@
+{
+  "description": "Official discovery starting points, not verified live opportunities. No coverage guarantee.",
+  "sources": [
+    {
+      "id": "grants-gov",
+      "name": "Grants.gov",
+      "category": "Government",
+      "mode": "api",
+      "url": "https://www.grants.gov/",
+      "description": "US federal funding opportunities. Public search API, no key needed."
+    },
+    {
+      "id": "simpler-grants",
+      "name": "Simpler.Grants.gov",
+      "category": "Government",
+      "mode": "optional_api",
+      "url": "https://simpler.grants.gov/developers",
+      "description": "Optional enhanced federal API; requires a free API key."
+    },
+    {
+      "id": "amazon-science",
+      "name": "Amazon Research Awards",
+      "category": "Industry",
+      "mode": "watch",
+      "url": "https://www.amazon.science/research-awards/call-for-proposals",
+      "description": "Industry research awards and topic-specific calls."
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI Researcher Access",
+      "category": "Industry",
+      "mode": "watch",
+      "url": "https://openai.com/form/researcher-access-program/",
+      "description": "API credit support for responsible-AI research."
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA Academic Grants",
+      "category": "Industry",
+      "mode": "watch",
+      "url": "https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/",
+      "description": "Compute, software and hardware academic support."
+    },
+    {
+      "id": "google-research",
+      "name": "Google Research Awards",
+      "category": "Industry",
+      "mode": "watch",
+      "url": "https://research.google/programs-and-events/google-academic-research-awards/",
+      "description": "Faculty research awards and program announcements."
+    },
+    {
+      "id": "google-cloud",
+      "name": "Google Cloud for Researchers",
+      "category": "Industry",
+      "mode": "watch",
+      "url": "https://research.google/programs-and-events/faculty-engagement/",
+      "description": "Cloud credit research support."
+    },
+    {
+      "id": "wellcome",
+      "name": "Wellcome Early-Career Awards",
+      "category": "Foundation",
+      "mode": "watch",
+      "url": "https://wellcome.org/research-funding/schemes/wellcome-early-career-awards",
+      "description": "Early-career research awards and application windows."
+    },
+    {
+      "id": "wellcome-schemes",
+      "name": "Wellcome Funding Schemes",
+      "category": "Foundation",
+      "mode": "watch",
+      "url": "https://wellcome.org/research-funding/schemes",
+      "description": "Other health and discovery research schemes."
+    },
+    {
+      "id": "czi",
+      "name": "Chan Zuckerberg Initiative",
+      "category": "Foundation",
+      "mode": "watch",
+      "url": "https://chanzuckerberg.com/science/programs-resources/open-science/grants/",
+      "description": "Monitor an official science funding program directory; listings are not necessarily open calls."
+    }
+  ]
+}

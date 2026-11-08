@@ -1,0 +1,25 @@
+name: Funding opportunity or correction
+description: Suggest an official funding source or correct a dated listing.
+title: "[Funding] "
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Official funding program URL
+      description: Use the funder's original page, not an aggregator.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and proposed correction
+      description: Include the program name, availability, deadline (with timezone), eligibility, and the date you checked. Mark unknown details explicitly.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: I have excluded CVs, personal applicant information and API credentials.
+          required: true

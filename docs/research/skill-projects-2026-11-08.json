@@ -1,0 +1,54 @@
+{
+  "observed_on": "2026-11-08",
+  "scope": "Selected popular and scientific skill projects, not an exhaustive popularity ranking or a trending-growth measurement.",
+  "repositories": [
+    {
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "stars": 56484,
+      "commit": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "repository_license": "MIT",
+      "api_url": "https://api.github.com/repos/K-Dense-AI/scientific-agent-skills"
+    },
+    {
+      "repository": "Yuan1z0825/nature-skills",
+      "url": "https://github.com/Yuan1z0825/nature-skills",
+      "stars": 52760,
+      "commit": "b6ae2cac022f4aac094d50f2938a3474ba315fbc",
+      "repository_license": "Apache-2.0",
+      "api_url": "https://api.github.com/repos/Yuan1z0825/nature-skills"
+    },
+    {
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "stars": 189453,
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "repository_license": null,
+      "api_url": "https://api.github.com/repos/anthropics/skills"
+    },
+    {
+      "repository": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "stars": 314509,
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "repository_license": "MIT",
+      "api_url": "https://api.github.com/repos/obra/superpowers"
+    },
+    {
+      "repository": "openai/skills",
+      "url": "https://github.com/openai/skills",
+      "stars": 28597,
+      "commit": "49f948faa9258a0c61caceaf225e179651397431",
+      "repository_license": null,
+      "api_url": "https://api.github.com/repos/openai/skills"
+    },
+    {
+      "repository": "vercel-labs/skills",
+      "url": "https://github.com/vercel-labs/skills",
+      "stars": 38601,
+      "commit": "d3701c11b1101251af14c9d148f026e1a47ebe17",
+      "repository_license": "MIT",
+      "api_url": "https://api.github.com/repos/vercel-labs/skills"
+    }
+  ]
+}

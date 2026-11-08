@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173930">
+  <meta name="description" content="Fundlark helps early-career researchers discover relevant government, industry, and foundation research funding.">
+  <title>Fundlark — Funding that fits your research</title>
+  <link rel="icon" type="image/svg+xml" href="/static/icon.svg">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<svg class="svg-sprites" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2.3 4.9-4.9 2.3 2.3-4.9z"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4.5h12v16l-6-4-6 4z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 2 2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m12 12 6-6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.2 21c.4-4.2 3.1-6.5 7.8-6.5s7.4 2.3 7.8 6.5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 4h7v7M20 4l-9 9"/><path d="M20 14v6H4V4h6"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 17V3m-5 5 5-5 5 5M4 16v4h16v-4"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 8a8 8 0 0 0-14-3L3 8m0-5v5h5M4 16a8 8 0 0 0 14 3l3-3m0 5v-5h-5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3.5 8.2-8 10-4.5-1.8-8-5-8-10V6z"/><path d="m8.5 12 2.3 2.4 4.8-5.1"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v6h5M9 12h7M9 16h7"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.4v.2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+</svg>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="/" aria-label="Fundlark home">
+      <div class="brand-mark"><svg class="ico"><use href="#i-sparkle"/></svg></div>
+      <div class="brand-name">fund<span>lark</span><small>RESEARCH FUNDING, OPEN TO ALL</small></div>
+    </a>
+    <div class="sidebar-section-label">WORKSPACE</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-view="discover"><svg class="ico"><use href="#i-grid"/></svg><span>Discover</span><span class="nav-dot"></span></button>
+      <button class="nav-item" data-view="saved"><svg class="ico"><use href="#i-bookmark"/></svg><span>Saved opportunities</span><span id="savedCount" class="nav-count">0</span></button>
+      <button class="nav-item" data-view="sources"><svg class="ico"><use href="#i-radar"/></svg><span>Source monitor</span></button>
+      <button class="nav-item" data-view="profile"><svg class="ico"><use href="#i-user"/></svg><span>My research profile</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-notice">
+        <div class="notice-icon"><svg class="ico"><use href="#i-shield"/></svg></div>
+        <strong>Your CV stays private.</strong>
+        <p>Documents are parsed in memory. Your profile and saved grants stay in this browser.</p>
+      </div>
+      <div class="sidebar-footer"><span class="heartbeat"></span> Open source · v0.1 <span>MIT licensed</span></div>
+    </div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+      <div class="breadcrumb"><span>Workspace</span><svg class="ico"><use href="#i-chevron"/></svg><strong id="breadcrumbCurrent">Discover</strong></div>
+      <div class="topbar-right"><span class="status-pill"><span class="pulse-dot"></span> Local-first MVP</span><button class="outline-btn small" id="topProfileBtn"><svg class="ico"><use href="#i-user"/></svg> Research profile</button></div>
+    </header>
+    <div class="main-content">
+      <section class="view active" id="view-discover">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR FUNDING DISCOVERY HUB</div>
+        <div class="hero-grid">
+          <div><h1>Good research deserves<br><em>the right funding.</em></h1><p class="hero-sub">Discover opportunities from government, industry, and foundations — matched to what you actually work on.</p></div>
+          <div class="hero-art" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="art-star star-1">✦</div><div class="art-star star-2">✶</div><div class="art-center">✳</div></div>
+        </div>
+        <div class="stat-grid" id="statGrid">
+          <div class="stat-card"><div class="stat-label">Opportunities indexed</div><div class="stat-value" id="statTotal">—</div><div class="stat-caption">Dated snapshots + API imports</div></div>
+          <div class="stat-card"><div class="stat-label">Industry opportunities</div><div class="stat-value" id="statIndustry">—</div><div class="stat-caption">Beyond traditional grant portals</div></div>
+          <div class="stat-card"><div class="stat-label">Closing within 14 days</div><div class="stat-value" id="statSoon">—</div><div class="stat-caption">Don't miss the deadline</div></div>
+          <div class="stat-card accent"><div class="stat-label">Funding sources tracked</div><div class="stat-value" id="statSources">—</div><div class="stat-caption">Across multiple platforms</div></div>
+        </div>
+        <div class="content-columns">
+          <section class="results-column">
+            <div class="section-heading"><div><div class="section-kicker">EXPLORE OPPORTUNITIES</div><h2>Find your next opportunity<span class="little-asterisk">✳</span></h2></div><button class="text-action" id="exportBtn"><svg class="ico"><use href="#i-file"/></svg> Export CSV</button></div>
+            <form class="search-form" id="searchForm"><svg class="ico search-form-icon"><use href="#i-search"/></svg><input id="searchInput" type="search" maxlength="300" placeholder="Search AI agents, radiotherapy, climate research..." aria-label="Search opportunities"><button class="primary-btn" type="submit">Search <svg class="ico"><use href="#i-arrow"/></svg></button></form>
+            <div class="filter-bar"><div class="filter-tabs" id="categoryTabs"><button class="filter-tab selected" data-category="All">All funding</button><button class="filter-tab" data-category="Industry">Industry</button><button class="filter-tab" data-category="Government">Government</button><button class="filter-tab" data-category="Foundation">Foundations</button></div><div class="filter-tools"><label class="switch-line"><input id="openOnly" type="checkbox"><span>Open / rolling</span></label><select id="sortSelect" aria-label="Sort opportunities"><option value="match">Best match</option><option value="deadline">Deadline</option><option value="new">Recently added</option></select></div></div>
+            <div class="results-counter"><strong id="resultsCount">Loading opportunities...</strong><span id="dataDisclaimer">Curated records are snapshots, not live-verified offers.</span></div>
+            <div class="results-list" id="resultsList"><div class="loading-card">Loading the catalog...</div></div>
+            <div class="results-foot"><button class="outline-btn" id="showMoreBtn" hidden>Show more opportunities <svg class="ico"><use href="#i-arrow"/></svg></button></div>
+          </section>
+          <aside class="insights-column">
+            <div class="profile-mini card-panel">
+              <div class="panel-top"><div class="panel-icon"><svg class="ico"><use href="#i-sparkle"/></svg></div><span class="panel-overline">YOUR RESEARCH SIGNAL</span></div>
+              <h3>Better matches start with your work.</h3>
+              <p>These interests are used to rank the opportunities shown here.</p>
+              <div class="profile-chips" id="miniChips"></div>
+              <div class="mini-stage" id="miniStage">Career stage: Not specified</div>
+              <button class="panel-link" id="editMiniProfile">Refine your profile <svg class="ico"><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="watch-card card-panel"><div class="watch-header"><span class="watch-icon">✦</span><span>ON OUR RADAR</span></div><h3>Industry funding,<br>without the blind spots.</h3><p>We track research programs from major companies — even when applications are closed.</p><div class="watch-divider"></div><div class="watch-source"><span class="company-avatar amazon">a</span><div><strong>Amazon Science</strong><small>Research Awards</small></div><span class="tiny-pill">Tracked</span></div><div class="watch-source"><span class="company-avatar nvidia">N</span><div><strong>NVIDIA</strong><small>Academic Grants</small></div><span class="tiny-pill">Tracked</span></div><div class="watch-source"><span class="company-avatar google">G</span><div><strong>Google Research</strong><small>Academic awards</small></div><span class="tiny-pill">Tracked</span></div><button class="panel-link" id="sourceMiniBtn">Explore monitored sources <svg class="ico"><use href="#i-arrow"/></svg></button></div>
+            <div class="tip-card"><span class="tip-star">✳</span><div><strong>Tip for early-career researchers</strong><p>High research relevance doesn't guarantee PI eligibility. Look for the faculty-sponsor note on each listing.</p></div></div>
+          </aside>
+        </div>
+      </section>
+      <section class="view" id="view-saved">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL SHORTLIST</div><h1 class="subpage-title">Saved <em>opportunities.</em></h1><p class="subpage-sub">Keep promising funding programs in one place. Saved items are stored in your browser only.</p>
+        <div class="results-list wide-results" id="savedList"></div>
+      </section>
+      <section class="view" id="view-sources">
+        <div class="eyebrow"><span class="eyebrow-line"></span> TRANSPARENT DATA PROVENANCE</div><h1 class="subpage-title">Follow the <em>sources.</em></h1><p class="subpage-sub">Official APIs and monitored program pages. Checking a webpage is not the same as verifying an open application.</p>
+        <div class="source-actions"><div class="source-action-card"><div class="source-action-symbol"><svg class="ico"><use href="#i-refresh"/></svg></div><h3>Sync federal opportunities</h3><p>Import current Grants.gov opportunities. Optional Simpler.Grants.gov API key is supported.</p><div class="source-action-input"><input type="text" id="syncKeywords" placeholder="AI, biomedical research, early career" value="artificial intelligence, medical research, early career" aria-label="Federal sync search keywords"><button class="primary-btn" id="federalSyncBtn">Sync now</button></div></div><div class="source-action-card"><div class="source-action-symbol"><svg class="ico"><use href="#i-radar"/></svg></div><h3>Check industry & foundation pages</h3><p>Compare official-site content against its last snapshot. Changed pages are flagged for manual review.</p><button class="outline-btn" id="monitorBtn">Check monitored pages <svg class="ico"><use href="#i-refresh"/></svg></button></div></div>
+        <div class="source-note"><svg class="ico"><use href="#i-info"/></svg><div>Source checks respect robots.txt. They detect page changes but do not automatically invent new awards or update eligibility. A program is <strong>not confirmed open</strong> merely because its source page is reachable.</div></div>
+        <div class="source-table-wrap"><div class="table-title"><h2>Connected & monitored sources</h2><span id="sourceTotal"></span></div><div id="sourcesList" class="sources-list"></div></div>
+        <div class="review-queue"><div class="table-title"><h2>Possible funding links</h2><label>Show <select id="candidateFilter" aria-label="Filter links by review status"><option value="unreviewed">Unreviewed</option><option value="shortlisted">Shortlisted</option><option value="dismissed">Dismissed</option><option value="all">All links</option></select></label></div><p>Links are discovered automatically and may be old, closed, or informational. Shortlist links to investigate or dismiss irrelevant ones. These actions never publish verified grant opportunities.</p><div id="candidateList" class="candidate-list"><div class="loading-card">Check monitored pages to discover links.</div></div></div>
+        <div class="source-history" id="syncHistory"></div>
+      </section>
+      <section class="view" id="view-profile">
+        <div class="eyebrow"><span class="eyebrow-line"></span> TELL US WHAT YOU RESEARCH</div><h1 class="subpage-title">Your research <em>profile.</em></h1><p class="subpage-sub">No paid AI or third-party profile service is required. Adjust your interests at any time.</p>
+        <div class="profile-layout"><div class="profile-form-panel"><form id="profileForm"><div class="form-field"><label for="careerStage">Career stage</label><select id="careerStage"><option value="unspecified">Prefer not to say</option><option value="phd">PhD student</option><option value="postdoc">Postdoctoral researcher</option><option value="resident">Research / medical resident</option><option value="faculty">Faculty / PI</option><option value="staff">Research staff</option></select><small>Used for preliminary PI eligibility warnings, not definitive legal eligibility.</small></div><div class="form-field"><label for="keywordsInput">Research keywords <span>(comma-separated)</span></label><textarea id="keywordsInput" rows="5" placeholder="e.g. AI agents, medical imaging, radiation therapy"></textarea><small>Keep these specific to your current research, not just your department name.</small></div><button class="primary-btn profile-submit" type="submit">Save profile <svg class="ico"><use href="#i-check"/></svg></button></form></div><div class="upload-panel"><div class="upload-head"><div class="upload-symbol"><svg class="ico"><use href="#i-upload"/></svg></div><span>OPTIONAL · QUICK START</span></div><h3>Bring your CV.</h3><p>Upload a PDF, DOCX, or TXT CV. We'll suggest research keywords from its text, then let you review them before saving.</p><label class="dropzone" id="dropzone" for="cvInput"><svg class="ico"><use href="#i-file"/></svg><strong>Choose your CV</strong><span>PDF, DOCX or TXT · up to 8 MB</span><input type="file" id="cvInput" accept=".pdf,.docx,.txt" hidden></label><div id="cvFeedback" class="cv-feedback"></div><div id="suggestionsContainer" hidden><strong class="suggestions-label">Suggested keywords</strong><div class="suggestions" id="suggestionChips"></div><button class="outline-btn" id="useKeywordsBtn">Use these keywords <svg class="ico"><use href="#i-arrow"/></svg></button></div><p class="privacy-line"><svg class="ico"><use href="#i-shield"/></svg> Parsed in server memory; original CV is not stored.</p></div></div>
+        <div class="technical-note"><strong>How matching works in v0.1</strong><p>Relevance scores use a transparent lexical/phrase matching algorithm with a small synonym set. No external embedding API, LLM subscription or claims of verified eligibility. The architecture is ready for an optional semantic ranker later.</p></div>
+      </section>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/app.js" defer></script>
+</body>
+</html>

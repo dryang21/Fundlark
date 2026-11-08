@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Discover research funding from public sources, then take Fundlark to your own AI assistant.">
+  <title>Fundlark — Find funding for your next breakthrough</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="demo.js" defer></script>
+</head>
+<body>
+  <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Use with your AI assistant ↗</a></header>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">RESEARCH FUNDING, OPEN TO EXPLORE</div>
+      <h1>Your next breakthrough<br>deserves <em>the right funding.</em></h1>
+      <p>Explore a public funding snapshot. For a shortlist built around your work, bring Fundlark to the AI assistant you already use.</p>
+      <div class="hero-actions"><a class="button" href="#opportunities">Explore funding ↓</a><a class="button secondary" href="#use-skill">Get the free skill</a></div>
+      <div class="snapshot" id="snapshotStatus" role="status">Loading public snapshot…</div>
+    </section>
+    <section id="opportunities" aria-labelledby="exploreHeading">
+      <div class="section-head"><div><span class="eyebrow">A STARTING POINT FOR YOUR SEARCH</span><h2 id="exploreHeading">Explore the public catalog</h2></div><a href="data.json">Download public data ↗</a></div>
+      <p class="note">Dated snapshots and official API imports. A listing can be closed, incomplete, or awaiting review. Always check the funder's current announcement.</p>
+      <form id="searchForm" class="search"><label class="sr-only" for="query">Search research topics, funders or programs</label><input id="query" type="search" placeholder="Try medical physics, AI agents, early career…"><button type="submit" class="button">Search</button></form>
+      <div class="filters"><label for="category">Source <select id="category" aria-label="Funding source category"><option value="all">All sources</option><option>Industry</option><option>Foundation</option><option>Government</option></select></label><label><input type="checkbox" id="openOnly"> Listed as open / rolling</label><span id="resultCount" aria-live="polite"></span></div>
+      <div id="results" class="results"><p>Loading opportunities…</p></div>
+      <button id="showMore" class="button secondary more" hidden>Show more opportunities</button>
+    </section>
+    <section id="use-skill" class="skill-panel" aria-labelledby="skillHeading">
+      <div><span class="eyebrow">LESS SETUP. MORE CONVERSATION.</span><h2 id="skillHeading">Let your assistant<br>connect the dots.</h2><p>Use your interests, project context and career stage to explore relevant sources and check current calls. A CV is optional. You can correct what the assistant assumes.</p><a class="button" href="Fundlark-skill.zip" download>Download the Fundlark skill ↗</a><p class="small">No Fundlark server or account required. Your AI provider's usage limits and privacy settings still apply.</p></div>
+      <div class="install"><h3>Bring it to Codex or Claude Code</h3><ol><li>Download and unzip the skill.</li><li>Copy the <code>fundlark</code> folder into <code>~/.agents/skills/</code> for Codex or <code>~/.claude/skills/</code> for Claude Code.</li><li>Start a new session and ask for funding that fits your research.</li></ol><div class="prompt"><span>TRY SAYING</span><p>“Use Fundlark to find funding relevant to the project we've been discussing. Tell me which options I could apply for and which need a faculty collaborator.”</p><button id="copyPrompt" class="text-button">Copy prompt</button><span id="copyStatus" role="status"></span></div><p class="small">The agent can use context and memory its platform makes available. It cannot automatically read every past chat. Live checks need web access.</p></div>
+    </section>
+  </main>
+  <footer class="shell"><span>✳ Fundlark · Open-source software under MIT</span><span>Source links first. Uncertainty visible.</span></footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+name: Bug report
+description: Report a reproducible Fundlark problem.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and sanitized error output
+      description: Include OS, Python version, browser, and whether you use Docker. Remove CV content, personal information and secrets.
+    validations:
+      required: true

@@ -1,0 +1,58 @@
+[
+  {
+    "id":"curated:amazon-agentic-2026", "title":"Amazon Research Awards — Agentic AI (Fall 2026)",
+    "funder":"Amazon Science", "category":"Industry", "funding_type":"Cash + cloud credits", "amount":"Unrestricted gift + AWS credits",
+    "deadline":"2026-11-11", "status":"open", "description":"Supports innovative work on agentic AI, autonomous agents and related research. The Fall 2026 call has multiple focus areas; check the program page for the exact rules and application requirements.",
+    "topics":["agentic AI","AI agents","automated reasoning","artificial intelligence","autonomous systems"],
+    "eligibility":"Research proposals from eligible academic principal investigators; institutional gift arrangement. Check the specific call and FAQs for PI rules.", "eligible_stages":["faculty"], "faculty_sponsor_possible":true,
+    "url":"https://www.amazon.science/research-awards/call-for-proposals", "source_date":"2026-11-07"
+  },
+  {
+    "id":"curated:openai-researcher-access", "title":"OpenAI Researcher Access Program",
+    "funder":"OpenAI", "category":"Industry", "funding_type":"API credits", "amount":"Up to $1,000 in API credits",
+    "deadline":null, "status":"rolling", "description":"Subsidized API access for research on responsible AI deployment, risk mitigation, human-AI interaction and societal impacts. Applications are reviewed quarterly.",
+    "topics":["AI safety","human-AI interaction","AI agents","responsible AI","AI evaluation","healthcare AI","alignment"],
+    "eligibility":"Affiliation with an academic or research organization or an eligible nonprofit, in an API-supported country. Early-stage researchers are encouraged.", "eligible_stages":["phd","postdoc","resident","faculty","staff"], "faculty_sponsor_possible":false,
+    "url":"https://openai.com/form/researcher-access-program/", "source_date":"2026-11-07"
+  },
+  {
+    "id":"curated:nvidia-academic", "title":"NVIDIA Academic Grant Program",
+    "funder":"NVIDIA", "category":"Industry", "funding_type":"Compute + hardware", "amount":"GPU hours, hardware or software",
+    "deadline":null, "status":"closed", "description":"Academic research support for AI training, inference, agents, systems software, simulation and modeling. The program currently reports that new applications are not being accepted.",
+    "topics":["AI agents","machine learning","GPU computing","simulation","large language models","artificial intelligence"],
+    "eligibility":"Full-time faculty member at an accredited research-degree-granting institution; other topic-specific requirements may apply.", "eligible_stages":["faculty"], "faculty_sponsor_possible":true,
+    "url":"https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/", "source_date":"2026-11-07"
+  },
+  {
+    "id":"curated:google-academic-2026", "title":"Google Academic Research Awards — Quantum Computing (2026)",
+    "funder":"Google Research", "category":"Industry", "funding_type":"Research funding", "amount":"Program-dependent",
+    "deadline":"2026-08-07", "status":"closed", "description":"Google's 2026 Academic Research Awards call focused on early fault-tolerant quantum algorithms and quantum-computing security. The 2026 application window has closed.",
+    "topics":["quantum computing","algorithms","cryptography","security","theoretical computer science"],
+    "eligibility":"Professors at eligible degree-granting institutions who advise students and conduct relevant research. Postdocs may be permitted as co-PIs under certain conditions.", "eligible_stages":["faculty"], "faculty_sponsor_possible":true,
+    "url":"https://research.google/programs-and-events/google-academic-research-awards/", "source_date":"2026-11-07"
+  },
+  {
+    "id":"curated:google-cloud-research", "title":"Google Cloud for Researchers — Research Credits",
+    "funder":"Google Research", "category":"Industry", "funding_type":"Cloud credits", "amount":"Program-dependent",
+    "deadline":null, "status":"verify", "description":"Research support through Google Cloud credits and resources; the amount, submission availability and program-specific eligibility should be checked on the official page.",
+    "topics":["cloud computing","machine learning","artificial intelligence","AI agents","biomedical research","data science"],
+    "eligibility":"Google lists faculty, postdoctoral researchers, nonprofit lab researchers and PhD students as eligible to apply for research award credits; check the current offering.", "eligible_stages":["phd","postdoc","faculty","staff"], "faculty_sponsor_possible":false,
+    "url":"https://research.google/programs-and-events/faculty-engagement/", "source_date":"2026-11-07"
+  },
+  {
+    "id":"curated:wellcome-early", "title":"Wellcome Early-Career Awards",
+    "funder":"Wellcome", "category":"Foundation", "funding_type":"Research grant", "amount":"Salary and research expenses, subject to scheme rules",
+    "deadline":null, "status":"rolling", "description":"Funding for early-career researchers developing an independent research identity through projects relating to human life, health and wellbeing. Applications can be submitted at any time under the current scheme.",
+    "topics":["medical research","healthcare","biomedical research","public health","biology","AI in healthcare"],
+    "eligibility":"Career-stage, host-organization and location rules apply. Check Wellcome's detailed eligibility criteria before applying.", "eligible_stages":["postdoc","resident","faculty","staff"], "faculty_sponsor_possible":false,
+    "url":"https://wellcome.org/research-funding/schemes/wellcome-early-career-awards", "source_date":"2026-11-07"
+  },
+  {
+    "id":"curated:wellcome-discovery", "title":"Wellcome Discovery Awards",
+    "funder":"Wellcome", "category":"Foundation", "funding_type":"Research grant", "amount":"Project-dependent",
+    "deadline":null, "status":"rolling", "description":"Funding for established researchers and teams pursuing ambitious research advancing understanding of human life, health and wellbeing. Wellcome lists the scheme as accepting applications anytime.",
+    "topics":["biomedical research","healthcare","medical research","public health","biology","data science"],
+    "eligibility":"Typically for established researchers leading ambitious programs. Confirm location and organizational requirements.", "eligible_stages":["faculty"], "faculty_sponsor_possible":true,
+    "url":"https://wellcome.org/research-funding/schemes", "source_date":"2026-11-07"
+  }
+]
