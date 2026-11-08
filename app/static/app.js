@@ -122,15 +122,38 @@ function handleCardsClick(e){
 function renderProfileForm(){
   $('#careerStage').value=state.profile.career_stage||'unspecified';
   $('#keywordsInput').value=(state.profile.keywords||[]).join(', ');
-  $('#societiesInput').value=(state.profile.societies||[]).join(', ');
-  $('#institutionsInput').value=(state.profile.institutions||[]).join('; ');
+  state.profileDraft={society:[...(state.profile.societies||[])],institution:[...(state.profile.institutions||[])]};
+  renderAffiliationChips();
   loadProfileSources();
+}
+function renderAffiliationChips(){
+  for(const kind of ['society','institution']){
+    $('#'+kind+'Chips').innerHTML=state.profileDraft[kind].map((name,index)=>`<span class="affiliation-chip">${esc(name)}<button type="button" data-kind="${kind}" data-index="${index}" aria-label="Remove ${esc(name)}">×</button></span>`).join('');
+  }
+}
+function addAffiliationValue(kind,raw){
+  const name=raw.trim().replace(/\s+/g,' ');
+  if(!name||name.length>160){notify('Enter a name up to 160 characters.',true);return false}
+  const values=state.profileDraft[kind];
+  if(values.some(v=>v.toLowerCase()===name.toLowerCase())){notify('Already added to your profile.');return false}
+  if(values.length>=20){notify('You can add up to 20 entries.',true);return false}
+  values.push(name);renderAffiliationChips();return true;
+}
+function bindAffiliationPickers(){
+  for(const kind of ['society','institution']){
+    const select=$('#'+kind+'Choice'),custom=$('#'+kind+'Custom');
+    select.addEventListener('change',()=>{custom.hidden=select.value!=='__custom__';if(!custom.hidden)custom.focus()});
+    const add=()=>{const value=select.value==='__custom__'?custom.value:select.value;if(!value){notify('Choose an option first.',true);return}if(addAffiliationValue(kind,value)){select.value='';custom.value='';custom.hidden=true}};
+    $('#'+kind+'Add').addEventListener('click',add);
+    custom.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();add()}});
+    $('#'+kind+'Chips').addEventListener('click',e=>{const button=e.target.closest('[data-index]');if(!button)return;state.profileDraft[kind].splice(Number(button.dataset.index),1);renderAffiliationChips()});
+  }
 }
 function handleProfileSave(e){
   e.preventDefault();
   let keywords=$('#keywordsInput').value.split(/[,\n;]+/).map(s=>s.trim()).filter(Boolean);
   keywords=[...new Set(keywords.map(k=>k.toLowerCase()))].slice(0,25);
-  state.profile={career_stage:$('#careerStage').value,keywords,example:false,societies:$('#societiesInput').value.split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean).slice(0,20),institutions:$('#institutionsInput').value.split(/[;\n]+/).map(s=>s.trim()).filter(Boolean).slice(0,20)};
+  state.profile={career_stage:$('#careerStage').value,keywords,example:false,societies:[...state.profileDraft.society],institutions:[...state.profileDraft.institution]};
   save('fundlark.profile',state.profile);updateMiniProfile();fetchMatches();notify('Research profile saved in this browser.');setView('discover');
 }
 async function extractCV(file){
@@ -153,8 +176,8 @@ function applyCVSuggestions(){
   const a=state.cvAffiliations||{societies:[],institutions:[]};
   const members=a.societies.filter(x=>x.relationship==='membership_evidence').map(x=>x.name);
   const institutions=a.institutions.filter(x=>x.relationship==='current_affiliation_evidence').map(x=>x.name);
-  if(members.length)$('#societiesInput').value=[...new Set([...$('#societiesInput').value.split(/[,;]+/).map(s=>s.trim()).filter(Boolean),...members])].join(', ');
-  if(institutions.length)$('#institutionsInput').value=[...new Set([...$('#institutionsInput').value.split(';').map(s=>s.trim()).filter(Boolean),...institutions])].join('; ');
+  members.forEach(name=>addAffiliationValue('society',name));
+  institutions.forEach(name=>addAffiliationValue('institution',name));
   notify('Suggestions added. Confirm memberships and current institutions, then save.');
 }
 async function loadProfileSources(){
@@ -226,6 +249,7 @@ async function runSourceMonitor(){
   }catch(e){notify(`Monitoring failed: ${e.message}`,true)}finally{setBusy(btn,false)}
 }
 function bind(){
+  bindAffiliationPickers();
   $$('.nav-item').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
   $('#mobileMenu').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
   $('#topProfileBtn').addEventListener('click',()=>setView('profile'));
