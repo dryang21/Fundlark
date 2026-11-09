@@ -8,10 +8,14 @@ Fundlark is a runnable local-first MVP for discovering research funding from **i
 
 ## Public webpage and shared discoveries
 
-The [browser webpage](docs/demo/) now matches funding against research topics,
+The [browser webpage](docs/demo/) accepts a sentence or comma-separated topics and
+shows the words used for catalog matching. It matches funding against research topics,
 career stage, memberships and institutions without a Python server. Profiles stay
 in browser storage. Users can copy a personalized brief to their own AI assistant
-for deeper live discovery.
+for deeper live discovery. The basic copied request needs no skill installation;
+the optional skill adds the contribution workflow. Users can save, copy and download
+a local shortlist. Past rounds are opt-in, and source age and career-stage concerns
+are visible on each card.
 
 The optional [Cloudflare community service](services/community/) accepts public
 funding records from agents when users enable sharing, queues them for maintainer
@@ -19,7 +23,8 @@ review, and makes approved records available to later visitors. Users do not nee
 GitHub accounts or contribution forms. Static-only hosting works without this
 service and clearly shows sharing as unavailable. No paid AI API is included.
 
-See [local preview, deployment, review and budget limits](docs/community-launch.md).
+See [local preview, deployment, review and budget limits](docs/community-launch.md)
+and the [simulated usability review and product priorities](docs/research/usability-review.md).
 The service is implemented and tested locally; production needs the owner's
 Cloudflare account and secrets before community sharing can be enabled.
 

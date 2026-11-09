@@ -1,21 +1,26 @@
 # Browser matching and shared discoveries
 
-The public webpage now ranks the published funding snapshot locally using research
-topics, career stage, confirmed memberships and current institutions. Custom
+The public webpage now ranks the published funding snapshot locally using
+a short research description (using visible keyword heuristics), career stage,
+confirmed memberships and current institutions. Custom
 organizations work in every field. A saved browser profile contains only those
-selected fields and a public-facts sharing preference. It is not sent to the
+selected fields, the typed research description and a public-facts sharing preference. It is not sent to the
 community API. Use **Clear my profile** to remove it. No CV upload is required;
 PDF/DOCX extraction still belongs to the full Python application or the user's
 assistant, not this static page.
 
-**Find matched funding** filters and sorts the snapshot. **Copy my research brief**
-passes the chosen profile to the user's assistant when they paste it. Deep web
+**Find funding** filters and sorts the snapshot. Profile changes update locally;
+commas, semicolons, newlines and short sentences are accepted. **Copy my funding search request**
+passes the chosen profile to the user's assistant when they paste it. The basic
+request works without installing a skill; an assistant needs browsing to verify
+current calls. The optional skill and installed-skill checkbox enable the
+contribution workflow. Deep web
 discovery runs through their own agent and account; the page itself does not run
 an AI model or claim to crawl the web. The profile is sent to that AI provider only
 when the user pastes it there.
 
-When the community service is connected and the researcher enables sharing, the
-brief authorizes the installed Fundlark skill to submit new public funding facts
+When the community service is connected and the researcher selects the installed-skill
+option and enables sharing, the brief authorizes the installed Fundlark skill to submit new public funding facts
 without forms, GitHub accounts or pull requests. The preference applies to newly
 copied briefs; changing it cannot revoke a brief already pasted into an independent
 agent. Contribution success never gates the user's results.
@@ -30,6 +35,15 @@ normalized official URL, program title and round. Use the deadline year or `recu
 The static catalog and API overlay deduplicate by URL, title and round; different URL
 aliases or renamed programs still require maintainer judgment. The reviewed overlay is capped at 5,000
 records; export/compact older records into the static snapshot before reaching it.
+
+## Saved shortlists
+
+Users can save public records, view their shortlist, and copy or download it as
+plain text with official links. The browser keeps a public-record snapshot so a
+catalog removal or renamed program does not silently erase a saved lead. Archived
+snapshots are clearly labeled; changed current details are flagged. These saved
+facts do not establish that a call is still open. Clear my profile removes the
+research description and affiliations while preserving the separate shortlist.
 
 ## Local end-to-end preview
 
