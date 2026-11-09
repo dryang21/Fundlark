@@ -1,0 +1,3 @@
+# Local testing only. Create strong distinct values for production via wrangler secret put.
+ADMIN_TOKEN=local-review-only
+INGEST_SALT=local-ingestion-only

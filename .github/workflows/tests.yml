@@ -26,6 +26,10 @@ jobs:
           node-version: '22'
       - name: Run tests
         run: python -m pytest -q
+      - name: Install community service tools
+        run: npm ci --ignore-scripts
+      - name: Test browser matching and Worker/D1 contribution flow
+        run: npm test
       - name: Check JavaScript syntax
         run: |
           node --check app/static/app.js

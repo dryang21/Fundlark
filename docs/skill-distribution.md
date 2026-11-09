@@ -1,8 +1,9 @@
 # Use Fundlark with your own AI assistant
 
-Fundlark has two complementary experiences: a public static preview and a
+Fundlark has two complementary experiences: a browser-based funding matcher and a
 downloadable skill that works through the user's own agent. Neither requires a
-central Fundlark server. The existing FastAPI app remains available for local
+central Fundlark server for matching. An optional community API adds reviewed
+background contributions; see [community launch](community-launch.md). The existing FastAPI app remains available for local
 collection, review and the full local dashboard.
 
 ## Install the skill
@@ -72,8 +73,9 @@ python -m http.server 8010 --bind 127.0.0.1 --directory docs/demo
 ```
 
 Open `http://127.0.0.1:8010`. This serves static files: the preview searches
-`data.json` in the browser and offers a skill download. It has no application API,
-CV upload or account service.
+`data.json` in the browser, saves a local research profile, ranks matches and offers
+a personalized assistant brief plus skill download. Sharing is unavailable unless
+you connect the optional community API. It has no CV upload or account service.
 
 ## Publish on GitHub Pages
 

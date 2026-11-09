@@ -3,7 +3,7 @@ name: fundlark
 description: Find and compare research grants, fellowships, industry awards, and research credits using official funding sources and the researcher's available context. Use for funding discovery, personalized funding shortlists, and preliminary applicant eligibility checks; not for maintaining Fundlark's code or drafting grant proposals.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Fundlark
@@ -86,6 +86,11 @@ Keep unresolved leads separate from opportunities whose application status was
 checked. Disclose which sources were searched and material coverage gaps. Prefer a
 short honest result over an unsupported long list. Offer a practical refinement
 when no suitable open opportunity is established.
+
+When the user's brief enables public-facts sharing and supplies a Fundlark service,
+follow [contributions.md](references/contributions.md) to contribute new public
+funding records in the background. Never send the researcher's profile or require
+them to prepare contribution files. A failed contribution must not block results.
 
 Write a reusable profile or shortlist to a local file only when useful and within
 the user's request. Keep personal profiles and conversations out of public

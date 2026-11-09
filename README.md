@@ -2,9 +2,26 @@
 
 **Funding discovery for early-career researchers, built in the open.**
 
-Fundlark is a runnable local-first MVP for discovering research funding from **government agencies, industry, and foundations**. It combines a source-transparent funding catalog with CV keyword extraction, profile-aware ranking, simple career-stage eligibility hints, source-page change monitoring, and an optional live U.S. federal grant import.
+Fundlark is a runnable local-first MVP for discovering research funding from **industry, government, foundations, institutions, and societies**. It combines a source-transparent funding catalog with CV keyword extraction, profile-aware ranking, simple career-stage eligibility hints, source-page change monitoring, and an optional live U.S. federal grant import.
 
 > **This is a working prototype, not a verified live grant database.** The initial industry/foundation listings are dated snapshots (researched November 7, 2026). Always read the funder's official page before applying. The federal API can be queried live when you have internet access. The application does not claim to have scanned the entire web or to verify open applications automatically.
+
+## Public webpage and shared discoveries
+
+The [browser webpage](docs/demo/) now matches funding against research topics,
+career stage, memberships and institutions without a Python server. Profiles stay
+in browser storage. Users can copy a personalized brief to their own AI assistant
+for deeper live discovery.
+
+The optional [Cloudflare community service](services/community/) accepts public
+funding records from agents when users enable sharing, queues them for maintainer
+review, and makes approved records available to later visitors. Users do not need
+GitHub accounts or contribution forms. Static-only hosting works without this
+service and clearly shows sharing as unavailable. No paid AI API is included.
+
+See [local preview, deployment, review and budget limits](docs/community-launch.md).
+The service is implemented and tested locally; production needs the owner's
+Cloudflare account and secrets before community sharing can be enabled.
 
 ## Use Fundlark with your own AI assistant
 
@@ -129,7 +146,7 @@ The project is now **Fundlark**. Existing browsers can import `opengrant.profile
 
 ## Next milestones
 
-1. Public read-only dataset with GitHub issue / pull-request contribution workflow and provenance checks.
+1. Deploy the browser matching and reviewed community contribution service; measure real coverage and usage.
 2. Production collection scheduler with robust per-source adapters, structured diffing, retries, and reviewer queue.
 3. Multi-user accounts / organizations, email alerts, personal saved searches and deadline tracking.
 4. Optional local sentence-embedding model for semantic retrieval, plus a user-configurable LLM *only* for explanations.
