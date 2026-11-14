@@ -1,7 +1,8 @@
+import {readCV} from './cv-reader.mjs';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvSuggestions, upcomingSaved} from './journey.mjs';
+import {examples, cvSuggestions, upcomingSaved} from './journey.mjs?v=cv-2';
 import {SOCIETIES, INSTITUTIONS, researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness} from './matching.mjs';
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms} from './matching.mjs?v=membership-3';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
@@ -35,7 +36,7 @@ function readProfile({consumeAffiliations=false}={}){
   profile=normalizeProfile({...profile,researchText:text,topics:researchTerms(text,records.flatMap(o=>o.topics||[])),stage:$('#stage').value,sharePublic:$('#sharePublic').checked});
   for(const [key,input,choices] of [['societies','societyInput',SOCIETIES],['institutions','institutionInput',INSTITUTIONS]]){
     const value=$(`#${input}`).value.trim();
-    if(value&&consumeAffiliations){const name=choices.find(n=>n.toLowerCase()===value.toLowerCase())||value;if(!profile[key].some(n=>n.toLowerCase()===name.toLowerCase()))profile[key].push(name);$(`#${input}`).value='';}
+    if(value&&consumeAffiliations){const name=choices.find(n=>n.toLowerCase()===value.toLowerCase())||value;if(!profile[key].some(n=>key==='societies'?societyKey(n)===societyKey(name):n.toLowerCase()===name.toLowerCase()))profile[key].push(name);$(`#${input}`).value='';}
   }
   profile=normalizeProfile(profile);renderChips();saveProfile();render();
 }
@@ -52,7 +53,7 @@ function resetFilters({allFunding=false}={}){
 function renderCoverage(){
   const filtered=filterSources(coverageSources,{query:$('#coverageQuery').value,field:$('#coverageField').value,kind:$('#coverageKind').value});
   $('#coverageCount').textContent=`${filtered.length} sources${filtered.length?' · showing '+Math.min(filtered.length,coverageLimit):''}`;
-  $('#coverageResults').innerHTML=filtered.slice(0,coverageLimit).map(source=>`<li><a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a><span>${esc(source.alias)} · ${esc(source.kind)} · ${esc(source.fields.join(', '))}</span><small>${source.program_ids?.length?'Funding information indexed; see the catalog for round status.':'Directory only; funding not reviewed.'}</small></li>`).join('')||'<li>No sources in this directory match these filters.</li>';
+  $('#coverageResults').innerHTML=filtered.slice(0,coverageLimit).map(source=>`<li><a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a><span>${esc(source.alias)} · ${esc(source.kind)} · ${esc(source.fields.join(', '))}</span><small>${source.program_ids?.length?'Funding records below, including any past rounds.':'Directory only; funding not reviewed.'}</small>${source.program_ids?.length?awardLinks(linkedPrograms(records,source.program_ids)):''}</li>`).join('')||'<li>No sources in this directory match these filters.</li>';
   $('#coverageMore').hidden=filtered.length<=coverageLimit;
 }
 for(const id of ['coverageQuery','coverageField','coverageKind'])$(`#${id}`).addEventListener(id==='coverageQuery'?'input':'change',()=>{coverageLimit=12;renderCoverage();});
@@ -75,6 +76,21 @@ function renderReturn(savedRecords){
   $('#returnSummary').textContent=`${savedRecords.length} saved ${savedRecords.length===1?'lead':'leads'}${changed?` · ${changed} with changed catalog details`:''}.`;
   $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${upcoming[0].deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
 }
+function awardLinks(awards){
+  const row=record=>`<li><a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">${esc(record.title)} ↗</a><small>${esc([labels[statusOf(record)]||labels.verify,record.amount,record.deadline?'Deadline: '+record.deadline:null].filter(Boolean).join(' · '))}</small></li>`;
+  const current=awards.filter(record=>statusOf(record)!=='closed'), past=awards.filter(record=>statusOf(record)==='closed');
+  return (current.length?`<ul class="award-links">${current.map(row).join('')}</ul>`:'<p>No current leads indexed for this source.</p>')+
+    (past.length?`<details><summary>Past rounds (${past.length})</summary><ul class="award-links">${past.map(row).join('')}</ul></details>`:'');
+}
+function renderMemberships(){
+  $('#membershipFunding').hidden=!profile.societies.length;
+  if(!profile.societies.length)return;
+  $('#membershipResults').innerHTML=profile.societies.map(name=>{
+    const awards=records.filter(record=>membershipMatches(record,[name]).length);
+    const source=coverageSources.find(source=>source.kind==='society'&&[source.alias,source.name].some(value=>societyKey(value)===societyKey(name)));
+    return `<section><h3>${esc(name)}</h3>${awardLinks(awards)}${source?`<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">Visit the society ↗</a>`:''}</section>`;
+  }).join('');
+}
 function refreshSupportTypes(){
   const control=$('#fundingType'), selection=control.value;
   const types=[...new Set(records.map(record=>record.funding_type).filter(type=>typeof type==='string'&&type))].sort();
@@ -84,6 +100,7 @@ function refreshSupportTypes(){
 function render(){
   const savedRecords=restoreShortlist(records,saved);
   renderReturn(savedRecords);
+  renderMemberships();
   const catalog=$('#savedOnly').checked?savedRecords:records;
   const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability:$('#availability').value,fundingType:$('#fundingType').value,matchedOnly:$('#matchedOnly').checked,savedOnly:false});
   $('#savedCount').textContent=`(${savedRecords.length})`;
@@ -148,6 +165,8 @@ async function init(){
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
     if(directory?.schema_version===1){
       coverageSources=directory.sources;
+      const suggestions=[...new Set([...SOCIETIES,...coverageSources.filter(item=>item.kind==='society').flatMap(item=>[item.alias,item.name])])];
+      $('#societyOptions').innerHTML=suggestions.map(name=>`<option value="${esc(name)}">`).join('');
       records=mergeCatalog(records,directory.opportunities);
       $('#coverageField').insertAdjacentHTML('beforeend',directory.fields.map(field=>`<option value="${esc(field)}">${esc(field)}</option>`).join(''));
       $('#coverageSummary').textContent=`${directory.fields.length} field and topic labels · ${coverageSources.length} societies and conferences · ${directory.opportunities.length} curated funding records, including past and unconfirmed rounds.`;
@@ -170,7 +189,7 @@ $('#matchedOnly').checked=hasProfile();$('#affiliationDetails').open=Boolean(pro
 $('#societyOptions').innerHTML=SOCIETIES.map(name=>`<option value="${esc(name)}">`).join('');
 $('#institutionOptions').innerHTML=INSTITUTIONS.map(name=>`<option value="${esc(name)}">`).join('');
 for(const [button,input] of [['addSociety','societyInput'],['addInstitution','institutionInput']]){
-  $(`#${button}`).addEventListener('click',()=>readProfile({consumeAffiliations:true}));
+  $(`#${button}`).addEventListener('click',()=>{readProfile({consumeAffiliations:true}); if(button==='addSociety'&&profile.societies.length)$('#membershipFunding').scrollIntoView({behavior:'smooth'});});
   $(`#${input}`).addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();readProfile({consumeAffiliations:true});}});
 }
 $('#topics').addEventListener('input',()=>{clearTimeout(profileTimer);$('#profileStatus').textContent='Updating your research profile…';profileTimer=setTimeout(()=>readProfile(),300);});
@@ -245,7 +264,7 @@ $('#scanCV').addEventListener('click',()=>{
   $('#cvFile').value='';
   const text=$('#cvText').value;
   $('#cvText').value='';
-  showCVSuggestions(cvSuggestions(text));
+  showCVSuggestions(cvSuggestions(text, coverageSources));
 });
 $('#cvFile').addEventListener('change',async()=>{
   const readId=++cvReadId;
@@ -253,9 +272,9 @@ $('#cvFile').addEventListener('change',async()=>{
   $('#cvFile').value='';
   if(!file)return;
   $('#cvSuggestions').textContent='';
-  if(!/\.txt$/i.test(file.name)||file.size>200000){$('#cvStatus').textContent='Choose a .txt file under 200 KB or paste an excerpt.';return;}
-  try{const text=await file.text();if(readId===cvReadId)showCVSuggestions(cvSuggestions(text));}
-  catch{if(readId===cvReadId)$('#cvStatus').textContent='Could not read this text file. Try pasting a short excerpt.';}
+  $('#cvStatus').textContent='Reading your CV in this browser…';
+  try{const text=await readCV(file);if(readId===cvReadId)showCVSuggestions(cvSuggestions(text, coverageSources));}
+  catch(error){if(readId===cvReadId)$('#cvStatus').textContent=/^Choose |^No readable/.test(error.message)?error.message:'Could not read this file. Use an unlocked, text-based PDF or DOCX, or paste an excerpt.';}
 });
 function savedText(){return shortlistText(restoreShortlist(records,saved));}
 $('#copyShortlist').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(savedText());$('#shortlistStatus').textContent='Shortlist copied with official links.';}catch{$('#shortlistFallback').value=savedText();$('#shortlistFallback').hidden=false;$('#shortlistFallback').select();$('#shortlistStatus').textContent='Copy your shortlist below.';}});

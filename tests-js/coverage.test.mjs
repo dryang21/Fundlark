@@ -21,3 +21,15 @@ test('directory entries do not become awards and shared funding pages preserve d
   const past=opportunities.find(row=>row.id.endsWith('neurips-aid-2026'));
   assert.equal(statusOf(past,'2026-11-13'),'closed');
 });
+
+test('joining a society by full name finds tagged awards with no research keywords',()=>{
+  const profile=normalizeProfile({societies:['AAPM','American Association of Physicists in Medicine']});
+  assert.equal(profile.societies.length,1);
+  const results=selectRecords(directory.opportunities,profile,{matchedOnly:true,availability:'all'});
+  assert.ok(results.some(r=>r.id==='coverage:aapm-astro-2027'));
+  assert.ok(results.some(r=>r.id==='coverage:aapm-rsna-2027'));
+  assert.ok(results.some(r=>r.id==='coverage:aapm-horizons-2027-r1'));
+  assert.ok(!results.some(r=>r.id==='coverage:rsna-medical-student-2027'));
+  const icse=directory.sources.find(row=>row.alias==='ICSE');
+  assert.ok(icse.program_ids.includes('coverage:icse-caps-2027'));
+});

@@ -7,7 +7,7 @@
   <title>Fundlark — Find funding for your next breakthrough</title>
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js"></script>
+  <script type="module" src="demo.js?v=membership-3"></script>
 </head>
 <body>
   <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Search with my assistant ↗</a></header>
@@ -32,9 +32,9 @@
       <span class="eyebrow">START WITH YOUR RESEARCH</span><h2 id="profileHeading">Funding that fits your work</h2>
       <p class="note">Your profile stays in this browser. Matching uses the shared catalog; no account or AI subscription is needed to explore it.</p>
       <details id="cvHelper" class="affiliations">
-        <summary>Start from a CV <span class="small">Optional · paste text or choose a .txt file</span></summary>
-        <p class="note">Fundlark reads the text in this browser and looks for labeled interests, memberships and current appointments. Review suggested fields before adding them. For PDF or Word, paste the relevant text below.</p>
-        <label for="cvFile">Choose a text CV</label> <input id="cvFile" type="file" accept=".txt,text/plain">
+        <summary>Start from a CV <span class="small">Optional · PDF, Word or text</span></summary>
+        <p class="note">Fundlark reads the text in this browser and looks for labeled interests, memberships and current appointments. Review suggested fields before adding them. Files are read locally. For scanned PDFs, paste text from an OCR copy.</p>
+        <label for="cvFile">Choose a CV (PDF, DOCX or TXT)</label> <input id="cvFile" type="file" accept=".pdf,.docx,.txt">
         <label for="cvText">Or paste CV text</label><textarea id="cvText" rows="5" maxlength="50000" autocomplete="off" spellcheck="false"></textarea>
         <button id="scanCV" class="button secondary" type="button">Suggest profile details</button>
         <p id="cvStatus" class="note" role="status"></p><div id="cvSuggestions"></div>
@@ -51,6 +51,11 @@
         <div id="topicSummary" class="topic-summary" aria-live="polite"></div>
         <div class="profile-actions"><button class="button" type="submit">Find funding</button><button id="clearProfile" type="button" class="text-button">Clear my profile</button><span id="profileStatus" role="status"></span></div>
       </form>
+    </section>
+    <section id="membershipFunding" class="journey-panel" aria-labelledby="membershipHeading" hidden>
+      <h2 id="membershipHeading">Funding from your societies</h2>
+      <p>These awards are connected to your saved memberships. Individual applicant rules still apply.</p>
+      <div id="membershipResults"></div>
     </section>
     <section id="opportunities" aria-labelledby="exploreHeading">
       <div class="section-head"><div><span class="eyebrow">A STARTING POINT FOR YOUR SEARCH</span><h2 id="exploreHeading">Explore funding</h2></div><a href="#use-skill">Search beyond this catalog ↓</a></div>

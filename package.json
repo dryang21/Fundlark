@@ -3,10 +3,18 @@
   "private": true,
   "scripts": {
     "test": "node --test tests-js/*.test.mjs",
-    "dev:community": "wrangler dev --config services/community/wrangler.jsonc",
+    "dev:community": "npm run build:cv && wrangler dev --config services/community/wrangler.jsonc",
     "db:local": "wrangler d1 execute DB --local --config services/community/wrangler.jsonc --file services/community/schema.sql",
-    "deploy:community": "wrangler deploy --config services/community/wrangler.jsonc"
+    "deploy:community": "npm run build:cv && wrangler deploy --config services/community/wrangler.jsonc",
+    "build:cv": "node scripts/build_cv_assets.mjs"
   },
-  "devDependencies": {"wrangler": "4.158.0"},
-  "engines": {"node": ">=22"}
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "mammoth": "1.13.0",
+    "pdfjs-dist": "5.7.284",
+    "wrangler": "4.158.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }

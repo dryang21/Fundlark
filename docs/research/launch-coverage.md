@@ -46,3 +46,24 @@ assertion that other sources lack funding.
 The directory is useful keylessly today. The handoff's scheduled niche collectors,
 field-level eligibility evidence, broader verified inventory and public deployment
 remain launch work.
+
+## Membership and document intake follow-up
+
+The coverage batch now contains 24 curated records across a directory of 122
+society/conference sources. As of November 13, 2026, 11 were listed open.
+A directory entry still does not imply funding. The site lists actual linked
+awards on source cards and in the saved-membership section, with old rounds
+collapsed separately. General IEEE or ACM membership is not treated as membership
+in a specific subgroup. Some funding records are historical or recurring.
+
+The public preview reads text-based PDF, DOCX and TXT files in the browser. Run
+`npm ci --ignore-scripts && npm run build:cv` before serving it with a simple
+HTTP server. The Cloudflare scripts and Pages workflow build these assets for you.
+PDF reading checks up to 20 pages and CV suggestions are limited to 50,000
+characters. Scans without text need OCR first. Only user-selected suggestions
+become profile data.
+
+Browser-tested using the [Penn robotics CV](https://dair.seas.upenn.edu/assets/pdf/posa_cv.pdf), the
+[Columbia ecology CV](https://www.ruthdefries.e3b.columbia.edu/wp-content/uploads/2026/03/defries_cv_mar25.pdf),
+and a fictional Word CV. Both PDFs yielded a current institution and subject
+suggestions, with no inferred memberships. Source documents are not committed.

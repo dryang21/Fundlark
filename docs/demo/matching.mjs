@@ -32,9 +32,32 @@ export function researchTerms(value, knownTopics = []) {
 export function normalizeProfile(value = {}) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) value = {};
   const strings = key => Array.isArray(value[key]) ? value[key].filter(x => typeof x === 'string').map(x => x.trim().slice(0, 160)).filter(Boolean).slice(0, 20) : [];
-  return {topics: strings('topics'), societies: strings('societies'), institutions: strings('institutions'), researchText: typeof value.researchText === 'string' ? value.researchText.slice(0,3200) : '',
+  return {topics: strings('topics'), societies: [...new Map(strings('societies').map(name=>[societyKey(name),name])).values()], institutions: strings('institutions'), researchText: typeof value.researchText === 'string' ? value.researchText.slice(0,3200) : '',
     stage: ['undergrad','masters','phd','postdoc','resident','faculty','staff'].includes(value.stage) ? value.stage : '',
     sharePublic: value.sharePublic === true};
+}
+export function societyKey(value) {
+  const key=norm(value).replace(/&/g,'and').replace(/[^a-z0-9]/g,'');
+  const aliases={
+    americanphysicalsociety:'aps', americanassociationofphysicistsinmedicine:'aapm',
+    americansocietyforradiationoncology:'astro', americansocietyofclinicaloncology:'asco',
+    radiologicalsocietyofnorthamerica:'rsna', americangeophysicalunion:'agu',
+    europeangeosciencesunion:'egu', britishecologicalsociety:'bes',
+    americansocietyofmechanicalengineers:'asme', societyforindustrialandappliedmathematics:'siam',
+    ieeeroboticsandautomationsociety:'ieeeras', roboticsandautomationsociety:'ieeeras',
+    ieeecomputersociety:'ieeecs', acmsigsoft:'sigsoft', acmsigchi:'sigchi',
+    acmsigplan:'sigplan', acmsigir:'sigir', sigircommunity:'sigir'
+  };
+  return Object.hasOwn(aliases,key)?aliases[key]:key;
+}
+export function membershipMatches(record, societies) {
+  const confirmed = new Set(societies.map(societyKey).filter(Boolean));
+  return (record.affiliation_tags?.societies||[]).filter(name=>confirmed.has(societyKey(name)));
+}
+export function linkedPrograms(records, ids) {
+  const wanted=new Set(ids);
+  return records.filter(record=>wanted.has(record.id))
+    .sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed'));
 }
 export function match(record, profile) {
   const content = topicText([record.title, record.funder, record.description, ...(record.topics || [])].join(' '));
@@ -45,8 +68,8 @@ export function match(record, profile) {
   });
   const hits = topicEvidence.map(item=>item.term);
   const tags = record.affiliation_tags || {};
-  const societies = profile.societies.map(norm), institutions = profile.institutions.map(norm);
-  const affiliations = (tags.societies || []).filter(name => societies.includes(norm(name)));
+  const institutions = profile.institutions.map(norm);
+  const affiliations = membershipMatches(record, profile.societies);
   if (tags.institution && institutions.includes(norm(tags.institution))) affiliations.push(tags.institution);
   const stages = record.eligible_stages || [];
   let stage = 'Check applicant rules';
@@ -59,7 +82,7 @@ export function selectRecords(records, profile, {query='',category='all',availab
   return records.map(o=>({...o,matching:match(o,profile)})).filter(o=>{
     const status=statusOf(o);
     const available=availability==='all'||(availability==='active'?status!=='closed':availability==='open'?['open','rolling'].includes(status):status===availability);
-    return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[])].join(' ').toLowerCase().includes(term));
+    return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[]),...(o.affiliation_tags?.societies||[]),...(o.affiliation_tags?.conferences||[])].join(' ').toLowerCase().includes(term));
   }).sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||b.matching.score-a.matching.score||Number(a.matching.stageConcern)-Number(b.matching.stageConcern)||({open:0,rolling:0,forecast:1,verify:2}[statusOf(a)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b)]??3));
 }
 export function discoveryLinks(profile, sources=[]) {

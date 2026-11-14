@@ -4,13 +4,14 @@ export const examples = {
   ecology: {researchText:'I study salt marsh restoration, coastal ecology, and climate adaptation',stage:'phd',societies:['Ecological Society of America'],institutions:['University of Bristol']},
 };
 
-export function cvSuggestions(text) {
+export function cvSuggestions(text, sources=[]) {
   const topics=[], societies=[], institutions=[];
   let section='', stage='';
+  const recent=[];
   const stagePatterns=[['postdoc',/\bpostdoc(?:toral)?\b/i],['phd',/\b(?:ph\.?d\.?|doctoral) (?:student|candidate)\b/i],['faculty',/\b(?:faculty|professor)\b/i],['resident',/\bresident\b/i],['staff',/\bresearch (?:staff|scientist)\b/i]];
   for(const raw of text.slice(0,50000).split(/\r?\n/)) {
     const line=raw.trim();
-    if(/^(?:(?:professional )?memberships?|education|publications?|experience|appointments?|research interests|skills|awards|teaching):?$/i.test(line)){
+    if(/^(?:(?:professional )?memberships?|education|(?:selected )?publications?|(?:professional |academic )?experience|(?:academic )?employment|positions|(?:current |previous |academic )?appointments?|research interests|skills|awards|teaching):?$/i.test(line)){
       section=line.toLowerCase().replace(/:$/,'');continue;
     }
     const interests=line.match(/^(?:research interests|research topics|research focus|keywords)\s*:\s*(.+)$/i);
@@ -18,6 +19,7 @@ export function cvSuggestions(text) {
       const phrase=interests?.[1]||line;
       if(phrase && !/[@]|https?:|\d{5}/i.test(phrase))topics.push(...phrase.split(/[,;]+/).map(s=>s.trim()));
     }
+    if(!section.includes('publication') && !section.startsWith('previous') && (section==='current appointment'||/\b(?:19|20)\d{2}\s*[–—-]\s*(?:present|current)\b/i.test(line)))recent.push(line);
     const appointment=line.match(/^(?:current appointment|current position|current affiliation)\s*:\s*(.+)$/i);
     if(appointment){
       const role=appointment[1];
@@ -29,6 +31,20 @@ export function cvSuggestions(text) {
     if(section && !section.includes('membership'))continue;
     const member=line.match(/^(?:(?:current|student|senior|professional|graduate|regular)\s+)?member(?:ship)?\s*(?::\s*|\s+of\s+)(.+)$/i);
     if(member)societies.push(member[1].replace(/[,;]?\s+\d{4}\s*[-–].*$/,'').trim());
+  }
+  for(const line of recent){
+    const role=stagePatterns.find(([,pattern])=>pattern.test(line))?.[0];
+    if(!role)continue;
+    const organization=line.match(/(?:,\s*|\s+at\s+)([^,(]+\b(?:University|College|Institute|Laboratory)\b[^,(]*)/i)?.[1];
+    if(organization){if(!stage)stage=role;institutions.push(organization.trim());break;}
+  }
+  if(!topics.length){
+    const text=recent.join(' ').toLowerCase();
+    const fields=[...new Set(sources.flatMap(source=>source.fields||[]))];
+    for(const field of fields){
+      const pattern=field.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      if(new RegExp(`\\b${pattern}\\b`,'i').test(text))topics.push(field);
+    }
   }
   const clean=items=>[...new Set(items.filter(s=>s.trim()&&s.length<=160&&!/[@]|https?:/i.test(s)))].slice(0,12);
   const aliases={'american association of physicists in medicine':'AAPM','american society for radiation oncology':'ASTRO','institute of electrical and electronics engineers':'IEEE','association for computing machinery':'ACM'};

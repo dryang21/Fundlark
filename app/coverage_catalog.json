@@ -19,6 +19,14 @@
     ],
     "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "APS"
+      ],
+      "conferences": [
+        "APS Summit"
+      ]
+    },
     "category": "Society",
     "funder": "APS Global Physics Summit",
     "origin": "curated",
@@ -45,6 +53,14 @@
     ],
     "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "APS"
+      ],
+      "conferences": [
+        "APS Summit"
+      ]
+    },
     "category": "Society",
     "funder": "APS Global Physics Summit",
     "origin": "curated",
@@ -70,6 +86,14 @@
     ],
     "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "APS"
+      ],
+      "conferences": [
+        "APS Summit"
+      ]
+    },
     "category": "Society",
     "funder": "APS Global Physics Summit",
     "origin": "curated",
@@ -90,6 +114,12 @@
     ],
     "url": "https://engage.aps.org/foep/honors/prizes-awards/mini-grants",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "APS"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "American Physical Society",
     "origin": "curated",
@@ -114,6 +144,12 @@
     ],
     "url": "https://www.asme.org/asme-programs/students-and-faculty/scholarships/4-year-baccalaureate-graduate-students",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "ASME"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "American Society of Mechanical Engineers",
     "origin": "curated",
@@ -133,6 +169,16 @@
     ],
     "url": "https://www.ieee-ras.org/membership/member-support-program/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "IEEE RAS"
+      ],
+      "conferences": [
+        "ICRA",
+        "IROS",
+        "CASE"
+      ]
+    },
     "category": "Society",
     "funder": "IEEE Robotics and Automation Society",
     "origin": "curated",
@@ -157,6 +203,19 @@
     ],
     "url": "https://sigir.hosting.acm.org/general-information/travel-grants/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIGIR community"
+      ],
+      "conferences": [
+        "SIGIR",
+        "CIKM",
+        "CHIIR",
+        "ICTIR",
+        "JCDL",
+        "WSDM"
+      ]
+    },
     "category": "Society",
     "funder": "ACM SIGIR",
     "origin": "curated",
@@ -181,6 +240,12 @@
     ],
     "url": "https://sigplan-www.sigplan.hosting.acm.org/PAC/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIGPLAN"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "ACM SIGPLAN",
     "origin": "curated",
@@ -200,6 +265,12 @@
     ],
     "url": "https://sigchi.org/resources/gary-marsden-travel-awards/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIGCHI"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "ACM SIGCHI",
     "origin": "curated",
@@ -219,6 +290,12 @@
     ],
     "url": "https://www.britishecologicalsociety.org/content/small-research-grants/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "BES"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "British Ecological Society",
     "origin": "curated",
@@ -238,6 +315,12 @@
     ],
     "url": "https://neurips.cc/Conferences/2026/FinancialAssistance",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [],
+      "conferences": [
+        "NeurIPS"
+      ]
+    },
     "category": "Society",
     "funder": "Neural Information Processing Systems",
     "origin": "curated",
@@ -256,6 +339,12 @@
     ],
     "url": "https://www2.sigsoft.org/activities/capsmain/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIGSOFT"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "ACM SIGSOFT",
     "origin": "curated",
@@ -277,6 +366,12 @@
     ],
     "url": "https://www.siam.org/conferences-events/conference-support/travel-and-registration-support/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIAM"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "Society for Industrial and Applied Mathematics",
     "origin": "curated",
@@ -297,6 +392,12 @@
     ],
     "url": "https://www.siam.org/conferences-events/conference-support/travel-and-registration-support/",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIAM"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "Society for Industrial and Applied Mathematics",
     "origin": "curated",
@@ -316,6 +417,14 @@
     ],
     "url": "https://conf.researchr.org/attending/chase-2027/travel-support",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "SIGSOFT"
+      ],
+      "conferences": [
+        "ICSE"
+      ]
+    },
     "category": "Society",
     "funder": "International Conference on Software Engineering",
     "origin": "curated",
@@ -338,6 +447,14 @@
     ],
     "url": "https://www.egu27.eu/attendance/financial_support_and_waivers.html",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "EGU"
+      ],
+      "conferences": [
+        "EGU General Assembly"
+      ]
+    },
     "category": "Society",
     "funder": "EGU General Assembly",
     "origin": "curated",
@@ -361,8 +478,206 @@
     ],
     "url": "https://www.geosociety.org/grants-scholarships/graduate-research",
     "source_date": "2026-11-13",
+    "affiliation_tags": {
+      "societies": [
+        "GSA Geology"
+      ],
+      "conferences": []
+    },
     "category": "Society",
     "funder": "Geological Society of America",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:rsna-medical-student-2027",
+    "title": "RSNA Medical Student Research Grant — 2027",
+    "status": "open",
+    "deadline": "2027-02-05",
+    "funding_type": "Small grant",
+    "amount": "$3,000 stipend",
+    "description": "Supports a medical student’s research project in imaging. Application deadline: 11:59 p.m. CT.",
+    "eligibility": "Full-time medical students at accredited North American medical schools with RSNA membership in good standing. Check department and project requirements.",
+    "topics": [
+      "medical imaging",
+      "radiology"
+    ],
+    "url": "https://www.rsna.org/research/funding-opportunities/research-grants/medical-student-research-grant",
+    "affiliation_tags": {
+      "societies": [
+        "RSNA"
+      ]
+    },
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Radiological Society of North America",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:astro-travel-2026",
+    "title": "ASTRO Annual Meeting Travel Awards — 2026",
+    "status": "closed",
+    "funding_type": "Conference travel",
+    "amount": "$1,000 and meeting registration",
+    "description": "Historical award for early-career abstract authors. No future round inferred.",
+    "eligibility": "Early-career scientists, biologists and physicists submitting abstracts for the 2026 ASTRO meeting. Award application was part of abstract submission.",
+    "topics": [
+      "oncology",
+      "radiotherapy",
+      "medical physics"
+    ],
+    "url": "https://www.astro.org/meetings-and-education/micro-sites/2026/annual-meeting/learn/scientific-program/abstracts",
+    "affiliation_tags": {
+      "societies": [
+        "ASTRO"
+      ],
+      "conferences": [
+        "ASTRO Annual Meeting"
+      ]
+    },
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Society for Radiation Oncology",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:agu-travel-2026",
+    "title": "AGU Student Travel Grants — 2026 Annual Meeting",
+    "status": "closed",
+    "deadline": "2026-08-12",
+    "funding_type": "Conference travel",
+    "amount": "$1,000 total; disbursement differs by format",
+    "description": "Historical travel and participation support. Check AGU for future rounds.",
+    "eligibility": "AGU student member, enrolled student and first/presenting author. See official abstract and financial requirements.",
+    "topics": [
+      "geoscience",
+      "climate science"
+    ],
+    "url": "https://www.agu.org/Honors/fmstg",
+    "affiliation_tags": {
+      "societies": [
+        "AGU"
+      ],
+      "conferences": [
+        "AGU Annual Meeting"
+      ]
+    },
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Geophysical Union",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:asco-merit-2026",
+    "title": "ASCO Annual Meeting Merit Awards — 2026",
+    "status": "closed",
+    "funding_type": "Conference travel",
+    "description": "Historical award supporting selected trainees and students with high-quality abstracts. No future award window inferred.",
+    "eligibility": "See official award criteria and donor restrictions. Award applications were part of abstract submission.",
+    "topics": [
+      "oncology"
+    ],
+    "url": "https://www.asco.org/annual-meeting/abstracts-presentations/submission-details/abstract-associated-awards",
+    "affiliation_tags": {
+      "societies": [
+        "ASCO"
+      ],
+      "conferences": [
+        "ASCO Annual Meeting"
+      ]
+    },
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Society of Clinical Oncology",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aapm-astro-2027",
+    "title": "2027 ASTRO–AAPM Physics Residents / Postdoctoral Fellows Seed Grant",
+    "status": "open",
+    "deadline": "2027-03-11",
+    "funding_type": "Small grant",
+    "amount": "Up to $50,000",
+    "description": "Application listed as available by AAPM. Deadline: 11:59 p.m. ET.",
+    "eligibility": "Active AAPM membership, qualifying U.S. residency or fellowship and degree, faculty mentor, and at least 50% protected research time.",
+    "eligible_stages": [
+      "resident",
+      "postdoc"
+    ],
+    "topics": [
+      "medical physics",
+      "radiotherapy"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "AAPM",
+        "ASTRO"
+      ]
+    },
+    "url": "https://aapm.secure-platform.com/gaf/page/AAPM_ASTROseed",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Association of Physicists in Medicine",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aapm-rsna-2027",
+    "title": "2027 AAPM / RSNA Graduate Fellowships",
+    "status": "open",
+    "deadline": "2027-04-12",
+    "funding_type": "Fellowship",
+    "amount": "$10,000",
+    "description": "Application listed as available by AAPM. Deadline: 11:59 p.m. ET.",
+    "eligibility": "AAPM member in good standing in a qualifying CAMPEP program. Check year-of-study and academic criteria.",
+    "eligible_stages": [
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "medical physics",
+      "radiotherapy"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "AAPM",
+        "RSNA"
+      ]
+    },
+    "url": "https://aapm.secure-platform.com/gaf/page/DoctoralMasters",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Association of Physicists in Medicine",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aapm-horizons-2027-r1",
+    "title": "AAPM Expanding Horizons Travel Grant — 2027 Round 1",
+    "status": "closed",
+    "deadline": "2026-09-15",
+    "funding_type": "Conference travel",
+    "description": "Round 1 is closed. AAPM expects to post Round 2 details around February 2, 2027.",
+    "eligibility": "Check official criteria and eligible meetings.",
+    "topics": [
+      "medical physics"
+    ],
+    "affiliation_tags": {
+      "societies": [
+        "AAPM"
+      ],
+      "conferences": [
+        "AAPM Annual Meeting"
+      ]
+    },
+    "url": "https://aapm.secure-platform.com/gaf/page/ExpandHorizons1",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Association of Physicists in Medicine",
     "origin": "curated",
     "last_verified_at": "2026-11-13"
   }

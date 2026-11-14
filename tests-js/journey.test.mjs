@@ -38,3 +38,12 @@ test('return view excludes past, unconfirmed and archived deadlines',()=>{
     {id:'far',status:'open',deadline:'2027-01-01'}];
   assert.deepEqual(upcomingSaved(records,'2026-11-13').map(x=>x.id),['next','later']);
 });
+
+test('CVs with common academic layouts recover current appointments without guessing memberships',()=>{
+  const sources=[{fields:['robotics']}];
+  const dated=cvSuggestions('Education\nPhD, Past University\nAcademic Employment\n2025–present   Associate Professor ,   Example University , Robotics\nSelected Publications\nIEEE Symposium',sources);
+  assert.equal(dated.stage,'faculty');assert.deepEqual(dated.topics,['robotics']);
+  assert.deepEqual(dated.institutions,['Example University']);assert.deepEqual(dated.societies,[]);
+  const heading=cvSuggestions('Current Appointment\nProfessor, Example University (2008-present)\nResearch Interests\nCoastal ecology\nEducation\nPhD, Past University');
+  assert.deepEqual(heading.institutions,['Example University']);assert.deepEqual(heading.topics,['Coastal ecology']);
+});

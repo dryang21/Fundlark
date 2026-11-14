@@ -21,6 +21,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build local CV readers
+        run: npm ci --ignore-scripts && npm run build:cv
       - name: Package the standalone skill
         run: python scripts/package_skill.py
       - uses: actions/configure-pages@v5

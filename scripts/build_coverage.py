@@ -49,7 +49,11 @@ def build():
             raise ValueError(f"Unconfirmed application window: {row['id']}")
         row.update(id="coverage:" + row["id"], category="Society", funder=source["name"],
                    origin="curated", last_verified_at=reviewed.isoformat())
-        source.setdefault("program_ids", []).append(row["id"])
+        related = row.get("affiliation_tags", {})
+        linked = {source["alias"], *related.get("societies", []), *related.get("conferences", [])}
+        for alias in linked:
+            if alias in by_alias:
+                by_alias[alias].setdefault("program_ids", []).append(row["id"])
         programs.append(row)
     return dict(schema_version=1, fields=sorted({field for row in sources for field in row["fields"]}),
                 sources=sources, opportunities=programs)
