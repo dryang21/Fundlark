@@ -97,6 +97,7 @@ def init_db():
                     if table == "source_checks" and column == "review_needed":
                         db.execute("UPDATE source_checks SET review_needed=1 WHERE last_changed_at IS NOT NULL")
         catalog = json.loads((APP_DIR / "catalog.json").read_text())
+        catalog.extend(json.loads((APP_DIR / "coverage_catalog.json").read_text()))
         for item in catalog:
             insert_opportunity(db, item, origin="curated", if_absent=True)
 

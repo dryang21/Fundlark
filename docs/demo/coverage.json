@@ -1,0 +1,1824 @@
+{
+  "schema_version": 1,
+  "fields": [
+    "accessibility",
+    "aerospace engineering",
+    "anthropology",
+    "applied mathematics",
+    "artificial intelligence",
+    "astronomy",
+    "astrophysics",
+    "automation",
+    "automotive engineering",
+    "batteries",
+    "bioinformatics",
+    "biomedical engineering",
+    "biostatistics",
+    "cell biology",
+    "chemical biology",
+    "chemical engineering",
+    "chemistry",
+    "civil engineering",
+    "climate science",
+    "communications",
+    "compilers",
+    "computational biology",
+    "computer architecture",
+    "computer graphics",
+    "computer networking",
+    "computer science",
+    "computer systems",
+    "computer vision",
+    "computing education",
+    "condensed matter",
+    "conservation biology",
+    "control systems",
+    "cybersecurity",
+    "data mining",
+    "data science",
+    "databases",
+    "ecology",
+    "economics",
+    "education research",
+    "electrical engineering",
+    "electrochemistry",
+    "energy",
+    "engineering education",
+    "epidemiology",
+    "genetics",
+    "genomics",
+    "geographic information science",
+    "geography",
+    "geology",
+    "geoscience",
+    "geotechnical engineering",
+    "high performance computing",
+    "history",
+    "human-computer interaction",
+    "hydrology",
+    "industrial engineering",
+    "information retrieval",
+    "integrated circuits",
+    "language studies",
+    "linguistics",
+    "literature",
+    "machine learning",
+    "manufacturing",
+    "materials chemistry",
+    "materials science",
+    "mathematics",
+    "mathematics education",
+    "mechanical engineering",
+    "medical imaging",
+    "medical physics",
+    "metallurgy",
+    "meteorology",
+    "microbiology",
+    "nanotechnology",
+    "natural language processing",
+    "neuroscience",
+    "nuclear physics",
+    "ocean engineering",
+    "oceanography",
+    "oncology",
+    "operations research",
+    "optics",
+    "particle physics",
+    "performance engineering",
+    "philosophy",
+    "photonics",
+    "physics",
+    "plasma physics",
+    "political science",
+    "power electronics",
+    "power systems",
+    "process engineering",
+    "programming languages",
+    "psychology",
+    "public health",
+    "public policy",
+    "quantum science",
+    "radiology",
+    "radiotherapy",
+    "remote sensing",
+    "robotics",
+    "scientific computing",
+    "semiconductors",
+    "signal processing",
+    "social computing",
+    "sociology",
+    "software engineering",
+    "speech processing",
+    "statistics",
+    "structural engineering",
+    "systems engineering",
+    "thermal engineering",
+    "transportation",
+    "visualization"
+  ],
+  "sources": [
+    {
+      "id": "aps",
+      "kind": "society",
+      "name": "American Physical Society",
+      "alias": "APS",
+      "url": "https://www.aps.org/",
+      "fields": [
+        "physics",
+        "particle physics",
+        "nuclear physics",
+        "condensed matter",
+        "plasma physics",
+        "quantum science"
+      ],
+      "program_ids": [
+        "coverage:aps-foep-2026"
+      ]
+    },
+    {
+      "id": "iop",
+      "kind": "society",
+      "name": "Institute of Physics",
+      "alias": "IOP",
+      "url": "https://www.iop.org/",
+      "fields": [
+        "physics",
+        "quantum science"
+      ]
+    },
+    {
+      "id": "eps",
+      "kind": "society",
+      "name": "European Physical Society",
+      "alias": "EPS",
+      "url": "https://www.eps.org/",
+      "fields": [
+        "physics"
+      ]
+    },
+    {
+      "id": "osa",
+      "kind": "society",
+      "name": "Optica",
+      "alias": "OSA",
+      "url": "https://www.optica.org/",
+      "fields": [
+        "optics",
+        "photonics"
+      ]
+    },
+    {
+      "id": "spie",
+      "kind": "society",
+      "name": "SPIE",
+      "alias": "SPIE",
+      "url": "https://spie.org/",
+      "fields": [
+        "optics",
+        "photonics",
+        "medical imaging"
+      ]
+    },
+    {
+      "id": "aas",
+      "kind": "society",
+      "name": "American Astronomical Society",
+      "alias": "AAS",
+      "url": "https://aas.org/",
+      "fields": [
+        "astronomy",
+        "astrophysics"
+      ]
+    },
+    {
+      "id": "ras-astronomy",
+      "kind": "society",
+      "name": "Royal Astronomical Society",
+      "alias": "RAS Astronomy",
+      "url": "https://ras.ac.uk/",
+      "fields": [
+        "astronomy",
+        "astrophysics"
+      ]
+    },
+    {
+      "id": "acs",
+      "kind": "society",
+      "name": "American Chemical Society",
+      "alias": "ACS",
+      "url": "https://www.acs.org/",
+      "fields": [
+        "chemistry",
+        "chemical biology"
+      ]
+    },
+    {
+      "id": "rsc",
+      "kind": "society",
+      "name": "Royal Society of Chemistry",
+      "alias": "RSC",
+      "url": "https://www.rsc.org/",
+      "fields": [
+        "chemistry",
+        "materials chemistry"
+      ]
+    },
+    {
+      "id": "mrs",
+      "kind": "society",
+      "name": "Materials Research Society",
+      "alias": "MRS",
+      "url": "https://www.mrs.org/",
+      "fields": [
+        "materials science",
+        "nanotechnology"
+      ]
+    },
+    {
+      "id": "asm-materials",
+      "kind": "society",
+      "name": "ASM International",
+      "alias": "ASM Materials",
+      "url": "https://www.asminternational.org/",
+      "fields": [
+        "materials science",
+        "metallurgy"
+      ]
+    },
+    {
+      "id": "tms",
+      "kind": "society",
+      "name": "The Minerals Metals & Materials Society",
+      "alias": "TMS",
+      "url": "https://www.tms.org/",
+      "fields": [
+        "materials science",
+        "metallurgy"
+      ]
+    },
+    {
+      "id": "ecs",
+      "kind": "society",
+      "name": "Electrochemical Society",
+      "alias": "ECS",
+      "url": "https://www.electrochem.org/",
+      "fields": [
+        "electrochemistry",
+        "batteries"
+      ]
+    },
+    {
+      "id": "asme",
+      "kind": "society",
+      "name": "American Society of Mechanical Engineers",
+      "alias": "ASME",
+      "url": "https://www.asme.org/",
+      "fields": [
+        "mechanical engineering",
+        "manufacturing",
+        "thermal engineering"
+      ],
+      "program_ids": [
+        "coverage:asme-grad-2027"
+      ]
+    },
+    {
+      "id": "imeche",
+      "kind": "society",
+      "name": "Institution of Mechanical Engineers",
+      "alias": "IMechE",
+      "url": "https://www.imeche.org/",
+      "fields": [
+        "mechanical engineering",
+        "manufacturing"
+      ]
+    },
+    {
+      "id": "asce",
+      "kind": "society",
+      "name": "American Society of Civil Engineers",
+      "alias": "ASCE",
+      "url": "https://www.asce.org/",
+      "fields": [
+        "civil engineering",
+        "structural engineering",
+        "geotechnical engineering"
+      ]
+    },
+    {
+      "id": "ice",
+      "kind": "society",
+      "name": "Institution of Civil Engineers",
+      "alias": "ICE",
+      "url": "https://www.ice.org.uk/",
+      "fields": [
+        "civil engineering",
+        "structural engineering"
+      ]
+    },
+    {
+      "id": "aiche",
+      "kind": "society",
+      "name": "American Institute of Chemical Engineers",
+      "alias": "AIChE",
+      "url": "https://www.aiche.org/",
+      "fields": [
+        "chemical engineering",
+        "process engineering"
+      ]
+    },
+    {
+      "id": "aiaa",
+      "kind": "society",
+      "name": "American Institute of Aeronautics and Astronautics",
+      "alias": "AIAA",
+      "url": "https://www.aiaa.org/",
+      "fields": [
+        "aerospace engineering"
+      ]
+    },
+    {
+      "id": "sae",
+      "kind": "society",
+      "name": "Society of Automotive Engineers International",
+      "alias": "SAE",
+      "url": "https://www.sae.org/",
+      "fields": [
+        "automotive engineering",
+        "transportation"
+      ]
+    },
+    {
+      "id": "swe",
+      "kind": "society",
+      "name": "Society of Women Engineers",
+      "alias": "SWE",
+      "url": "https://swe.org/",
+      "fields": [
+        "mechanical engineering",
+        "electrical engineering",
+        "software engineering"
+      ]
+    },
+    {
+      "id": "asee",
+      "kind": "society",
+      "name": "American Society for Engineering Education",
+      "alias": "ASEE",
+      "url": "https://www.asee.org/",
+      "fields": [
+        "engineering education"
+      ]
+    },
+    {
+      "id": "iise",
+      "kind": "society",
+      "name": "Institute of Industrial and Systems Engineers",
+      "alias": "IISE",
+      "url": "https://www.iise.org/",
+      "fields": [
+        "industrial engineering",
+        "systems engineering"
+      ]
+    },
+    {
+      "id": "incose",
+      "kind": "society",
+      "name": "INCOSE",
+      "alias": "INCOSE",
+      "url": "https://www.incose.org/",
+      "fields": [
+        "systems engineering"
+      ]
+    },
+    {
+      "id": "informs",
+      "kind": "society",
+      "name": "INFORMS",
+      "alias": "INFORMS",
+      "url": "https://www.informs.org/",
+      "fields": [
+        "operations research",
+        "industrial engineering"
+      ]
+    },
+    {
+      "id": "ieee-cs",
+      "kind": "society",
+      "name": "IEEE Computer Society",
+      "alias": "IEEE CS",
+      "url": "https://www.computer.org/",
+      "fields": [
+        "computer science",
+        "software engineering",
+        "computer architecture"
+      ]
+    },
+    {
+      "id": "ieee-ras",
+      "kind": "society",
+      "name": "IEEE Robotics and Automation Society",
+      "alias": "IEEE RAS",
+      "url": "https://www.ieee-ras.org/",
+      "fields": [
+        "robotics",
+        "automation"
+      ],
+      "program_ids": [
+        "coverage:ras-member-support"
+      ]
+    },
+    {
+      "id": "ieee-css",
+      "kind": "society",
+      "name": "IEEE Control Systems Society",
+      "alias": "IEEE CSS",
+      "url": "https://ieeecss.org/",
+      "fields": [
+        "control systems",
+        "robotics"
+      ]
+    },
+    {
+      "id": "ieee-sps",
+      "kind": "society",
+      "name": "IEEE Signal Processing Society",
+      "alias": "IEEE SPS",
+      "url": "https://signalprocessingsociety.org/",
+      "fields": [
+        "signal processing",
+        "speech processing"
+      ]
+    },
+    {
+      "id": "ieee-comsoc",
+      "kind": "society",
+      "name": "IEEE Communications Society",
+      "alias": "IEEE ComSoc",
+      "url": "https://www.comsoc.org/",
+      "fields": [
+        "communications",
+        "computer networking"
+      ]
+    },
+    {
+      "id": "ieee-pes",
+      "kind": "society",
+      "name": "IEEE Power & Energy Society",
+      "alias": "IEEE PES",
+      "url": "https://ieee-pes.org/",
+      "fields": [
+        "power systems",
+        "energy"
+      ]
+    },
+    {
+      "id": "ieee-pels",
+      "kind": "society",
+      "name": "IEEE Power Electronics Society",
+      "alias": "IEEE PELS",
+      "url": "https://www.ieee-pels.org/",
+      "fields": [
+        "power electronics",
+        "electrical engineering"
+      ]
+    },
+    {
+      "id": "ieee-photonics",
+      "kind": "society",
+      "name": "IEEE Photonics Society",
+      "alias": "IEEE Photonics",
+      "url": "https://ieeephotonics.org/",
+      "fields": [
+        "photonics",
+        "optics"
+      ]
+    },
+    {
+      "id": "ieee-cis",
+      "kind": "society",
+      "name": "IEEE Computational Intelligence Society",
+      "alias": "IEEE CIS",
+      "url": "https://cis.ieee.org/",
+      "fields": [
+        "artificial intelligence",
+        "machine learning"
+      ]
+    },
+    {
+      "id": "ieee-embs",
+      "kind": "society",
+      "name": "IEEE Engineering in Medicine and Biology Society",
+      "alias": "IEEE EMBS",
+      "url": "https://www.embs.org/",
+      "fields": [
+        "biomedical engineering",
+        "medical imaging"
+      ]
+    },
+    {
+      "id": "ieee-eds",
+      "kind": "society",
+      "name": "IEEE Electron Devices Society",
+      "alias": "IEEE EDS",
+      "url": "https://eds.ieee.org/",
+      "fields": [
+        "semiconductors",
+        "electrical engineering"
+      ]
+    },
+    {
+      "id": "ieee-sscs",
+      "kind": "society",
+      "name": "IEEE Solid-State Circuits Society",
+      "alias": "IEEE SSCS",
+      "url": "https://sscs.ieee.org/",
+      "fields": [
+        "integrated circuits",
+        "semiconductors"
+      ]
+    },
+    {
+      "id": "ieee-grss",
+      "kind": "society",
+      "name": "IEEE Geoscience and Remote Sensing Society",
+      "alias": "IEEE GRSS",
+      "url": "https://www.grss-ieee.org/",
+      "fields": [
+        "remote sensing",
+        "geoscience"
+      ]
+    },
+    {
+      "id": "ieee-npss",
+      "kind": "society",
+      "name": "IEEE Nuclear and Plasma Sciences Society",
+      "alias": "IEEE NPSS",
+      "url": "https://ieee-npss.org/",
+      "fields": [
+        "nuclear physics",
+        "plasma physics",
+        "medical imaging"
+      ]
+    },
+    {
+      "id": "ieee-oes",
+      "kind": "society",
+      "name": "IEEE Oceanic Engineering Society",
+      "alias": "IEEE OES",
+      "url": "https://ieeeoes.org/",
+      "fields": [
+        "ocean engineering",
+        "oceanography"
+      ]
+    },
+    {
+      "id": "acm",
+      "kind": "society",
+      "name": "Association for Computing Machinery",
+      "alias": "ACM",
+      "url": "https://www.acm.org/",
+      "fields": [
+        "computer science",
+        "software engineering"
+      ]
+    },
+    {
+      "id": "sigsoft",
+      "kind": "society",
+      "name": "ACM SIGSOFT",
+      "alias": "SIGSOFT",
+      "url": "https://www.sigsoft.org/",
+      "fields": [
+        "software engineering"
+      ],
+      "program_ids": [
+        "coverage:sigsoft-caps"
+      ]
+    },
+    {
+      "id": "sigplan",
+      "kind": "society",
+      "name": "ACM SIGPLAN",
+      "alias": "SIGPLAN",
+      "url": "https://www.sigplan.org/",
+      "fields": [
+        "programming languages",
+        "compilers"
+      ],
+      "program_ids": [
+        "coverage:sigplan-pac"
+      ]
+    },
+    {
+      "id": "sigchi",
+      "kind": "society",
+      "name": "ACM SIGCHI",
+      "alias": "SIGCHI",
+      "url": "https://sigchi.org/",
+      "fields": [
+        "human-computer interaction",
+        "accessibility"
+      ],
+      "program_ids": [
+        "coverage:sigchi-marsden"
+      ]
+    },
+    {
+      "id": "siggraph-community",
+      "kind": "society",
+      "name": "ACM SIGGRAPH",
+      "alias": "SIGGRAPH community",
+      "url": "https://www.siggraph.org/",
+      "fields": [
+        "computer graphics",
+        "visualization"
+      ]
+    },
+    {
+      "id": "sigir-community",
+      "kind": "society",
+      "name": "ACM SIGIR",
+      "alias": "SIGIR community",
+      "url": "https://sigir.org/",
+      "fields": [
+        "information retrieval"
+      ],
+      "program_ids": [
+        "coverage:sigir-travel"
+      ]
+    },
+    {
+      "id": "sigmod-community",
+      "kind": "society",
+      "name": "ACM SIGMOD",
+      "alias": "SIGMOD community",
+      "url": "https://sigmod.org/",
+      "fields": [
+        "databases"
+      ]
+    },
+    {
+      "id": "sigkdd",
+      "kind": "society",
+      "name": "ACM SIGKDD",
+      "alias": "SIGKDD",
+      "url": "https://www.kdd.org/",
+      "fields": [
+        "data mining",
+        "data science"
+      ]
+    },
+    {
+      "id": "sigcomm-community",
+      "kind": "society",
+      "name": "ACM SIGCOMM",
+      "alias": "SIGCOMM community",
+      "url": "https://www.sigcomm.org/",
+      "fields": [
+        "computer networking"
+      ]
+    },
+    {
+      "id": "sigarch",
+      "kind": "society",
+      "name": "ACM SIGARCH",
+      "alias": "SIGARCH",
+      "url": "https://www.sigarch.org/",
+      "fields": [
+        "computer architecture"
+      ]
+    },
+    {
+      "id": "sigaccess",
+      "kind": "society",
+      "name": "ACM SIGACCESS",
+      "alias": "SIGACCESS",
+      "url": "https://www.sigaccess.org/",
+      "fields": [
+        "accessibility",
+        "human-computer interaction"
+      ]
+    },
+    {
+      "id": "sigcse",
+      "kind": "society",
+      "name": "ACM SIGCSE",
+      "alias": "SIGCSE",
+      "url": "https://sigcse.org/",
+      "fields": [
+        "computing education"
+      ]
+    },
+    {
+      "id": "aaai-society",
+      "kind": "society",
+      "name": "Association for the Advancement of Artificial Intelligence",
+      "alias": "AAAI society",
+      "url": "https://aaai.org/",
+      "fields": [
+        "artificial intelligence",
+        "machine learning"
+      ]
+    },
+    {
+      "id": "acl-society",
+      "kind": "society",
+      "name": "Association for Computational Linguistics",
+      "alias": "ACL society",
+      "url": "https://www.aclweb.org/",
+      "fields": [
+        "natural language processing",
+        "linguistics"
+      ]
+    },
+    {
+      "id": "usenix",
+      "kind": "society",
+      "name": "USENIX Association",
+      "alias": "USENIX",
+      "url": "https://www.usenix.org/",
+      "fields": [
+        "computer systems",
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "siam",
+      "kind": "society",
+      "name": "Society for Industrial and Applied Mathematics",
+      "alias": "SIAM",
+      "url": "https://www.siam.org/",
+      "fields": [
+        "applied mathematics",
+        "scientific computing"
+      ],
+      "program_ids": [
+        "coverage:siam-cse27-travel",
+        "coverage:siam-acda27-travel"
+      ]
+    },
+    {
+      "id": "ams-mathematics",
+      "kind": "society",
+      "name": "American Mathematical Society",
+      "alias": "AMS Mathematics",
+      "url": "https://www.ams.org/",
+      "fields": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "maa",
+      "kind": "society",
+      "name": "Mathematical Association of America",
+      "alias": "MAA",
+      "url": "https://maa.org/",
+      "fields": [
+        "mathematics",
+        "mathematics education"
+      ]
+    },
+    {
+      "id": "asa-statistics",
+      "kind": "society",
+      "name": "American Statistical Association",
+      "alias": "ASA Statistics",
+      "url": "https://www.amstat.org/",
+      "fields": [
+        "statistics",
+        "biostatistics"
+      ]
+    },
+    {
+      "id": "rss",
+      "kind": "society",
+      "name": "Royal Statistical Society",
+      "alias": "RSS",
+      "url": "https://rss.org.uk/",
+      "fields": [
+        "statistics",
+        "data science"
+      ]
+    },
+    {
+      "id": "iscb",
+      "kind": "society",
+      "name": "International Society for Computational Biology",
+      "alias": "ISCB",
+      "url": "https://www.iscb.org/",
+      "fields": [
+        "bioinformatics",
+        "computational biology"
+      ]
+    },
+    {
+      "id": "gsa-genetics",
+      "kind": "society",
+      "name": "Genetics Society of America",
+      "alias": "GSA Genetics",
+      "url": "https://genetics-gsa.org/",
+      "fields": [
+        "genetics",
+        "genomics"
+      ]
+    },
+    {
+      "id": "sfn",
+      "kind": "society",
+      "name": "Society for Neuroscience",
+      "alias": "SfN",
+      "url": "https://www.sfn.org/",
+      "fields": [
+        "neuroscience"
+      ]
+    },
+    {
+      "id": "ascb",
+      "kind": "society",
+      "name": "American Society for Cell Biology",
+      "alias": "ASCB",
+      "url": "https://www.ascb.org/",
+      "fields": [
+        "cell biology"
+      ]
+    },
+    {
+      "id": "asm-microbiology",
+      "kind": "society",
+      "name": "American Society for Microbiology",
+      "alias": "ASM Microbiology",
+      "url": "https://asm.org/",
+      "fields": [
+        "microbiology"
+      ]
+    },
+    {
+      "id": "esa",
+      "kind": "society",
+      "name": "Ecological Society of America",
+      "alias": "ESA",
+      "url": "https://esa.org/",
+      "fields": [
+        "ecology",
+        "conservation biology"
+      ]
+    },
+    {
+      "id": "bes",
+      "kind": "society",
+      "name": "British Ecological Society",
+      "alias": "BES",
+      "url": "https://www.britishecologicalsociety.org/",
+      "fields": [
+        "ecology",
+        "conservation biology"
+      ],
+      "program_ids": [
+        "coverage:bes-small-research"
+      ]
+    },
+    {
+      "id": "scb",
+      "kind": "society",
+      "name": "Society for Conservation Biology",
+      "alias": "SCB",
+      "url": "https://conbio.org/",
+      "fields": [
+        "conservation biology",
+        "ecology"
+      ]
+    },
+    {
+      "id": "agu",
+      "kind": "society",
+      "name": "American Geophysical Union",
+      "alias": "AGU",
+      "url": "https://www.agu.org/",
+      "fields": [
+        "geoscience",
+        "climate science",
+        "hydrology",
+        "oceanography"
+      ]
+    },
+    {
+      "id": "egu",
+      "kind": "society",
+      "name": "European Geosciences Union",
+      "alias": "EGU",
+      "url": "https://www.egu.eu/",
+      "fields": [
+        "geoscience",
+        "hydrology",
+        "climate science"
+      ]
+    },
+    {
+      "id": "gsa-geology",
+      "kind": "society",
+      "name": "Geological Society of America",
+      "alias": "GSA Geology",
+      "url": "https://www.geosociety.org/",
+      "fields": [
+        "geology",
+        "geoscience"
+      ],
+      "program_ids": [
+        "coverage:gsa-grad-2026"
+      ]
+    },
+    {
+      "id": "ams-meteorology",
+      "kind": "society",
+      "name": "American Meteorological Society",
+      "alias": "AMS Meteorology",
+      "url": "https://www.ametsoc.org/",
+      "fields": [
+        "meteorology",
+        "climate science"
+      ]
+    },
+    {
+      "id": "aag",
+      "kind": "society",
+      "name": "American Association of Geographers",
+      "alias": "AAG",
+      "url": "https://www.aag.org/",
+      "fields": [
+        "geography",
+        "geographic information science"
+      ]
+    },
+    {
+      "id": "aapm",
+      "kind": "society",
+      "name": "American Association of Physicists in Medicine",
+      "alias": "AAPM",
+      "url": "https://www.aapm.org/",
+      "fields": [
+        "medical physics",
+        "medical imaging",
+        "radiotherapy"
+      ]
+    },
+    {
+      "id": "astro",
+      "kind": "society",
+      "name": "American Society for Radiation Oncology",
+      "alias": "ASTRO",
+      "url": "https://www.astro.org/",
+      "fields": [
+        "radiotherapy",
+        "oncology"
+      ]
+    },
+    {
+      "id": "asco",
+      "kind": "society",
+      "name": "American Society of Clinical Oncology",
+      "alias": "ASCO",
+      "url": "https://www.asco.org/",
+      "fields": [
+        "oncology"
+      ]
+    },
+    {
+      "id": "rsna",
+      "kind": "society",
+      "name": "Radiological Society of North America",
+      "alias": "RSNA",
+      "url": "https://www.rsna.org/",
+      "fields": [
+        "radiology",
+        "medical imaging"
+      ]
+    },
+    {
+      "id": "apha",
+      "kind": "society",
+      "name": "American Public Health Association",
+      "alias": "APHA",
+      "url": "https://www.apha.org/",
+      "fields": [
+        "public health",
+        "epidemiology"
+      ]
+    },
+    {
+      "id": "ser",
+      "kind": "society",
+      "name": "Society for Epidemiologic Research",
+      "alias": "SER",
+      "url": "https://epiresearch.org/",
+      "fields": [
+        "epidemiology"
+      ]
+    },
+    {
+      "id": "apa",
+      "kind": "society",
+      "name": "American Psychological Association",
+      "alias": "APA",
+      "url": "https://www.apa.org/",
+      "fields": [
+        "psychology"
+      ]
+    },
+    {
+      "id": "aea",
+      "kind": "society",
+      "name": "American Economic Association",
+      "alias": "AEA",
+      "url": "https://www.aeaweb.org/",
+      "fields": [
+        "economics"
+      ]
+    },
+    {
+      "id": "apsa",
+      "kind": "society",
+      "name": "American Political Science Association",
+      "alias": "APSA",
+      "url": "https://www.apsanet.org/",
+      "fields": [
+        "political science",
+        "public policy"
+      ]
+    },
+    {
+      "id": "asa-sociology",
+      "kind": "society",
+      "name": "American Sociological Association",
+      "alias": "ASA Sociology",
+      "url": "https://www.asanet.org/",
+      "fields": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "aaa",
+      "kind": "society",
+      "name": "American Anthropological Association",
+      "alias": "AAA",
+      "url": "https://americananthro.org/",
+      "fields": [
+        "anthropology"
+      ]
+    },
+    {
+      "id": "aera",
+      "kind": "society",
+      "name": "American Educational Research Association",
+      "alias": "AERA",
+      "url": "https://www.aera.net/",
+      "fields": [
+        "education research"
+      ]
+    },
+    {
+      "id": "mla",
+      "kind": "society",
+      "name": "Modern Language Association",
+      "alias": "MLA",
+      "url": "https://www.mla.org/",
+      "fields": [
+        "literature",
+        "language studies"
+      ]
+    },
+    {
+      "id": "aha-history",
+      "kind": "society",
+      "name": "American Historical Association",
+      "alias": "AHA History",
+      "url": "https://www.historians.org/",
+      "fields": [
+        "history"
+      ]
+    },
+    {
+      "id": "apa-philosophy",
+      "kind": "society",
+      "name": "American Philosophical Association",
+      "alias": "APA Philosophy",
+      "url": "https://www.apaonline.org/",
+      "fields": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "icra",
+      "kind": "conference",
+      "name": "IEEE International Conference on Robotics and Automation",
+      "alias": "ICRA",
+      "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/",
+      "fields": [
+        "robotics",
+        "control systems",
+        "automation"
+      ]
+    },
+    {
+      "id": "iros",
+      "kind": "conference",
+      "name": "IEEE RSJ International Conference on Intelligent Robots and Systems",
+      "alias": "IROS",
+      "url": "https://www.ieee-ras.org/conferences-workshops/financially-co-sponsored/iros/",
+      "fields": [
+        "robotics",
+        "automation"
+      ]
+    },
+    {
+      "id": "rss-robotics",
+      "kind": "conference",
+      "name": "Robotics Science and Systems",
+      "alias": "RSS Robotics",
+      "url": "https://roboticsconference.org/",
+      "fields": [
+        "robotics"
+      ]
+    },
+    {
+      "id": "corl",
+      "kind": "conference",
+      "name": "Conference on Robot Learning",
+      "alias": "CoRL",
+      "url": "https://www.corl.org/",
+      "fields": [
+        "robotics",
+        "machine learning"
+      ]
+    },
+    {
+      "id": "cvpr",
+      "kind": "conference",
+      "name": "Computer Vision and Pattern Recognition",
+      "alias": "CVPR",
+      "url": "https://cvpr.thecvf.com/",
+      "fields": [
+        "computer vision"
+      ]
+    },
+    {
+      "id": "iccv",
+      "kind": "conference",
+      "name": "International Conference on Computer Vision",
+      "alias": "ICCV",
+      "url": "https://iccv.thecvf.com/",
+      "fields": [
+        "computer vision"
+      ]
+    },
+    {
+      "id": "eccv",
+      "kind": "conference",
+      "name": "European Conference on Computer Vision",
+      "alias": "ECCV",
+      "url": "https://eccv.ecva.net/",
+      "fields": [
+        "computer vision"
+      ]
+    },
+    {
+      "id": "neurips",
+      "kind": "conference",
+      "name": "Neural Information Processing Systems",
+      "alias": "NeurIPS",
+      "url": "https://neurips.cc/",
+      "fields": [
+        "machine learning",
+        "artificial intelligence"
+      ],
+      "program_ids": [
+        "coverage:neurips-aid-2026"
+      ]
+    },
+    {
+      "id": "icml",
+      "kind": "conference",
+      "name": "International Conference on Machine Learning",
+      "alias": "ICML",
+      "url": "https://icml.cc/",
+      "fields": [
+        "machine learning"
+      ]
+    },
+    {
+      "id": "iclr",
+      "kind": "conference",
+      "name": "International Conference on Learning Representations",
+      "alias": "ICLR",
+      "url": "https://iclr.cc/",
+      "fields": [
+        "machine learning"
+      ]
+    },
+    {
+      "id": "ijcai",
+      "kind": "conference",
+      "name": "International Joint Conference on Artificial Intelligence",
+      "alias": "IJCAI",
+      "url": "https://www.ijcai.org/",
+      "fields": [
+        "artificial intelligence"
+      ]
+    },
+    {
+      "id": "aaai-conference",
+      "kind": "conference",
+      "name": "AAAI Conference on Artificial Intelligence",
+      "alias": "AAAI Conference",
+      "url": "https://aaai.org/conference/aaai/",
+      "fields": [
+        "artificial intelligence"
+      ]
+    },
+    {
+      "id": "icse",
+      "kind": "conference",
+      "name": "International Conference on Software Engineering",
+      "alias": "ICSE",
+      "url": "https://conf.researchr.org/series/icse",
+      "fields": [
+        "software engineering"
+      ],
+      "program_ids": [
+        "coverage:icse-caps-2027"
+      ]
+    },
+    {
+      "id": "fse",
+      "kind": "conference",
+      "name": "Foundations of Software Engineering",
+      "alias": "FSE",
+      "url": "https://conf.researchr.org/series/fse",
+      "fields": [
+        "software engineering"
+      ]
+    },
+    {
+      "id": "ase",
+      "kind": "conference",
+      "name": "Automated Software Engineering",
+      "alias": "ASE",
+      "url": "https://conf.researchr.org/series/ase",
+      "fields": [
+        "software engineering",
+        "automation"
+      ]
+    },
+    {
+      "id": "msr",
+      "kind": "conference",
+      "name": "Mining Software Repositories",
+      "alias": "MSR",
+      "url": "https://conf.researchr.org/series/msr",
+      "fields": [
+        "software engineering"
+      ]
+    },
+    {
+      "id": "pldi",
+      "kind": "conference",
+      "name": "Programming Language Design and Implementation",
+      "alias": "PLDI",
+      "url": "https://conf.researchr.org/series/pldi",
+      "fields": [
+        "programming languages",
+        "compilers"
+      ]
+    },
+    {
+      "id": "popl",
+      "kind": "conference",
+      "name": "Principles of Programming Languages",
+      "alias": "POPL",
+      "url": "https://conf.researchr.org/series/popl",
+      "fields": [
+        "programming languages"
+      ]
+    },
+    {
+      "id": "chi",
+      "kind": "conference",
+      "name": "ACM CHI Conference on Human Factors in Computing Systems",
+      "alias": "CHI",
+      "url": "https://chi.acm.org/",
+      "fields": [
+        "human-computer interaction",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "cscw",
+      "kind": "conference",
+      "name": "ACM Conference on Computer Supported Cooperative Work",
+      "alias": "CSCW",
+      "url": "https://cscw.acm.org/",
+      "fields": [
+        "human-computer interaction",
+        "social computing"
+      ]
+    },
+    {
+      "id": "usenix-security",
+      "kind": "conference",
+      "name": "USENIX Security Symposium",
+      "alias": "USENIX Security",
+      "url": "https://www.usenix.org/conferences",
+      "fields": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "ndss",
+      "kind": "conference",
+      "name": "Network and Distributed System Security Symposium",
+      "alias": "NDSS",
+      "url": "https://www.ndss-symposium.org/",
+      "fields": [
+        "cybersecurity",
+        "computer networking"
+      ]
+    },
+    {
+      "id": "sc",
+      "kind": "conference",
+      "name": "International Conference for High Performance Computing Networking Storage and Analysis",
+      "alias": "SC",
+      "url": "https://supercomputing.org/",
+      "fields": [
+        "high performance computing",
+        "scientific computing"
+      ]
+    },
+    {
+      "id": "icsa",
+      "kind": "conference",
+      "name": "International Conference on Software Architecture",
+      "alias": "ICSA",
+      "url": "https://conf.researchr.org/series/icsa",
+      "fields": [
+        "software engineering"
+      ]
+    },
+    {
+      "id": "sigmetrics-conference",
+      "kind": "conference",
+      "name": "ACM SIGMETRICS International Conference",
+      "alias": "SIGMETRICS Conference",
+      "url": "https://www.sigmetrics.org/",
+      "fields": [
+        "computer systems",
+        "performance engineering"
+      ]
+    },
+    {
+      "id": "cikm",
+      "kind": "conference",
+      "name": "ACM International Conference on Information and Knowledge Management",
+      "alias": "CIKM",
+      "url": "https://www.cikmconference.org/",
+      "fields": [
+        "information retrieval",
+        "databases",
+        "data mining"
+      ]
+    },
+    {
+      "id": "iui",
+      "kind": "conference",
+      "name": "International Conference on Intelligent User Interfaces",
+      "alias": "IUI",
+      "url": "https://iui.acm.org/",
+      "fields": [
+        "human-computer interaction",
+        "artificial intelligence"
+      ]
+    },
+    {
+      "id": "aps-summit",
+      "kind": "conference",
+      "name": "APS Global Physics Summit",
+      "alias": "APS Summit",
+      "url": "https://summit.aps.org/",
+      "fields": [
+        "physics",
+        "condensed matter",
+        "quantum science"
+      ],
+      "program_ids": [
+        "coverage:aps-dls-2027",
+        "coverage:aps-dcomp-2027",
+        "coverage:aps-ghp-2027"
+      ]
+    },
+    {
+      "id": "agu-annual-meeting",
+      "kind": "conference",
+      "name": "AGU Annual Meeting",
+      "alias": "AGU Annual Meeting",
+      "url": "https://www.agu.org/annual-meeting",
+      "fields": [
+        "geoscience",
+        "climate science"
+      ]
+    },
+    {
+      "id": "egu-general-assembly",
+      "kind": "conference",
+      "name": "EGU General Assembly",
+      "alias": "EGU General Assembly",
+      "url": "https://www.egu.eu/meetings/general-assembly/",
+      "fields": [
+        "geoscience",
+        "climate science"
+      ],
+      "program_ids": [
+        "coverage:egu-schlich-2027"
+      ]
+    },
+    {
+      "id": "itsc",
+      "kind": "conference",
+      "name": "International Conference on Intelligent Transportation Systems",
+      "alias": "ITSC",
+      "url": "https://ieee-itss.org/conferences/",
+      "fields": [
+        "transportation",
+        "control systems"
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "coverage:aps-dls-2027",
+      "title": "APS DLS Student Travel Grant — 2027 Global Physics Summit",
+      "status": "open",
+      "deadline": "2026-11-15",
+      "funding_type": "Conference travel",
+      "description": "Partial travel support for undergraduate and graduate students attending the Summit.",
+      "eligibility": "Undergraduate or graduate student attending the Summit. Read the linked award terms for any additional conditions.",
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "physics",
+        "optics",
+        "laser science"
+      ],
+      "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "APS Global Physics Summit",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:aps-dcomp-2027",
+      "title": "APS DCOMP Travel Grant — 2027 Global Physics Summit",
+      "status": "open",
+      "deadline": "2026-11-15",
+      "funding_type": "Conference travel",
+      "description": "Supports students and postdocs participating in Summit sessions sponsored by the Division of Computational Physics.",
+      "eligibility": "Student or postdoctoral researcher participating in a DCOMP-sponsored session; confirm presentation and application requirements.",
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd",
+        "postdoc"
+      ],
+      "topics": [
+        "physics",
+        "computational physics",
+        "scientific computing"
+      ],
+      "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "APS Global Physics Summit",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:aps-ghp-2027",
+      "title": "APS GHP Student Travel Grant — 2027 Global Physics Summit",
+      "status": "open",
+      "deadline": "2027-01-04",
+      "funding_type": "Conference travel",
+      "description": "Travel support for graduate students and postdocs attending the GHP meetings held with the Summit.",
+      "eligibility": "Graduate student or postdoctoral researcher attending the associated GHP meetings. Check the specific award page.",
+      "eligible_stages": [
+        "masters",
+        "phd",
+        "postdoc"
+      ],
+      "topics": [
+        "physics",
+        "particle physics",
+        "nuclear physics"
+      ],
+      "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "APS Global Physics Summit",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:aps-foep-2026",
+      "title": "APS FOEP Physics Outreach Mini-Grants — Fall 2026",
+      "status": "open",
+      "deadline": "2026-11-15",
+      "funding_type": "Small grant",
+      "description": "Supports physics outreach activities and resources. The official deadline is November 15, 2026 at 11:59 p.m. ET.",
+      "eligibility": "Must be a member of the APS Forum on Outreach and Engaging the Public within the application window. See the call for project and budget rules.",
+      "topics": [
+        "physics",
+        "science communication",
+        "physics education"
+      ],
+      "url": "https://engage.aps.org/foep/honors/prizes-awards/mini-grants",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "American Physical Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:asme-grad-2027",
+      "title": "ASME Graduate Engineering Scholarships — 2027–28",
+      "status": "forecast",
+      "deadline": "2027-03-01",
+      "funding_type": "Scholarship",
+      "description": "ASME lists a December 1, 2026 opening and a March 1, 2027 graduate application deadline. Recommendations are due separately on March 5.",
+      "eligibility": "Graduate students in qualifying mechanical engineering, mechanical engineering technology or related programs. ASME student membership is needed to access the application system. Check the individual scholarship rules.",
+      "eligible_stages": [
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "mechanical engineering",
+        "manufacturing",
+        "thermal engineering"
+      ],
+      "url": "https://www.asme.org/asme-programs/students-and-faculty/scholarships/4-year-baccalaureate-graduate-students",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "American Society of Mechanical Engineers",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:ras-member-support",
+      "title": "IEEE RAS Member Support Program — conference travel",
+      "status": "verify",
+      "funding_type": "Conference travel",
+      "description": "Travel support for eligible IEEE Robotics and Automation Society members presenting at a participating conference. Check the specific round.",
+      "eligibility": "IEEE RAS membership and a presentation are required. Applicants must also be students or meet the program's developing-country criterion.",
+      "topics": [
+        "robotics",
+        "automation",
+        "control systems"
+      ],
+      "url": "https://www.ieee-ras.org/membership/member-support-program/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "IEEE Robotics and Automation Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:sigir-travel",
+      "title": "ACM SIGIR Student Travel Grants",
+      "status": "verify",
+      "funding_type": "Conference travel",
+      "description": "Helps cover registration, lodging and travel to participating SIGIR-sponsored conferences.",
+      "eligibility": "Student membership in ACM SIGIR and either a qualifying presentation as an author or doctoral consortium participation. Check the event's rules and deadline.",
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "information retrieval",
+        "computer science",
+        "data mining"
+      ],
+      "url": "https://sigir.hosting.acm.org/general-information/travel-grants/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "ACM SIGIR",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:sigplan-pac",
+      "title": "ACM SIGPLAN PAC Student Conference Support",
+      "status": "verify",
+      "funding_type": "Conference travel",
+      "description": "Travel support for qualifying participation in SIGPLAN-sponsored events. Confirm the event and application process.",
+      "eligibility": "Student ACM member with a SIGPLAN-member adviser. The program lists presenting, coauthoring a paper on the program, or participating in a student poster session as qualifying routes.",
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "programming languages",
+        "compilers",
+        "software engineering"
+      ],
+      "url": "https://sigplan-www.sigplan.hosting.acm.org/PAC/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "ACM SIGPLAN",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:sigchi-marsden",
+      "title": "ACM SIGCHI Gary Marsden Travel Awards",
+      "status": "verify",
+      "funding_type": "Conference travel",
+      "description": "Support for participation in SIGCHI conferences. Check the application timing relative to your conference.",
+      "eligibility": "Check SIGCHI membership, event eligibility and the program's applicant and priority criteria.",
+      "topics": [
+        "human-computer interaction",
+        "accessibility",
+        "computer science"
+      ],
+      "url": "https://sigchi.org/resources/gary-marsden-travel-awards/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "ACM SIGCHI",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:bes-small-research",
+      "title": "British Ecological Society Small Research Grants — 2027 dates unconfirmed",
+      "status": "verify",
+      "funding_type": "Small grant",
+      "description": "Supports research that advances ecological science. The funder says 2027 dates will be confirmed in December.",
+      "eligibility": "Check the official applicant, membership and project criteria before planning a submission.",
+      "topics": [
+        "ecology",
+        "conservation biology",
+        "coastal ecology"
+      ],
+      "url": "https://www.britishecologicalsociety.org/content/small-research-grants/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "British Ecological Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:neurips-aid-2026",
+      "title": "NeurIPS 2026 Financial Assistance",
+      "status": "closed",
+      "deadline": "2026-10-06",
+      "funding_type": "Registration or accommodation support",
+      "description": "Historical 2026 round. Assistance could include registration or accommodation; the program did not cover travel costs. The cutoff was 23:59 Anywhere on Earth.",
+      "eligibility": "See the official 2026 participation and priority criteria. Do not assume they carry over to other years.",
+      "topics": [
+        "machine learning",
+        "artificial intelligence"
+      ],
+      "url": "https://neurips.cc/Conferences/2026/FinancialAssistance",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "Neural Information Processing Systems",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:sigsoft-caps",
+      "title": "ACM SIGSOFT CAPS — conference travel and childcare",
+      "status": "verify",
+      "funding_type": "Conference travel",
+      "description": "Supports participation in SIGSOFT-sponsored events. The organizer publishes travel calls for individual events; childcare is handled separately.",
+      "eligibility": "Students and professionals can consult the applicable conference call. Confirm applicant requirements, accepted work rules and deadlines with the event.",
+      "topics": [
+        "software engineering",
+        "computer science"
+      ],
+      "url": "https://www2.sigsoft.org/activities/capsmain/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "ACM SIGSOFT",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:siam-cse27-travel",
+      "title": "SIAM CSE27 Travel and Registration Support",
+      "status": "open",
+      "deadline": "2026-11-30",
+      "funding_type": "Conference travel",
+      "description": "Conference travel support for the 2027 Computational Science and Engineering meeting. The official directory lists this call among open applications.",
+      "eligibility": "Full-time students in good standing or U.S.-based early-career researchers who received a PhD after January 1, 2021. Check the full call and required materials.",
+      "topics": [
+        "scientific computing",
+        "applied mathematics",
+        "computational physics",
+        "high performance computing"
+      ],
+      "url": "https://www.siam.org/conferences-events/conference-support/travel-and-registration-support/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "Society for Industrial and Applied Mathematics",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:siam-acda27-travel",
+      "title": "SIAM ACDA27 Travel and Registration Support",
+      "status": "open",
+      "deadline": "2026-11-30",
+      "funding_type": "Conference travel",
+      "description": "Conference travel support for the 2027 Applied and Computational Discrete Algorithms meeting.",
+      "eligibility": "Full-time students in good standing or U.S.-based early-career researchers who received a PhD after January 1, 2021. Check the full call and required materials.",
+      "topics": [
+        "applied mathematics",
+        "computer science",
+        "discrete algorithms"
+      ],
+      "url": "https://www.siam.org/conferences-events/conference-support/travel-and-registration-support/",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "Society for Industrial and Applied Mathematics",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:icse-caps-2027",
+      "title": "SIGSOFT CAPS Travel Support — ICSE 2027",
+      "status": "open",
+      "deadline": "2026-12-20",
+      "funding_type": "Conference travel",
+      "description": "Partial travel reimbursement for ICSE 2027. The call does not cover conference registration.",
+      "eligibility": "At least one of the call’s categories applies: SIGSOFT member, undergraduate, participant based in a listed low- or lower-middle-income country, or participant who identifies with an underrepresented racial or ethnic group in their work location.",
+      "topics": [
+        "software engineering",
+        "computer science"
+      ],
+      "url": "https://conf.researchr.org/attending/chase-2027/travel-support",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "International Conference on Software Engineering",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:egu-schlich-2027",
+      "title": "EGU27 Roland Schlich Travel Support",
+      "status": "open",
+      "deadline": "2026-12-01",
+      "funding_type": "Conference travel",
+      "amount": "Registration and abstract-fee support; discretionary travel assistance up to €400",
+      "description": "Travel-support requests are due with the abstract by 13:00 CET on December 1, 2026.",
+      "eligibility": "On-site participant who is the contact, first and presenting author. EGU prioritizes early-career scientists and provides limited support for other eligible applicants; see the official rules.",
+      "topics": [
+        "geoscience",
+        "climate science",
+        "hydrology",
+        "geology"
+      ],
+      "url": "https://www.egu27.eu/attendance/financial_support_and_waivers.html",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "EGU General Assembly",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:gsa-grad-2026",
+      "title": "GSA Graduate Student Research Grants — 2026 round",
+      "status": "closed",
+      "deadline": "2026-02-18",
+      "funding_type": "Small grant",
+      "description": "Historical round supporting graduate research in geological sciences. No later round is inferred from the 2026 announcement.",
+      "eligibility": "The 2026 call required GSA membership and graduate enrollment in a qualifying earth science program in North or Central America.",
+      "eligible_stages": [
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "geology",
+        "geoscience"
+      ],
+      "url": "https://www.geosociety.org/grants-scholarships/graduate-research",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "Geological Society of America",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    }
+  ]
+}

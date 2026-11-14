@@ -38,7 +38,12 @@ export function normalizeProfile(value = {}) {
 }
 export function match(record, profile) {
   const content = topicText([record.title, record.funder, record.description, ...(record.topics || [])].join(' '));
-  const hits = profile.topics.filter(term => includesTopic(content, term) || (synonyms[norm(term)] || []).some(s => includesTopic(content, s)));
+  const topicEvidence = profile.topics.flatMap(term => {
+    if (includesTopic(content, term)) return [{term, matched:term, related:false}];
+    const related = Object.hasOwn(synonyms,norm(term)) ? synonyms[norm(term)].find(word=>includesTopic(content,word)) : undefined;
+    return related ? [{term, matched:related, related:true}] : [];
+  });
+  const hits = topicEvidence.map(item=>item.term);
   const tags = record.affiliation_tags || {};
   const societies = profile.societies.map(norm), institutions = profile.institutions.map(norm);
   const affiliations = (tags.societies || []).filter(name => societies.includes(norm(name)));
@@ -46,15 +51,15 @@ export function match(record, profile) {
   const stages = record.eligible_stages || [];
   let stage = 'Check applicant rules';
   if (profile.stage && stages.length) stage = stages.includes(profile.stage) ? 'Career stage listed; other rules apply' : record.faculty_sponsor_possible ? 'May need a faculty collaborator' : 'Career stage may not qualify';
-  return {hits, affiliations, stage, stageConcern: Boolean(profile.stage && stages.length && !stages.includes(profile.stage)), score: hits.length * 10 + affiliations.length * 15};
+  return {hits, topicEvidence, affiliations, stage, stageConcern: Boolean(profile.stage && stages.length && !stages.includes(profile.stage)), score: hits.length * 10 + affiliations.length * 15};
 }
 export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) { return record.deadline && record.deadline < today ? 'closed' : record.status; }
-export function selectRecords(records, profile, {query='',category='all',availability='active',matchedOnly=false,savedOnly=false,saved=[]} = {}) {
+export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,savedOnly=false,saved=[]} = {}) {
   const terms=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   return records.map(o=>({...o,matching:match(o,profile)})).filter(o=>{
     const status=statusOf(o);
     const available=availability==='all'||(availability==='active'?status!=='closed':availability==='open'?['open','rolling'].includes(status):status===availability);
-    return (category==='all'||o.category===category)&&available&&(!matchedOnly||o.matching.score>0)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[])].join(' ').toLowerCase().includes(term));
+    return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[])].join(' ').toLowerCase().includes(term));
   }).sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||b.matching.score-a.matching.score||Number(a.matching.stageConcern)-Number(b.matching.stageConcern)||({open:0,rolling:0,forecast:1,verify:2}[statusOf(a)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b)]??3));
 }
 export function discoveryLinks(profile, sources=[]) {

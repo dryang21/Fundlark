@@ -102,3 +102,12 @@ def test_candidate_links_unreviewed(client):
     assert result.status_code == 200
     assert result.json()[0]["status"] == "unreviewed"
     assert result.json()[0]["url"].startswith("https://wellcome.org")
+
+
+def test_curated_coverage_batch_is_visible_in_api(client):
+    catalog = {row["id"]: row for row in client.get("/api/opportunities").json()}
+    record = catalog["coverage:icse-caps-2027"]
+    assert record["funding_type"] == "Conference travel"
+    assert record["deadline"] == "2026-12-20"
+    assert record["last_verified_at"] == "2026-11-13"
+    assert catalog["coverage:neurips-aid-2026"]["status"] == "closed"

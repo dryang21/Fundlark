@@ -80,3 +80,12 @@ test('reviewed overlay replaces same round but retains different annual rounds',
   assert.equal(merged.length,2);assert.equal(merged[0].description,'Updated rules');
   assert.equal(mergeCatalog([record],[{...record,id:'different',title:'Another program on the same directory'}]).length,2);
 });
+
+test('match evidence distinguishes literal overlap from a vocabulary expansion',()=>{
+  const result=match({title:'Radiotherapy and imaging',topics:[]},normalizeProfile({topics:['radiotherapy','medical physics','ecology']}));
+  assert.deepEqual(result.topicEvidence,[
+    {term:'radiotherapy',matched:'radiotherapy',related:false},
+    {term:'medical physics',matched:'radiotherapy',related:true}
+  ]);
+  assert.equal(result.stage,'Check applicant rules');
+});

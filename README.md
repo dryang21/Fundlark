@@ -194,3 +194,11 @@ The optional Simpler adapter reads its structured `summary` fields. Where it pro
 - `PATCH /api/candidates/{id}` accepts `{"status":"shortlisted","note":"Optional review note"}`. Allowed states are `unreviewed`, `shortlisted` and `dismissed`.
 
 Existing MVP databases migrate additively on startup. Back up `data/fundlark.sqlite3` before upgrading a working installation. Source snapshot content and review notes are local application data; avoid putting personal information in review notes.
+
+### Browse the field and conference directory
+
+Open the static demo and choose **Explore fields & conferences**. It includes 119 society
+and conference routes across 114 field/topic labels, plus a separate source-backed
+seed of travel awards, scholarships and small grants. Directory entries are not open
+calls. See [coverage and launch gates](docs/research/launch-coverage.md) for the
+generator, verification process and remaining gaps.

@@ -16,7 +16,7 @@
       <div class="eyebrow">RESEARCH FUNDING, OPEN TO EXPLORE</div>
       <h1>Your next breakthrough<br>deserves <em>the right funding.</em></h1>
       <p>Describe your research, explore relevant funding, and save the opportunities worth a closer look.</p>
-      <div class="hero-actions"><a class="button" href="#research-profile">Find my funding ↓</a><a class="button secondary" href="#opportunities">Browse all funding</a></div>
+      <div class="hero-actions"><a class="button" href="#research-profile">Find my funding ↓</a><a class="button secondary" href="#opportunities">Browse all funding</a><a class="button secondary" href="#coverage">Explore fields &amp; conferences</a></div>
       <div class="snapshot" id="snapshotStatus" role="status">Loading public snapshot…</div>
     </section>
     <aside id="exampleBanner" class="journey-panel" hidden><strong>Example mode</strong><p>Try searching and saving. Changes here won’t affect your own profile or shortlist.</p><a href="./" class="button secondary">Back to my Fundlark</a></aside>
@@ -56,11 +56,24 @@
       <div class="section-head"><div><span class="eyebrow">A STARTING POINT FOR YOUR SEARCH</span><h2 id="exploreHeading">Explore funding</h2></div><a href="#use-skill">Search beyond this catalog ↓</a></div>
       <p class="note">This growing catalog has limited coverage, especially outside U.S. government, computing and biomedical research. No match here does not mean no funding exists. Always confirm the official call.</p>
       <form id="searchForm" class="search"><label class="sr-only" for="query">Search research topics, funders or programs</label><input id="query" type="search" placeholder="Search a topic, funder or program…"><button type="submit" class="button">Search</button></form>
-      <div class="filters"><label for="category">Source <select id="category" aria-label="Funding source category"><option value="all">All sources</option><option value="Industry">Industry</option><option value="Government">Government</option><option value="Foundation">Foundations</option><option value="Institution">Institutions</option><option value="Society">Societies</option></select></label><label for="availability">Availability <select id="availability"><option value="active">Programs to check (hide past rounds)</option><option value="open">Listed open / rolling</option><option value="verify">Window unconfirmed</option><option value="forecast">Upcoming calls</option><option value="closed">Past rounds</option><option value="all">All programs</option></select></label><label><input type="checkbox" id="matchedOnly"> Matches my profile</label><label><input type="checkbox" id="savedOnly"> My shortlist <span id="savedCount">(0)</span></label><button id="resetFilters" type="button" class="text-button">Reset filters</button><span id="resultCount" aria-live="polite"></span></div>
+      <div class="filters"><label for="category">Source <select id="category" aria-label="Funding source category"><option value="all">All sources</option><option value="Industry">Industry</option><option value="Government">Government</option><option value="Foundation">Foundations</option><option value="Institution">Institutions</option><option value="Society">Societies</option></select></label><label for="fundingType">Support <select id="fundingType"><option value="">All support types</option></select></label><label for="availability">Availability <select id="availability"><option value="active">Programs to check (hide past rounds)</option><option value="open">Listed open / rolling</option><option value="verify">Window unconfirmed</option><option value="forecast">Upcoming calls</option><option value="closed">Past rounds</option><option value="all">All programs</option></select></label><label><input type="checkbox" id="matchedOnly"> Matches my profile</label><label><input type="checkbox" id="savedOnly"> My shortlist <span id="savedCount">(0)</span></label><button id="resetFilters" type="button" class="text-button">Reset filters</button><span id="resultCount" aria-live="polite"></span></div>
       <div id="matchSummary" class="note" aria-live="polite"></div>
       <div class="shortlist-tools" id="shortlistTools" hidden><span id="shortlistStorageLabel">Saved on this browser only.</span><button id="copyShortlist" type="button" class="text-button">Copy shortlist</button><button id="downloadShortlist" type="button" class="text-button">Download shortlist</button><span id="shortlistStatus" role="status"></span><textarea id="shortlistFallback" rows="6" readonly hidden aria-label="Shortlist to copy manually"></textarea></div>
       <div id="results" class="results"><p>Loading opportunities…</p></div>
       <button id="showMore" class="button secondary more" hidden>Show more opportunities</button>
+    </section>
+    <section id="coverage" class="journey-panel" aria-labelledby="coverageHeading">
+      <h2 id="coverageHeading">Find societies and conferences</h2>
+      <p id="coverageSummary" role="status">Loading the source directory…</p>
+      <p>Start with the organizer’s site. A directory entry doesn’t mean it has an open funding call.</p>
+      <div class="coverage-filters">
+        <label for="coverageQuery">Search sources <input id="coverageQuery" type="search" placeholder="Try robotics, ICSE or physics"></label>
+        <label for="coverageField">Field <select id="coverageField"><option value="">All fields</option></select></label>
+        <label for="coverageKind">Type <select id="coverageKind"><option value="">All sources</option><option value="society">Societies</option><option value="conference">Conferences</option></select></label>
+      </div>
+      <p id="coverageCount" aria-live="polite"></p>
+      <ul id="coverageResults" class="coverage-list"></ul>
+      <button id="coverageMore" type="button" class="button secondary" hidden>Show more sources</button>
     </section>
     <section id="use-skill" class="skill-panel" aria-labelledby="skillHeading">
       <div><span class="eyebrow">GO BEYOND THE CATALOG</span><h2 id="skillHeading">Continue with your<br>AI assistant.</h2><p>Copy your research request, open the assistant you already use, and paste it. An assistant with web browsing can look for current official calls beyond this catalog.</p><p class="small">No skill installation is needed for this request. Your AI provider's usage limits and privacy settings apply. The request includes the research details you entered here.</p><div id="discoveryRoutes" class="discovery-routes"></div></div>

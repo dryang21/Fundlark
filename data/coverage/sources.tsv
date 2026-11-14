@@ -1,0 +1,119 @@
+society|American Physical Society|APS|https://www.aps.org/|physics;particle physics;nuclear physics;condensed matter;plasma physics;quantum science
+society|Institute of Physics|IOP|https://www.iop.org/|physics;quantum science
+society|European Physical Society|EPS|https://www.eps.org/|physics
+society|Optica|OSA|https://www.optica.org/|optics;photonics
+society|SPIE|SPIE|https://spie.org/|optics;photonics;medical imaging
+society|American Astronomical Society|AAS|https://aas.org/|astronomy;astrophysics
+society|Royal Astronomical Society|RAS Astronomy|https://ras.ac.uk/|astronomy;astrophysics
+society|American Chemical Society|ACS|https://www.acs.org/|chemistry;chemical biology
+society|Royal Society of Chemistry|RSC|https://www.rsc.org/|chemistry;materials chemistry
+society|Materials Research Society|MRS|https://www.mrs.org/|materials science;nanotechnology
+society|ASM International|ASM Materials|https://www.asminternational.org/|materials science;metallurgy
+society|The Minerals Metals & Materials Society|TMS|https://www.tms.org/|materials science;metallurgy
+society|Electrochemical Society|ECS|https://www.electrochem.org/|electrochemistry;batteries
+society|American Society of Mechanical Engineers|ASME|https://www.asme.org/|mechanical engineering;manufacturing;thermal engineering
+society|Institution of Mechanical Engineers|IMechE|https://www.imeche.org/|mechanical engineering;manufacturing
+society|American Society of Civil Engineers|ASCE|https://www.asce.org/|civil engineering;structural engineering;geotechnical engineering
+society|Institution of Civil Engineers|ICE|https://www.ice.org.uk/|civil engineering;structural engineering
+society|American Institute of Chemical Engineers|AIChE|https://www.aiche.org/|chemical engineering;process engineering
+society|American Institute of Aeronautics and Astronautics|AIAA|https://www.aiaa.org/|aerospace engineering
+society|Society of Automotive Engineers International|SAE|https://www.sae.org/|automotive engineering;transportation
+society|Society of Women Engineers|SWE|https://swe.org/|mechanical engineering;electrical engineering;software engineering
+society|American Society for Engineering Education|ASEE|https://www.asee.org/|engineering education
+society|Institute of Industrial and Systems Engineers|IISE|https://www.iise.org/|industrial engineering;systems engineering
+society|INCOSE|INCOSE|https://www.incose.org/|systems engineering
+society|INFORMS|INFORMS|https://www.informs.org/|operations research;industrial engineering
+society|IEEE Computer Society|IEEE CS|https://www.computer.org/|computer science;software engineering;computer architecture
+society|IEEE Robotics and Automation Society|IEEE RAS|https://www.ieee-ras.org/|robotics;automation
+society|IEEE Control Systems Society|IEEE CSS|https://ieeecss.org/|control systems;robotics
+society|IEEE Signal Processing Society|IEEE SPS|https://signalprocessingsociety.org/|signal processing;speech processing
+society|IEEE Communications Society|IEEE ComSoc|https://www.comsoc.org/|communications;computer networking
+society|IEEE Power & Energy Society|IEEE PES|https://ieee-pes.org/|power systems;energy
+society|IEEE Power Electronics Society|IEEE PELS|https://www.ieee-pels.org/|power electronics;electrical engineering
+society|IEEE Photonics Society|IEEE Photonics|https://ieeephotonics.org/|photonics;optics
+society|IEEE Computational Intelligence Society|IEEE CIS|https://cis.ieee.org/|artificial intelligence;machine learning
+society|IEEE Engineering in Medicine and Biology Society|IEEE EMBS|https://www.embs.org/|biomedical engineering;medical imaging
+society|IEEE Electron Devices Society|IEEE EDS|https://eds.ieee.org/|semiconductors;electrical engineering
+society|IEEE Solid-State Circuits Society|IEEE SSCS|https://sscs.ieee.org/|integrated circuits;semiconductors
+society|IEEE Geoscience and Remote Sensing Society|IEEE GRSS|https://www.grss-ieee.org/|remote sensing;geoscience
+society|IEEE Nuclear and Plasma Sciences Society|IEEE NPSS|https://ieee-npss.org/|nuclear physics;plasma physics;medical imaging
+society|IEEE Oceanic Engineering Society|IEEE OES|https://ieeeoes.org/|ocean engineering;oceanography
+society|Association for Computing Machinery|ACM|https://www.acm.org/|computer science;software engineering
+society|ACM SIGSOFT|SIGSOFT|https://www.sigsoft.org/|software engineering
+society|ACM SIGPLAN|SIGPLAN|https://www.sigplan.org/|programming languages;compilers
+society|ACM SIGCHI|SIGCHI|https://sigchi.org/|human-computer interaction;accessibility
+society|ACM SIGGRAPH|SIGGRAPH community|https://www.siggraph.org/|computer graphics;visualization
+society|ACM SIGIR|SIGIR community|https://sigir.org/|information retrieval
+society|ACM SIGMOD|SIGMOD community|https://sigmod.org/|databases
+society|ACM SIGKDD|SIGKDD|https://www.kdd.org/|data mining;data science
+society|ACM SIGCOMM|SIGCOMM community|https://www.sigcomm.org/|computer networking
+society|ACM SIGARCH|SIGARCH|https://www.sigarch.org/|computer architecture
+society|ACM SIGACCESS|SIGACCESS|https://www.sigaccess.org/|accessibility;human-computer interaction
+society|ACM SIGCSE|SIGCSE|https://sigcse.org/|computing education
+society|Association for the Advancement of Artificial Intelligence|AAAI society|https://aaai.org/|artificial intelligence;machine learning
+society|Association for Computational Linguistics|ACL society|https://www.aclweb.org/|natural language processing;linguistics
+society|USENIX Association|USENIX|https://www.usenix.org/|computer systems;cybersecurity
+society|Society for Industrial and Applied Mathematics|SIAM|https://www.siam.org/|applied mathematics;scientific computing
+society|American Mathematical Society|AMS Mathematics|https://www.ams.org/|mathematics
+society|Mathematical Association of America|MAA|https://maa.org/|mathematics;mathematics education
+society|American Statistical Association|ASA Statistics|https://www.amstat.org/|statistics;biostatistics
+society|Royal Statistical Society|RSS|https://rss.org.uk/|statistics;data science
+society|International Society for Computational Biology|ISCB|https://www.iscb.org/|bioinformatics;computational biology
+society|Genetics Society of America|GSA Genetics|https://genetics-gsa.org/|genetics;genomics
+society|Society for Neuroscience|SfN|https://www.sfn.org/|neuroscience
+society|American Society for Cell Biology|ASCB|https://www.ascb.org/|cell biology
+society|American Society for Microbiology|ASM Microbiology|https://asm.org/|microbiology
+society|Ecological Society of America|ESA|https://esa.org/|ecology;conservation biology
+society|British Ecological Society|BES|https://www.britishecologicalsociety.org/|ecology;conservation biology
+society|Society for Conservation Biology|SCB|https://conbio.org/|conservation biology;ecology
+society|American Geophysical Union|AGU|https://www.agu.org/|geoscience;climate science;hydrology;oceanography
+society|European Geosciences Union|EGU|https://www.egu.eu/|geoscience;hydrology;climate science
+society|Geological Society of America|GSA Geology|https://www.geosociety.org/|geology;geoscience
+society|American Meteorological Society|AMS Meteorology|https://www.ametsoc.org/|meteorology;climate science
+society|American Association of Geographers|AAG|https://www.aag.org/|geography;geographic information science
+society|American Association of Physicists in Medicine|AAPM|https://www.aapm.org/|medical physics;medical imaging;radiotherapy
+society|American Society for Radiation Oncology|ASTRO|https://www.astro.org/|radiotherapy;oncology
+society|American Society of Clinical Oncology|ASCO|https://www.asco.org/|oncology
+society|Radiological Society of North America|RSNA|https://www.rsna.org/|radiology;medical imaging
+society|American Public Health Association|APHA|https://www.apha.org/|public health;epidemiology
+society|Society for Epidemiologic Research|SER|https://epiresearch.org/|epidemiology
+society|American Psychological Association|APA|https://www.apa.org/|psychology
+society|American Economic Association|AEA|https://www.aeaweb.org/|economics
+society|American Political Science Association|APSA|https://www.apsanet.org/|political science;public policy
+society|American Sociological Association|ASA Sociology|https://www.asanet.org/|sociology
+society|American Anthropological Association|AAA|https://americananthro.org/|anthropology
+society|American Educational Research Association|AERA|https://www.aera.net/|education research
+society|Modern Language Association|MLA|https://www.mla.org/|literature;language studies
+society|American Historical Association|AHA History|https://www.historians.org/|history
+society|American Philosophical Association|APA Philosophy|https://www.apaonline.org/|philosophy
+conference|IEEE International Conference on Robotics and Automation|ICRA|https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/|robotics;control systems;automation
+conference|IEEE RSJ International Conference on Intelligent Robots and Systems|IROS|https://www.ieee-ras.org/conferences-workshops/financially-co-sponsored/iros/|robotics;automation
+conference|Robotics Science and Systems|RSS Robotics|https://roboticsconference.org/|robotics
+conference|Conference on Robot Learning|CoRL|https://www.corl.org/|robotics;machine learning
+conference|Computer Vision and Pattern Recognition|CVPR|https://cvpr.thecvf.com/|computer vision
+conference|International Conference on Computer Vision|ICCV|https://iccv.thecvf.com/|computer vision
+conference|European Conference on Computer Vision|ECCV|https://eccv.ecva.net/|computer vision
+conference|Neural Information Processing Systems|NeurIPS|https://neurips.cc/|machine learning;artificial intelligence
+conference|International Conference on Machine Learning|ICML|https://icml.cc/|machine learning
+conference|International Conference on Learning Representations|ICLR|https://iclr.cc/|machine learning
+conference|International Joint Conference on Artificial Intelligence|IJCAI|https://www.ijcai.org/|artificial intelligence
+conference|AAAI Conference on Artificial Intelligence|AAAI Conference|https://aaai.org/conference/aaai/|artificial intelligence
+conference|International Conference on Software Engineering|ICSE|https://conf.researchr.org/series/icse|software engineering
+conference|Foundations of Software Engineering|FSE|https://conf.researchr.org/series/fse|software engineering
+conference|Automated Software Engineering|ASE|https://conf.researchr.org/series/ase|software engineering;automation
+conference|Mining Software Repositories|MSR|https://conf.researchr.org/series/msr|software engineering
+conference|Programming Language Design and Implementation|PLDI|https://conf.researchr.org/series/pldi|programming languages;compilers
+conference|Principles of Programming Languages|POPL|https://conf.researchr.org/series/popl|programming languages
+conference|ACM CHI Conference on Human Factors in Computing Systems|CHI|https://chi.acm.org/|human-computer interaction;accessibility
+conference|ACM Conference on Computer Supported Cooperative Work|CSCW|https://cscw.acm.org/|human-computer interaction;social computing
+conference|USENIX Security Symposium|USENIX Security|https://www.usenix.org/conferences|cybersecurity
+conference|Network and Distributed System Security Symposium|NDSS|https://www.ndss-symposium.org/|cybersecurity;computer networking
+conference|International Conference for High Performance Computing Networking Storage and Analysis|SC|https://supercomputing.org/|high performance computing;scientific computing
+conference|International Conference on Software Architecture|ICSA|https://conf.researchr.org/series/icsa|software engineering
+conference|ACM SIGMETRICS International Conference|SIGMETRICS Conference|https://www.sigmetrics.org/|computer systems;performance engineering
+conference|ACM International Conference on Information and Knowledge Management|CIKM|https://www.cikmconference.org/|information retrieval;databases;data mining
+conference|International Conference on Intelligent User Interfaces|IUI|https://iui.acm.org/|human-computer interaction;artificial intelligence
+conference|APS Global Physics Summit|APS Summit|https://summit.aps.org/|physics;condensed matter;quantum science
+conference|AGU Annual Meeting|AGU Annual Meeting|https://www.agu.org/annual-meeting|geoscience;climate science
+conference|EGU General Assembly|EGU General Assembly|https://www.egu.eu/meetings/general-assembly/|geoscience;climate science
+conference|International Conference on Intelligent Transportation Systems|ITSC|https://ieee-itss.org/conferences/|transportation;control systems

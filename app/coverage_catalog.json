@@ -1,0 +1,369 @@
+[
+  {
+    "id": "coverage:aps-dls-2027",
+    "title": "APS DLS Student Travel Grant — 2027 Global Physics Summit",
+    "status": "open",
+    "deadline": "2026-11-15",
+    "funding_type": "Conference travel",
+    "description": "Partial travel support for undergraduate and graduate students attending the Summit.",
+    "eligibility": "Undergraduate or graduate student attending the Summit. Read the linked award terms for any additional conditions.",
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "physics",
+      "optics",
+      "laser science"
+    ],
+    "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "APS Global Physics Summit",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aps-dcomp-2027",
+    "title": "APS DCOMP Travel Grant — 2027 Global Physics Summit",
+    "status": "open",
+    "deadline": "2026-11-15",
+    "funding_type": "Conference travel",
+    "description": "Supports students and postdocs participating in Summit sessions sponsored by the Division of Computational Physics.",
+    "eligibility": "Student or postdoctoral researcher participating in a DCOMP-sponsored session; confirm presentation and application requirements.",
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd",
+      "postdoc"
+    ],
+    "topics": [
+      "physics",
+      "computational physics",
+      "scientific computing"
+    ],
+    "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "APS Global Physics Summit",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aps-ghp-2027",
+    "title": "APS GHP Student Travel Grant — 2027 Global Physics Summit",
+    "status": "open",
+    "deadline": "2027-01-04",
+    "funding_type": "Conference travel",
+    "description": "Travel support for graduate students and postdocs attending the GHP meetings held with the Summit.",
+    "eligibility": "Graduate student or postdoctoral researcher attending the associated GHP meetings. Check the specific award page.",
+    "eligible_stages": [
+      "masters",
+      "phd",
+      "postdoc"
+    ],
+    "topics": [
+      "physics",
+      "particle physics",
+      "nuclear physics"
+    ],
+    "url": "https://summit.aps.org/attend/travel-caregiver-grants/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "APS Global Physics Summit",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aps-foep-2026",
+    "title": "APS FOEP Physics Outreach Mini-Grants — Fall 2026",
+    "status": "open",
+    "deadline": "2026-11-15",
+    "funding_type": "Small grant",
+    "description": "Supports physics outreach activities and resources. The official deadline is November 15, 2026 at 11:59 p.m. ET.",
+    "eligibility": "Must be a member of the APS Forum on Outreach and Engaging the Public within the application window. See the call for project and budget rules.",
+    "topics": [
+      "physics",
+      "science communication",
+      "physics education"
+    ],
+    "url": "https://engage.aps.org/foep/honors/prizes-awards/mini-grants",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Physical Society",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:asme-grad-2027",
+    "title": "ASME Graduate Engineering Scholarships — 2027–28",
+    "status": "forecast",
+    "deadline": "2027-03-01",
+    "funding_type": "Scholarship",
+    "description": "ASME lists a December 1, 2026 opening and a March 1, 2027 graduate application deadline. Recommendations are due separately on March 5.",
+    "eligibility": "Graduate students in qualifying mechanical engineering, mechanical engineering technology or related programs. ASME student membership is needed to access the application system. Check the individual scholarship rules.",
+    "eligible_stages": [
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "mechanical engineering",
+      "manufacturing",
+      "thermal engineering"
+    ],
+    "url": "https://www.asme.org/asme-programs/students-and-faculty/scholarships/4-year-baccalaureate-graduate-students",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Society of Mechanical Engineers",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:ras-member-support",
+    "title": "IEEE RAS Member Support Program — conference travel",
+    "status": "verify",
+    "funding_type": "Conference travel",
+    "description": "Travel support for eligible IEEE Robotics and Automation Society members presenting at a participating conference. Check the specific round.",
+    "eligibility": "IEEE RAS membership and a presentation are required. Applicants must also be students or meet the program's developing-country criterion.",
+    "topics": [
+      "robotics",
+      "automation",
+      "control systems"
+    ],
+    "url": "https://www.ieee-ras.org/membership/member-support-program/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "IEEE Robotics and Automation Society",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:sigir-travel",
+    "title": "ACM SIGIR Student Travel Grants",
+    "status": "verify",
+    "funding_type": "Conference travel",
+    "description": "Helps cover registration, lodging and travel to participating SIGIR-sponsored conferences.",
+    "eligibility": "Student membership in ACM SIGIR and either a qualifying presentation as an author or doctoral consortium participation. Check the event's rules and deadline.",
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "information retrieval",
+      "computer science",
+      "data mining"
+    ],
+    "url": "https://sigir.hosting.acm.org/general-information/travel-grants/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "ACM SIGIR",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:sigplan-pac",
+    "title": "ACM SIGPLAN PAC Student Conference Support",
+    "status": "verify",
+    "funding_type": "Conference travel",
+    "description": "Travel support for qualifying participation in SIGPLAN-sponsored events. Confirm the event and application process.",
+    "eligibility": "Student ACM member with a SIGPLAN-member adviser. The program lists presenting, coauthoring a paper on the program, or participating in a student poster session as qualifying routes.",
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "programming languages",
+      "compilers",
+      "software engineering"
+    ],
+    "url": "https://sigplan-www.sigplan.hosting.acm.org/PAC/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "ACM SIGPLAN",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:sigchi-marsden",
+    "title": "ACM SIGCHI Gary Marsden Travel Awards",
+    "status": "verify",
+    "funding_type": "Conference travel",
+    "description": "Support for participation in SIGCHI conferences. Check the application timing relative to your conference.",
+    "eligibility": "Check SIGCHI membership, event eligibility and the program's applicant and priority criteria.",
+    "topics": [
+      "human-computer interaction",
+      "accessibility",
+      "computer science"
+    ],
+    "url": "https://sigchi.org/resources/gary-marsden-travel-awards/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "ACM SIGCHI",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:bes-small-research",
+    "title": "British Ecological Society Small Research Grants — 2027 dates unconfirmed",
+    "status": "verify",
+    "funding_type": "Small grant",
+    "description": "Supports research that advances ecological science. The funder says 2027 dates will be confirmed in December.",
+    "eligibility": "Check the official applicant, membership and project criteria before planning a submission.",
+    "topics": [
+      "ecology",
+      "conservation biology",
+      "coastal ecology"
+    ],
+    "url": "https://www.britishecologicalsociety.org/content/small-research-grants/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "British Ecological Society",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:neurips-aid-2026",
+    "title": "NeurIPS 2026 Financial Assistance",
+    "status": "closed",
+    "deadline": "2026-10-06",
+    "funding_type": "Registration or accommodation support",
+    "description": "Historical 2026 round. Assistance could include registration or accommodation; the program did not cover travel costs. The cutoff was 23:59 Anywhere on Earth.",
+    "eligibility": "See the official 2026 participation and priority criteria. Do not assume they carry over to other years.",
+    "topics": [
+      "machine learning",
+      "artificial intelligence"
+    ],
+    "url": "https://neurips.cc/Conferences/2026/FinancialAssistance",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Neural Information Processing Systems",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:sigsoft-caps",
+    "title": "ACM SIGSOFT CAPS — conference travel and childcare",
+    "status": "verify",
+    "funding_type": "Conference travel",
+    "description": "Supports participation in SIGSOFT-sponsored events. The organizer publishes travel calls for individual events; childcare is handled separately.",
+    "eligibility": "Students and professionals can consult the applicable conference call. Confirm applicant requirements, accepted work rules and deadlines with the event.",
+    "topics": [
+      "software engineering",
+      "computer science"
+    ],
+    "url": "https://www2.sigsoft.org/activities/capsmain/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "ACM SIGSOFT",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:siam-cse27-travel",
+    "title": "SIAM CSE27 Travel and Registration Support",
+    "status": "open",
+    "deadline": "2026-11-30",
+    "funding_type": "Conference travel",
+    "description": "Conference travel support for the 2027 Computational Science and Engineering meeting. The official directory lists this call among open applications.",
+    "eligibility": "Full-time students in good standing or U.S.-based early-career researchers who received a PhD after January 1, 2021. Check the full call and required materials.",
+    "topics": [
+      "scientific computing",
+      "applied mathematics",
+      "computational physics",
+      "high performance computing"
+    ],
+    "url": "https://www.siam.org/conferences-events/conference-support/travel-and-registration-support/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Society for Industrial and Applied Mathematics",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:siam-acda27-travel",
+    "title": "SIAM ACDA27 Travel and Registration Support",
+    "status": "open",
+    "deadline": "2026-11-30",
+    "funding_type": "Conference travel",
+    "description": "Conference travel support for the 2027 Applied and Computational Discrete Algorithms meeting.",
+    "eligibility": "Full-time students in good standing or U.S.-based early-career researchers who received a PhD after January 1, 2021. Check the full call and required materials.",
+    "topics": [
+      "applied mathematics",
+      "computer science",
+      "discrete algorithms"
+    ],
+    "url": "https://www.siam.org/conferences-events/conference-support/travel-and-registration-support/",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Society for Industrial and Applied Mathematics",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:icse-caps-2027",
+    "title": "SIGSOFT CAPS Travel Support — ICSE 2027",
+    "status": "open",
+    "deadline": "2026-12-20",
+    "funding_type": "Conference travel",
+    "description": "Partial travel reimbursement for ICSE 2027. The call does not cover conference registration.",
+    "eligibility": "At least one of the call’s categories applies: SIGSOFT member, undergraduate, participant based in a listed low- or lower-middle-income country, or participant who identifies with an underrepresented racial or ethnic group in their work location.",
+    "topics": [
+      "software engineering",
+      "computer science"
+    ],
+    "url": "https://conf.researchr.org/attending/chase-2027/travel-support",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "International Conference on Software Engineering",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:egu-schlich-2027",
+    "title": "EGU27 Roland Schlich Travel Support",
+    "status": "open",
+    "deadline": "2026-12-01",
+    "funding_type": "Conference travel",
+    "amount": "Registration and abstract-fee support; discretionary travel assistance up to €400",
+    "description": "Travel-support requests are due with the abstract by 13:00 CET on December 1, 2026.",
+    "eligibility": "On-site participant who is the contact, first and presenting author. EGU prioritizes early-career scientists and provides limited support for other eligible applicants; see the official rules.",
+    "topics": [
+      "geoscience",
+      "climate science",
+      "hydrology",
+      "geology"
+    ],
+    "url": "https://www.egu27.eu/attendance/financial_support_and_waivers.html",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "EGU General Assembly",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:gsa-grad-2026",
+    "title": "GSA Graduate Student Research Grants — 2026 round",
+    "status": "closed",
+    "deadline": "2026-02-18",
+    "funding_type": "Small grant",
+    "description": "Historical round supporting graduate research in geological sciences. No later round is inferred from the 2026 announcement.",
+    "eligibility": "The 2026 call required GSA membership and graduate enrollment in a qualifying earth science program in North or Central America.",
+    "eligible_stages": [
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "geology",
+      "geoscience"
+    ],
+    "url": "https://www.geosociety.org/grants-scholarships/graduate-research",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Geological Society of America",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  }
+]

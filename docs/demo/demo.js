@@ -1,3 +1,4 @@
+import {filterSources, relatedSources} from './coverage.mjs';
 import {examples, cvSuggestions, upcomingSaved} from './journey.mjs';
 import {SOCIETIES, INSTITUTIONS, researchTerms, normalizeProfile, selectRecords, statusOf,
   mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness} from './matching.mjs';
@@ -6,7 +7,7 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;',
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
 const labels = {open:'Listed open — confirm before applying',rolling:'Listed rolling — confirm availability',closed:'Past round / closed',forecast:'Upcoming call — not open yet',verify:'Current application window unconfirmed'};
 const PROFILE_KEY='fundlark.public.profile.v1', SAVED_KEY='fundlark.public.shortlist.v1';
-let records=[], sources=[], visible=8, profile=normalizeProfile(), storageAvailable=true;
+let coverageSources=[], coverageLimit=12, records=[], sources=[], visible=8, profile=normalizeProfile(), storageAvailable=true;
 let apiBase='', communityEnabled=false, saved=[];
 const exampleId=new URLSearchParams(location.search).get('example');
 const example=Object.hasOwn(examples,exampleId)?examples[exampleId]:null;
@@ -45,8 +46,20 @@ function renderChips(){
   $('#topicSummary').innerHTML=profile.topics.length?`<p>Words used for catalog matching <span class="small">· edit your description to refine</span></p><div class="chips">${profile.topics.map(t=>`<span class="topic-chip">${esc(t)}</span>`).join('')}</div>`:'';
 }
 function resetFilters({allFunding=false}={}){
-  $('#query').value='';$('#category').value='all';$('#availability').value='active';$('#savedOnly').checked=false;
+  $('#query').value='';$('#category').value='all';$('#fundingType').value='';$('#availability').value='active';$('#savedOnly').checked=false;
   $('#matchedOnly').checked=allFunding?false:hasProfile();visible=8;render();
+}
+function renderCoverage(){
+  const filtered=filterSources(coverageSources,{query:$('#coverageQuery').value,field:$('#coverageField').value,kind:$('#coverageKind').value});
+  $('#coverageCount').textContent=`${filtered.length} sources${filtered.length?' · showing '+Math.min(filtered.length,coverageLimit):''}`;
+  $('#coverageResults').innerHTML=filtered.slice(0,coverageLimit).map(source=>`<li><a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a><span>${esc(source.alias)} · ${esc(source.kind)} · ${esc(source.fields.join(', '))}</span><small>${source.program_ids?.length?'Funding information indexed; see the catalog for round status.':'Directory only; funding not reviewed.'}</small></li>`).join('')||'<li>No sources in this directory match these filters.</li>';
+  $('#coverageMore').hidden=filtered.length<=coverageLimit;
+}
+for(const id of ['coverageQuery','coverageField','coverageKind'])$(`#${id}`).addEventListener(id==='coverageQuery'?'input':'change',()=>{coverageLimit=12;renderCoverage();});
+$('#coverageMore').addEventListener('click',()=>{coverageLimit+=12;renderCoverage();});
+function profileDirectory(){
+  const related=relatedSources(coverageSources,profile);
+  return related.length?`<div class="route-links">${related.map(source=>`<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.alias)} · organizer site ↗</a>`).join('')}</div>`:'';
 }
 function renderRoutes(){
   const links=discoveryLinks(profile,sources);
@@ -62,11 +75,17 @@ function renderReturn(savedRecords){
   $('#returnSummary').textContent=`${savedRecords.length} saved ${savedRecords.length===1?'lead':'leads'}${changed?` · ${changed} with changed catalog details`:''}.`;
   $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${upcoming[0].deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
 }
+function refreshSupportTypes(){
+  const control=$('#fundingType'), selection=control.value;
+  const types=[...new Set(records.map(record=>record.funding_type).filter(type=>typeof type==='string'&&type))].sort();
+  control.innerHTML='<option value="">All support types</option>'+types.map(type=>`<option value="${esc(type)}">${esc(type)}</option>`).join('');
+  if(types.includes(selection))control.value=selection;
+}
 function render(){
   const savedRecords=restoreShortlist(records,saved);
   renderReturn(savedRecords);
   const catalog=$('#savedOnly').checked?savedRecords:records;
-  const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability:$('#availability').value,matchedOnly:$('#matchedOnly').checked,savedOnly:false});
+  const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability:$('#availability').value,fundingType:$('#fundingType').value,matchedOnly:$('#matchedOnly').checked,savedOnly:false});
   $('#savedCount').textContent=`(${savedRecords.length})`;
   $('#shortlistTools').hidden=!savedRecords.length;
   $('#shortlistStorageLabel').textContent=exampleMode?'Example shortlist · this visit only':'Saved on this browser only. Notes stay here and aren’t included in exports.';
@@ -80,10 +99,10 @@ function render(){
   $('#matchedOnly').disabled=!hasProfile();
   $('#results').innerHTML=filtered.length?filtered.slice(0,visible).map(o=>{
     const status=statusOf(o),key=opportunityKey(o),isSaved=saved.some(entry=>entry.key===key);
-    const reasons=[...o.matching.hits.map(t=>`Related topic: ${t}`),...o.matching.affiliations.map(t=>`Your affiliation: ${t}`)];
+    const reasons=[...o.matching.topicEvidence.map(({term,matched,related})=>related?`${term} → related catalog term: ${matched}`:`Catalog mentions: ${term}`),...o.matching.affiliations.map(t=>`Catalog tags your affiliation: ${t}`)];
     const entry=saved.find(item=>item.key===key);
     const checked=o.last_verified_at?.slice(0,10)||'Unknown';
-    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div><h3>${esc(o.title)}</h3><p class="description">${esc(o.description)}</p>${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — no longer in the current catalog. Recheck the official page.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}${reasons.length?`<p class="match-reasons">${esc(reasons.join(' · '))}</p>`:''}<div class="meta"><span class="badge ${status==='closed'?'closed':status==='verify'||status==='forecast'?'caution':''}">${esc(labels[status]||labels.verify)}</span></div><p class="funding-facts"><strong>${esc(o.amount||'Amount not provided')}</strong><br>Deadline: ${esc(o.deadline||'Check official call')}</p><p class="stage-hint ${o.matching.stageConcern?'stage-concern':''}">${esc(o.matching.stage)}.</p><p class="record-date">Record checked/imported: ${esc(checked)}${freshness(o)?`<br><span class="freshness-warning">${esc(freshness(o))}</span>`:''}</p><details><summary>Who can apply & source details</summary><p>${esc(o.eligibility||'Confirm the official applicant rules.')}</p><p>Source checked: ${esc(checked)}.${o.review_needed?' Source changed; this record needs review.':''} A topic or affiliation match does not establish eligibility.</p><p>Next step: read the current call to confirm the application window, applicant rules and required documents.</p></details><div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>${isSaved&&$('#savedOnly').checked?`<div class="saved-note"><label>My next step<input type="text" maxlength="200" placeholder="For example: ask about the applicant rules" data-note="${esc(key)}" value="${esc(entry?.note||'')}"></label></div>`:''}</article>`;
+    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div><h3>${esc(o.title)}</h3><p class="description">${esc(o.description)}</p>${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — no longer in the current catalog. Recheck the official page.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}${reasons.length?`<p class="match-reasons">${esc(reasons.join(' · '))}</p>`:''}<div class="meta"><span class="badge ${status==='closed'?'closed':status==='verify'||status==='forecast'?'caution':''}">${esc(labels[status]||labels.verify)}</span></div><p class="funding-facts"><strong>${esc(o.amount||'Amount not provided')}</strong><br>Deadline: ${esc(o.deadline||'Check official call')}</p><p class="stage-hint ${o.matching.stageConcern?'stage-concern':''}">${esc(o.matching.stage)}.</p><p class="record-date">Record checked/imported: ${esc(checked)}${freshness(o)?`<br><span class="freshness-warning">${esc(freshness(o))}</span>`:''}</p><details><summary>How it matches & what to verify</summary><p><strong>Applicant rules:</strong> ${esc(o.eligibility||'Confirm the official applicant rules.')}</p><p>Record checked/imported: ${esc(checked)}.${o.review_needed?' Source changed; this record needs review.':''} A topic or affiliation match does not establish eligibility.</p><p>Next step: read the current call to confirm the application window, applicant rules and required documents.</p></details><div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>${isSaved&&$('#savedOnly').checked?`<div class="saved-note"><label>My next step<input type="text" maxlength="200" placeholder="For example: ask about the applicant rules" data-note="${esc(key)}" value="${esc(entry?.note||'')}"></label></div>`:''}</article>`;
   }).join(''):emptyState();
   $('#showMore').hidden=filtered.length<=visible;
   renderRoutes();
@@ -91,7 +110,7 @@ function render(){
 function emptyState(){
   const title=$('#savedOnly').checked?'No saved programs match these filters.':hasProfile()?'We haven’t indexed matches for these topics and filters yet.':'No programs match these filters.';
   const routes=discoveryLinks(profile,sources);
-  return `<div class="empty"><h3>${title}</h3><p>This is a limited catalog, not a search of all available funding. You can explore more sources without changing your research interests.</p><div class="empty-actions"><button type="button" class="button" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button><button type="button" class="text-button" data-action="reset">Clear search filters</button></div>${routes.length?`<div class="route-links">${routes.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:''}<p class="small">An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
+  return `<div class="empty"><h3>${title}</h3><p>This is a limited catalog, not a search of all available funding. You can explore more sources without changing your research interests.</p><div class="empty-actions"><button type="button" class="button" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button><button type="button" class="text-button" data-action="reset">Clear search filters</button></div>${profileDirectory()}${routes.length?`<div class="route-links">${routes.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:''}<p class="small">Explore the <a href="#coverage">society and conference directory</a> for more starting points. An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
 }
 async function copyRequest(){
   readProfile({consumeAffiliations:true});
@@ -118,20 +137,30 @@ async function initCommunity(){
     communityEnabled=true;
     const data=await json(`${apiBase}/api/catalog`);
     if(data.schema_version!==1||!Array.isArray(data.opportunities))throw new Error('Invalid community data');
-    records=mergeCatalog(records,data.opportunities);render();
+    records=mergeCatalog(records,data.opportunities);refreshSupportTypes();render();
   }catch { /* Published catalog remains usable when the optional service is offline. */ }
   updateSharing();
 }
 async function init(){
+  const coverageRequest=json('coverage.json').catch(()=>null);
   try{
-    const data=await json('data.json');if(data.schema_version!==1||!Array.isArray(data.opportunities))throw new Error('Unsupported public snapshot');
-    records=data.opportunities;sources=data.sources||[];
+    const [data, directory]=await Promise.all([json('data.json').catch(()=>null),coverageRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
+    if(directory?.schema_version===1){
+      coverageSources=directory.sources;
+      records=mergeCatalog(records,directory.opportunities);
+      $('#coverageField').insertAdjacentHTML('beforeend',directory.fields.map(field=>`<option value="${esc(field)}">${esc(field)}</option>`).join(''));
+      $('#coverageSummary').textContent=`${directory.fields.length} field and topic labels · ${coverageSources.length} societies and conferences · ${directory.opportunities.length} curated funding records, including past and unconfirmed rounds.`;
+      renderCoverage();
+    }else $('#coverageSummary').textContent='The source directory could not be loaded.';
+
+    refreshSupportTypes();
     if(exampleMode){
       profile.topics=researchTerms(profile.researchText,records.flatMap(o=>o.topics||[]));
       renderChips();
     }
     for(const entry of saved)if(!entry.record){const record=records.find(o=>opportunityKey(o)===entry.key);if(record)entry.record=publicRecordSnapshot(record);}
-    $('#snapshotStatus').textContent=`${records.length} catalog programs · Published ${new Date(data.generated_at).toLocaleDateString()} · Coverage and source dates vary`;
+    $('#snapshotStatus').textContent=`${records.length} catalog programs · ${baseAvailable?'Base snapshot '+new Date(data.generated_at).toLocaleDateString():'Base snapshot unavailable'} · Coverage and source dates vary`;
     render();
   }catch {$('#snapshotStatus').textContent='The catalog could not be loaded.';$('#results').innerHTML='<div class="empty"><h3>Funding catalog temporarily unavailable</h3><p>Your profile is still here. Try reloading or continue with a search request for your assistant below.</p><a class="button" href="#use-skill">Continue with my assistant</a></div>';$('#resultCount').textContent='Catalog unavailable';}
   await initCommunity();
@@ -155,10 +184,10 @@ $('#clearProfile').addEventListener('click',()=>{
 $('#skillMode').addEventListener('change',()=>{updateSharing();$('#copyStatus').textContent='Copy a new request to apply this choice.';});
 $('#sharePublic').addEventListener('change',()=>{readProfile();$('#copyStatus').textContent='Copy a new request to apply this sharing preference.';});
 $('#searchForm').addEventListener('submit',event=>{event.preventDefault();visible=8;render();});
-for(const id of ['query','category','availability','matchedOnly'])$(`#${id}`).addEventListener(id==='query'?'input':'change',()=>{visible=8;render();});
+for(const id of ['query','category','fundingType','availability','matchedOnly'])$(`#${id}`).addEventListener(id==='query'?'input':'change',()=>{visible=8;render();});
 function showShortlist(){
   $('#savedOnly').checked=true;
-  $('#availability').value='all';$('#matchedOnly').checked=false;$('#query').value='';$('#category').value='all';
+  $('#availability').value='all';$('#matchedOnly').checked=false;$('#query').value='';$('#category').value='all';$('#fundingType').value='';
   visible=8;render();
 }
 $('#savedOnly').addEventListener('change',()=>{if($('#savedOnly').checked)showShortlist();else resetFilters();});
