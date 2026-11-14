@@ -59,7 +59,13 @@ function resetFilters({allFunding=false}={}){
 function renderCoverage(){
   const filtered=filterSources(coverageSources,{query:$('#coverageQuery').value,field:$('#coverageField').value,kind:$('#coverageKind').value});
   $('#coverageCount').textContent=`${filtered.length} sources${filtered.length?' · showing '+Math.min(filtered.length,coverageLimit):''}`;
-  $('#coverageResults').innerHTML=filtered.slice(0,coverageLimit).map(source=>`<li><a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a><span>${esc(source.alias)} · ${esc(source.kind)} · ${esc(source.fields.join(', '))}</span><small>${source.program_ids?.length?'Funding records below, including any past rounds.':'Directory only; funding not reviewed.'}</small>${source.program_ids?.length?awardLinks(linkedPrograms(records,source.program_ids)):''}</li>`).join('')||'<li>No sources in this directory match these filters.</li>';
+  $('#coverageResults').innerHTML=filtered.slice(0,coverageLimit).map(source=>{
+    const awards=linkedPrograms(records,source.program_ids||[]);
+    const funding=awards.length?
+      `<details><summary>Funding records (${awards.length})</summary>${awardLinks(awards)}</details>`:
+      '<small>Directory only; funding not reviewed.</small>';
+    return `<li><a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a><span>${esc(source.alias)} · ${esc(source.kind)} · ${esc(source.fields.join(', '))}</span>${funding}</li>`;
+  }).join('')||'<li>No sources in this directory match these filters.</li>';
   $('#coverageMore').hidden=filtered.length<=coverageLimit;
 }
 for(const id of ['coverageQuery','coverageField','coverageKind'])$(`#${id}`).addEventListener(id==='coverageQuery'?'input':'change',()=>{coverageLimit=12;renderCoverage();});
