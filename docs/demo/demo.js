@@ -1,9 +1,9 @@
 import {readCV} from './cv-reader.mjs';
 import {setupOrganizations} from './organization-picker.mjs?v=1';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-6';
+import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-7';
 import {researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-6';
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-7';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
@@ -159,9 +159,22 @@ function render(){
   renderRoutes();
 }
 function emptyState(){
-  const title=$('#savedOnly').checked?'No saved programs match these filters.':matchedOnly?'We haven’t indexed matches for this profile and these filters yet.':'No programs match these filters.';
+  const shortlist=$('#savedOnly').checked;
+  const matches=matchedOnly&&!shortlist?selectRecords(records,profile,{matchedOnly:true,availability:'all'}):[];
+  const hasOtherRounds=matches.some(record=>statusOf(record)==='closed');
+  const hasCurrent=matches.some(record=>statusOf(record)!=='closed');
+  const title=shortlist?'No saved programs match these filters.':!matchedOnly?'No programs match these filters.':
+    hasCurrent?'Your filters hide the available catalog leads.':
+    hasOtherRounds?'Only past rounds match this profile.':'No matches in the Fundlark catalog yet.';
+  const explanation=shortlist?'Try a different filter or return to browsing.':!matchedOnly?'Try a different search or clear the filters.':
+    hasCurrent?'Clear the filters to see other catalog leads for this profile.':
+    hasOtherRounds?'Past rounds can help you identify programs to watch for their next call.':
+    'Fundlark checked its catalog. Other funding may be available from your societies, institutions, or research sponsors.';
   const routes=discoveryLinks(profile,sources);
-  return `<div class="empty"><h3>${title}</h3><p>This is a limited catalog, not a search of all available funding. You can explore more sources without changing your research interests.</p><div class="empty-actions"><button type="button" class="button" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button><button type="button" class="text-button" data-action="reset">Clear search filters</button></div>${profileDirectory()}${routes.length?`<div class="route-links">${routes.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:''}<p class="small">Explore the <a href="#coverage">society and conference directory</a> for more starting points. An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
+  const recovery=hasCurrent?'<button type="button" class="button" data-action="reset">Clear filters and keep my matches</button>':
+    hasOtherRounds?'<button type="button" class="button" data-action="past">See matching past rounds</button>':'';
+  const clearFilters=!matchedOnly||shortlist?'<button type="button" class="text-button" data-action="reset">Clear search filters</button>':'';
+  return `<div class="empty"><h3>${title}</h3><p>${explanation}</p><div class="empty-actions">${recovery}<button type="button" class="button ${recovery?'secondary':''}" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button>${clearFilters}</div>${profileDirectory()}${routes.length?`<div class="route-links">${routes.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:''}<p class="small">Explore the <a href="#coverage">society and conference directory</a> for more starting points. An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
 }
 async function copyRequest(){
   readProfile({consumeAffiliations:true});
@@ -193,9 +206,9 @@ async function initCommunity(){
   updateSharing();
 }
 async function init(){
-  const coverageRequest=json('coverage.json?v=profile-directory-1').catch(()=>null);
+  const coverageRequest=json('coverage.json?v=cv-matches-1').catch(()=>null);
   try{
-    const [data, directory]=await Promise.all([json('data.json?v=profile-directory-1').catch(()=>null),coverageRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    const [data, directory]=await Promise.all([json('data.json?v=cv-matches-1').catch(()=>null),coverageRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
     if(directory?.schema_version===1){
       coverageSources=directory.sources;
@@ -257,7 +270,13 @@ $('#showMore').addEventListener('click',()=>{visible+=8;render();});
 $('#copyPrompt').addEventListener('click',copyRequest);
 $('#results').addEventListener('click',event=>{
   const action=event.target.closest('[data-action]')?.dataset.action;
-  if(action==='assistant')copyRequest();if(action==='browse')resetFilters({allFunding:true});if(action==='reset')resetFilters({allFunding:true});
+  if(action==='assistant')copyRequest();
+  if(action==='browse')resetFilters({allFunding:true});
+  if(action==='reset'){
+    if($('#savedOnly').checked){showShortlist();}
+    else resetFilters({allFunding:!matchedOnly});
+  }
+  if(action==='past'){resetFilters();$('#availability').value='closed';render();}
   const button=event.target.closest('[data-save]');if(!button)return;
   const key=button.dataset.save;
   if(saved.some(entry=>entry.key===key))saved=saved.filter(entry=>entry.key!==key);

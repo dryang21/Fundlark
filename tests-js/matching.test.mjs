@@ -99,3 +99,15 @@ test('personalized results surface compatible leads before strong topics with kn
   ];
   assert.deepEqual(selectRecords(rows,profile,{matchedOnly:true}).map(row=>row.id),['postdoc','faculty','members']);
 });
+
+test('specific CV phrases can match curated broad fields without counting the same field twice',()=>{
+  const rows=[
+    {id:'robotics',title:'Robotics conference support',topics:['robotics'],status:'open'},
+    {id:'distractor',title:'Robotics is mentioned but this covers language',topics:['linguistics'],status:'open'},
+  ];
+  const profile=normalizeProfile({topics:['Mobile Robotics','Assistive Robotics'],stage:'faculty'});
+  const results=selectRecords(rows,profile,{matchedOnly:true});
+  assert.deepEqual(results.map(row=>row.id),['robotics']);
+  assert.equal(results[0].matching.score,5);
+  assert.deepEqual(results[0].matching.topicEvidence[0],{term:'Mobile Robotics',matched:'robotics',related:true});
+});

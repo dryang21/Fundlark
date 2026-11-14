@@ -442,7 +442,8 @@
         "automation"
       ],
       "program_ids": [
-        "coverage:ras-member-support"
+        "coverage:ras-member-support",
+        "coverage:ieee-ras-foundation-dissertation-2027"
       ]
     },
     {
@@ -2517,6 +2518,28 @@
       "source_date": "2026-11-14",
       "category": "Society",
       "funder": "Optica",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "id": "coverage:ieee-ras-foundation-dissertation-2027",
+      "title": "IEEE RAS Foundation Cluster PhD Dissertation Award — 2027",
+      "status": "open",
+      "deadline": "2026-11-30",
+      "funding_type": "Prize",
+      "amount": "$500 travel/activity reimbursement",
+      "description": "Recognizes contributions to foundational robotics, with reimbursement for eligible travel and society activities.",
+      "eligibility": "Nominees must have earned a PhD within the past two years and need endorsement from a Foundation Cluster technical committee.",
+      "eligible_stages": [],
+      "topics": [
+        "robotics",
+        "robot control",
+        "automation"
+      ],
+      "url": "https://www.ieee-ras.org/phd-dissertation-award-by-the-foundation-cluster-2027/",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "IEEE Robotics and Automation Society",
       "origin": "curated",
       "last_verified_at": "2026-11-14"
     }

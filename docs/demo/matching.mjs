@@ -11,6 +11,11 @@ const synonyms = {
 };
 const norm = value => String(value || '').trim().toLocaleLowerCase();
 const topicText = value => norm(value).replace(/[-\s]+/g, ' ');
+
+const broadFields = new Set(['robotics','machine learning','artificial intelligence','computer vision',
+  'computer science','software engineering','statistics','mathematics','ecology','conservation biology',
+  'climate science','public health','epidemiology','medical physics','radiotherapy','oncology',
+  'neuroscience','photonics','materials science','economics','linguistics','sociology']);
 const includesTopic = (content, term) => new RegExp(`(?:^|[^\\p{L}\\p{N}])${topicText(term).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:$|[^\\p{L}\\p{N}])`, 'u').test(content);
 export function list(value) {
   return [...new Set(String(value || '').split(/[,;\n]/).map(s => s.trim()).filter(Boolean))].slice(0, 20);
@@ -77,7 +82,10 @@ export function match(record, profile) {
   const topicEvidence = profile.topics.flatMap(term => {
     if (includesTopic(content, term)) return [{term, matched:term, related:false}];
     const related = Object.hasOwn(synonyms,norm(term)) ? synonyms[norm(term)].find(word=>includesTopic(content,word)) : undefined;
-    return related ? [{term, matched:related, related:true}] : [];
+    if(related)return [{term, matched:related, related:true}];
+    const broader=(record.topics||[]).map(topicText).filter(field=>broadFields.has(field))
+      .sort((a,b)=>b.length-a.length).find(field=>includesTopic(topicText(term),field));
+    return broader?[{term,matched:broader,related:true}]:[];
   });
   const hits = topicEvidence.map(item=>item.term);
   const tags = record.affiliation_tags || {};
@@ -91,9 +99,15 @@ export function match(record, profile) {
   if (profile.stage && stages.length) stage = stages.includes(profile.stage) ? 'Career stage listed; other rules apply' : record.faculty_sponsor_possible ? 'May need a faculty collaborator' : 'Career stage may not qualify';
   const stageConcern=Boolean(profile.stage && stages.length && !stages.includes(profile.stage));
   const affiliationConcern=requestedAffiliation&&!affiliations.length;
+  const scores=new Map();
+  for(const {term,matched,related} of topicEvidence){
+    const score=related&&norm(term)!=='ai'?5:10;
+    const key=topicText(matched);
+    scores.set(key,Math.max(scores.get(key)||0,score));
+  }
   return {hits, topicEvidence, affiliations, stage, stageConcern, affiliationConcern,
     stageMatch:Boolean(profile.stage&&stages.includes(profile.stage)),
-    score: topicEvidence.reduce((n,term)=>n+(term.related&&norm(term.term)!=='ai'?5:10),0)+affiliations.length*15};
+    score: [...scores.values()].reduce((n,score)=>n+score,0)+affiliations.length*15};
 }
 export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) { return record.deadline && record.deadline < today ? 'closed' : record.status; }
 export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,savedOnly=false,saved=[]} = {}) {

@@ -1,4 +1,4 @@
-export {cvReview, cvSuggestions} from './cv-profile.mjs?v=cv-profile-3';
+export {cvReview, cvSuggestions} from './cv-profile.mjs?v=cv-profile-4';
 
 // Sample sessions never read or write personal browser storage.
 export const examples = {
