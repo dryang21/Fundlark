@@ -1,4 +1,4 @@
-import {SOCIETIES, societyKey} from './matching.mjs?v=membership-5';
+import {SOCIETIES, societyKey} from './matching.mjs?v=membership-6';
 
 const topicHeading = /^(?:research (?:interests?|topics?|focus|areas?|specialt(?:y|ies)|expertise|summary|profile|keywords|overview|themes|program(?:me)?|statement)|(?:current |selected )?research projects?|research methods|areas of (?:research|expertise)|technical (?:skills|expertise)|keywords|specialties)$/i;
 const memberHeading = /^(?:(?:current |professional |scientific |academic |society )*(?:memberships?|societ(?:y|ies))|professional (?:associations|organizations)|(?:professional |society )?memberships? (?:and|&) affiliations)$/i;

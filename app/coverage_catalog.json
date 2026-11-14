@@ -680,5 +680,100 @@
     "funder": "American Association of Physicists in Medicine",
     "origin": "curated",
     "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:iop-early-career-researchers-fund",
+    "title": "Institute of Physics Early Career Researchers Fund",
+    "description": "Contributes to the cost of attending a conference connected to the applicant’s IOP group.",
+    "eligibility": "IOP members in the first three years of paid physics research or applied physics work. Industry applicants need matching support.",
+    "topics": [
+      "physics",
+      "applied physics",
+      "quantum science",
+      "photonics"
+    ],
+    "eligible_stages": [],
+    "url": "https://www.iop.org/about/support-grants/early-career-researchers-fund",
+    "amount": "Up to £300",
+    "deadline": null,
+    "status": "verify",
+    "affiliation_tags": {
+      "societies": [
+        "IOP"
+      ]
+    },
+    "funding_type": "Conference travel",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Institute of Physics",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:aps-braslau-travel",
+    "title": "American Physical Society Braslau Family Travel Grant",
+    "description": "Covers Global Physics Summit registration and reimburses eligible travel.",
+    "eligibility": "Degree-seeking students and early career physicists presenting research at the Summit. Check the application portal for the cutoff.",
+    "topics": [
+      "physics",
+      "particle physics",
+      "condensed matter",
+      "quantum science"
+    ],
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd",
+      "postdoc"
+    ],
+    "url": "https://www.aps.org/funding-recognition/grant/braslau-family-travel-grant",
+    "amount": "Up to $1,750 plus registration",
+    "deadline": null,
+    "status": "verify",
+    "affiliation_tags": {
+      "societies": [
+        "APS"
+      ],
+      "conferences": [
+        "APS Summit"
+      ]
+    },
+    "funding_type": "Conference travel",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "American Physical Society",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
+  },
+  {
+    "id": "coverage:esa-real-brown-travel",
+    "title": "Ecological Society of America Real Brown Travel Award",
+    "description": "Helps students travel to the Ecological Society of America Annual Meeting.",
+    "eligibility": "Check the award page for student eligibility, meeting participation, and the applicable year.",
+    "topics": [
+      "ecology",
+      "conservation biology",
+      "environmental science"
+    ],
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd"
+    ],
+    "url": "https://esa.org/students/awards/travel-awards/",
+    "amount": null,
+    "deadline": null,
+    "status": "verify",
+    "affiliation_tags": {
+      "societies": [
+        "ESA"
+      ]
+    },
+    "funding_type": "Conference travel",
+    "source_date": "2026-11-13",
+    "category": "Society",
+    "funder": "Ecological Society of America",
+    "origin": "curated",
+    "last_verified_at": "2026-11-13"
   }
 ]

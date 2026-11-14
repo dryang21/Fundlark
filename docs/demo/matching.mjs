@@ -1,6 +1,6 @@
 // Browser-only matching. These scores explain overlap, never applicant eligibility.
+import {organizationKey, localInstitutions, resolveOrganization} from './organizations.mjs?v=1';
 export const SOCIETIES = ['IEEE', 'AAPM', 'ASTRO', 'Sigma Xi', 'ACM', 'ASCO', 'RSNA', 'American Chemical Society', 'American Physical Society', 'American Geophysical Union', 'American Economic Association', 'Modern Language Association'];
-export const INSTITUTIONS = ['Stanford University', 'Harvard University', 'Massachusetts Institute of Technology', 'University of California, San Francisco', 'University of Toronto'];
 const synonyms = {
   'ai': ['artificial intelligence'],
   'ai agents': ['agentic ai', 'autonomous agents'],
@@ -36,9 +36,7 @@ export function normalizeProfile(value = {}) {
     stage: ['undergrad','masters','phd','postdoc','resident','faculty','staff'].includes(value.stage) ? value.stage : '',
     sharePublic: value.sharePublic === true};
 }
-export function societyKey(value) {
-  const key=norm(value).replace(/&/g,'and').replace(/[^a-z0-9]/g,'');
-  const aliases={
+const societyAliases={
     instituteofelectricalandelectronicsengineers:'ieee', associationforcomputingmachinery:'acm',
     sigmaxithescientificresearchhonorsociety:'sigmaxi', sigmaxiscientificresearchhonorsociety:'sigmaxi',
     americanphysicalsociety:'aps', americanassociationofphysicistsinmedicine:'aapm',
@@ -48,10 +46,23 @@ export function societyKey(value) {
     americansocietyofmechanicalengineers:'asme', societyforindustrialandappliedmathematics:'siam',
     ieeeroboticsandautomationsociety:'ieeeras', roboticsandautomationsociety:'ieeeras',
     ieeecomputersociety:'ieeecs', acmsigsoft:'sigsoft', acmsigchi:'sigchi',
-    acmsigplan:'sigplan', acmsigir:'sigir', sigircommunity:'sigir'
+    acmsigplan:'sigplan', acmsigir:'sigir', sigircommunity:'sigir',
+    instituteofphysics:'iop', ecologicalsocietyofamerica:'esa',
+    royalsocietyofchemistry:'rsc', associationforpsychologicalscience:'apspsychology',
+    americanchemicalsociety:'acs', americancollegeofradiology:'acr'
   };
-  return Object.hasOwn(aliases,key)?aliases[key]:key;
+const extraSocietyAliases=new Map();
+export function configureSocietyAliases(entries){
+  extraSocietyAliases.clear();
+  for(const {kind,name,alias} of entries){
+    if(kind==='society'&&alias)extraSocietyAliases.set(organizationKey(name),organizationKey(alias));
+  }
 }
+export function societyKey(value) {
+  const key=organizationKey(value);
+  return Object.hasOwn(societyAliases,key)?societyAliases[key]:extraSocietyAliases.get(key)||key;
+}
+const institutionKey=value=>organizationKey(resolveOrganization(value,localInstitutions));
 export function membershipMatches(record, societies) {
   const confirmed = new Set(societies.map(societyKey).filter(Boolean));
   return (record.affiliation_tags?.societies||[]).filter(name=>confirmed.has(societyKey(name)));
@@ -70,9 +81,9 @@ export function match(record, profile) {
   });
   const hits = topicEvidence.map(item=>item.term);
   const tags = record.affiliation_tags || {};
-  const institutions = profile.institutions.map(norm);
+  const institutions = profile.institutions.map(institutionKey);
   const affiliations = membershipMatches(record, profile.societies);
-  const institutionMatch=Boolean(tags.institution && institutions.includes(norm(tags.institution)));
+  const institutionMatch=Boolean(tags.institution && institutions.includes(institutionKey(tags.institution)));
   if(institutionMatch)affiliations.push(tags.institution);
   const requestedAffiliation=Boolean(tags.institution||tags.societies?.length);
   const stages = record.eligible_stages || [];
@@ -81,15 +92,17 @@ export function match(record, profile) {
   const stageConcern=Boolean(profile.stage && stages.length && !stages.includes(profile.stage));
   const affiliationConcern=requestedAffiliation&&!affiliations.length;
   return {hits, topicEvidence, affiliations, stage, stageConcern, affiliationConcern,
+    stageMatch:Boolean(profile.stage&&stages.includes(profile.stage)),
     score: topicEvidence.reduce((n,term)=>n+(term.related&&norm(term.term)!=='ai'?5:10),0)+affiliations.length*15};
 }
 export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) { return record.deadline && record.deadline < today ? 'closed' : record.status; }
 export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,savedOnly=false,saved=[]} = {}) {
   const terms=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const stageOnly=profile.stage&&!profile.topics.length&&!profile.societies.length&&!profile.institutions.length;
   return records.map(o=>({...o,matching:match(o,profile)})).filter(o=>{
     const status=statusOf(o);
     const available=availability==='all'||(availability==='active'?status!=='closed':availability==='open'?['open','rolling'].includes(status):status===availability);
-    return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[]),...(o.affiliation_tags?.societies||[]),...(o.affiliation_tags?.conferences||[])].join(' ').toLowerCase().includes(term));
+    return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0||stageOnly&&o.matching.stageMatch)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[]),...(o.affiliation_tags?.societies||[]),...(o.affiliation_tags?.conferences||[])].join(' ').toLowerCase().includes(term));
   }).sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||
     (matchedOnly?(Number(a.matching.stageConcern)+Number(a.matching.affiliationConcern))-(Number(b.matching.stageConcern)+Number(b.matching.affiliationConcern)):0)||
     b.matching.score-a.matching.score||({open:0,rolling:0,forecast:1,verify:2}[statusOf(a)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b)]??3));
@@ -97,7 +110,8 @@ export function selectRecords(records, profile, {query='',category='all',availab
 export function discoveryLinks(profile, sources=[]) {
   const links=[];
   for(const [kind,names] of [['society',profile.societies],['institution',profile.institutions]]) for(const name of names){
-    const official=sources.find(s=>norm(s[kind])===norm(name));
+    const key=kind==='society'?societyKey:institutionKey;
+    const official=sources.find(s=>s[kind]&&key(s[kind])===key(name));
     links.push(official ? {label:`${name}: ${official.mode==='directory'?'official directory':'funding page'}`,url:official.url,note:official.mode==='directory'?official.description:''} : {label:`Search ${name} funding`,url:`https://www.google.com/search?q=${encodeURIComponent(`"${name}" official research grants fellowships funding`)}`});
   }
   if(profile.topics.length) links.push({label:'Search the web for related funding',url:`https://www.google.com/search?q=${encodeURIComponent(profile.topics.slice(0,4).join(' ')+' research grants fellowships official funding')}`});

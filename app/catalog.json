@@ -787,5 +787,87 @@
       "institution": "Stanford University"
     },
     "faculty_sponsor_possible": true
+  },
+  {
+    "id": "curated:mit-global-seed-2027",
+    "title": "MIT Global Seed Funds \u2014 2026\u201327",
+    "category": "Institution",
+    "funder": "MIT Center for International Studies",
+    "description": "Seeds international research collaborations and can support student participation.",
+    "eligibility": "MIT faculty or eligible researchers with a collaborator abroad. Each country fund has its own rules.",
+    "topics": [
+      "international collaboration",
+      "engineering",
+      "computer science",
+      "climate science",
+      "public policy"
+    ],
+    "eligible_stages": [
+      "faculty",
+      "staff"
+    ],
+    "url": "https://cis.mit.edu/opportunities/faculty/global-seed-funds/gsf-application",
+    "amount": null,
+    "deadline": "2026-12-03",
+    "status": "open",
+    "affiliation_tags": {
+      "institution": "Massachusetts Institute of Technology"
+    },
+    "funding_type": "Research grant",
+    "source_date": "2026-11-13"
+  },
+  {
+    "id": "curated:harvard-safra-2026",
+    "title": "Moise Y. Safra Collaborative Research Award \u2014 2026",
+    "category": "Institution",
+    "funder": "Harvard Kempner Institute",
+    "description": "Seeds research collaborations with academic institutions in Israel on natural and artificial intelligence.",
+    "eligibility": "Qualifying Harvard Kempner investigators, faculty or research fellows with an Israeli academic collaborator.",
+    "topics": [
+      "artificial intelligence",
+      "neuroscience",
+      "machine learning",
+      "cognitive science"
+    ],
+    "eligible_stages": [
+      "faculty",
+      "postdoc",
+      "staff"
+    ],
+    "url": "https://kempnerinstitute.harvard.edu/careers-opportunities/safra-collaborative-research-award/",
+    "amount": "Up to $50,000",
+    "deadline": "2026-11-20",
+    "status": "open",
+    "affiliation_tags": {
+      "institution": "Harvard University"
+    },
+    "funding_type": "Research grant",
+    "source_date": "2026-11-13"
+  },
+  {
+    "id": "curated:stanford-king-center-2027",
+    "title": "Stanford King Center Global Development Initiatives \u2014 2026\u201327",
+    "category": "Institution",
+    "funder": "Stanford King Center on Global Development",
+    "description": "Funds Stanford teams studying global development and poverty through seed projects or multi-year initiatives.",
+    "eligibility": "Lead PI must be a Stanford faculty member eligible to serve as a PI.",
+    "topics": [
+      "global development",
+      "economics",
+      "public policy",
+      "global health"
+    ],
+    "eligible_stages": [
+      "faculty"
+    ],
+    "url": "https://seedfunding.stanford.edu/opportunities/2026-27-king-center-global-development-initiatives",
+    "amount": "Up to $100,000 seed; $250,000 full initiative",
+    "deadline": "2026-11-08",
+    "status": "closed",
+    "affiliation_tags": {
+      "institution": "Stanford University"
+    },
+    "funding_type": "Research grant",
+    "source_date": "2026-11-13"
   }
 ]

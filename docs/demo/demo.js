@@ -1,15 +1,16 @@
 import {readCV} from './cv-reader.mjs';
+import {setupOrganizations} from './organization-picker.mjs?v=1';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-5';
-import {SOCIETIES, INSTITUTIONS, researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms} from './matching.mjs?v=membership-5';
+import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-6';
+import {researchTerms, normalizeProfile, selectRecords, statusOf,
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-6';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
 const labels = {open:'Listed open — confirm before applying',rolling:'Listed rolling — confirm availability',closed:'Past round / closed',forecast:'Upcoming call — not open yet',verify:'Current application window unconfirmed'};
 const PROFILE_KEY='fundlark.public.profile.v1', SAVED_KEY='fundlark.public.shortlist.v1';
 let coverageSources=[], coverageLimit=12, records=[], sources=[], visible=8, profile=normalizeProfile(), storageAvailable=true;
-let apiBase='', communityEnabled=false, saved=[];
+let apiBase='', communityEnabled=false, saved=[], matchedOnly=false;
 const exampleId=new URLSearchParams(location.search).get('example');
 const example=Object.hasOwn(examples,exampleId)?examples[exampleId]:null;
 const exampleMode=Boolean(example);
@@ -23,32 +24,36 @@ try {const value=JSON.parse(localStorage.getItem(SAVED_KEY)||'[]');if(Array.isAr
   $('#skillMode').disabled=true;
   $('#cvHelper').hidden=true;
 }
-const hasProfile = () => Boolean(profile.topics.length||profile.societies.length||profile.institutions.length);
+const hasProfile = () => Boolean(profile.stage||profile.topics.length||profile.societies.length||profile.institutions.length);
 function saveProfile(){
   if(exampleMode){$('#profileStatus').textContent='Example changes last for this visit.';return;}
   try {localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));storageAvailable=true;}catch {storageAvailable=false;}
   $('#profileStatus').textContent=storageAvailable?'Saved on this browser only.':'Using this profile for this visit; browser storage is unavailable.';
 }
 let profileTimer, cvReadId=0;
+const organizations=setupOrganizations({$,esc,onAdd(kind, name){
+  const key=kind==='societies'?societyKey:value=>value.toLowerCase();
+  if(name&&!profile[kind].some(item=>key(item)===key(name)))profile[kind].push(name);
+}, onChange:()=>readProfile()});
 function readProfile({consumeAffiliations=false}={}){
   clearTimeout(profileTimer);
   const text=$('#topics').value.trim();
   profile=normalizeProfile({...profile,researchText:text,topics:researchTerms(text,records.flatMap(o=>o.topics||[])),stage:$('#stage').value,sharePublic:$('#sharePublic').checked});
-  for(const [key,input,choices] of [['societies','societyInput',SOCIETIES],['institutions','institutionInput',INSTITUTIONS]]){
-    const value=$(`#${input}`).value.trim();
-    if(value&&consumeAffiliations){const name=choices.find(n=>n.toLowerCase()===value.toLowerCase())||value;if(!profile[key].some(n=>key==='societies'?societyKey(n)===societyKey(name):n.toLowerCase()===name.toLowerCase()))profile[key].push(name);$(`#${input}`).value='';}
-  }
+  if(consumeAffiliations)organizations.consume();
   profile=normalizeProfile(profile);renderChips();saveProfile();render();
 }
 function renderChips(){
   for(const [key,target] of [['societies','societyChips'],['institutions','institutionChips']]){
-    $(`#${target}`).innerHTML=profile[key].map((name,index)=>`<button type="button" class="chip" data-kind="${key}" data-index="${index}" aria-label="Remove ${esc(name)}">${esc(name)} <span aria-hidden="true">×</span></button>`).join('');
+    $(`#${target}`).innerHTML=profile[key].map((name,index)=>{
+      const label=organizations.display(key,name);
+      return `<button type="button" class="chip" data-kind="${key}" data-index="${index}" aria-label="Remove ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
+    }).join('');
   }
   $('#topicSummary').innerHTML=profile.topics.length?`<p>Words used for catalog matching <span class="small">· edit your description to refine</span></p><div class="chips">${profile.topics.map(t=>`<span class="topic-chip">${esc(t)}</span>`).join('')}</div>`:'';
 }
 function resetFilters({allFunding=false}={}){
   $('#query').value='';$('#category').value='all';$('#fundingType').value='';$('#availability').value='active';$('#savedOnly').checked=false;
-  $('#matchedOnly').checked=allFunding?false:hasProfile();visible=8;render();
+  matchedOnly=!allFunding&&hasProfile();visible=8;render();
 }
 function renderCoverage(){
   const filtered=filterSources(coverageSources,{query:$('#coverageQuery').value,field:$('#coverageField').value,kind:$('#coverageKind').value});
@@ -88,7 +93,7 @@ function renderMemberships(){
   $('#membershipResults').innerHTML=profile.societies.map(name=>{
     const awards=records.filter(record=>membershipMatches(record,[name]).length);
     const source=coverageSources.find(source=>source.kind==='society'&&[source.alias,source.name].some(value=>societyKey(value)===societyKey(name)));
-    return `<section><h3>${esc(name)}</h3>${awardLinks(awards)}${source?`<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">Visit the society ↗</a>`:''}</section>`;
+    return `<section><h3>${esc(organizations.display('societies',name))}</h3>${awardLinks(awards)}${source?`<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">Visit the society ↗</a>`:''}</section>`;
   }).join('');
 }
 function refreshSupportTypes(){
@@ -107,18 +112,21 @@ function render(){
   renderReturn(savedRecords);
   renderMemberships();
   const catalog=$('#savedOnly').checked?savedRecords:records;
-  const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability:$('#availability').value,fundingType:$('#fundingType').value,matchedOnly:$('#matchedOnly').checked,savedOnly:false});
+  const availability=$('#availability').value, shortlist=$('#savedOnly').checked;
+  const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability,fundingType:$('#fundingType').value,matchedOnly});
+  $('#matchedOnly').setAttribute('aria-pressed',String(matchedOnly&&!shortlist));
+  $('#browseFunding').setAttribute('aria-pressed',String(!matchedOnly&&!shortlist));
   $('#savedCount').textContent=`(${savedRecords.length})`;
   $('#shortlistTools').hidden=!savedRecords.length;
   $('#shortlistStorageLabel').textContent=exampleMode?'Example shortlist · this visit only':'Saved on this browser only. Notes stay here and aren’t included in exports.';
-  $('#resultCount').textContent=`${filtered.length} ${filtered.length===1?'program':'programs'}`;
+  const hiddenPast=records.filter(record=>statusOf(record)==='closed').length;
+  $('#resultCount').textContent=shortlist?`${filtered.length} of ${catalog.length} saved`:`${filtered.length} ${matchedOnly?'matching ':''}program${filtered.length===1?'':'s'} · ${records.length} indexed${availability==='active'&&hiddenPast?` · ${hiddenPast} past rounds hidden`:''}`;
   const summary=[];
   if(profile.topics.length)summary.push(`${profile.topics.length} research ${profile.topics.length===1?'term':'terms'}`);
   if(profile.stage)summary.push($('#stage').selectedOptions[0]?.textContent||profile.stage);
   if(profile.societies.length)summary.push(`${profile.societies.length} ${profile.societies.length===1?'membership':'memberships'}`);
   if(profile.institutions.length)summary.push(`${profile.institutions.length} ${profile.institutions.length===1?'institution':'institutions'}`);
-  $('#matchSummary').textContent=summary.length?`Your profile: ${summary.join(' · ')}. Results show keyword and affiliation overlap, not confirmed eligibility.`:'Browse programs, or describe your research above for personalized matches.';
-  $('#matchedOnly').disabled=!hasProfile();
+  $('#matchSummary').textContent=summary.length?`Your profile: ${summary.join(' · ')}. ${matchedOnly?'Showing leads based on your profile. Check the official applicant rules.':'Browsing the catalog. Choose Match my profile for personalized leads.'}`:'Browse programs, or add a research interest, career stage, or affiliation for personalized leads.';
   $('#results').innerHTML=filtered.length?filtered.slice(0,visible).map(o=>{
     const status=statusOf(o),key=opportunityKey(o),isSaved=saved.some(entry=>entry.key===key);
     const reasons=[...o.matching.topicEvidence.map(({term,matched,related})=>related?`${term} → related catalog term: ${matched}`:`Catalog mentions: ${term}`),...o.matching.affiliations.map(t=>`Catalog tags your affiliation: ${t}`)];
@@ -151,7 +159,7 @@ function render(){
   renderRoutes();
 }
 function emptyState(){
-  const title=$('#savedOnly').checked?'No saved programs match these filters.':hasProfile()?'We haven’t indexed matches for these topics and filters yet.':'No programs match these filters.';
+  const title=$('#savedOnly').checked?'No saved programs match these filters.':matchedOnly?'We haven’t indexed matches for this profile and these filters yet.':'No programs match these filters.';
   const routes=discoveryLinks(profile,sources);
   return `<div class="empty"><h3>${title}</h3><p>This is a limited catalog, not a search of all available funding. You can explore more sources without changing your research interests.</p><div class="empty-actions"><button type="button" class="button" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button><button type="button" class="text-button" data-action="reset">Clear search filters</button></div>${profileDirectory()}${routes.length?`<div class="route-links">${routes.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:''}<p class="small">Explore the <a href="#coverage">society and conference directory</a> for more starting points. An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
 }
@@ -185,20 +193,22 @@ async function initCommunity(){
   updateSharing();
 }
 async function init(){
-  const coverageRequest=json('coverage.json').catch(()=>null);
+  const coverageRequest=json('coverage.json?v=profile-directory-1').catch(()=>null);
   try{
-    const [data, directory]=await Promise.all([json('data.json').catch(()=>null),coverageRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    const [data, directory]=await Promise.all([json('data.json?v=profile-directory-1').catch(()=>null),coverageRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
     if(directory?.schema_version===1){
       coverageSources=directory.sources;
-      const suggestions=[...new Set([...SOCIETIES,...coverageSources.filter(item=>item.kind==='society').flatMap(item=>[item.alias,item.name])])];
-      $('#societyOptions').innerHTML=suggestions.map(name=>`<option value="${esc(name)}">`).join('');
+      configureSocietyAliases(coverageSources);
       records=mergeCatalog(records,directory.opportunities);
       $('#coverageField').insertAdjacentHTML('beforeend',directory.fields.map(field=>`<option value="${esc(field)}">${esc(field)}</option>`).join(''));
       $('#coverageSummary').textContent=`${directory.fields.length} field and topic labels · ${coverageSources.length} societies and conferences · ${directory.opportunities.length} curated funding records, including past and unconfirmed rounds.`;
       renderCoverage();
     }else $('#coverageSummary').textContent='The source directory could not be loaded.';
 
+    organizations.setDirectory(coverageSources,[...sources.map(source=>source.institution),...records.map(record=>record.affiliation_tags?.institution)]);
+    profile=normalizeProfile({...profile,societies:profile.societies.map(name=>organizations.resolve('societies',name)),institutions:profile.institutions.map(name=>organizations.resolve('institutions',name))});
+    renderChips();
     refreshSupportTypes();
     if(exampleMode){
       profile.topics=researchTerms(profile.researchText,records.flatMap(o=>o.topics||[]));
@@ -211,28 +221,32 @@ async function init(){
   await initCommunity();
 }
 $('#topics').value=profile.researchText||profile.topics.join('; ');$('#stage').value=profile.stage;$('#sharePublic').checked=profile.sharePublic;
-$('#matchedOnly').checked=hasProfile();$('#affiliationDetails').open=Boolean(profile.societies.length||profile.institutions.length);renderChips();
-$('#societyOptions').innerHTML=SOCIETIES.map(name=>`<option value="${esc(name)}">`).join('');
-$('#institutionOptions').innerHTML=INSTITUTIONS.map(name=>`<option value="${esc(name)}">`).join('');
-for(const [button,input] of [['addSociety','societyInput'],['addInstitution','institutionInput']]){
-  $(`#${button}`).addEventListener('click',()=>{readProfile({consumeAffiliations:true}); if(button==='addSociety'&&profile.societies.length)$('#membershipFunding').scrollIntoView({behavior:'smooth'});});
-  $(`#${input}`).addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();readProfile({consumeAffiliations:true});}});
-}
+matchedOnly=hasProfile();$('#affiliationDetails').open=Boolean(profile.societies.length||profile.institutions.length);renderChips();
 $('#topics').addEventListener('input',()=>{clearTimeout(profileTimer);$('#profileStatus').textContent='Updating your research profile…';profileTimer=setTimeout(()=>readProfile(),300);});
 $('#stage').addEventListener('change',readProfile);
 $('#profileForm').addEventListener('click',event=>{const button=event.target.closest('button[data-kind]');if(button){profile[button.dataset.kind].splice(Number(button.dataset.index),1);readProfile();}});
 $('#profileForm').addEventListener('submit',event=>{event.preventDefault();findFunding();});
 $('#clearProfile').addEventListener('click',()=>{
-  clearTimeout(profileTimer);cvReadId++;clearCVPreview();$('#cvText').value='';$('#cvFile').value='';$('#cvSuggestions').textContent='';$('#cvStatus').textContent='';profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#societyInput').value='';$('#institutionInput').value='';$('#sharePublic').checked=false;$('#matchedOnly').checked=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
+  clearTimeout(profileTimer);cvReadId++;clearCVPreview();organizations.clear();$('#cvText').value='';$('#cvFile').value='';$('#cvSuggestions').textContent='';$('#cvStatus').textContent='';profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#sharePublic').checked=false;matchedOnly=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
   if(!exampleMode)try{localStorage.removeItem(PROFILE_KEY);}catch{}renderChips();render();$('#profileStatus').textContent=exampleMode?'Example profile cleared.':'Research profile cleared. Your saved shortlist is unchanged.';
 });
 $('#skillMode').addEventListener('change',()=>{updateSharing();$('#copyStatus').textContent='Copy a new request to apply this choice.';});
 $('#sharePublic').addEventListener('change',()=>{readProfile();$('#copyStatus').textContent='Copy a new request to apply this sharing preference.';});
 $('#searchForm').addEventListener('submit',event=>{event.preventDefault();visible=8;render();});
-for(const id of ['query','category','fundingType','availability','matchedOnly'])$(`#${id}`).addEventListener(id==='query'?'input':'change',()=>{visible=8;render();});
+for(const id of ['query','category','fundingType','availability'])$(`#${id}`).addEventListener(id==='query'?'input':'change',()=>{visible=8;render();});
+$('#browseFunding').addEventListener('click',()=>resetFilters({allFunding:true}));
+$('#matchedOnly').addEventListener('click',()=>{
+  readProfile({consumeAffiliations:true});
+  if(!hasProfile()){
+    $('#profileStatus').textContent='Add a research topic, career stage, membership, or current institution to find matches.';
+    $('#topics').focus();
+    return;
+  }
+  resetFilters();
+});
 function showShortlist(){
   $('#savedOnly').checked=true;
-  $('#availability').value='all';$('#matchedOnly').checked=false;$('#query').value='';$('#category').value='all';$('#fundingType').value='';
+  $('#availability').value='all';matchedOnly=false;$('#query').value='';$('#category').value='all';$('#fundingType').value='';
   visible=8;render();
 }
 $('#savedOnly').addEventListener('change',()=>{if($('#savedOnly').checked)showShortlist();else resetFilters();});
@@ -319,7 +333,7 @@ function showCVSuggestions({result,evidence,stages}){
     const multipleStages=key==='stage'&&conflicts;
     const note=multipleStages?'Several current roles were found. Pick the stage to use for funding.':!matches.length?'No clear suggestion. You can fill this in below.':'';
     return `<fieldset class="cv-group"><legend>${heading}</legend>${note?`<p class="note">${note}</p>`:''}${matches.map(({value,excerpt})=>{
-      const label=key==='stage'?stageSelect.querySelector(`option[value="${value}"]`)?.textContent||value:value;
+      const label=key==='stage'?stageSelect.querySelector(`option[value="${value}"]`)?.textContent||value:organizations.display(key,value);
       const checked=key==='topics'||key==='stage'&&result.stage===value&&(!hasCurrentStage||stageSelect.value===value);
       const optional=key==='stage'&&hasCurrentStage&&stageSelect.value!==value;
       return `<label><input type="${multipleStages?'radio':'checkbox'}" name="${multipleStages?'cvStage':'cvChoice'}" data-suggestion="${index++}" ${checked?'checked':''}> <span>${esc(label)}${optional?' (replace saved stage)':''}${excerpt&&excerpt.toLowerCase()!==label.toLowerCase()?`<small class="cv-evidence">${esc(excerpt)}</small>`:''}</span></label>`;
@@ -333,7 +347,8 @@ function showCVSuggestions({result,evidence,stages}){
       if(key==='stage')stageSelect.value=value;
       if(key==='societies'||key==='institutions'){
         const keyOf=key==='societies'?societyKey:name=>name.toLowerCase();
-        if(!profile[key].some(item=>keyOf(item)===keyOf(value)))profile[key].push(value);
+        const name=organizations.resolve(key,value);
+        if(!profile[key].some(item=>keyOf(item)===keyOf(name)))profile[key].push(name);
         $('#affiliationDetails').open=true;
       }
     }

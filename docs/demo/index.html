@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Discover research funding from public sources, then take Fundlark to your own AI assistant.">
   <title>Fundlark — Find funding for your next breakthrough</title>
-  <link rel="stylesheet" href="styles.css?v=funding-results-1">
+  <link rel="stylesheet" href="styles.css?v=profile-directory-1">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=funding-results-1"></script>
+  <script type="module" src="demo.js?v=profile-directory-1"></script>
 </head>
 <body>
   <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Search with my assistant ↗</a></header>
@@ -53,8 +53,19 @@
         <textarea id="topics" rows="2" maxlength="3200" placeholder="For example: I study climate adaptation in coastal communities"></textarea>
         <div class="profile-grid"><div><label for="stage">Career stage</label><select id="stage"><option value="">Choose if useful</option><option value="undergrad">Undergraduate</option><option value="masters">Master's student</option><option value="phd">PhD student</option><option value="postdoc">Postdoctoral researcher</option><option value="resident">Resident</option><option value="faculty">Faculty</option><option value="staff">Research staff</option></select></div></div>
         <details class="affiliations" id="affiliationDetails"><summary>Memberships and institutions <span class="small">Optional · find member and internal funding</span></summary><div class="profile-grid">
-          <fieldset><legend>Professional memberships</legend><div class="picker"><label class="sr-only" for="societyInput">Choose or add a membership</label><input id="societyInput" list="societyOptions" maxlength="160" placeholder="Choose or type a society"><button type="button" id="addSociety" class="button secondary">Add</button></div><datalist id="societyOptions"></datalist><div id="societyChips" class="chips"></div><p class="small">Add memberships you actually hold. Any field or society is welcome.</p></fieldset>
-          <fieldset><legend>Current institutions</legend><div class="picker"><label class="sr-only" for="institutionInput">Choose or add an institution</label><input id="institutionInput" list="institutionOptions" maxlength="160" placeholder="Choose or type an institution"><button type="button" id="addInstitution" class="button secondary">Add</button></div><datalist id="institutionOptions"></datalist><div id="institutionChips" class="chips"></div><p class="small">Use current appointments; previous education alone may not qualify.</p></fieldset>
+          <fieldset><legend>Professional memberships</legend>
+            <div class="picker"><label class="sr-only" for="societyInput">Choose or add a membership</label><input id="societyInput" maxlength="160" placeholder="Try Institute of Physics or IOP" aria-controls="societyOptions"><button type="button" id="addSociety" class="button secondary">Add</button></div>
+            <div id="societyOptions" class="organization-options" aria-label="Society suggestions" hidden></div>
+            <div id="societyChips" class="chips"></div><p class="small">Search by full name or abbreviation. Add any membership you hold, even if it isn’t listed.</p>
+          </fieldset>
+          <fieldset><legend>Current institutions</legend>
+            <div class="picker"><label class="sr-only" for="institutionInput">Choose or add an institution</label><input id="institutionInput" maxlength="160" placeholder="Try Stanford University or MIT" aria-controls="institutionOptions"><button type="button" id="addInstitution" class="button secondary">Add</button></div>
+            <div id="institutionOptions" class="organization-options" aria-label="Institution suggestions" hidden></div>
+            <button type="button" id="lookupInstitution" class="text-button">Search worldwide registry</button>
+            <div id="registryStatus" class="small" role="status"></div>
+            <div id="registryOptions" class="organization-options" aria-label="Registry results" hidden></div>
+            <div id="institutionChips" class="chips"></div><p class="small">Add any current institution. Worldwide search sends only the name you type here to the Research Organization Registry.</p>
+          </fieldset>
         </div>
         </details>
         <div id="topicSummary" class="topic-summary" aria-live="polite"></div>
@@ -69,8 +80,12 @@
     <section id="opportunities" aria-labelledby="exploreHeading">
       <div class="section-head"><div><span class="eyebrow">A STARTING POINT FOR YOUR SEARCH</span><h2 id="exploreHeading">Explore funding</h2></div><a href="#use-skill">Search beyond this catalog ↓</a></div>
       <p class="note">This growing catalog has limited coverage, especially outside U.S. government, computing and biomedical research. No match here does not mean no funding exists. Always confirm the official call.</p>
+      <div class="results-mode" aria-label="Funding results view">
+        <button type="button" class="button secondary" id="browseFunding" aria-pressed="true">Browse all funding</button>
+        <button type="button" class="button secondary" id="matchedOnly" aria-pressed="false">Match my profile</button>
+      </div>
       <form id="searchForm" class="search"><label class="sr-only" for="query">Search research topics, funders or programs</label><input id="query" type="search" placeholder="Search a topic, funder or program…"><button type="submit" class="button">Search</button></form>
-      <div class="filters"><label for="category">Source <select id="category" aria-label="Funding source category"><option value="all">All sources</option><option value="Industry">Industry</option><option value="Government">Government</option><option value="Foundation">Foundations</option><option value="Institution">Institutions</option><option value="Society">Societies</option></select></label><label for="fundingType">Support <select id="fundingType"><option value="">All support types</option></select></label><label for="availability">Availability <select id="availability"><option value="active">Programs to check (hide past rounds)</option><option value="open">Listed open / rolling</option><option value="verify">Window unconfirmed</option><option value="forecast">Upcoming calls</option><option value="closed">Past rounds</option><option value="all">All programs</option></select></label><label><input type="checkbox" id="matchedOnly"> Matches my profile</label><label><input type="checkbox" id="savedOnly"> My shortlist <span id="savedCount">(0)</span></label><button id="resetFilters" type="button" class="text-button">Reset filters</button><span id="resultCount" aria-live="polite"></span></div>
+      <div class="filters"><label for="category">Source <select id="category" aria-label="Funding source category"><option value="all">All sources</option><option value="Industry">Industry</option><option value="Government">Government</option><option value="Foundation">Foundations</option><option value="Institution">Institutions</option><option value="Society">Societies</option></select></label><label for="fundingType">Support <select id="fundingType"><option value="">All support types</option></select></label><label for="availability">Availability <select id="availability"><option value="active">Programs to check (hide past rounds)</option><option value="open">Listed open / rolling</option><option value="verify">Window unconfirmed</option><option value="forecast">Upcoming calls</option><option value="closed">Past rounds</option><option value="all">All programs</option></select></label><label><input type="checkbox" id="savedOnly"> My shortlist <span id="savedCount">(0)</span></label><button id="resetFilters" type="button" class="text-button">Reset filters</button><span id="resultCount" aria-live="polite"></span></div>
       <div id="matchSummary" class="note" aria-live="polite"></div>
       <div class="shortlist-tools" id="shortlistTools" hidden><span id="shortlistStorageLabel">Saved on this browser only.</span><button id="copyShortlist" type="button" class="text-button">Copy shortlist</button><button id="downloadShortlist" type="button" class="text-button">Download shortlist</button><span id="shortlistStatus" role="status"></span><textarea id="shortlistFallback" rows="6" readonly hidden aria-label="Shortlist to copy manually"></textarea></div>
       <div id="results" class="results"><p>Loading opportunities…</p></div>

@@ -11,7 +11,9 @@
     "automation",
     "automotive engineering",
     "batteries",
+    "biochemistry",
     "bioinformatics",
+    "biology",
     "biomedical engineering",
     "biostatistics",
     "cell biology",
@@ -20,6 +22,7 @@
     "chemistry",
     "civil engineering",
     "climate science",
+    "cognitive science",
     "communications",
     "compilers",
     "computational biology",
@@ -43,6 +46,7 @@
     "electrical engineering",
     "electrochemistry",
     "energy",
+    "engineering",
     "engineering education",
     "epidemiology",
     "genetics",
@@ -74,6 +78,7 @@
     "metallurgy",
     "meteorology",
     "microbiology",
+    "molecular biology",
     "nanotechnology",
     "natural language processing",
     "neuroscience",
@@ -102,6 +107,7 @@
     "radiotherapy",
     "remote sensing",
     "robotics",
+    "science",
     "scientific computing",
     "semiconductors",
     "signal processing",
@@ -135,7 +141,8 @@
         "coverage:aps-dls-2027",
         "coverage:aps-dcomp-2027",
         "coverage:aps-ghp-2027",
-        "coverage:aps-foep-2026"
+        "coverage:aps-foep-2026",
+        "coverage:aps-braslau-travel"
       ]
     },
     {
@@ -147,6 +154,9 @@
       "fields": [
         "physics",
         "quantum science"
+      ],
+      "program_ids": [
+        "coverage:iop-early-career-researchers-fund"
       ]
     },
     {
@@ -866,6 +876,9 @@
       "fields": [
         "ecology",
         "conservation biology"
+      ],
+      "program_ids": [
+        "coverage:esa-real-brown-travel"
       ]
     },
     {
@@ -1131,6 +1144,119 @@
       "url": "https://www.apaonline.org/",
       "fields": [
         "philosophy"
+      ]
+    },
+    {
+      "id": "ieee",
+      "kind": "society",
+      "name": "Institute of Electrical and Electronics Engineers",
+      "alias": "IEEE",
+      "url": "https://www.ieee.org/",
+      "fields": [
+        "electrical engineering",
+        "computer science",
+        "robotics"
+      ]
+    },
+    {
+      "id": "sigma-xi",
+      "kind": "society",
+      "name": "Sigma Xi, The Scientific Research Honor Society",
+      "alias": "Sigma Xi",
+      "url": "https://www.sigmaxi.org/",
+      "fields": [
+        "science",
+        "engineering",
+        "physics",
+        "biology"
+      ]
+    },
+    {
+      "id": "aps-psychology",
+      "kind": "society",
+      "name": "Association for Psychological Science",
+      "alias": "APS Psychology",
+      "url": "https://www.psychologicalscience.org/",
+      "fields": [
+        "psychology",
+        "cognitive science"
+      ]
+    },
+    {
+      "id": "acr",
+      "kind": "society",
+      "name": "American College of Radiology",
+      "alias": "ACR",
+      "url": "https://www.acr.org/",
+      "fields": [
+        "radiology",
+        "medical imaging"
+      ]
+    },
+    {
+      "id": "estro",
+      "kind": "society",
+      "name": "European Society for Radiotherapy and Oncology",
+      "alias": "ESTRO",
+      "url": "https://www.estro.org/",
+      "fields": [
+        "oncology",
+        "medical physics",
+        "radiotherapy"
+      ]
+    },
+    {
+      "id": "comp",
+      "kind": "society",
+      "name": "Canadian Organization of Medical Physicists",
+      "alias": "COMP",
+      "url": "https://www.comp-ocpm.ca/",
+      "fields": [
+        "medical physics",
+        "medical imaging"
+      ]
+    },
+    {
+      "id": "iomp",
+      "kind": "society",
+      "name": "International Organization for Medical Physics",
+      "alias": "IOMP",
+      "url": "https://www.iomp.org/",
+      "fields": [
+        "medical physics",
+        "radiotherapy"
+      ]
+    },
+    {
+      "id": "asbmb",
+      "kind": "society",
+      "name": "American Society for Biochemistry and Molecular Biology",
+      "alias": "ASBMB",
+      "url": "https://www.asbmb.org/",
+      "fields": [
+        "biochemistry",
+        "molecular biology"
+      ]
+    },
+    {
+      "id": "isi",
+      "kind": "society",
+      "name": "International Statistical Institute",
+      "alias": "ISI",
+      "url": "https://isi-web.org/",
+      "fields": [
+        "statistics"
+      ]
+    },
+    {
+      "id": "aaas",
+      "kind": "society",
+      "name": "American Association for the Advancement of Science",
+      "alias": "AAAS",
+      "url": "https://www.aaas.org/",
+      "fields": [
+        "science",
+        "public policy"
       ]
     },
     {
@@ -1447,7 +1573,8 @@
       "program_ids": [
         "coverage:aps-dls-2027",
         "coverage:aps-dcomp-2027",
-        "coverage:aps-ghp-2027"
+        "coverage:aps-ghp-2027",
+        "coverage:aps-braslau-travel"
       ]
     },
     {
@@ -2213,6 +2340,101 @@
       "source_date": "2026-11-13",
       "category": "Society",
       "funder": "American Association of Physicists in Medicine",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:iop-early-career-researchers-fund",
+      "title": "Institute of Physics Early Career Researchers Fund",
+      "description": "Contributes to the cost of attending a conference connected to the applicant’s IOP group.",
+      "eligibility": "IOP members in the first three years of paid physics research or applied physics work. Industry applicants need matching support.",
+      "topics": [
+        "physics",
+        "applied physics",
+        "quantum science",
+        "photonics"
+      ],
+      "eligible_stages": [],
+      "url": "https://www.iop.org/about/support-grants/early-career-researchers-fund",
+      "amount": "Up to £300",
+      "deadline": null,
+      "status": "verify",
+      "affiliation_tags": {
+        "societies": [
+          "IOP"
+        ]
+      },
+      "funding_type": "Conference travel",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "Institute of Physics",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:aps-braslau-travel",
+      "title": "American Physical Society Braslau Family Travel Grant",
+      "description": "Covers Global Physics Summit registration and reimburses eligible travel.",
+      "eligibility": "Degree-seeking students and early career physicists presenting research at the Summit. Check the application portal for the cutoff.",
+      "topics": [
+        "physics",
+        "particle physics",
+        "condensed matter",
+        "quantum science"
+      ],
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd",
+        "postdoc"
+      ],
+      "url": "https://www.aps.org/funding-recognition/grant/braslau-family-travel-grant",
+      "amount": "Up to $1,750 plus registration",
+      "deadline": null,
+      "status": "verify",
+      "affiliation_tags": {
+        "societies": [
+          "APS"
+        ],
+        "conferences": [
+          "APS Summit"
+        ]
+      },
+      "funding_type": "Conference travel",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "American Physical Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:esa-real-brown-travel",
+      "title": "Ecological Society of America Real Brown Travel Award",
+      "description": "Helps students travel to the Ecological Society of America Annual Meeting.",
+      "eligibility": "Check the award page for student eligibility, meeting participation, and the applicable year.",
+      "topics": [
+        "ecology",
+        "conservation biology",
+        "environmental science"
+      ],
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "url": "https://esa.org/students/awards/travel-awards/",
+      "amount": null,
+      "deadline": null,
+      "status": "verify",
+      "affiliation_tags": {
+        "societies": [
+          "ESA"
+        ]
+      },
+      "funding_type": "Conference travel",
+      "source_date": "2026-11-13",
+      "category": "Society",
+      "funder": "Ecological Society of America",
       "origin": "curated",
       "last_verified_at": "2026-11-13"
     }
