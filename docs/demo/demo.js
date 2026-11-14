@@ -1,3 +1,4 @@
+import {examples, cvSuggestions, upcomingSaved} from './journey.mjs';
 import {SOCIETIES, INSTITUTIONS, researchTerms, normalizeProfile, selectRecords, statusOf,
   mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness} from './matching.mjs';
 const $ = selector => document.querySelector(selector);
@@ -7,14 +8,26 @@ const labels = {open:'Listed open — confirm before applying',rolling:'Listed r
 const PROFILE_KEY='fundlark.public.profile.v1', SAVED_KEY='fundlark.public.shortlist.v1';
 let records=[], sources=[], visible=8, profile=normalizeProfile(), storageAvailable=true;
 let apiBase='', communityEnabled=false, saved=[];
+const exampleId=new URLSearchParams(location.search).get('example');
+const example=Object.hasOwn(examples,exampleId)?examples[exampleId]:null;
+const exampleMode=Boolean(example);
+if (!exampleMode) {
 try {profile=normalizeProfile(JSON.parse(localStorage.getItem(PROFILE_KEY)||'{}'));}catch {storageAvailable=false;}
 try {const value=JSON.parse(localStorage.getItem(SAVED_KEY)||'[]');if(Array.isArray(value))saved=value.map(x=>typeof x==='string'?{key:x}:x).filter(x=>x&&typeof x.key==='string'&&(!x.record||(typeof x.record==='object'&&typeof x.record.title==='string'&&typeof x.record.url==='string'))).slice(0,2000);}catch {storageAvailable=false;}
+} else {
+  profile=normalizeProfile({...example,topics:researchTerms(example.researchText)});
+  $('#exampleBanner').hidden=false;
+  $('#examplePicker').hidden=true;
+  $('#skillMode').disabled=true;
+  $('#cvHelper').hidden=true;
+}
 const hasProfile = () => Boolean(profile.topics.length||profile.societies.length||profile.institutions.length);
 function saveProfile(){
+  if(exampleMode){$('#profileStatus').textContent='Example changes last for this visit.';return;}
   try {localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));storageAvailable=true;}catch {storageAvailable=false;}
   $('#profileStatus').textContent=storageAvailable?'Saved on this browser only.':'Using this profile for this visit; browser storage is unavailable.';
 }
-let profileTimer;
+let profileTimer, cvReadId=0;
 function readProfile({consumeAffiliations=false}={}){
   clearTimeout(profileTimer);
   const text=$('#topics').value.trim();
@@ -37,14 +50,26 @@ function resetFilters({allFunding=false}={}){
 }
 function renderRoutes(){
   const links=discoveryLinks(profile,sources);
-  $('#discoveryRoutes').innerHTML=links.length?`<h3>Prefer to search directly?</h3><p class="small">Open your society or institution's funding page, or a web search. Only the terms in the link are sent when you open it.</p><div class="route-links">${links.map(link=>`<a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>`).join('')}</div>`:'<p class="small">Add your research interests above to include them in your search request.</p>';
+  $('#discoveryRoutes').innerHTML=links.length?`<h3>Prefer to search directly?</h3><p class="small">Open your society or institution's funding page, or a web search. Only the terms in the link are sent when you open it.</p><div class="route-links">${links.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:'<p class="small">Add your research interests above to include them in your search request.</p>';
+}
+function renderReturn(savedRecords){
+  const panel=$('#returnPanel');
+  panel.hidden=exampleMode||!savedRecords.length;
+  if(panel.hidden)return;
+  const today=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const upcoming=upcomingSaved(savedRecords,today);
+  const changed=savedRecords.filter(o=>o.detailsChanged).length;
+  $('#returnSummary').textContent=`${savedRecords.length} saved ${savedRecords.length===1?'lead':'leads'}${changed?` · ${changed} with changed catalog details`:''}.`;
+  $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${upcoming[0].deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
 }
 function render(){
   const savedRecords=restoreShortlist(records,saved);
+  renderReturn(savedRecords);
   const catalog=$('#savedOnly').checked?savedRecords:records;
   const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability:$('#availability').value,matchedOnly:$('#matchedOnly').checked,savedOnly:false});
   $('#savedCount').textContent=`(${savedRecords.length})`;
   $('#shortlistTools').hidden=!savedRecords.length;
+  $('#shortlistStorageLabel').textContent=exampleMode?'Example shortlist · this visit only':'Saved on this browser only. Notes stay here and aren’t included in exports.';
   $('#resultCount').textContent=`${filtered.length} ${filtered.length===1?'program':'programs'}`;
   const summary=[];
   if(profile.topics.length)summary.push(`${profile.topics.length} research ${profile.topics.length===1?'term':'terms'}`);
@@ -56,8 +81,9 @@ function render(){
   $('#results').innerHTML=filtered.length?filtered.slice(0,visible).map(o=>{
     const status=statusOf(o),key=opportunityKey(o),isSaved=saved.some(entry=>entry.key===key);
     const reasons=[...o.matching.hits.map(t=>`Related topic: ${t}`),...o.matching.affiliations.map(t=>`Your affiliation: ${t}`)];
+    const entry=saved.find(item=>item.key===key);
     const checked=o.last_verified_at?.slice(0,10)||'Unknown';
-    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div><h3>${esc(o.title)}</h3><p class="description">${esc(o.description)}</p>${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — no longer in the current catalog. Recheck the official page.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}${reasons.length?`<p class="match-reasons">${esc(reasons.join(' · '))}</p>`:''}<div class="meta"><span class="badge ${status==='closed'?'closed':status==='verify'||status==='forecast'?'caution':''}">${esc(labels[status]||labels.verify)}</span></div><p class="funding-facts"><strong>${esc(o.amount||'Amount not provided')}</strong><br>Deadline: ${esc(o.deadline||'Check official call')}</p><p class="stage-hint ${o.matching.stageConcern?'stage-concern':''}">${esc(o.matching.stage)}.</p><p class="record-date">Record checked/imported: ${esc(checked)}${freshness(o)?`<br><span class="freshness-warning">${esc(freshness(o))}</span>`:''}</p><details><summary>Who can apply & source details</summary><p>${esc(o.eligibility||'Confirm the official applicant rules.')}</p><p>Source checked: ${esc(checked)}.${o.review_needed?' Source changed; this record needs review.':''} A topic or affiliation match does not establish eligibility.</p><p>Next step: read the current call to confirm the application window, applicant rules and required documents.</p></details><div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div></article>`;
+    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div><h3>${esc(o.title)}</h3><p class="description">${esc(o.description)}</p>${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — no longer in the current catalog. Recheck the official page.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}${reasons.length?`<p class="match-reasons">${esc(reasons.join(' · '))}</p>`:''}<div class="meta"><span class="badge ${status==='closed'?'closed':status==='verify'||status==='forecast'?'caution':''}">${esc(labels[status]||labels.verify)}</span></div><p class="funding-facts"><strong>${esc(o.amount||'Amount not provided')}</strong><br>Deadline: ${esc(o.deadline||'Check official call')}</p><p class="stage-hint ${o.matching.stageConcern?'stage-concern':''}">${esc(o.matching.stage)}.</p><p class="record-date">Record checked/imported: ${esc(checked)}${freshness(o)?`<br><span class="freshness-warning">${esc(freshness(o))}</span>`:''}</p><details><summary>Who can apply & source details</summary><p>${esc(o.eligibility||'Confirm the official applicant rules.')}</p><p>Source checked: ${esc(checked)}.${o.review_needed?' Source changed; this record needs review.':''} A topic or affiliation match does not establish eligibility.</p><p>Next step: read the current call to confirm the application window, applicant rules and required documents.</p></details><div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>${isSaved&&$('#savedOnly').checked?`<div class="saved-note"><label>My next step<input type="text" maxlength="200" placeholder="For example: ask about the applicant rules" data-note="${esc(key)}" value="${esc(entry?.note||'')}"></label></div>`:''}</article>`;
   }).join(''):emptyState();
   $('#showMore').hidden=filtered.length<=visible;
   renderRoutes();
@@ -65,11 +91,11 @@ function render(){
 function emptyState(){
   const title=$('#savedOnly').checked?'No saved programs match these filters.':hasProfile()?'We haven’t indexed matches for these topics and filters yet.':'No programs match these filters.';
   const routes=discoveryLinks(profile,sources);
-  return `<div class="empty"><h3>${title}</h3><p>This is a limited catalog, not a search of all available funding. You can explore more sources without changing your research interests.</p><div class="empty-actions"><button type="button" class="button" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button><button type="button" class="text-button" data-action="reset">Clear search filters</button></div>${routes.length?`<div class="route-links">${routes.map(link=>`<a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>`).join('')}</div>`:''}<p class="small">An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
+  return `<div class="empty"><h3>${title}</h3><p>This is a limited catalog, not a search of all available funding. You can explore more sources without changing your research interests.</p><div class="empty-actions"><button type="button" class="button" data-action="assistant">Copy a search request for my assistant</button><button type="button" class="button secondary" data-action="browse">Browse current funding</button><button type="button" class="text-button" data-action="reset">Clear search filters</button></div>${routes.length?`<div class="route-links">${routes.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:''}<p class="small">An assistant with browsing can search beyond this catalog. No Fundlark skill is required for the copied request.</p></div>`;
 }
 async function copyRequest(){
   readProfile({consumeAffiliations:true});
-  const skillMode=$('#skillMode').checked;
+  const skillMode=!exampleMode&&$('#skillMode').checked;
   const prompt=assistantPrompt(profile,communityEnabled?apiBase:'',{skillMode});
   $('#briefFallback').hidden=false;$('#briefFallback').value=prompt;
   $('#use-skill').scrollIntoView({behavior:'smooth'});
@@ -77,9 +103,9 @@ async function copyRequest(){
   catch {$('#briefFallback').select();$('#copyStatus').textContent='Copy the request below, then paste it into your AI assistant.';}
 }
 function updateSharing(){
-  const skillMode=$('#skillMode').checked;
-  $('#sharePublic').disabled=!communityEnabled||!skillMode;
-  $('#communityStatus').textContent=!communityEnabled?'Automatic contributions are unavailable on this host. Funding matching and copied search requests still work.':skillMode?'Available. With sharing enabled, your installed skill can submit public discoveries for review.':'Automatic contributions are available after you install the optional skill and select the checkbox above.';
+  const skillMode=!exampleMode&&$('#skillMode').checked;
+  $('#sharePublic').disabled=exampleMode||!communityEnabled||!skillMode;
+  $('#communityStatus').textContent=exampleMode?'Example mode cannot authorize contributions.':!communityEnabled?'Automatic contributions are unavailable on this host. Funding matching and copied search requests still work.':skillMode?'Available. With sharing enabled, your installed skill can submit public discoveries for review.':'Automatic contributions are available after you install the optional skill and select the checkbox above.';
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(6000)});if(!response.ok)throw new Error('Unavailable');return response.json();}
 async function initCommunity(){
@@ -100,6 +126,10 @@ async function init(){
   try{
     const data=await json('data.json');if(data.schema_version!==1||!Array.isArray(data.opportunities))throw new Error('Unsupported public snapshot');
     records=data.opportunities;sources=data.sources||[];
+    if(exampleMode){
+      profile.topics=researchTerms(profile.researchText,records.flatMap(o=>o.topics||[]));
+      renderChips();
+    }
     for(const entry of saved)if(!entry.record){const record=records.find(o=>opportunityKey(o)===entry.key);if(record)entry.record=publicRecordSnapshot(record);}
     $('#snapshotStatus').textContent=`${records.length} catalog programs · Published ${new Date(data.generated_at).toLocaleDateString()} · Coverage and source dates vary`;
     render();
@@ -119,14 +149,21 @@ $('#stage').addEventListener('change',readProfile);
 $('#profileForm').addEventListener('click',event=>{const button=event.target.closest('button[data-kind]');if(button){profile[button.dataset.kind].splice(Number(button.dataset.index),1);readProfile();}});
 $('#profileForm').addEventListener('submit',event=>{event.preventDefault();readProfile({consumeAffiliations:true});resetFilters();$('#opportunities').scrollIntoView({behavior:'smooth'});});
 $('#clearProfile').addEventListener('click',()=>{
-  clearTimeout(profileTimer);profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#societyInput').value='';$('#institutionInput').value='';$('#sharePublic').checked=false;$('#matchedOnly').checked=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
-  try{localStorage.removeItem(PROFILE_KEY);}catch{}renderChips();render();$('#profileStatus').textContent='Research profile cleared. Your saved shortlist is unchanged.';
+  clearTimeout(profileTimer);cvReadId++;$('#cvText').value='';$('#cvFile').value='';$('#cvSuggestions').textContent='';$('#cvStatus').textContent='';profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#societyInput').value='';$('#institutionInput').value='';$('#sharePublic').checked=false;$('#matchedOnly').checked=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
+  if(!exampleMode)try{localStorage.removeItem(PROFILE_KEY);}catch{}renderChips();render();$('#profileStatus').textContent=exampleMode?'Example profile cleared.':'Research profile cleared. Your saved shortlist is unchanged.';
 });
 $('#skillMode').addEventListener('change',()=>{updateSharing();$('#copyStatus').textContent='Copy a new request to apply this choice.';});
 $('#sharePublic').addEventListener('change',()=>{readProfile();$('#copyStatus').textContent='Copy a new request to apply this sharing preference.';});
 $('#searchForm').addEventListener('submit',event=>{event.preventDefault();visible=8;render();});
 for(const id of ['query','category','availability','matchedOnly'])$(`#${id}`).addEventListener(id==='query'?'input':'change',()=>{visible=8;render();});
-$('#savedOnly').addEventListener('change',()=>{if($('#savedOnly').checked){$('#availability').value='all';$('#matchedOnly').checked=false;$('#query').value='';$('#category').value='all';}visible=8;render();});
+function showShortlist(){
+  $('#savedOnly').checked=true;
+  $('#availability').value='all';$('#matchedOnly').checked=false;$('#query').value='';$('#category').value='all';
+  visible=8;render();
+}
+$('#savedOnly').addEventListener('change',()=>{if($('#savedOnly').checked)showShortlist();else resetFilters();});
+$('#resumeShortlist').addEventListener('click',()=>{showShortlist();$('#opportunities').scrollIntoView();});
+$('#resumeMatches').addEventListener('click',()=>{resetFilters();$('#opportunities').scrollIntoView();});
 $('#resetFilters').addEventListener('click',()=>resetFilters({allFunding:true}));
 $('#showMore').addEventListener('click',()=>{visible+=8;render();});
 $('#copyPrompt').addEventListener('click',copyRequest);
@@ -137,8 +174,59 @@ $('#results').addEventListener('click',event=>{
   const key=button.dataset.save;
   if(saved.some(entry=>entry.key===key))saved=saved.filter(entry=>entry.key!==key);
   else{const record=records.find(o=>opportunityKey(o)===key);if(record)saved.push({key,record:publicRecordSnapshot(record)});}
-  try{localStorage.setItem(SAVED_KEY,JSON.stringify(saved));$('#shortlistStatus').textContent='Shortlist saved on this browser.';}catch{$('#shortlistStatus').textContent='Shortlist is available for this visit only. Copy or download it to keep it.';}
+  persistShortlist();
   render();
+});
+function persistShortlist(){
+  if(exampleMode){$('#shortlistStatus').textContent='Example shortlist lasts for this visit.';return;}
+  try{localStorage.setItem(SAVED_KEY,JSON.stringify(saved));$('#shortlistStatus').textContent='Shortlist saved on this browser.';}
+  catch{$('#shortlistStatus').textContent='Browser storage is full or unavailable. Copy or download funding links to keep them.';}
+}
+$('#results').addEventListener('input',event=>{
+  if(!event.target.matches('[data-note]'))return;
+  const entry=saved.find(item=>item.key===event.target.dataset.note);
+  if(entry){entry.note=event.target.value.slice(0,200);persistShortlist();}
+});
+function showCVSuggestions(suggestions){
+  const items=[...suggestions.topics.map(value=>['topics',value]),...suggestions.societies.map(value=>['societies',value]),...suggestions.institutions.map(value=>['institutions',value]),...(suggestions.stage?[['stage',suggestions.stage]]:[])];
+  const fieldLabels={topics:'Topic',societies:'Membership',institutions:'Current institution',stage:'Career stage'};
+  const stageName=$('#stage').querySelector(`option[value="${suggestions.stage}"]`)?.textContent;
+  $('#cvStatus').textContent=items.length?'Select only the details you want to add. Nothing has been added yet.':'No labeled details found. Add your interests manually, or paste lines labeled Research interests, Current appointment or Professional memberships.';
+  $('#cvSuggestions').innerHTML=items.length?`<fieldset><legend>Suggested details</legend>${items.map(([key,value],index)=>`<label><input type="checkbox" data-suggestion="${index}"> ${fieldLabels[key]}: ${esc(key==='stage'?stageName||value:value)}</label>`).join('')}<button id="applyCV" type="button" class="button secondary">Add selected details</button></fieldset>`:'';
+  $('#applyCV')?.addEventListener('click',()=>{
+    const selected=[...$('#cvSuggestions').querySelectorAll(':checked')].map(el=>items[Number(el.dataset.suggestion)]);
+    if(!selected.length){$('#cvStatus').textContent='Select at least one suggestion to add.';return;}
+    clearTimeout(profileTimer);
+    const topics=selected.filter(([key])=>key==='topics').map(([,value])=>value);
+    if (topics.length) $('#topics').value=[$('#topics').value.trim(),...topics].filter(Boolean).join('; ').slice(0,3200);
+    for(const [key,value] of selected){
+      if(key==='stage')$('#stage').value=value;
+      if(key==='societies'||key==='institutions'){
+        if(!profile[key].some(item=>item.toLowerCase()===value.toLowerCase()))profile[key].push(value);
+        $('#affiliationDetails').open=true;
+      }
+    }
+    readProfile();
+    $('#cvSuggestions').textContent='';
+    $('#cvStatus').textContent='Selected details added. Choose Find funding to see matches.';
+  });
+}
+$('#scanCV').addEventListener('click',()=>{
+  cvReadId++;
+  $('#cvFile').value='';
+  const text=$('#cvText').value;
+  $('#cvText').value='';
+  showCVSuggestions(cvSuggestions(text));
+});
+$('#cvFile').addEventListener('change',async()=>{
+  const readId=++cvReadId;
+  const file=$('#cvFile').files[0];
+  $('#cvFile').value='';
+  if(!file)return;
+  $('#cvSuggestions').textContent='';
+  if(!/\.txt$/i.test(file.name)||file.size>200000){$('#cvStatus').textContent='Choose a .txt file under 200 KB or paste an excerpt.';return;}
+  try{const text=await file.text();if(readId===cvReadId)showCVSuggestions(cvSuggestions(text));}
+  catch{if(readId===cvReadId)$('#cvStatus').textContent='Could not read this text file. Try pasting a short excerpt.';}
 });
 function savedText(){return shortlistText(restoreShortlist(records,saved));}
 $('#copyShortlist').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(savedText());$('#shortlistStatus').textContent='Shortlist copied with official links.';}catch{$('#shortlistFallback').value=savedText();$('#shortlistFallback').hidden=false;$('#shortlistFallback').select();$('#shortlistStatus').textContent='Copy your shortlist below.';}});

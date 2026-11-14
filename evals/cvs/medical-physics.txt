@@ -1,0 +1,9 @@
+FICTIONAL CV — Fundlark test fixture
+Sam Example
+Current appointment: Postdoctoral researcher, Stanford University
+Research interests: medical physics; radiotherapy
+Professional memberships
+Current member: American Association of Physicists in Medicine
+Former member: ASTRO
+Publications
+Published in an IEEE journal.

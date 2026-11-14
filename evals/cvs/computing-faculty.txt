@@ -1,0 +1,11 @@
+FICTIONAL CV — Fundlark test fixture
+Avery Example
+Current appointment: Faculty, Stanford University
+Research interests: artificial intelligence; machine learning; computer vision
+Professional memberships
+Current member: IEEE
+Former member: ACM
+Education
+PhD, University of Toronto
+Publications
+Published in ACM Computing Surveys.

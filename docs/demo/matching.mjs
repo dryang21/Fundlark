@@ -61,7 +61,7 @@ export function discoveryLinks(profile, sources=[]) {
   const links=[];
   for(const [kind,names] of [['society',profile.societies],['institution',profile.institutions]]) for(const name of names){
     const official=sources.find(s=>norm(s[kind])===norm(name));
-    links.push(official ? {label:`${name}: funding page`,url:official.url} : {label:`Search ${name} funding`,url:`https://www.google.com/search?q=${encodeURIComponent(`"${name}" official research grants fellowships funding`)}`});
+    links.push(official ? {label:`${name}: ${official.mode==='directory'?'official directory':'funding page'}`,url:official.url,note:official.mode==='directory'?official.description:''} : {label:`Search ${name} funding`,url:`https://www.google.com/search?q=${encodeURIComponent(`"${name}" official research grants fellowships funding`)}`});
   }
   if(profile.topics.length) links.push({label:'Search the web for related funding',url:`https://www.google.com/search?q=${encodeURIComponent(profile.topics.slice(0,4).join(' ')+' research grants fellowships official funding')}`});
   return links.slice(0,8);

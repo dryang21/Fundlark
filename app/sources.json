@@ -331,5 +331,32 @@
     ],
     "source_reviewed_on": "2026-11-08",
     "availability": "not_assessed"
+  },
+  {
+    "id": "esa-awards",
+    "name": "Ecological Society of America awards",
+    "category": "Society",
+    "mode": "directory",
+    "url": "https://esa.org/about/awards/",
+    "description": "Society awards including student presentation awards. Review the individual award criteria and timing.",
+    "society": "Ecological Society of America",
+    "topics": [
+      "ecology"
+    ],
+    "source_reviewed_on": "2026-11-13"
+  },
+  {
+    "id": "bristol-biology-funding",
+    "name": "Bristol Biological Sciences postgraduate research funding",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://www.bristol.ac.uk/biology/courses/postgraduate/phdstudentships/",
+    "description": "Studentships and funding for prospective research degree applicants. Current students should confirm whether a listing is applicable.",
+    "institution": "University of Bristol",
+    "topics": [
+      "ecology",
+      "environmental science"
+    ],
+    "source_reviewed_on": "2026-11-13"
   }
 ]

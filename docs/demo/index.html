@@ -19,9 +19,26 @@
       <div class="hero-actions"><a class="button" href="#research-profile">Find my funding ↓</a><a class="button secondary" href="#opportunities">Browse all funding</a></div>
       <div class="snapshot" id="snapshotStatus" role="status">Loading public snapshot…</div>
     </section>
+    <aside id="exampleBanner" class="journey-panel" hidden><strong>Example mode</strong><p>Try searching and saving. Changes here won’t affect your own profile or shortlist.</p><a href="./" class="button secondary">Back to my Fundlark</a></aside>
+    <section id="examplePicker" class="journey-panel" aria-label="Try an example">
+      <strong>Try an example</strong><p>See how Fundlark works before adding your own details.</p>
+      <div class="hero-actions"><a class="button secondary" href="?example=computing#opportunities">AI faculty researcher</a><a class="button secondary" href="?example=ecology#opportunities">Coastal ecology PhD student</a></div>
+    </section>
+    <section id="returnPanel" class="journey-panel" aria-labelledby="returnHeading" hidden>
+      <h2 id="returnHeading">Pick up where you left off</h2><p id="returnSummary"></p>
+      <p id="returnDeadlines"></p><div class="hero-actions"><button id="resumeShortlist" type="button" class="button">Open my shortlist</button><button id="resumeMatches" type="button" class="button secondary">See my matches</button></div>
+    </section>
     <section id="research-profile" class="profile-panel" aria-labelledby="profileHeading">
       <span class="eyebrow">START WITH YOUR RESEARCH</span><h2 id="profileHeading">Funding that fits your work</h2>
       <p class="note">Your profile stays in this browser. Matching uses the shared catalog; no account or AI subscription is needed to explore it.</p>
+      <details id="cvHelper" class="affiliations">
+        <summary>Start from a CV <span class="small">Optional · paste text or choose a .txt file</span></summary>
+        <p class="note">Fundlark reads the text in this browser and looks for labeled interests, memberships and current appointments. Review suggested fields before adding them. For PDF or Word, paste the relevant text below.</p>
+        <label for="cvFile">Choose a text CV</label> <input id="cvFile" type="file" accept=".txt,text/plain">
+        <label for="cvText">Or paste CV text</label><textarea id="cvText" rows="5" maxlength="50000" autocomplete="off" spellcheck="false"></textarea>
+        <button id="scanCV" class="button secondary" type="button">Suggest profile details</button>
+        <p id="cvStatus" class="note" role="status"></p><div id="cvSuggestions"></div>
+      </details>
       <form id="profileForm">
         <label for="topics">What do you work on? <span class="small">A sentence or a few topics is enough</span></label>
         <textarea id="topics" rows="2" maxlength="3200" placeholder="For example: I study climate adaptation in coastal communities"></textarea>
@@ -41,7 +58,7 @@
       <form id="searchForm" class="search"><label class="sr-only" for="query">Search research topics, funders or programs</label><input id="query" type="search" placeholder="Search a topic, funder or program…"><button type="submit" class="button">Search</button></form>
       <div class="filters"><label for="category">Source <select id="category" aria-label="Funding source category"><option value="all">All sources</option><option value="Industry">Industry</option><option value="Government">Government</option><option value="Foundation">Foundations</option><option value="Institution">Institutions</option><option value="Society">Societies</option></select></label><label for="availability">Availability <select id="availability"><option value="active">Programs to check (hide past rounds)</option><option value="open">Listed open / rolling</option><option value="verify">Window unconfirmed</option><option value="forecast">Upcoming calls</option><option value="closed">Past rounds</option><option value="all">All programs</option></select></label><label><input type="checkbox" id="matchedOnly"> Matches my profile</label><label><input type="checkbox" id="savedOnly"> My shortlist <span id="savedCount">(0)</span></label><button id="resetFilters" type="button" class="text-button">Reset filters</button><span id="resultCount" aria-live="polite"></span></div>
       <div id="matchSummary" class="note" aria-live="polite"></div>
-      <div class="shortlist-tools" id="shortlistTools" hidden><span>Saved on this browser only.</span><button id="copyShortlist" type="button" class="text-button">Copy shortlist</button><button id="downloadShortlist" type="button" class="text-button">Download shortlist</button><span id="shortlistStatus" role="status"></span><textarea id="shortlistFallback" rows="6" readonly hidden aria-label="Shortlist to copy manually"></textarea></div>
+      <div class="shortlist-tools" id="shortlistTools" hidden><span id="shortlistStorageLabel">Saved on this browser only.</span><button id="copyShortlist" type="button" class="text-button">Copy shortlist</button><button id="downloadShortlist" type="button" class="text-button">Download shortlist</button><span id="shortlistStatus" role="status"></span><textarea id="shortlistFallback" rows="6" readonly hidden aria-label="Shortlist to copy manually"></textarea></div>
       <div id="results" class="results"><p>Loading opportunities…</p></div>
       <button id="showMore" class="button secondary more" hidden>Show more opportunities</button>
     </section>
