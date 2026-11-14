@@ -250,3 +250,16 @@ def test_overview_handles_open_api_opportunity_without_deadline(client):
     response = client.get("/api/overview")
     assert response.status_code == 200
     assert isinstance(response.json()["closing_soon"], int)
+
+
+def test_official_call_path_can_find_titles_without_funding_keywords():
+    soup = monitoring.BeautifulSoup(
+        '<a href="/opportunities/new-directions">New Directions</a>'
+        '<a href="/opportunities">Browse more funding</a>'
+        '<a href="/login">Funding applications</a>'
+        '<a href="https://other.example/opportunities/call">Research award</a>',
+        "html.parser",
+    )
+    assert monitoring.extract_candidate_links(
+        soup, "https://university.example/opportunities", path_prefix="/opportunities/"
+    ) == [{"title": "New Directions", "url": "https://university.example/opportunities/new-directions"}]

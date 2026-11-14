@@ -178,6 +178,9 @@
       "fields": [
         "optics",
         "photonics"
+      ],
+      "program_ids": [
+        "coverage:optica-women-scholars-2027"
       ]
     },
     {
@@ -594,6 +597,9 @@
       "fields": [
         "computer science",
         "software engineering"
+      ],
+      "program_ids": [
+        "coverage:acm-w-travel-feb-mar-2027"
       ]
     },
     {
@@ -2437,6 +2443,58 @@
       "funder": "Ecological Society of America",
       "origin": "curated",
       "last_verified_at": "2026-11-13"
+    },
+    {
+      "id": "coverage:acm-w-travel-feb-mar-2027",
+      "title": "ACM-W Computer Science Research Conference Scholarships — February–March 2027",
+      "status": "open",
+      "deadline": "2026-12-15",
+      "funding_type": "Conference travel",
+      "amount": "Up to $600 within a continent or $1,200 between continents",
+      "description": "Helps students attend computer science research conferences. Presenting a paper is optional.",
+      "eligibility": "Undergraduate and graduate students in computing or related programs. An adviser support letter is required; prior recipients cannot reapply.",
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "computer science",
+        "software engineering",
+        "computing"
+      ],
+      "url": "https://women.acm.org/scholarships/",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "Association for Computing Machinery",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "id": "coverage:optica-women-scholars-2027",
+      "title": "Optica Women Scholars — 2027",
+      "status": "open",
+      "deadline": "2026-12-06",
+      "funding_type": "Scholarship",
+      "amount": "$10,000 plus one year of Optica student membership",
+      "description": "Provides financial support and access to mentors for students pursuing optics and photonics.",
+      "eligibility": "Women enrolled in a university undergraduate or master’s program. Optics or photonics interests and program requirements apply.",
+      "eligible_stages": [
+        "undergrad",
+        "masters"
+      ],
+      "topics": [
+        "optics",
+        "photonics",
+        "physics",
+        "engineering"
+      ],
+      "url": "https://www.optica.org/foundation/opportunities/scholarships/optica_women_scholars/",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "Optica",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
     }
   ]
 }

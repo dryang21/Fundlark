@@ -240,22 +240,25 @@
     "title": "Cisco Research Funding",
     "funder": "Cisco",
     "category": "Industry",
-    "funding_type": "Research program \u2014 verify support type",
+    "funding_type": "Research gift",
     "amount": null,
     "deadline": null,
     "status": "verify",
-    "description": "Official research-support program covering networking, cybersecurity, quantum computing, artificial intelligence. Current application windows, support type and applicant requirements must be checked on the program page.",
+    "description": "Cisco supports academic research through gifts tied to specific requests for proposals.",
     "topics": [
       "networking",
       "cybersecurity",
       "quantum computing",
       "artificial intelligence"
     ],
-    "eligibility": "Program source identified; current calls, applicant roles, institutional sponsorship and geography must be checked on the official page.",
-    "eligible_stages": [],
-    "faculty_sponsor_possible": false,
+    "eligibility": "Full-time faculty or research staff at eligible universities or nonprofits may be PIs. Students can join the research team.",
+    "eligible_stages": [
+      "faculty",
+      "staff"
+    ],
+    "faculty_sponsor_possible": true,
     "url": "https://research.cisco.com/research-funding",
-    "source_date": "2026-11-08"
+    "source_date": "2026-11-14"
   },
   {
     "id": "curated:program-aws-research",
@@ -305,21 +308,23 @@
     "title": "Adobe India AI Research Fellowship",
     "funder": "Adobe",
     "category": "Industry",
-    "funding_type": "Research program \u2014 verify support type",
-    "amount": null,
+    "funding_type": "Fellowship",
+    "amount": "\u20b912,00,000 stipend",
     "deadline": null,
     "status": "verify",
-    "description": "Official research-support program covering computer vision, artificial intelligence, natural language processing. Current application windows, support type and applicant requirements must be checked on the program page. India-focused program.",
+    "description": "Supports PhD research in artificial intelligence. The sponsor lists 2026 recipients; confirm the next application window.",
     "topics": [
       "computer vision",
       "artificial intelligence",
       "natural language processing"
     ],
-    "eligibility": "Program source identified; current calls, applicant roles, institutional sponsorship and geography must be checked on the official page.",
-    "eligible_stages": [],
+    "eligibility": "Full-time PhD candidates at recognized Indian universities with at least 12 months remaining in their program.",
+    "eligible_stages": [
+      "phd"
+    ],
     "faculty_sponsor_possible": false,
     "url": "https://research.adobe.com/india-ai-research-fellowship/",
-    "source_date": "2026-11-08"
+    "source_date": "2026-11-14"
   },
   {
     "id": "curated:program-varian-research",

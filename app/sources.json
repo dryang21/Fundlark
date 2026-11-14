@@ -358,5 +358,60 @@
       "environmental science"
     ],
     "source_reviewed_on": "2026-11-13"
+  },
+  {
+    "id": "stanford-seed-calls",
+    "name": "Stanford Seed Funding: Current Opportunities",
+    "category": "Institution",
+    "mode": "watch",
+    "url": "https://seedfunding.stanford.edu/opportunities",
+    "description": "Official listing of internal funding calls.",
+    "institution": "Stanford University",
+    "candidate_path_prefix": "/opportunities/"
+  },
+  {
+    "id": "mit-internal-funding",
+    "name": "MIT Internal Funding Opportunities",
+    "category": "Institution",
+    "mode": "watch",
+    "url": "https://research.mit.edu/research-development/internal-funding-opportunities",
+    "description": "Official MIT directory of internal funding programs.",
+    "institution": "Massachusetts Institute of Technology"
+  },
+  {
+    "id": "harvard-fas-research",
+    "name": "Harvard FAS Current Funding Opportunities",
+    "category": "Institution",
+    "mode": "watch",
+    "url": "https://research.fas.harvard.edu/current-opportunities",
+    "description": "Official internal and selected external funding directory; verify applicant restrictions program by program.",
+    "institution": "Harvard University"
+  },
+  {
+    "id": "iop-support-grants",
+    "name": "Institute of Physics Support and Grants",
+    "category": "Society",
+    "mode": "watch",
+    "url": "https://www.iop.org/about/support-grants",
+    "description": "Official support and grants directory.",
+    "society": "Institute of Physics"
+  },
+  {
+    "id": "acm-w-scholarships",
+    "name": "ACM-W Research Conference Scholarships",
+    "category": "Society",
+    "mode": "watch",
+    "url": "https://women.acm.org/scholarships/",
+    "description": "Official ACM-W conference scholarship program.",
+    "society": "Association for Computing Machinery"
+  },
+  {
+    "id": "optica-fellowships",
+    "name": "Optica Foundation Fellowships",
+    "category": "Society",
+    "mode": "watch",
+    "url": "https://www.optica.org/foundation/opportunities/fellowships/",
+    "description": "Official optics and photonics fellowship directory.",
+    "society": "Optica"
   }
 ]

@@ -161,10 +161,12 @@ async def sync_federal(queries=None):
 
 
 
-async def check_industry_sources():
+async def check_industry_sources(*, categories=None):
     sem = asyncio.Semaphore(3)
     async with httpx.AsyncClient(timeout=20, follow_redirects=True,headers={"User-Agent":UA}) as client:
         async def guarded(source):
             async with sem:
                 return await check_source(client,source)
-        return await asyncio.gather(*(guarded(source) for source in SOURCES if source["mode"] == "watch"))
+        return await asyncio.gather(*(guarded(source) for source in SOURCES
+                                      if source["mode"] == "watch"
+                                      and (categories is None or source["category"] in categories)))

@@ -67,7 +67,7 @@ async def robots_allowed(client, url):
         return False
 
 
-def extract_candidate_links(soup, base_url):
+def extract_candidate_links(soup, base_url, *, path_prefix=None):
     """Collect possible calls from the same official HTTPS host; never publish them."""
     base_host = urlparse(base_url).netloc.lower()
     clues = ("grant", "funding", "research award", "call for", "proposal", "fellowship",
@@ -76,11 +76,13 @@ def extract_candidate_links(soup, base_url):
     found = []
     for anchor in soup.select("a[href]"):
         title = " ".join(anchor.stripped_strings).strip()
-        if len(title) < 5 or not any(clue in title.lower() for clue in clues):
+        if len(title) < 5 or (not path_prefix and not any(clue in title.lower() for clue in clues)):
             continue
         parsed = urlparse(urljoin(base_url, anchor.get("href", "")))
         if (parsed.scheme != "https" or parsed.netloc.lower() != base_host
                 or parsed.username or parsed.password):
+            continue
+        if path_prefix and not (parsed.path.startswith(path_prefix) and parsed.path.removeprefix(path_prefix).strip("/")):
             continue
         url = parsed._replace(fragment="").geturl()
         if url in seen or url.rstrip("/") == base_url.rstrip("/"):
@@ -142,7 +144,7 @@ async def check_source(client, source):
                 else soup.find("main") or soup.find("article") or soup.body or soup)
         if root is None:
             raise ValueError("Configured funding content was not found")
-        candidates = extract_candidate_links(root, url)
+        candidates = extract_candidate_links(root, url, path_prefix=source.get("candidate_path_prefix"))
         visible = "\n".join(" ".join(s.split()) for s in root.stripped_strings if s.strip())
         if len(visible) < 70:
             raise ValueError("Page has too little readable funding content")
