@@ -827,5 +827,28 @@
     "funder": "Optica",
     "origin": "curated",
     "last_verified_at": "2026-11-14"
+  },
+  {
+    "id": "coverage:optica-deutsch-fellowship",
+    "title": "Optica Thomas F. Deutsch Fellowship in Biomedical Optics",
+    "status": "verify",
+    "deadline": null,
+    "funding_type": "Fellowship",
+    "description": "Supports postdoctoral research in biomedical optics at designated host positions.",
+    "eligibility": "Applicants must be at the postdoctoral level and within five years of degree completion, subject to career-break exceptions. The 2027 positions are not yet listed.",
+    "eligible_stages": [
+      "postdoc"
+    ],
+    "topics": [
+      "biomedical optics",
+      "photonics",
+      "medical imaging"
+    ],
+    "url": "https://www.optica.org/foundation/opportunities/fellowships/thomas_f_deutsch_fellowship/",
+    "source_date": "2026-11-14",
+    "category": "Society",
+    "funder": "Optica",
+    "origin": "curated",
+    "last_verified_at": "2026-11-14"
   }
 ]

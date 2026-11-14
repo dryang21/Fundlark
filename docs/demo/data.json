@@ -3781,6 +3781,288 @@
       "origin": "curated",
       "last_verified_at": "2026-11-13",
       "review_needed": false
+    },
+    {
+      "id": "curated:stanford-propel-small-fy27",
+      "title": "Stanford VPDoR Propel Grant — up to $7,500 (FY27)",
+      "funder": "Stanford University",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/vpdor-7500-propel-grant-fy27",
+      "description": "Reimburses activities that strengthen a collaborative external funding proposal already ready to submit.",
+      "eligibility": "PI-eligible Stanford faculty. School of Medicine applicants need a co-PI from another Stanford school.",
+      "topics": [
+        "interdisciplinary research",
+        "proposal development",
+        "research collaboration"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2027-08-31",
+      "amount": "Up to $7,500",
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-propel-large-fy27",
+      "title": "Stanford VPDoR Propel Grant — $7,501–$50,000 (FY27)",
+      "funder": "Stanford University",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/vpdor-50000-propel-grant-fy27",
+      "description": "Supports up to 12 months of work to strengthen an ambitious collaborative proposal for external funding.",
+      "eligibility": "PI-eligible Stanford faculty. School of Medicine applicants need a co-PI from another Stanford school.",
+      "topics": [
+        "interdisciplinary research",
+        "proposal development",
+        "research collaboration"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2027-08-31",
+      "amount": "$7,501–$50,000",
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-dshare-fy27",
+      "title": "Stanford Dataset Sharing for Research — FY27",
+      "funder": "Stanford University",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/fy27-stanford-dataset-sharing-research-d-share-program",
+      "description": "Supports acquisition of datasets that can be shared across Stanford research groups.",
+      "eligibility": "Stanford faculty as primary applicants; confirm Stanford PI eligibility and dataset access requirements.",
+      "topics": [
+        "research data",
+        "data sharing",
+        "interdisciplinary research"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2027-01-08",
+      "amount": null,
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-csharp-fy27",
+      "title": "Stanford C-ShaRP Voucher Program — FY27",
+      "funder": "Stanford University",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/c-sharp-voucher-program-fy27",
+      "description": "Pays for use of shared research equipment, infrastructure or facility staff time.",
+      "eligibility": "PIs within their first two years at Stanford must collaborate with shared facility staff; at least one facility staff member must be a co-applicant.",
+      "topics": [
+        "research infrastructure",
+        "engineering",
+        "research instrumentation"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2026-11-17",
+      "amount": null,
+      "status": "open",
+      "funding_type": "Research voucher",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-sci-fellowship-2027",
+      "title": "Stanford Cancer Institute Fellowship Awards — 2027",
+      "funder": "Stanford Cancer Institute",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/2027-stanford-cancer-institute-sci-fellowship-awards",
+      "description": "Provides salary and benefits support for mentored cancer research and career development.",
+      "eligibility": "Stanford postdoctoral researchers should check mentor letters and the requirement to seek additional peer-reviewed funding.",
+      "topics": [
+        "cancer research",
+        "oncology",
+        "medical research",
+        "radiotherapy"
+      ],
+      "eligible_stages": [
+        "postdoc"
+      ],
+      "deadline": "2027-01-12",
+      "amount": "$75,000",
+      "status": "open",
+      "funding_type": "Fellowship",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-raise-health-2026",
+      "title": "Stanford RAISE Health Seed Grants — 2026–27",
+      "funder": "Stanford RAISE Health",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/2026-raise-health-seed-grants",
+      "description": "Supports one year of research or education on responsible AI in medicine, including fairness and evaluation.",
+      "eligibility": "Stanford applicants must meet the call’s PI and team requirements. Check the official eligibility section before applying.",
+      "topics": [
+        "artificial intelligence",
+        "AI ethics",
+        "medicine",
+        "public health",
+        "machine learning"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2027-01-19",
+      "amount": "Up to $100,000",
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-impact-labs-2027",
+      "title": "Stanford Impact Labs: Lab Funding — 2027",
+      "funder": "Stanford Impact Labs",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/stanford-impact-labs-call-proposals-lab-funding-2027",
+      "description": "Funds social science teams working with partners on concrete public problems. Amount and duration vary by track.",
+      "eligibility": "PI-eligible Stanford faculty engaged in social science research; check partnership and track requirements.",
+      "topics": [
+        "social science",
+        "public policy",
+        "social impact",
+        "interdisciplinary research"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2026-12-13",
+      "amount": "Up to $2.5 million over five years",
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-global-development-spring-2027",
+      "title": "Stanford King Center Global Development Research — Spring 2027",
+      "funder": "Stanford King Center on Global Development",
+      "category": "Institution",
+      "url": "https://seedfunding.stanford.edu/opportunities/2026-27-spring-quarter-global-development-research-funding",
+      "description": "Supports new or early-stage studies on development and poverty in low- and middle-income countries.",
+      "eligibility": "Stanford faculty and postdoctoral scholars. Check the call for postdoctoral application requirements.",
+      "topics": [
+        "global development",
+        "economics",
+        "public policy",
+        "global health"
+      ],
+      "eligible_stages": [
+        "faculty",
+        "postdoc"
+      ],
+      "deadline": "2027-04-04",
+      "amount": "Up to $80,000 for faculty or $30,000 for postdocs",
+      "status": "verify",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:align-research-2027",
+      "title": "Align Technology Annual Research Awards — 2027",
+      "funder": "Align Technology",
+      "category": "Industry",
+      "url": "https://investor.aligntech.com/news-releases/news-release-details/align-technology-opens-2027-annual-research-program-advance",
+      "description": "Supports one-year university research projects in orthodontics and dentistry.",
+      "eligibility": "University faculty. Use the application instructions for the Americas, EMEA, or Asia-Pacific region.",
+      "topics": [
+        "orthodontics",
+        "dentistry",
+        "medical imaging",
+        "clinical research"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "deadline": "2027-03-05",
+      "amount": "Up to US$25,000 per project",
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:simons-scientific-software-2027",
+      "title": "Simons Scientific Software Research Faculty Award — 2027–28",
+      "funder": "Simons Foundation",
+      "category": "Foundation",
+      "url": "https://www.simonsfoundation.org/funding/scientific-software-research-faculty-award-2027-2028/",
+      "description": "Supports new research faculty positions focused on scientific software for five years.",
+      "eligibility": "Applicants need a record of scientific software leadership. Awardees must take a qualifying new position at a U.S. PhD-granting institution.",
+      "topics": [
+        "scientific computing",
+        "scientific software",
+        "software engineering",
+        "mathematics",
+        "physics",
+        "astronomy"
+      ],
+      "eligible_stages": [],
+      "deadline": "2027-01-21",
+      "amount": "Salary support and $50,000 annual research allowance",
+      "status": "open",
+      "funding_type": "Research grant",
+      "source_date": "2026-11-14",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
     }
   ],
   "sources": [
