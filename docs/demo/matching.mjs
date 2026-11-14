@@ -39,6 +39,8 @@ export function normalizeProfile(value = {}) {
 export function societyKey(value) {
   const key=norm(value).replace(/&/g,'and').replace(/[^a-z0-9]/g,'');
   const aliases={
+    instituteofelectricalandelectronicsengineers:'ieee', associationforcomputingmachinery:'acm',
+    sigmaxithescientificresearchhonorsociety:'sigmaxi', sigmaxiscientificresearchhonorsociety:'sigmaxi',
     americanphysicalsociety:'aps', americanassociationofphysicistsinmedicine:'aapm',
     americansocietyforradiationoncology:'astro', americansocietyofclinicaloncology:'asco',
     radiologicalsocietyofnorthamerica:'rsna', americangeophysicalunion:'agu',
@@ -70,11 +72,16 @@ export function match(record, profile) {
   const tags = record.affiliation_tags || {};
   const institutions = profile.institutions.map(norm);
   const affiliations = membershipMatches(record, profile.societies);
-  if (tags.institution && institutions.includes(norm(tags.institution))) affiliations.push(tags.institution);
+  const institutionMatch=Boolean(tags.institution && institutions.includes(norm(tags.institution)));
+  if(institutionMatch)affiliations.push(tags.institution);
+  const requestedAffiliation=Boolean(tags.institution||tags.societies?.length);
   const stages = record.eligible_stages || [];
   let stage = 'Check applicant rules';
   if (profile.stage && stages.length) stage = stages.includes(profile.stage) ? 'Career stage listed; other rules apply' : record.faculty_sponsor_possible ? 'May need a faculty collaborator' : 'Career stage may not qualify';
-  return {hits, topicEvidence, affiliations, stage, stageConcern: Boolean(profile.stage && stages.length && !stages.includes(profile.stage)), score: hits.length * 10 + affiliations.length * 15};
+  const stageConcern=Boolean(profile.stage && stages.length && !stages.includes(profile.stage));
+  const affiliationConcern=requestedAffiliation&&!affiliations.length;
+  return {hits, topicEvidence, affiliations, stage, stageConcern, affiliationConcern,
+    score: topicEvidence.reduce((n,term)=>n+(term.related&&norm(term.term)!=='ai'?5:10),0)+affiliations.length*15};
 }
 export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) { return record.deadline && record.deadline < today ? 'closed' : record.status; }
 export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,savedOnly=false,saved=[]} = {}) {
@@ -83,7 +90,9 @@ export function selectRecords(records, profile, {query='',category='all',availab
     const status=statusOf(o);
     const available=availability==='all'||(availability==='active'?status!=='closed':availability==='open'?['open','rolling'].includes(status):status===availability);
     return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[]),...(o.affiliation_tags?.societies||[]),...(o.affiliation_tags?.conferences||[])].join(' ').toLowerCase().includes(term));
-  }).sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||b.matching.score-a.matching.score||Number(a.matching.stageConcern)-Number(b.matching.stageConcern)||({open:0,rolling:0,forecast:1,verify:2}[statusOf(a)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b)]??3));
+  }).sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||
+    (matchedOnly?(Number(a.matching.stageConcern)+Number(a.matching.affiliationConcern))-(Number(b.matching.stageConcern)+Number(b.matching.affiliationConcern)):0)||
+    b.matching.score-a.matching.score||({open:0,rolling:0,forecast:1,verify:2}[statusOf(a)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b)]??3));
 }
 export function discoveryLinks(profile, sources=[]) {
   const links=[];
@@ -116,7 +125,7 @@ export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
     `Current institutions: ${profile.institutions.join('; ') || 'Not specified'}`,
     'Search official government, industry, foundation, society and institutional funding sources relevant to my field and geography. Ask about location or applicant type only if it changes eligibility.',
     'Explain research relevance separately from eligibility. Include official URLs, source check dates, deadlines and uncertainties. Do not assume a medical field.',
-    'Return a short table with funding amount when known, current application status, eligibility concerns and my next step. If you cannot browse current official pages, say so rather than claiming live verification.',
+    'For each opportunity, link the title to its official call and give exactly three concise bullets: What it funds (scope and amount), Who can apply (key applicant rules and how my profile fits), and When to act (current status, deadline or next step). If you cannot browse current official pages, say so.',
     'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json (a starting index; it is not exhaustive or necessarily current).'];
   if(!skillMode) lines.push('This request works as an ordinary research prompt; no Fundlark skill installation is required.');
   if (apiBase && skillMode) {

@@ -1,8 +1,8 @@
 import {readCV} from './cv-reader.mjs';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvSuggestions, upcomingSaved} from './journey.mjs?v=cv-3';
+import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-5';
 import {SOCIETIES, INSTITUTIONS, researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms} from './matching.mjs?v=membership-3';
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms} from './matching.mjs?v=membership-5';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
@@ -97,6 +97,11 @@ function refreshSupportTypes(){
   control.innerHTML='<option value="">All support types</option>'+types.map(type=>`<option value="${esc(type)}">${esc(type)}</option>`).join('');
   if(types.includes(selection))control.value=selection;
 }
+function findFunding(){
+  readProfile({consumeAffiliations:true});
+  resetFilters();
+  $('#opportunities').scrollIntoView({behavior:'smooth'});
+}
 function render(){
   const savedRecords=restoreShortlist(records,saved);
   renderReturn(savedRecords);
@@ -119,7 +124,28 @@ function render(){
     const reasons=[...o.matching.topicEvidence.map(({term,matched,related})=>related?`${term} → related catalog term: ${matched}`:`Catalog mentions: ${term}`),...o.matching.affiliations.map(t=>`Catalog tags your affiliation: ${t}`)];
     const entry=saved.find(item=>item.key===key);
     const checked=o.last_verified_at?.slice(0,10)||'Unknown';
-    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div><h3>${esc(o.title)}</h3><p class="description">${esc(o.description)}</p>${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — no longer in the current catalog. Recheck the official page.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}${reasons.length?`<p class="match-reasons">${esc(reasons.join(' · '))}</p>`:''}<div class="meta"><span class="badge ${status==='closed'?'closed':status==='verify'||status==='forecast'?'caution':''}">${esc(labels[status]||labels.verify)}</span></div><p class="funding-facts"><strong>${esc(o.amount||'Amount not provided')}</strong><br>Deadline: ${esc(o.deadline||'Check official call')}</p><p class="stage-hint ${o.matching.stageConcern?'stage-concern':''}">${esc(o.matching.stage)}.</p><p class="record-date">Record checked/imported: ${esc(checked)}${freshness(o)?`<br><span class="freshness-warning">${esc(freshness(o))}</span>`:''}</p><details><summary>How it matches & what to verify</summary><p><strong>Applicant rules:</strong> ${esc(o.eligibility||'Confirm the official applicant rules.')}</p><p>Record checked/imported: ${esc(checked)}.${o.review_needed?' Source changed; this record needs review.':''} A topic or affiliation match does not establish eligibility.</p><p>Next step: read the current call to confirm the application window, applicant rules and required documents.</p></details><div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>${isSaved&&$('#savedOnly').checked?`<div class="saved-note"><label>My next step<input type="text" maxlength="200" placeholder="For example: ask about the applicant rules" data-note="${esc(key)}" value="${esc(entry?.note||'')}"></label></div>`:''}</article>`;
+    const concise=(value,fallback)=>{const text=(value||fallback).replace(/\s+/g,' ').trim();return text.length<=180?text:text.slice(0,177).replace(/\s+\S*$/,'')+'…';};
+    const rules=concise(o.eligibility,'Check the official applicant rules.');
+    const scope=concise(o.description,o.funding_type||'See the official call for award details.');
+    const timing=[labels[status]||labels.verify,o.deadline?'Deadline '+o.deadline:'Check the official date'].join(' · ');
+    const fitNotes=[o.matching.stageConcern?o.matching.stage:'',o.matching.affiliationConcern?'No matching affiliation in your profile':''].filter(Boolean);
+    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div>
+      <h3>${esc(o.title)}</h3>
+      <ul class="funding-bullets">
+        <li><strong>What it funds</strong> ${esc(o.amount?o.amount+' · ':'')}${esc(scope)}</li>
+        <li><strong>Who can apply</strong> ${esc(rules)}</li>
+        <li><strong>When to act</strong> ${esc(timing)}</li>
+      </ul>
+      ${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — recheck the official call.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}
+      ${fitNotes.length&&hasProfile()?`<p class="stage-hint stage-concern">${esc(fitNotes.join(' · '))}</p>`:''}
+      <details><summary>Match details and source check</summary>
+        ${reasons.length?`<p>${esc(reasons.join(' · '))}</p>`:''}
+        <p><strong>Applicant rules:</strong> ${esc(o.eligibility||'Confirm the official applicant rules.')}</p>
+        ${o.description&&scope!==o.description?`<p><strong>Program details:</strong> ${esc(o.description)}</p>`:''}
+        <p>Record checked/imported: ${esc(checked)}.${freshness(o)?' '+esc(freshness(o)):''} A topic or affiliation match does not establish eligibility.</p>
+      </details>
+      <div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>
+      ${isSaved&&$('#savedOnly').checked?`<div class="saved-note"><label>My next step<input type="text" maxlength="200" placeholder="For example: ask about the applicant rules" data-note="${esc(key)}" value="${esc(entry?.note||'')}"></label></div>`:''}</article>`;
   }).join(''):emptyState();
   $('#showMore').hidden=filtered.length<=visible;
   renderRoutes();
@@ -195,7 +221,7 @@ for(const [button,input] of [['addSociety','societyInput'],['addInstitution','in
 $('#topics').addEventListener('input',()=>{clearTimeout(profileTimer);$('#profileStatus').textContent='Updating your research profile…';profileTimer=setTimeout(()=>readProfile(),300);});
 $('#stage').addEventListener('change',readProfile);
 $('#profileForm').addEventListener('click',event=>{const button=event.target.closest('button[data-kind]');if(button){profile[button.dataset.kind].splice(Number(button.dataset.index),1);readProfile();}});
-$('#profileForm').addEventListener('submit',event=>{event.preventDefault();readProfile({consumeAffiliations:true});resetFilters();$('#opportunities').scrollIntoView({behavior:'smooth'});});
+$('#profileForm').addEventListener('submit',event=>{event.preventDefault();findFunding();});
 $('#clearProfile').addEventListener('click',()=>{
   clearTimeout(profileTimer);cvReadId++;clearCVPreview();$('#cvText').value='';$('#cvFile').value='';$('#cvSuggestions').textContent='';$('#cvStatus').textContent='';profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#societyInput').value='';$('#institutionInput').value='';$('#sharePublic').checked=false;$('#matchedOnly').checked=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
   if(!exampleMode)try{localStorage.removeItem(PROFILE_KEY);}catch{}renderChips();render();$('#profileStatus').textContent=exampleMode?'Example profile cleared.':'Research profile cleared. Your saved shortlist is unchanged.';
@@ -242,19 +268,21 @@ function clearCVPreview(){
   $('#cvPreviewStatus').textContent='';
 }
 function appendCVTopics(topics){
-  $('#topics').value=[$('#topics').value.trim(),...topics].filter(Boolean).join('; ').slice(0,3200);
+  const existing=$('#topics').value.trim();
+  const keys=new Set(existing.toLowerCase().split(/[,;\n]/).map(value=>value.trim()));
+  $('#topics').value=[existing,...topics.filter(topic=>!keys.has(topic.toLowerCase()))].filter(Boolean).join('; ').slice(0,3200);
 }
 function reviewCV(text){
   clearCVPreview();
   $('#cvExtracted').value=text;
   $('#cvPreview').hidden=!text.trim();
-  const suggestions=cvSuggestions(text,coverageSources,records.flatMap(record=>record.topics||[]));
-  showCVSuggestions(suggestions);
-  if(!Object.values(suggestions).some(value=>value.length)&&text.trim())$('#cvPreview').open=true;
+  const review=cvReview(text,coverageSources,records.flatMap(record=>record.topics||[]));
+  if(!showCVSuggestions(review)&&text.trim())$('#cvPreview').open=true;
 }
 $('#discardCV').addEventListener('click',()=>{
   clearCVPreview();
-  $('#cvStatus').textContent='Extracted text discarded.';
+  $('#cvSuggestions').textContent='';
+  $('#cvStatus').textContent='Extracted text and unconfirmed suggestions discarded.';
 });
 $('#useCVSelection').addEventListener('click',()=>{
   const field=$('#cvExtracted');
@@ -267,29 +295,54 @@ $('#useCVSelection').addEventListener('click',()=>{
   readProfile();
   $('#cvPreviewStatus').textContent='Added to your research interests.';
 });
-function showCVSuggestions(suggestions){
-  const items=[...suggestions.topics.map(value=>['topics',value]),...suggestions.societies.map(value=>['societies',value]),...suggestions.institutions.map(value=>['institutions',value]),...(suggestions.stage?[['stage',suggestions.stage]]:[])];
-  const fieldLabels={topics:'Topic',societies:'Membership',institutions:'Current institution',stage:'Career stage'};
-  const stageName=$('#stage').querySelector(`option[value="${suggestions.stage}"]`)?.textContent;
-  $('#cvStatus').textContent=items.length?'Select only the details you want to add. Nothing has been added yet.':$('#cvExtracted').value.trim()?'The text was read, but no reliable profile details were found. Select a research phrase below or enter your interests manually.':'No text to review. Choose a CV or paste a short excerpt.';
-  $('#cvSuggestions').innerHTML=items.length?`<fieldset><legend>Suggested details</legend>${items.map(([key,value],index)=>`<label><input type="checkbox" data-suggestion="${index}"> ${fieldLabels[key]}: ${esc(key==='stage'?stageName||value:value)}</label>`).join('')}<button id="applyCV" type="button" class="button secondary">Add selected details</button></fieldset>`:'';
-  $('#applyCV')?.addEventListener('click',()=>{
-    const selected=[...$('#cvSuggestions').querySelectorAll(':checked')].map(el=>items[Number(el.dataset.suggestion)]);
+function showCVSuggestions({result,evidence,stages}){
+  const stageSelect=$('#stage');
+  const groups=[
+    ['topics','Research keywords',[...evidence.topics.values()]],
+    ['stage','Career stage',stages],
+    ['societies','Professional memberships',[...evidence.societies.values()]],
+    ['institutions','Current institutions',[...evidence.institutions.values()]],
+  ];
+  const items=groups.flatMap(([key,,matches])=>matches.map(match=>({key,...match})));
+  const container=$('#cvSuggestions');
+  if(!items.length){
+    container.textContent='';
+    $('#cvStatus').textContent=$('#cvExtracted').value.trim()?'The CV text was read, but no clear profile details were found. Review the extracted text or fill in your profile below.':'No text to review. Choose a CV or paste an excerpt.';
+    return false;
+  }
+  const conflicts=stages.length>1;
+  const hasCurrentStage=Boolean(stageSelect.value);
+  const matchStatus=`Found ${items.length} suggestion${items.length===1?'':'s'}. Review the details, then add the ones that fit.`;
+  $('#cvStatus').textContent=matchStatus;
+  let index=0;
+  container.innerHTML=groups.map(([key,heading,matches])=>{
+    const multipleStages=key==='stage'&&conflicts;
+    const note=multipleStages?'Several current roles were found. Pick the stage to use for funding.':!matches.length?'No clear suggestion. You can fill this in below.':'';
+    return `<fieldset class="cv-group"><legend>${heading}</legend>${note?`<p class="note">${note}</p>`:''}${matches.map(({value,excerpt})=>{
+      const label=key==='stage'?stageSelect.querySelector(`option[value="${value}"]`)?.textContent||value:value;
+      const checked=key==='topics'||key==='stage'&&result.stage===value&&(!hasCurrentStage||stageSelect.value===value);
+      const optional=key==='stage'&&hasCurrentStage&&stageSelect.value!==value;
+      return `<label><input type="${multipleStages?'radio':'checkbox'}" name="${multipleStages?'cvStage':'cvChoice'}" data-suggestion="${index++}" ${checked?'checked':''}> <span>${esc(label)}${optional?' (replace saved stage)':''}${excerpt&&excerpt.toLowerCase()!==label.toLowerCase()?`<small class="cv-evidence">${esc(excerpt)}</small>`:''}</span></label>`;
+    }).join('')}</fieldset>`;
+  }).join('')+'<button id="applyCV" type="button" class="button secondary">Find funding with selected details</button>';
+  $('#applyCV').addEventListener('click',()=>{
+    const selected=[...container.querySelectorAll(':checked')].map(el=>items[Number(el.dataset.suggestion)]);
     if(!selected.length){$('#cvStatus').textContent='Select at least one suggestion to add.';return;}
-    clearTimeout(profileTimer);
-    const topics=selected.filter(([key])=>key==='topics').map(([,value])=>value);
-    if (topics.length) appendCVTopics(topics);
-    for(const [key,value] of selected){
-      if(key==='stage')$('#stage').value=value;
+    appendCVTopics(selected.filter(({key})=>key==='topics').map(({value})=>value));
+    for(const {key,value} of selected){
+      if(key==='stage')stageSelect.value=value;
       if(key==='societies'||key==='institutions'){
-        if(!profile[key].some(item=>item.toLowerCase()===value.toLowerCase()))profile[key].push(value);
+        const keyOf=key==='societies'?societyKey:name=>name.toLowerCase();
+        if(!profile[key].some(item=>keyOf(item)===keyOf(value)))profile[key].push(value);
         $('#affiliationDetails').open=true;
       }
     }
-    readProfile();
-    $('#cvSuggestions').textContent='';
-    $('#cvStatus').textContent='Selected details added. Choose Find funding to see matches.';
+    container.textContent='';
+    clearCVPreview();
+    $('#cvStatus').textContent='Selected details added to your research profile.';
+    findFunding();
   });
+  return true;
 }
 $('#scanCV').addEventListener('click',()=>{
   cvReadId++;

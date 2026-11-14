@@ -89,3 +89,13 @@ test('match evidence distinguishes literal overlap from a vocabulary expansion',
   ]);
   assert.equal(result.stage,'Check applicant rules');
 });
+
+test('personalized results surface compatible leads before strong topics with known restrictions',()=>{
+  const profile=normalizeProfile({topics:['mathematics','statistics'],stage:'postdoc'});
+  const rows=[
+    {id:'faculty',title:'Mathematics and statistics',eligible_stages:['faculty'],status:'open'},
+    {id:'members',title:'Mathematics and statistics',affiliation_tags:{societies:['Example Society']},status:'open'},
+    {id:'postdoc',title:'Mathematics fellowship',eligible_stages:['postdoc'],status:'forecast'},
+  ];
+  assert.deepEqual(selectRecords(rows,profile,{matchedOnly:true}).map(row=>row.id),['postdoc','faculty','members']);
+});

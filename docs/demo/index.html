@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Discover research funding from public sources, then take Fundlark to your own AI assistant.">
   <title>Fundlark — Find funding for your next breakthrough</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=funding-results-1">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=cv-review-1"></script>
+  <script type="module" src="demo.js?v=funding-results-1"></script>
 </head>
 <body>
   <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Search with my assistant ↗</a></header>
@@ -33,7 +33,7 @@
       <p class="note">Your profile stays in this browser. Matching uses the shared catalog; no account or AI subscription is needed to explore it.</p>
       <details id="cvHelper" class="affiliations">
         <summary>Start from a CV <span class="small">Optional · PDF, Word or text</span></summary>
-        <p class="note">Fundlark reads the text in this browser and suggests research topics and looks for explicit membership and appointment evidence. Review suggested fields before adding them. Files are read locally. For scanned PDFs, paste text from an OCR copy.</p>
+        <p class="note">Get suggestions for research keywords, career stage, current institutions, and society memberships. Confirm the details you want to use for matching. Your CV is read in this browser. For scanned PDFs, paste text from an OCR copy.</p>
         <label for="cvFile">Choose a CV (PDF, DOCX or TXT)</label> <input id="cvFile" type="file" accept=".pdf,.docx,.txt">
         <label for="cvText">Or paste CV text</label><textarea id="cvText" rows="5" maxlength="50000" autocomplete="off" spellcheck="false"></textarea>
         <button id="scanCV" class="button secondary" type="button">Suggest profile details</button>

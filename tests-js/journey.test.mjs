@@ -57,3 +57,47 @@ test('unlabelled CV suggests known topics without inferring affiliations from pu
   assert.deepEqual(result.institutions,[]);
   assert.equal(result.stage,'');
 });
+
+test('a clinical CV with a fixed residency period recovers current institution and explicit society memberships',()=>{
+  const text=`EDUCATION & TRAINING
+Example University   Exampletown, CA
+Department of Radiation Oncology   07/2026-07/2028
+Role: Medical Physics Resident
+Past University   Other City, NC
+Department of Radiation Oncology   08/2023-05/2026
+Degree: Doctor of Philosophy in Medical Physics
+AWARDS AND HONORS
+AAPM Best Poster Award
+PROFESSIONAL SERVICE & AFFILIATIONS
+1. Reviewer for journals: IEEE Transactions on Medical Imaging
+2. Reviewer for conferences/workshops: ACM Conference on Computing
+3. American Association of Physicists in Medicine (AAPM) Student Member
+4. American Society for Radiation Oncology (ASTRO) Student Member
+5. SIGMA XI Associate Member
+6. ACM Member (2020–2022)
+RESEARCH FOCUS
+Treatment planning; radiotherapy`;
+  const result=cvSuggestions(text,[],[],new Date(2026,10,13));
+  assert.deepEqual(result,{topics:['Treatment planning','radiotherapy'],societies:['AAPM','ASTRO','Sigma Xi'],institutions:['Example University'],stage:'resident'});
+  assert.equal(cvSuggestions(text,[],[],new Date(2029,0,1)).stage,'');
+});
+
+test('CV review recognizes active enrollment and society names, with evidence and a choice for two concurrent roles',async()=>{
+  const {cvReview}=await import('../docs/demo/cv-profile.mjs');
+  const result=cvReview(`Education
+2023–Present  PhD in Electrical Engineering, University of Example
+Academic Employment
+2024–Present  Research Engineer, Example National Laboratory
+Society Memberships
+IEEE; ACM; Example Association for Applied Research
+Example Society — former member
+Talks
+Conference on Historical Engineering
+Research expertise: robot control, computer vision`);
+  assert.equal(result.result.stage,'');
+  assert.deepEqual(result.stages.map(item=>item.value),['phd','staff']);
+  assert.match(result.stages[0].excerpt,/2023–Present/);
+  assert.deepEqual(result.result.institutions,['University of Example','Example National Laboratory']);
+  assert.deepEqual(result.result.societies,['IEEE','ACM','Example Association for Applied Research']);
+  assert.deepEqual(result.result.topics,['robot control','computer vision']);
+});

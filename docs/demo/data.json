@@ -232,28 +232,30 @@
     },
     {
       "id": "curated:program-sony-research",
-      "title": "Sony Research Award Program",
+      "title": "Sony Research Award Program — 2026",
       "funder": "Sony",
       "category": "Industry",
-      "funding_type": "Research program — verify support type",
-      "amount": null,
-      "deadline": null,
-      "status": "verify",
-      "description": "Official research-support program covering computer vision, artificial intelligence, robotics, engineering. Current application windows, support type and applicant requirements must be checked on the program page.",
+      "funding_type": "Research grant",
+      "amount": "Up to $100,000 (Faculty Innovation) or $150,000 (Focused Research)",
+      "deadline": "2026-09-15",
+      "status": "closed",
+      "description": "Supports university research in Sony’s general and focused research areas.",
       "topics": [
         "computer vision",
         "artificial intelligence",
         "robotics",
         "engineering"
       ],
-      "eligibility": "Program source identified; current calls, applicant roles, institutional sponsorship and geography must be checked on the official page.",
-      "eligible_stages": [],
+      "eligibility": "University faculty at eligible institutions in the U.S., Canada, India and selected European countries. Check the submission guidelines for institution and PI requirements.",
+      "eligible_stages": [
+        "faculty"
+      ],
       "faculty_sponsor_possible": false,
       "url": "https://www.sony.com/en/SonyInfo/research-award-program/",
-      "source_date": "2026-11-08",
+      "source_date": "2026-11-13",
       "origin": "curated",
       "last_checked_at": null,
-      "last_verified_at": "2026-11-08",
+      "last_verified_at": "2026-11-13",
       "review_needed": false,
       "stale": false,
       "affiliation_tags": {}
@@ -3450,6 +3452,239 @@
       "review_needed": false,
       "stale": false,
       "affiliation_tags": {}
+    },
+    {
+      "id": "curated:neh-fellowships-2027",
+      "title": "NEH Fellowships — 2027",
+      "funder": "National Endowment for the Humanities",
+      "category": "Government",
+      "funding_type": "Fellowship",
+      "amount": "$5,000 per month; up to $60,000",
+      "deadline": "2027-04-14",
+      "status": "forecast",
+      "description": "Supports sustained humanities research and writing by individual scholars.",
+      "eligibility": "Individual scholars apply. Check citizenship or residency requirements and the 2027 notice’s research scope.",
+      "topics": [
+        "humanities",
+        "history",
+        "literature",
+        "philosophy",
+        "cultural studies"
+      ],
+      "eligible_stages": [],
+      "url": "https://www.neh.gov/grants/research/fellowships",
+      "source_date": "2026-11-13",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:nsf-msprf-2027",
+      "title": "Mathematical Sciences Postdoctoral Research Fellowships",
+      "funder": "U.S. National Science Foundation",
+      "category": "Government",
+      "funding_type": "Fellowship",
+      "amount": null,
+      "deadline": "2027-10-20",
+      "status": "forecast",
+      "description": "Supports postdoctoral work in mathematics and statistics through research or combined research and teaching fellowships.",
+      "eligibility": "For recent mathematics or statistics PhDs who meet U.S. citizenship, national or permanent residency and doctorate timing requirements.",
+      "topics": [
+        "mathematics",
+        "statistics",
+        "applied mathematics",
+        "mathematical sciences"
+      ],
+      "eligible_stages": [
+        "phd",
+        "postdoc"
+      ],
+      "url": "https://www.nsf.gov/funding/opportunities/msprf-mathematical-sciences-postdoctoral-research-fellowships",
+      "source_date": "2026-11-13",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:msca-postdoctoral-fellowships",
+      "title": "Marie Skłodowska-Curie Postdoctoral Fellowships",
+      "funder": "European Commission",
+      "category": "Government",
+      "funding_type": "Fellowship",
+      "amount": null,
+      "deadline": null,
+      "status": "verify",
+      "description": "Funds research and training abroad through European and Global Postdoctoral Fellowships across disciplines.",
+      "eligibility": "Apply with a host. A doctorate, research experience limits and mobility rules apply; nationality rules differ between tracks.",
+      "topics": [
+        "interdisciplinary research",
+        "research mobility",
+        "postdoctoral research",
+        "mathematics",
+        "physics",
+        "computer science",
+        "engineering",
+        "ecology",
+        "economics",
+        "humanities",
+        "social sciences",
+        "biomedical research"
+      ],
+      "eligible_stages": [
+        "phd",
+        "postdoc"
+      ],
+      "url": "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships",
+      "source_date": "2026-11-13",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:nih-parent-k99-no-trial",
+      "title": "NIH Pathway to Independence Award (K99/R00) — no independent trial",
+      "funder": "National Institutes of Health",
+      "category": "Government",
+      "funding_type": "Research grant",
+      "amount": null,
+      "deadline": "2027-02-12",
+      "status": "verify",
+      "description": "Supports a mentored research phase and transition to an independent research position. This notice excludes independent clinical trials.",
+      "eligibility": "For eligible mentored postdoctoral researchers. Check the postdoctoral experience limit, participating institute and current notice.",
+      "topics": [
+        "biomedical research",
+        "medical research",
+        "public health",
+        "neuroscience",
+        "cancer research",
+        "biomedical engineering"
+      ],
+      "eligible_stages": [
+        "postdoc"
+      ],
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-24-194.html",
+      "source_date": "2026-11-13",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:sloan-fellowships-2027",
+      "title": "Sloan Research Fellowships — 2027",
+      "funder": "Alfred P. Sloan Foundation",
+      "category": "Foundation",
+      "funding_type": "Fellowship",
+      "amount": "$75,000",
+      "deadline": "2026-09-15",
+      "status": "closed",
+      "description": "Supports two years of fundamental research by early career scientists in eligible fields.",
+      "eligibility": "Nomination required. Candidates hold a doctorate and a qualifying tenure-track position at a U.S. or Canadian institution.",
+      "topics": [
+        "chemistry",
+        "computer science",
+        "economics",
+        "mathematics",
+        "neuroscience",
+        "physics",
+        "earth system science"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "url": "https://sloan.org/fellowships/",
+      "source_date": "2026-11-13",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:beckman-young-investigator-2027",
+      "title": "Beckman Young Investigator — 2027",
+      "funder": "Arnold and Mabel Beckman Foundation",
+      "category": "Foundation",
+      "funding_type": "Research grant",
+      "amount": "Typically $600,000 over four years",
+      "deadline": "2026-07-31",
+      "status": "closed",
+      "description": "Funds new instruments, methods and materials that open research directions in chemical and life sciences.",
+      "eligibility": "For early career independent faculty at eligible U.S. institutions. Appointment dates and citizenship or permanent residency rules apply.",
+      "topics": [
+        "chemistry",
+        "life sciences",
+        "bioengineering",
+        "biomedical engineering",
+        "research instrumentation"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "url": "https://www.beckman-foundation.org/programs/beckman-young-investigator/",
+      "source_date": "2026-11-13",
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:aps-psychology-student-2027",
+      "title": "APS Student Grant Competition — 2027",
+      "funder": "Association for Psychological Science",
+      "category": "Society",
+      "funding_type": "Small grant",
+      "amount": "$500",
+      "deadline": null,
+      "status": "verify",
+      "description": "Supports early costs of student research in psychological science, such as materials before data collection.",
+      "eligibility": "Current APS student affiliates may apply. Only one APSSC competition entry is allowed per year.",
+      "topics": [
+        "psychology",
+        "cognitive science",
+        "behavioral science"
+      ],
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "url": "https://www.psychologicalscience.org/members/grants-awards-and-symposia/student-grant-competition",
+      "source_date": "2026-11-13",
+      "affiliation_tags": {
+        "societies": [
+          "Association for Psychological Science"
+        ]
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-hai-seed-2026",
+      "title": "Stanford HAI Seed Grants — 2026",
+      "funder": "Stanford Institute for Human-Centered AI",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "amount": "Up to $75,000",
+      "deadline": "2026-08-18",
+      "status": "closed",
+      "description": "Funds one-year projects that test new ideas in human-centered artificial intelligence.",
+      "eligibility": "Stanford teams must follow the program’s lead PI eligibility rules. Postdocs, staff and students can participate on teams.",
+      "topics": [
+        "artificial intelligence",
+        "human-computer interaction",
+        "data science",
+        "AI ethics"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "url": "https://seedfunding.stanford.edu/opportunities/2026-seed-grants-stanford-institute-human-centered-ai",
+      "source_date": "2026-11-13",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "faculty_sponsor_possible": true,
+      "origin": "curated",
+      "last_verified_at": "2026-11-13",
+      "review_needed": false
     }
   ],
   "sources": [
