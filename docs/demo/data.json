@@ -4063,6 +4063,54 @@
       "origin": "curated",
       "last_verified_at": "2026-11-14",
       "review_needed": false
+    },
+    {
+      "id": "curated:amazon-multimodal-perception-2026",
+      "title": "Amazon Research Awards — On-Device Multimodal Perception (Fall 2026)",
+      "funder": "Amazon Science",
+      "category": "Industry",
+      "funding_type": "Cash + cloud credits",
+      "amount": "Unrestricted funds and AWS credits",
+      "deadline": "2026-11-11",
+      "status": "closed",
+      "description": "Supported research in multimodal perception on devices. This was a specific topic in the fall 2026 round.",
+      "eligibility": "Check Amazon’s institutional and PI rules for future calls.",
+      "topics": [
+        "computer vision",
+        "machine learning",
+        "multimodal learning",
+        "edge computing"
+      ],
+      "eligible_stages": [],
+      "url": "https://www.amazon.science/research-awards/call-for-proposals/on-device-multimodal-perception-call-for-proposals-fall-2026",
+      "source_date": "2026-11-14",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:google-carbon-awards-2026",
+      "title": "Google Carbon Removal and Superpollutant Elimination R&D Awards — 2026",
+      "funder": "Google",
+      "category": "Industry",
+      "funding_type": "Research grant",
+      "amount": "Varies by research topic",
+      "deadline": "2026-09-25",
+      "status": "closed",
+      "description": "Supported research and prototyping on carbon removal and reducing superpollutants.",
+      "eligibility": "Researchers at universities, research institutions and other eligible organizations; applicable experience and community engagement requirements apply.",
+      "topics": [
+        "climate science",
+        "carbon removal",
+        "environmental engineering",
+        "sustainability"
+      ],
+      "eligible_stages": [],
+      "url": "https://www.research.google/programs-and-events/2026-google-carbon-removal-and-superpollutant-elimination-rd-awards/",
+      "source_date": "2026-11-14",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
     }
   ],
   "sources": [

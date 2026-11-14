@@ -141,8 +141,31 @@ export function opportunityKey(record) {
   } catch { return record.id; }
 }
 export function mergeCatalog(base, community) {
+  // Imported editions may label the same official URL differently from an editorial record.
+  const officialRoute = record => {
+    try {
+      const url=new URL(record.url);
+      const host=url.hostname.replace(/^www\./,'');
+      return (host==='grants.gov'||host==='seedfunding.stanford.edu')?host+url.pathname.replace(/\/$/,''):'';
+    } catch { return ''; }
+  };
+  const imported = record => ['grantsgov_api','institution_listing'].includes(record.origin);
+  const routes=new Map();
   const merged = new Map(base.map(record => [opportunityKey(record), record]));
-  for (const record of community) merged.set(opportunityKey(record), record);
+  for(const [key,record] of merged){
+    const route=officialRoute(record);
+    if(route)routes.set(route,key);
+  }
+  for (const record of community){
+    const route=officialRoute(record);
+    const previousKey=route&&routes.get(route);
+    const previous=previousKey&&merged.get(previousKey);
+    if(previous&&!imported(previous)&&imported(record))continue;
+    if(previous&&imported(previous)&&previousKey!==opportunityKey(record))merged.delete(previousKey);
+    const key=opportunityKey(record);
+    merged.set(key,record);
+    if(route)routes.set(route,key);
+  }
   return [...merged.values()];
 }
 export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
@@ -154,7 +177,7 @@ export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
     'Search official government, industry, foundation, society and institutional funding sources relevant to my field and geography. Ask about location or applicant type only if it changes eligibility.',
     'Explain research relevance separately from eligibility. Include official URLs, source check dates, deadlines and uncertainties. Do not assume a medical field.',
     'For each opportunity, link the title to its official call and give exactly three concise bullets: What it funds (scope and amount), Who can apply (key applicant rules and how my profile fits), and When to act (current status, deadline or next step). If you cannot browse current official pages, say so.',
-    'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json (a starting index; it is not exhaustive or necessarily current).'];
+    'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json and https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/supplemental.json (starting indexes; check official calls).'];
   if(!skillMode) lines.push('This request works as an ordinary research prompt; no Fundlark skill installation is required.');
   if (apiBase && skillMode) {
     lines.push(`Fundlark public service: ${apiBase}/api/catalog (reviewed community records); ${apiBase}/api/contributions (public opportunity contribution endpoint).`);

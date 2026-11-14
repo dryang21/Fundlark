@@ -1,13 +1,14 @@
 import {readCV} from './cv-reader.mjs';
 import {setupOrganizations} from './organization-picker.mjs?v=1';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-7';
+import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-8';
 import {researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-7';
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-8';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
 const labels = {open:'Listed open — confirm before applying',rolling:'Listed rolling — confirm availability',closed:'Past round / closed',forecast:'Upcoming call — not open yet',verify:'Current application window unconfirmed'};
+const listingLabels={grantsgov_api:'Grants.gov listing',institution_listing:'Official university listing'};
 const PROFILE_KEY='fundlark.public.profile.v1', SAVED_KEY='fundlark.public.shortlist.v1';
 let coverageSources=[], coverageLimit=12, records=[], sources=[], visible=8, profile=normalizeProfile(), storageAvailable=true;
 let apiBase='', communityEnabled=false, saved=[], matchedOnly=false;
@@ -114,12 +115,17 @@ function render(){
   const catalog=$('#savedOnly').checked?savedRecords:records;
   const availability=$('#availability').value, shortlist=$('#savedOnly').checked;
   const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability,fundingType:$('#fundingType').value,matchedOnly});
+  if(!matchedOnly&&$('#category').value==='all'&&!$('#query').value.trim()){
+    filtered.sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||
+      Number(a.category==='Government')-Number(b.category==='Government'));
+  }
   $('#matchedOnly').setAttribute('aria-pressed',String(matchedOnly&&!shortlist));
   $('#browseFunding').setAttribute('aria-pressed',String(!matchedOnly&&!shortlist));
   $('#savedCount').textContent=`(${savedRecords.length})`;
   $('#shortlistTools').hidden=!savedRecords.length;
   $('#shortlistStorageLabel').textContent=exampleMode?'Example shortlist · this visit only':'Saved on this browser only. Notes stay here and aren’t included in exports.';
   const hiddenPast=records.filter(record=>statusOf(record)==='closed').length;
+  $('#archiveHint').hidden=shortlist||availability!=='active'||!hiddenPast;
   $('#resultCount').textContent=shortlist?`${filtered.length} of ${catalog.length} saved`:`${filtered.length} ${matchedOnly?'matching ':''}program${filtered.length===1?'':'s'} · ${records.length} indexed${availability==='active'&&hiddenPast?` · ${hiddenPast} past rounds hidden`:''}`;
   const summary=[];
   if(profile.topics.length)summary.push(`${profile.topics.length} research ${profile.topics.length===1?'term':'terms'}`);
@@ -137,7 +143,7 @@ function render(){
     const scope=concise(o.description,o.funding_type||'See the official call for award details.');
     const timing=[labels[status]||labels.verify,o.deadline?'Deadline '+o.deadline:'Check the official date'].join(' · ');
     const fitNotes=[o.matching.stageConcern?o.matching.stage:'',o.matching.affiliationConcern?'No matching affiliation in your profile':''].filter(Boolean);
-    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}</span><span class="category">${esc(o.category)}</span></div>
+    return `<article class="card"><div class="card-top"><span>${esc(o.funder)}${listingLabels[o.origin]?' · '+esc(listingLabels[o.origin]):''}</span><span class="category">${esc(o.category)}</span></div>
       <h3>${esc(o.title)}</h3>
       <ul class="funding-bullets">
         <li><strong>What it funds</strong> ${esc(o.amount?o.amount+' · ':'')}${esc(scope)}</li>
@@ -150,7 +156,7 @@ function render(){
         ${reasons.length?`<p>${esc(reasons.join(' · '))}</p>`:''}
         <p><strong>Applicant rules:</strong> ${esc(o.eligibility||'Confirm the official applicant rules.')}</p>
         ${o.description&&scope!==o.description?`<p><strong>Program details:</strong> ${esc(o.description)}</p>`:''}
-        <p>Record checked/imported: ${esc(checked)}.${freshness(o)?' '+esc(freshness(o)):''} A topic or affiliation match does not establish eligibility.</p>
+        <p>${listingLabels[o.origin]?`Listing collected ${esc(o.source_date||'on an unknown date')}. Confirm the full official call.`:`Record checked: ${esc(checked)}.${freshness(o)?' '+esc(freshness(o)):''}`} A topic or affiliation match does not establish eligibility.</p>
       </details>
       <div class="card-actions"><a class="source-link" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">View official call ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>
       ${isSaved&&$('#savedOnly').checked?`<div class="saved-note"><label>My next step<input type="text" maxlength="200" placeholder="For example: ask about the applicant rules" data-note="${esc(key)}" value="${esc(entry?.note||'')}"></label></div>`:''}</article>`;
@@ -207,8 +213,9 @@ async function initCommunity(){
 }
 async function init(){
   const coverageRequest=json('coverage.json?v=cv-matches-1').catch(()=>null);
+  const supplementalRequest=json('supplemental.json?v=expanded-catalog-1').catch(()=>null);
   try{
-    const [data, directory]=await Promise.all([json('data.json?v=cv-matches-1').catch(()=>null),coverageRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    const [data, directory, supplemental]=await Promise.all([json('data.json?v=expanded-catalog-1').catch(()=>null),coverageRequest,supplementalRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
     if(directory?.schema_version===1){
       coverageSources=directory.sources;
@@ -219,6 +226,9 @@ async function init(){
       renderCoverage();
     }else $('#coverageSummary').textContent='The source directory could not be loaded.';
 
+    if(supplemental?.schema_version===1&&Array.isArray(supplemental.opportunities)){
+      records=mergeCatalog(records,supplemental.opportunities);
+    }
     organizations.setDirectory(coverageSources,[...sources.map(source=>source.institution),...records.map(record=>record.affiliation_tags?.institution)]);
     profile=normalizeProfile({...profile,societies:profile.societies.map(name=>organizations.resolve('societies',name)),institutions:profile.institutions.map(name=>organizations.resolve('institutions',name))});
     renderChips();
@@ -228,7 +238,9 @@ async function init(){
       renderChips();
     }
     for(const entry of saved)if(!entry.record){const record=records.find(o=>opportunityKey(o)===entry.key);if(record)entry.record=publicRecordSnapshot(record);}
-    $('#snapshotStatus').textContent=`${records.length} catalog programs · ${baseAvailable?'Base snapshot '+new Date(data.generated_at).toLocaleDateString():'Base snapshot unavailable'} · Coverage and source dates vary`;
+    const pastCount=records.filter(record=>statusOf(record)==='closed').length;
+    const nonFederal=records.filter(record=>statusOf(record)!=='closed'&&record.category!=='Government').length;
+    $('#snapshotStatus').textContent=`${records.length} indexed calls · ${nonFederal} non-government leads outside past rounds · ${pastCount} past rounds${supplemental?'':' · Expanded listings unavailable'}`;
     render();
   }catch {$('#snapshotStatus').textContent='The catalog could not be loaded.';$('#results').innerHTML='<div class="empty"><h3>Funding catalog temporarily unavailable</h3><p>Your profile is still here. Try reloading or continue with a search request for your assistant below.</p><a class="button" href="#use-skill">Continue with my assistant</a></div>';$('#resultCount').textContent='Catalog unavailable';}
   await initCommunity();
@@ -267,6 +279,10 @@ $('#resumeShortlist').addEventListener('click',()=>{showShortlist();$('#opportun
 $('#resumeMatches').addEventListener('click',()=>{resetFilters();$('#opportunities').scrollIntoView();});
 $('#resetFilters').addEventListener('click',()=>resetFilters({allFunding:true}));
 $('#showMore').addEventListener('click',()=>{visible+=8;render();});
+$('#showPastRounds').addEventListener('click',()=>{
+  $('#availability').value='closed';
+  visible=8;render();
+});
 $('#copyPrompt').addEventListener('click',copyRequest);
 $('#results').addEventListener('click',event=>{
   const action=event.target.closest('[data-action]')?.dataset.action;

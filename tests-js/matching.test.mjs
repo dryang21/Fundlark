@@ -111,3 +111,12 @@ test('specific CV phrases can match curated broad fields without counting the sa
   assert.equal(results[0].matching.score,5);
   assert.deepEqual(results[0].matching.topicEvidence[0],{term:'Mobile Robotics',matched:'robotics',related:true});
 });
+
+test('official import refreshes same call only once and keeps editorial text',()=>{
+  const url='https://www.grants.gov/search-results-detail/12345';
+  const original={title:'Research RFA',origin:'grantsgov_api',url,deadline:'2027-03-04'};
+  const updated={...original,title:'Updated Research RFA',url:url.replace('www.',''),deadline:'2027-04-04'};
+  assert.deepEqual(mergeCatalog([original],[updated]),[updated]);
+  const curated={...original,title:'Reviewed research call',origin:'curated'};
+  assert.deepEqual(mergeCatalog([curated],[updated]),[curated]);
+});

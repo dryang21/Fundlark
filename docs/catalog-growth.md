@@ -15,3 +15,15 @@ Review candidates against the exact official call. Record what it funds, who can
 Publish the curated snapshot as static JSON, separate from the local review queue. Add or amend the source and its funding records, then run `python scripts/build_coverage.py --check` and review the diff before release. A weekly watch is a reasonable starting cadence; schedule it separately if desired. Rotate editorial review across fields and start with organizations that users actually add to their profiles, without collecting their profile data remotely.
 
 For optional triage, run `python -m scripts.triage_catalog` with an installed Ollama model (`--model` selects a different local model). It sends only public titles and URLs to the local Ollama server and prints a suggested review order. It makes no database changes and cannot verify funding facts. Skip it when the queue is straightforward or no local model is available.
+
+## Expanded official listings
+
+Run these commands from the Fundlark checkout. Stanford collection follows the host's crawl delay and takes several minutes.
+
+```sh
+python -m scripts.collect_stanford_seed /tmp/fundlark-stanford.json
+python -m scripts.refresh_public_catalog --output /tmp/fundlark-federal.json
+python -m scripts.build_supplemental_catalog /tmp/fundlark-stanford.json /tmp/fundlark-federal.json --store-local
+```
+
+The supplemental static snapshot combines official listings with a basic research relevance filter for federal results. Listing metadata still needs applicant-level review. The site keeps editorial records when an imported listing points to the same call, hides closed rounds by default, and labels the import source on each card. SQLite inserts only new IDs; updating the static snapshot does not overwrite prior local reviews.

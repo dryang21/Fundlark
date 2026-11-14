@@ -38,3 +38,22 @@ def test_refresh_paginates_official_results_and_preserves_editorial_records():
     assert revised["deadline"] == existing["deadline"]
     assert revised["review_needed"] is True
     assert original["opportunities"][1]["title"] == "Old title"
+
+
+def test_supplement_prefers_editorial_routes_and_keeps_closed_rounds_closed():
+    from scripts.build_supplemental_catalog import build
+    from scripts.collect_stanford_seed import extract
+
+    base_url = "https://seedfunding.stanford.edu/opportunities"
+    html = """<main><article class="node-opportunity">
+    <h3 class="teaser__title"><a href="/opportunities/old-award">Old Award</a></h3>
+    <div class="field-name-field-application-deadline"><div class="field-items">
+    <div class="field-item">November 20, 2026</div></div></div></article></main>"""
+    archived, _ = extract(html, base_url + "/closed", "closed", "2026-11-14")
+    assert archived[0]["status"] == "closed"
+    cur = {"url": archived[0]["url"], "origin": "curated"}
+    federal = {"url": "https://www.grants.gov/search-results-detail/123", "origin": "grantsgov_api",
+               "title": "Mathematics Research Grant", "category": "Government", "status": "open"}
+    assert build([cur], archived, [federal])["opportunities"] == [
+        dict(federal, last_verified_at=None, review_needed=True)
+    ]

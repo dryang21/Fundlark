@@ -113,7 +113,7 @@ def insert_opportunity(db, item, origin="federal_api", if_absent=False):
         int(item.get("faculty_sponsor_possible", False)), item["url"],
         item.get("source_date"), origin, item.get("last_checked_at", now if origin != "curated" else None),
         item.get("last_verified_at", item.get("source_date") if origin == "curated" else now),
-        0, now, now, json.dumps(item.get("affiliation_tags", {}))
+        int(bool(item.get("review_needed", False))), now, now, json.dumps(item.get("affiliation_tags", {}))
     )
     placeholders = ",".join("?" for _ in record)
     cols = "id,title,funder,category,funding_type,amount,deadline,status,description,topics,eligibility,eligible_stages,faculty_sponsor_possible,url,source_date,origin,last_checked_at,last_verified_at,review_needed,created_at,updated_at"

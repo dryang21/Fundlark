@@ -227,6 +227,11 @@
       "fields": [
         "chemistry",
         "chemical biology"
+      ],
+      "program_ids": [
+        "coverage:acs-prf-ur",
+        "coverage:acs-prf-uni",
+        "coverage:acs-prf-dni"
       ]
     },
     {
@@ -777,7 +782,8 @@
       ],
       "program_ids": [
         "coverage:siam-cse27-travel",
-        "coverage:siam-acda27-travel"
+        "coverage:siam-acda27-travel",
+        "coverage:siam-gs27-travel"
       ]
     },
     {
@@ -2540,6 +2546,103 @@
       "source_date": "2026-11-14",
       "category": "Society",
       "funder": "IEEE Robotics and Automation Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "id": "coverage:acs-prf-ur",
+      "title": "ACS Petroleum Research Fund — Undergraduate Research",
+      "status": "verify",
+      "deadline": null,
+      "funding_type": "Research grant",
+      "amount": "$70,000 over three years",
+      "description": "Supports preliminary fundamental petroleum-related research involving undergraduate researchers.",
+      "eligibility": "Established PI in a department without a doctoral program; undergraduate student participation is required.",
+      "eligible_stages": [
+        "faculty"
+      ],
+      "topics": [
+        "chemistry",
+        "chemical engineering",
+        "geoscience"
+      ],
+      "url": "https://www.acs.org/funding/grants/petroleum-research-fund/programs/undergraduate-research-grants.html",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "American Chemical Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "id": "coverage:acs-prf-uni",
+      "title": "ACS Petroleum Research Fund — Undergraduate New Investigator",
+      "status": "verify",
+      "deadline": null,
+      "funding_type": "Research grant",
+      "amount": "$55,000 over two years",
+      "description": "Supports new independent petroleum-related research programs and undergraduate participation.",
+      "eligibility": "Early-career faculty at a U.S. institution in a department without a doctoral program; check appointment and supervision rules.",
+      "eligible_stages": [
+        "faculty"
+      ],
+      "topics": [
+        "chemistry",
+        "chemical engineering",
+        "geoscience"
+      ],
+      "url": "https://www.acs.org/funding/grants/petroleum-research-fund/programs/undergraduate-new-investigator-grants.html",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "American Chemical Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "id": "coverage:acs-prf-dni",
+      "title": "ACS Petroleum Research Fund — Doctoral New Investigator",
+      "status": "verify",
+      "deadline": null,
+      "funding_type": "Research grant",
+      "amount": "$110,000 over two years",
+      "description": "Supports early-career faculty in fundamental petroleum-related research and helps train students.",
+      "eligibility": "Early-career faculty eligible to supervise graduate students; review the current appointment and institutional rules.",
+      "eligible_stages": [
+        "faculty"
+      ],
+      "topics": [
+        "chemistry",
+        "chemical engineering",
+        "geoscience"
+      ],
+      "url": "https://www.acs.org/funding/grants/petroleum-research-fund/programs/doctoral-new-investigator-grants.html",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "American Chemical Society",
+      "origin": "curated",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "id": "coverage:siam-gs27-travel",
+      "title": "SIAM Geosciences 2027 — Student Travel Award",
+      "status": "verify",
+      "deadline": "2027-03-03",
+      "funding_type": "Conference travel",
+      "description": "Supports student participation in the SIAM Conference on Mathematical and Computational Issues in the Geosciences.",
+      "eligibility": "See SIAM’s student travel award rules and confirm when the application window opens.",
+      "eligible_stages": [
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "topics": [
+        "applied mathematics",
+        "geoscience",
+        "scientific computing"
+      ],
+      "url": "https://www.siam.org/conferences-events/siam-conferences/gs27/program/student-information/",
+      "source_date": "2026-11-14",
+      "category": "Society",
+      "funder": "Society for Industrial and Applied Mathematics",
       "origin": "curated",
       "last_verified_at": "2026-11-14"
     }
