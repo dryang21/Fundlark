@@ -76,9 +76,13 @@ and explain the gap. Do not fill the shortlist with invented opportunities.
 
 ## Make the result useful
 
-Return a concise shortlist suited to the user's request, usually a small table:
-opportunity and official link; why it fits; applicant route (individual, institution
-or faculty collaborator); deadline/status as of the check; and the next useful step.
+Lead with three to five priorities and a deadline calendar when dates are known.
+Group leads by potential direct application, faculty or institutional partner,
+requirements to confirm, and future rounds. Link each title to the official call
+and use three concise bullets: what it funds (distinguish cash and credits), who
+can apply (give the specific blockers), and when to act (date, status, and next
+step). When calls have conflicting deadlines or mutually exclusive applications,
+say so. Suggest project angles only when they help choose between strong leads.
 Explain research relevance separately from eligibility. A topic match cannot prove
 applicant eligibility, and any lexical score is not a probability of winning.
 

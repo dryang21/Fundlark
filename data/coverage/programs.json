@@ -557,7 +557,22 @@
       ]
     },
     "url": "https://aapm.secure-platform.com/gaf/page/AAPM_ASTROseed",
-    "source_date": "2026-11-13"
+    "source_date": "2026-11-13",
+    "amount_max": 50000,
+    "currency": "USD",
+    "award_period_months": 12,
+    "deadline_time": "23:59",
+    "deadline_timezone": "America/New_York",
+    "eligibility_rules": {
+      "application_route": "direct",
+      "membership_required": [
+        "AAPM"
+      ],
+      "minimum_research_effort_percent": 50,
+      "mentor_required": true,
+      "exclusion_group": "aapm-seeds-2027",
+      "next_step": "Ask your program director to guarantee 50% protected research time for one year. Choose just one of the 2027 AAPM seed competitions."
+    }
   },
   {
     "id": "aapm-rsna-2027",
@@ -950,5 +965,149 @@
         "SfN"
       ]
     }
+  },
+  {
+    "id": "rsna-resident-2027",
+    "title": "RSNA Research Resident Grant — 2027",
+    "url": "https://www.rsna.org/research/funding-opportunities/research-grants/resident-fellow-research-grant",
+    "description": "Supports mentored research training for residents in radiologic sciences.",
+    "eligibility": "Includes medical physics, radiology, radiation oncology and nuclear medicine residents. Requires RSNA membership, an eligible North American institution, and 30% cumulative research effort unless approved otherwise.",
+    "topics": [
+      "medical physics",
+      "radiology",
+      "radiation oncology",
+      "medical imaging",
+      "cancer research"
+    ],
+    "eligible_stages": [
+      "resident"
+    ],
+    "status": "open",
+    "deadline": "2027-01-22",
+    "amount": "Up to $50,000",
+    "source_date": "2026-11-14",
+    "source": "RSNA",
+    "deadline_time": "23:59",
+    "deadline_timezone": "America/Chicago",
+    "funding_type": "Research grant",
+    "amount_max": 50000,
+    "currency": "USD",
+    "award_period_months": 24,
+    "affiliation_tags": {
+      "societies": [
+        "RSNA"
+      ]
+    },
+    "eligibility_rules": {
+      "application_route": "direct",
+      "membership_required": [
+        "RSNA"
+      ],
+      "minimum_research_effort_percent": 30,
+      "mentor_required": true,
+      "next_step": "Verify RSNA membership, identify a mentor, and get your department’s agreement on protected effort."
+    }
+  },
+  {
+    "id": "aapm-global-seed-2027",
+    "title": "AAPM Global Health Research Seed Grant — 2027",
+    "url": "https://aapm.secure-platform.com/gaf/page/GlobalSeed",
+    "description": "Supports medical physics research that addresses global health needs.",
+    "eligibility": "AAPM membership, PI eligibility, and relevant global-health research scope are required. Review rank and previous funding limits.",
+    "topics": [
+      "medical physics",
+      "global health",
+      "radiotherapy",
+      "oncology"
+    ],
+    "eligible_stages": [],
+    "status": "verify",
+    "deadline": "2027-04-15",
+    "amount": "$25,000",
+    "source_date": "2026-11-14",
+    "source": "AAPM",
+    "deadline_time": "23:59",
+    "deadline_timezone": "America/New_York",
+    "funding_type": "Research grant",
+    "amount_max": 25000,
+    "currency": "USD",
+    "award_period_months": 12,
+    "affiliation_tags": {
+      "societies": [
+        "AAPM"
+      ]
+    },
+    "eligibility_rules": {
+      "application_route": "check",
+      "membership_required": [
+        "AAPM"
+      ],
+      "pi_privileges_required": true,
+      "exclusion_group": "aapm-seeds-2027",
+      "next_step": "Confirm project fit and PI eligibility. Choose just one of the three 2027 AAPM seed competitions."
+    }
+  },
+  {
+    "id": "acs-catalyst-2027",
+    "title": "ACS Catalyst Scholarship — 2027–28",
+    "url": "https://www.acs.org/funding/scholarships-fellowships/catalyst-scholarship.html",
+    "description": "Need-based renewable scholarship for students pursuing chemistry or related fields.",
+    "eligibility": "U.S. citizens or permanent residents who plan full-time enrolment at a qualifying U.S. college or university; check financial-need rules.",
+    "topics": [
+      "chemistry",
+      "chemical engineering"
+    ],
+    "eligible_stages": [
+      "undergrad"
+    ],
+    "status": "verify",
+    "deadline": "2027-02-02",
+    "amount": "$10,000, renewable",
+    "source_date": "2026-11-14",
+    "source": "ACS",
+    "funding_type": "Scholarship",
+    "amount_max": 10000,
+    "currency": "USD"
+  },
+  {
+    "id": "siam-fm27-travel",
+    "title": "SIAM Financial Mathematics and Engineering — Travel Support (2027)",
+    "url": "https://www.siam.org/conferences-events/siam-conferences/fm27/submissions/",
+    "description": "Conference travel support for the 2027 meeting.",
+    "eligibility": "Read the SIAM travel award rules for student and early-career applicant requirements.",
+    "topics": [
+      "financial mathematics",
+      "applied mathematics",
+      "computational finance"
+    ],
+    "eligible_stages": [],
+    "status": "open",
+    "deadline": "2027-03-16",
+    "amount": null,
+    "source_date": "2026-11-14",
+    "source": "SIAM",
+    "funding_type": "Conference travel"
+  },
+  {
+    "id": "amphilsoc-franklin-2026-dec",
+    "title": "American Philosophical Society Franklin Research Grants — December 2026",
+    "url": "https://www.amphilsoc.org/grants/franklin-research-grants",
+    "description": "Supports research expenses, fieldwork, and study in archives or collections.",
+    "eligibility": "Applicants should hold a doctorate or have equivalent published work. Doctoral candidates are ineligible; affiliation and research-location rules apply.",
+    "topics": [
+      "history",
+      "humanities",
+      "social science",
+      "interdisciplinary research"
+    ],
+    "eligible_stages": [],
+    "status": "open",
+    "deadline": "2026-12-01",
+    "amount": "Up to $7,000",
+    "source_date": "2026-11-14",
+    "source": "AmPhilSoc",
+    "funding_type": "Research grant",
+    "amount_max": 7000,
+    "currency": "USD"
   }
 ]

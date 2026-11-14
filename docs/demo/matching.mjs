@@ -112,7 +112,50 @@ export function match(record, profile) {
     stageMatch:Boolean(profile.stage&&stages.includes(profile.stage)),
     score: [...scores.values()].reduce((n,score)=>n+score,0)+affiliations.length*15};
 }
-export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) { return record.deadline && record.deadline < today ? 'closed' : record.status; }
+export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) {
+  if(record.status==='closed'||record.deadline&&record.deadline<today)return 'closed';
+  if(record.opens_on&&today<record.opens_on)return 'forecast';
+  // A scheduled opening date is not proof that the portal opened.
+  if(record.status==='forecast'&&record.opens_on)return 'verify';
+  return record.status;
+}
+export function applicationPath(record, profile) {
+  const fit=record.matching||match(record,profile), rules=record.eligibility_rules||{};
+  const member=rules.membership_required||[];
+  const missingMembership=member.filter(name=>!profile.societies.some(value=>societyKey(value)===societyKey(name)));
+  const next=rules.next_step;
+  if(statusOf(record)==='closed')return {kind:'watch',label:'Past round',next:'Watch the official page for the next round.'};
+  if(rules.application_route==='partner'||fit.stageConcern&&record.faculty_sponsor_possible)
+    return {kind:'partner',label:'Faculty or institutional partner',next:next||'Confirm who can serve as lead applicant.'};
+  if(fit.stageConcern)
+    return {kind:'check',label:'Career stage needs checking',next:'Check whether your appointment qualifies before preparing an application.'};
+  if(missingMembership.length)
+    return {kind:'check',label:'Confirm '+missingMembership.join(' / ')+' membership',next:next||'Check your membership status before applying.'};
+  if(rules.minimum_research_effort_percent||rules.pi_privileges_required)
+    return {kind:'check',label:rules.minimum_research_effort_percent?'Confirm '+rules.minimum_research_effort_percent+'% research effort':'Confirm PI privileges',next:next||'Ask your institution to confirm the requirement.'};
+  if(rules.application_route==='direct'||fit.stageMatch&&rules.application_route!=='check')
+    return {kind:'direct',label:'Potential direct application',next:next||'Check the remaining applicant requirements and application window.'};
+  return {kind:'check',label:'Applicant rules need checking',next:next||'Read the official call and confirm who can apply.'};
+}
+export function fundingBrief(records,profile) {
+  const groups={direct:[],partner:[],check:[]};
+  const candidates=[];
+  for(const record of records){
+    if(!record.last_verified_at||record.review_needed||statusOf(record)==='closed')continue;
+    const path=applicationPath(record,profile);
+    const rules=record.eligibility_rules||{};
+    const stageFit=(record.eligible_stages||[]).includes(profile.stage);
+    const explicit=rules.next_step&&rules.application_route;
+    if((record.matching||match(record,profile)).stageConcern&&path.kind!=='partner'&&!explicit)continue;
+    const weight=path.kind==='check'?(stageFit&&explicit?3:explicit?2:stageFit?1:0):explicit?1:0;
+    candidates.push({record,path,weight});
+  }
+  candidates.sort((a,b)=>b.weight-a.weight);
+  for(const {record,path} of candidates){
+    if(groups[path.kind]&&groups[path.kind].length<3)groups[path.kind].push({record,path});
+  }
+  return groups;
+}
 export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,savedOnly=false,saved=[]} = {}) {
   const terms=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const stageOnly=profile.stage&&!profile.topics.length&&!profile.societies.length&&!profile.institutions.length;
@@ -181,6 +224,7 @@ export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
     `Current institutions: ${profile.institutions.join('; ') || 'Not specified'}`,
     'Search official government, industry, foundation, society and institutional funding sources relevant to my field and geography. Ask about location or applicant type only if it changes eligibility.',
     'Explain research relevance separately from eligibility. Include official URLs, source check dates, deadlines and uncertainties. Do not assume a medical field.',
+    'Start with three to five priorities and an upcoming deadline calendar. Group leads into direct applications, institution or faculty-led applications, requirements to confirm, and future rounds. Include precise blockers such as protected research effort, PI privileges and mutually exclusive submissions when the official call states them. Never count credits as cash.',
     'For each opportunity, link the title to its official call and give exactly three concise bullets: What it funds (scope and amount), Who can apply (key applicant rules and how my profile fits), and When to act (current status, deadline or next step). If you cannot browse current official pages, say so.',
     'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json and https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/supplemental.json (starting indexes; check official calls).'];
   if(!skillMode) lines.push('This request works as an ordinary research prompt; no Fundlark skill installation is required.');
@@ -196,7 +240,7 @@ export function shortlistText(records) {
   return records.map(o=>`${o.title}\n${o.funder} · ${o.amount || 'Amount not provided'}\nDeadline: ${o.deadline || 'Check official call'} · Status: ${labels[statusOf(o)]||labels.verify}\n${o.eligibility || 'Check applicant rules.'}\n${o.archived?'Saved snapshot; no longer in the current catalog. Recheck the official page.\n':''}${o.url}`).join('\n\n');
 }
 export function publicRecordSnapshot(record) {
-  const fields=['id','title','funder','category','url','round','amount','deadline','status','description','eligibility','topics','eligible_stages','faculty_sponsor_possible','affiliation_tags','last_verified_at','origin','review_needed'];
+  const fields=['id','title','funder','category','url','round','amount','deadline','status','description','eligibility','topics','eligible_stages','faculty_sponsor_possible','affiliation_tags','last_verified_at','origin','review_needed','amount_min','amount_max','currency','award_period_months','opens_on','deadline_time','deadline_timezone','eligibility_rules'];
   return Object.fromEntries(fields.filter(key=>record[key]!==undefined).map(key=>[key,record[key]]));
 }
 export function restoreShortlist(records, entries) {

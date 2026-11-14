@@ -1,9 +1,9 @@
 import {readCV} from './cv-reader.mjs';
 import {setupOrganizations} from './organization-picker.mjs?v=1';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-9';
+import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-10';
 import {researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, institutionMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-9';
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, institutionMatches, societyKey, linkedPrograms, configureSocietyAliases, fundingBrief, applicationPath} from './matching.mjs?v=membership-10';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
@@ -121,6 +121,21 @@ function findFunding(){
   resetFilters();
   $('#opportunities').scrollIntoView({behavior:'smooth'});
 }
+function renderFundingBrief(filtered,show){
+  const panel=$('#fundingBrief');
+  panel.hidden=!show;
+  if(!show)return;
+  const groups=fundingBrief(filtered,profile);
+  const labels={direct:'Potential direct applications',partner:'Find a faculty or institutional partner',check:'Resolve eligibility first'};
+  const sections=Object.entries(groups).filter(([,items])=>items.length).map(([kind,items])=>`<section><h3>${labels[kind]}</h3><ul class="award-links">${items.map(({record,path})=>`<li><a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">${esc(record.title)} ↗</a><small>${esc([record.amount,record.deadline&&'Deadline '+record.deadline,path.next].filter(Boolean).join(' · '))}</small></li>`).join('')}</ul></section>`);
+  const shortlist=Object.values(groups).flat().map(({record})=>record);
+  const calendar=shortlist.filter(record=>record.deadline).sort((a,b)=>a.deadline.localeCompare(b.deadline)).slice(0,6);
+  const conflicts=new Set(shortlist.map(record=>record.eligibility_rules?.exclusion_group).filter(Boolean));
+  const conflictNote=conflicts.size?'<p class="note">Some shortlisted programs are in mutually exclusive competitions. Check each application’s next step before submitting.</p>':'';
+  panel.innerHTML=`<h2>Application plan</h2><p>${sections.length?'Start with these catalog leads. Each has an official source; the funder determines eligibility.':'No source-checked leads in this view. Search official sources for more options.'}</p><div class="affiliation-results">${sections.join('')}</div>
+  ${calendar.length?`<details><summary>Shortlist deadlines (${calendar.length})</summary><ul class="award-links">${calendar.map(record=>`<li><strong>${esc(record.deadline)}</strong> · ${esc(record.title)}</li>`).join('')}</ul></details>`:''}
+  ${conflictNote}<p><a href="#use-skill">Search official sources beyond the catalog ↓</a></p>`;
+}
 function render(){
   const savedRecords=restoreShortlist(records,saved);
   renderReturn(savedRecords);
@@ -147,6 +162,7 @@ function render(){
   if(profile.societies.length)summary.push(`${profile.societies.length} ${profile.societies.length===1?'membership':'memberships'}`);
   if(profile.institutions.length)summary.push(`${profile.institutions.length} ${profile.institutions.length===1?'institution':'institutions'}`);
   $('#matchSummary').textContent=summary.length?`Your profile: ${summary.join(' · ')}. ${matchedOnly?'Showing leads based on your profile. Check the official applicant rules.':'Browsing the catalog. Choose Match my profile for personalized leads.'}`:'Browse programs, or add a research interest, career stage, or affiliation for personalized leads.';
+  renderFundingBrief(filtered,matchedOnly&&!shortlist&&['active','open','forecast','verify'].includes(availability));
   $('#results').innerHTML=filtered.length?filtered.slice(0,visible).map(o=>{
     const status=statusOf(o),key=opportunityKey(o),isSaved=saved.some(entry=>entry.key===key);
     const reasons=[...o.matching.topicEvidence.map(({term,matched,related})=>related?`${term} → related catalog term: ${matched}`:`Catalog mentions: ${term}`),...o.matching.affiliations.map(t=>`Catalog tags your affiliation: ${t}`)];
@@ -158,6 +174,7 @@ function render(){
     const timing=[labels[status]||labels.verify,
       status==='forecast'&&o.opens_on?'Opens '+o.opens_on:null,
       o.deadline?'Deadline '+o.deadline+(o.deadline_time?' at '+o.deadline_time:'')+(o.deadline_timezone?' ('+o.deadline_timezone+')':''):'Check the official date'].filter(Boolean).join(' · ');
+    const path=matchedOnly?applicationPath(o,profile):null;
     const fitNotes=[o.matching.stageConcern?o.matching.stage:'',o.matching.affiliationConcern?'No matching affiliation in your profile':''].filter(Boolean);
     return `<article class="card"><div class="card-top"><span>${esc(o.funder)}${listingLabels[o.origin]?' · '+esc(listingLabels[o.origin]):''}</span><span class="category">${esc(o.category)}</span></div>
       <h3>${esc(o.title)}</h3>
@@ -166,6 +183,7 @@ function render(){
         <li><strong>Who can apply</strong> ${esc(rules)}</li>
         <li><strong>When to act</strong> ${esc(timing)}</li>
       </ul>
+      ${path&&o.last_verified_at&&!o.review_needed?`<p><strong>${esc(path.label)}:</strong> ${esc(path.next)}</p>`:''}
       ${o.archived?'<p class="stage-hint stage-concern">Saved snapshot — recheck the official call.</p>':o.detailsChanged?'<p class="stage-hint">Catalog details changed since you saved this program.</p>':''}
       ${fitNotes.length&&hasProfile()?`<p class="stage-hint stage-concern">${esc(fitNotes.join(' · '))}</p>`:''}
       <details><summary>Match details and source check</summary>
@@ -228,10 +246,10 @@ async function initCommunity(){
   updateSharing();
 }
 async function init(){
-  const coverageRequest=json('coverage.json?v=affiliations-1').catch(()=>null);
+  const coverageRequest=json('coverage.json?v=application-plan-1').catch(()=>null);
   const supplementalRequest=json('supplemental.json?v=expanded-catalog-1').catch(()=>null);
   try{
-    const [data, directory, supplemental]=await Promise.all([json('data.json?v=affiliations-1').catch(()=>null),coverageRequest,supplementalRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    const [data, directory, supplemental]=await Promise.all([json('data.json?v=application-plan-1').catch(()=>null),coverageRequest,supplementalRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
     if(directory?.schema_version===1){
       coverageSources=directory.sources;

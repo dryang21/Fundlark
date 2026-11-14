@@ -8,7 +8,7 @@
       "funder": "AAPM",
       "category": "Society",
       "funding_type": "Research grant",
-      "amount": null,
+      "amount": "$25,000",
       "deadline": "2027-03-22",
       "status": "verify",
       "description": "Early-career medical-physics research support. Published deadlines: mandatory letter of intent March 22, 2027; full application April 19, 2027, both 11:59 PM ET. Confirm current submission availability.",
@@ -21,16 +21,30 @@
       "eligible_stages": [],
       "faculty_sponsor_possible": false,
       "url": "https://aapm.secure-platform.com/gaf/page/seed",
-      "source_date": "2026-11-08",
+      "source_date": "2026-11-14",
       "origin": "curated",
       "last_checked_at": null,
-      "last_verified_at": "2026-11-08",
+      "last_verified_at": "2026-11-14",
       "review_needed": false,
       "stale": false,
       "affiliation_tags": {
         "societies": [
           "AAPM"
         ]
+      },
+      "amount_max": 25000,
+      "currency": "USD",
+      "award_period_months": 12,
+      "deadline_time": "23:59",
+      "deadline_timezone": "America/New_York",
+      "eligibility_rules": {
+        "application_route": "check",
+        "membership_required": [
+          "AAPM"
+        ],
+        "pi_privileges_required": true,
+        "exclusion_group": "aapm-seeds-2027",
+        "next_step": "Confirm PI privileges before the March 22 letter of intent. Do not also apply to the Global Health or ASTRO–AAPM seed grant."
       }
     },
     {
@@ -395,13 +409,17 @@
       "eligible_stages": [],
       "faculty_sponsor_possible": false,
       "url": "https://cancercare.siemens-healthineers.com/about-us/research/investigator-initiated-research-program",
-      "source_date": "2026-11-08",
+      "source_date": "2026-11-14",
       "origin": "curated",
       "last_checked_at": null,
-      "last_verified_at": "2026-11-08",
+      "last_verified_at": "2026-11-14",
       "review_needed": false,
       "stale": false,
-      "affiliation_tags": {}
+      "affiliation_tags": {},
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Ask the sponsor whether the proposed research topic is in scope and confirm who can submit for your institution."
+      }
     },
     {
       "id": "curated:program-elekta-research",
@@ -3930,7 +3948,7 @@
       "category": "Institution",
       "url": "https://seedfunding.stanford.edu/opportunities/2026-raise-health-seed-grants",
       "description": "Supports one year of research or education on responsible AI in medicine, including fairness and evaluation.",
-      "eligibility": "Stanford applicants must meet the call’s PI and team requirements. Check the official eligibility section before applying.",
+      "eligibility": "Stanford affiliates need a Stanford faculty member eligible to serve as PI. Check team rules.",
       "topics": [
         "artificial intelligence",
         "AI ethics",
@@ -3951,7 +3969,19 @@
       },
       "origin": "curated",
       "last_verified_at": "2026-11-14",
-      "review_needed": false
+      "review_needed": false,
+      "faculty_sponsor_possible": true,
+      "amount_max": 100000,
+      "currency": "USD",
+      "award_period_months": 12,
+      "opens_on": "2026-11-02",
+      "deadline_time": "23:59",
+      "deadline_timezone": "America/Los_Angeles",
+      "eligibility_rules": {
+        "application_route": "partner",
+        "faculty_lead_required": true,
+        "next_step": "Identify a PI-eligible Stanford faculty member and agree which part of the project your team will lead."
+      }
     },
     {
       "id": "curated:stanford-impact-labs-2027",
@@ -4373,6 +4403,333 @@
       "eligibility_rules": {
         "institution_required": true
       },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:ubc-clusters-2027",
+      "title": "UBC Grants for Catalyzing Research Clusters — 2027–28",
+      "category": "Institution",
+      "funder": "University of British Columbia",
+      "url": "https://research.ubc.ca/vpri-competitions-initiatives/research-excellence-clusters/grants-catalyzing-research-clusters",
+      "description": "Supports research networks building new collaborations across disciplines.",
+      "eligibility": "Lead must be UBC Vancouver faculty eligible for Tri-Agency funds. The notice of intent was due November 2; check whether your team filed it.",
+      "topics": [
+        "research collaboration",
+        "interdisciplinary research"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "status": "verify",
+      "deadline": "2027-01-11",
+      "amount": null,
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "University of British Columbia"
+      },
+      "funding_type": "Research grant",
+      "eligibility_rules": {
+        "institution_required": true,
+        "campus": "UBC Vancouver",
+        "required_prior_step": "Check that a notice of intent was filed by November 2, 2026."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:michigan-graham-catalyst-2026",
+      "title": "University of Michigan Graham Sustainability Catalyst Grants — FY2026",
+      "category": "Institution",
+      "funder": "University of Michigan",
+      "url": "https://graham.umich.edu/catalyst/grants",
+      "description": "Supports short sustainability research projects with partners.",
+      "eligibility": "PI-eligible University of Michigan faculty at Ann Arbor, Dearborn, or Flint. The listed round is closed.",
+      "topics": [
+        "sustainability",
+        "climate science",
+        "environmental research"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "status": "closed",
+      "deadline": "2025-11-17",
+      "amount": "Up to $15,000",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "University of Michigan"
+      },
+      "funding_type": "Research grant",
+      "amount_max": 15000,
+      "currency": "USD",
+      "award_period_months": 12,
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-cancer-cif",
+      "title": "Stanford Health Care Cancer Center Clinical Innovation Fund",
+      "category": "Institution",
+      "funder": "Stanford University",
+      "url": "https://med.stanford.edu/cancer/research/funding/opportunities/external/shc-cancer-center-clinical-innovation-funds.html",
+      "description": "Supports projects to improve cancer care delivery and patient experience.",
+      "eligibility": "Projects need an eligible Cancer Service Line PI or co-PI; non-CSL researchers need a CSL collaborator.",
+      "topics": [
+        "oncology",
+        "radiotherapy",
+        "clinical innovation",
+        "healthcare quality"
+      ],
+      "eligible_stages": [],
+      "status": "rolling",
+      "deadline": null,
+      "amount": "Up to $150,000",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "funding_type": "Research grant",
+      "amount_max": 150000,
+      "currency": "USD",
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Identify a Cancer Service Line PI or co-PI. The submission portal accepts proposals monthly."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-aimi-aws",
+      "title": "Stanford AIMI–AWS Cloud Credit Program",
+      "category": "Institution",
+      "funder": "Stanford University",
+      "url": "https://aimi.stanford.edu/aws-cloud-credit-program",
+      "description": "Supports Stanford work in AI for health and medicine through computing credits.",
+      "eligibility": "AIMI-affiliated Stanford faculty, or postdocs and trainees in an affiliated lab with mentor permission to submit.",
+      "topics": [
+        "artificial intelligence",
+        "medical imaging",
+        "machine learning",
+        "medical research"
+      ],
+      "eligible_stages": [
+        "faculty",
+        "resident",
+        "phd",
+        "postdoc"
+      ],
+      "status": "verify",
+      "deadline": null,
+      "amount": "Up to $25,000 in AWS credits",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "funding_type": "Cloud credits",
+      "currency": "USD",
+      "amount_max": 25000,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Ask your AIMI-affiliated faculty mentor if you can submit as trainee PI."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-aimi-google-small",
+      "title": "Stanford AIMI–Google Cloud Credits — small proposals",
+      "category": "Institution",
+      "funder": "Stanford University",
+      "url": "https://aimi.stanford.edu/google-cloud-credit-program",
+      "description": "Supports Stanford work in AI for health and medicine through computing credits.",
+      "eligibility": "For eligible Stanford researchers on AI in medicine and imaging; check AIMI PI requirements. Larger proposals are paused.",
+      "topics": [
+        "artificial intelligence",
+        "medical imaging",
+        "machine learning",
+        "medical research"
+      ],
+      "eligible_stages": [],
+      "status": "verify",
+      "deadline": null,
+      "amount": "Small proposals under $5,000",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "funding_type": "Cloud credits",
+      "currency": "USD",
+      "amount_max": null,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Confirm AIMI PI eligibility and use the small-proposal form; larger awards are paused."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:stanford-aimi-travel",
+      "title": "Stanford AIMI Trainee Travel Awards",
+      "category": "Institution",
+      "funder": "Stanford University",
+      "url": "https://aimi.stanford.edu/research/trainee-travel-grants",
+      "description": "Supports Stanford work in AI for health and medicine through conference travel.",
+      "eligibility": "Stanford trainees presenting AI in medicine or health research; check presentation and reimbursement rules.",
+      "topics": [
+        "artificial intelligence",
+        "medical imaging",
+        "machine learning",
+        "medical research"
+      ],
+      "eligible_stages": [],
+      "status": "verify",
+      "deadline": null,
+      "amount": "$500",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Stanford University"
+      },
+      "funding_type": "Conference travel",
+      "currency": "USD",
+      "amount_max": 500,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Confirm your trainee category, presentation format, and funding availability with AIMI."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:anthropic-ai-for-science",
+      "title": "Anthropic AI for Science — Research Credits",
+      "category": "Industry",
+      "funder": "Anthropic",
+      "url": "https://www.anthropic.com/news/expanding-support-for-scientists",
+      "description": "Provides Claude credits for scientific projects that need significant model usage. Credits are not cash.",
+      "eligibility": "Researchers may apply for project credits. The separate team plan requires a qualifying institutional PI or equivalent.",
+      "topics": [
+        "artificial intelligence",
+        "scientific computing",
+        "machine learning",
+        "AI agents",
+        "interdisciplinary research"
+      ],
+      "eligible_stages": [],
+      "status": "rolling",
+      "deadline": null,
+      "amount": "Up to $50,000 in Claude credits",
+      "source_date": "2026-11-14",
+      "funding_type": "API credits",
+      "amount_max": 50000,
+      "currency": "USD",
+      "eligibility_rules": {
+        "application_route": "direct",
+        "next_step": "Use the project-credit form, not the PI-only team-plan form. Confirm institutional terms before using any restricted data."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:biswas-fast-grants-2026-2",
+      "title": "Biswas Family Foundation Fast Grants — Cycle 2",
+      "category": "Foundation",
+      "funder": "Biswas Family Foundation",
+      "url": "https://www.biswasfamilyfoundation.org/science/fast-grants",
+      "description": "Funds one-year AI and data projects that advance health research, including tools and agents for scientists.",
+      "eligibility": "Researchers across career stages may apply through an eligible institution; undergraduates need a faculty sponsor and can only request the lowest tier.",
+      "topics": [
+        "artificial intelligence",
+        "AI agents",
+        "medical research",
+        "public health",
+        "machine learning"
+      ],
+      "eligible_stages": [],
+      "status": "forecast",
+      "deadline": "2026-12-15",
+      "amount": "$25,000, $50,000 or $100,000",
+      "source_date": "2026-11-14",
+      "funding_type": "Research grant",
+      "amount_min": 25000,
+      "amount_max": 100000,
+      "currency": "USD",
+      "award_period_months": 12,
+      "opens_on": "2026-11-15",
+      "eligibility_rules": {
+        "application_route": "direct",
+        "next_step": "Confirm that the project advances health research and that your institution can accept the gift. Then choose a funding tier."
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:nvidia-grad-fellowship-2027",
+      "title": "NVIDIA Graduate Fellowship — 2027–28",
+      "category": "Industry",
+      "funder": "NVIDIA",
+      "url": "https://research.nvidia.com/graduate-fellowships",
+      "description": "Supports PhD projects advancing accelerated computing. Includes a required summer internship.",
+      "eligibility": "For qualifying PhD students who can complete the in-person internship. The application window for this round has closed.",
+      "topics": [
+        "computer science",
+        "high performance computing",
+        "machine learning",
+        "robotics"
+      ],
+      "eligible_stages": [
+        "phd"
+      ],
+      "status": "closed",
+      "deadline": "2026-10-30",
+      "amount": "Up to $60,000",
+      "source_date": "2026-11-14",
+      "opens_on": "2026-09-30",
+      "funding_type": "Fellowship",
+      "amount_max": 60000,
+      "currency": "USD",
+      "eligibility_rules": {
+        "in_person_internship_required": true
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:biologists-travel-2027-feb",
+      "title": "The Company of Biologists Travelling Fellowships — February 2027",
+      "category": "Foundation",
+      "funder": "The Company of Biologists",
+      "url": "https://www.biologists.com/grants/travelling-fellowships/",
+      "description": "Helps cover expenses for a collaborative research visit to a different lab.",
+      "eligibility": "Graduate students and postdoctoral researchers. Check journal scope and travel date requirements. No nationality restriction.",
+      "topics": [
+        "biology",
+        "cell biology",
+        "developmental biology",
+        "research collaboration"
+      ],
+      "eligible_stages": [
+        "masters",
+        "phd",
+        "postdoc"
+      ],
+      "status": "verify",
+      "deadline": "2027-02-05",
+      "amount": "Up to £3,000",
+      "source_date": "2026-11-14",
+      "funding_type": "Research travel",
+      "amount_max": 3000,
+      "currency": "GBP",
       "origin": "curated",
       "last_verified_at": "2026-11-14",
       "review_needed": false

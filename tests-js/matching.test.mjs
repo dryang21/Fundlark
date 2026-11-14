@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {match, normalizeProfile, assistantPrompt, mergeCatalog, researchTerms, selectRecords, discoveryLinks, shortlistText, opportunityKey, publicRecordSnapshot, restoreShortlist, freshness} from '../docs/demo/matching.mjs';
+import {match, normalizeProfile, assistantPrompt, mergeCatalog, researchTerms, selectRecords, discoveryLinks, shortlistText, opportunityKey, publicRecordSnapshot, restoreShortlist, freshness, applicationPath, fundingBrief, statusOf} from '../docs/demo/matching.mjs';
 
 const record = {id:'rsc',title:'Chemistry seed grant',description:'Molecular chemistry research',topics:['chemistry'],url:'https://example.org/award',deadline:'2027-03-01',affiliation_tags:{societies:['Royal Society of Chemistry']},eligible_stages:['phd']};
 test('non-medical profiles and custom societies rank with distinct stage guidance',()=>{
@@ -130,4 +130,28 @@ test('personalized discovery keeps internal grants at the selected university',(
   const profile=normalizeProfile({topics:['robotics'],institutions:['MIT']});
   assert.deepEqual(selectRecords(rows,profile,{matchedOnly:true}).map(row=>row.id),['mit','public']);
   assert.equal(selectRecords(rows,profile).length,3);
+});
+
+test('shortlist prioritizes an explicit career-stage blocker over generic overlap',()=>{
+  const profile=normalizeProfile({stage:'resident',societies:['AAPM']});
+  const base={status:'rolling',last_verified_at:'2026-11-14',title:'Generic research award'};
+  const resident={...base,title:'Resident grant',eligible_stages:['resident'],
+    eligibility_rules:{application_route:'direct',membership_required:['RSNA'],minimum_research_effort_percent:30,next_step:'Confirm membership and 30% effort.'}};
+  const aapm={...resident,title:'Society resident award',
+    eligibility_rules:{application_route:'direct',membership_required:['AAPM'],minimum_research_effort_percent:50}};
+  const partner={...base,title:'Faculty-led award',eligible_stages:['faculty'],
+    eligibility_rules:{application_route:'partner',next_step:'Confirm faculty PI.'}};
+  const brief=fundingBrief([base,base,base,{...resident,review_needed:true},resident,aapm,partner],profile);
+  assert.equal(brief.check[0].record.title,'Resident grant');
+  assert.equal(brief.check[0].path.label,'Confirm RSNA membership');
+  assert.equal(applicationPath(aapm,profile).label,'Confirm 50% research effort');
+  assert.equal(brief.partner[0].path.next,'Confirm faculty PI.');
+  assert.equal(brief.direct.length,0);
+});
+
+test('a scheduled opening is not proof that a portal has opened',()=>{
+  const call={status:'forecast',opens_on:'2026-11-15',deadline:'2026-12-15'};
+  assert.equal(statusOf(call,'2026-11-14'),'forecast');
+  assert.equal(statusOf(call,'2026-11-15'),'verify');
+  assert.equal(statusOf(call,'2026-12-16'),'closed');
 });
