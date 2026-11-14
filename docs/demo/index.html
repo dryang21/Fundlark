@@ -7,7 +7,7 @@
   <title>Fundlark — Find funding for your next breakthrough</title>
   <link rel="stylesheet" href="styles.css?v=profile-directory-1">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=profile-directory-1"></script>
+  <script type="module" src="demo.js?v=cv-sample-1"></script>
 </head>
 <body>
   <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Search with my assistant ↗</a></header>
@@ -35,6 +35,7 @@
         <summary>Start from a CV <span class="small">Optional · PDF, Word or text</span></summary>
         <p class="note">Get suggestions for research keywords, career stage, current institutions, and society memberships. Confirm the details you want to use for matching. Your CV is read in this browser. For scanned PDFs, paste text from an OCR copy.</p>
         <label for="cvFile">Choose a CV (PDF, DOCX or TXT)</label> <input id="cvFile" type="file" accept=".pdf,.docx,.txt">
+        <p class="note">Choose a file from your device, or <button class="text-button" type="button" id="trySampleCV">try a sample CV</button> without opening the file picker. <a href="sample-cv.txt" download>Download the sample</a> to test file upload.</p>
         <label for="cvText">Or paste CV text</label><textarea id="cvText" rows="5" maxlength="50000" autocomplete="off" spellcheck="false"></textarea>
         <button id="scanCV" class="button secondary" type="button">Suggest profile details</button>
         <p id="cvStatus" class="note" role="status"></p><div id="cvSuggestions"></div>

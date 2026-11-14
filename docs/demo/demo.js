@@ -367,16 +367,24 @@ $('#scanCV').addEventListener('click',()=>{
   reviewCV(text);
 });
 $('#cvFile').addEventListener('change',async()=>{
-  const readId=++cvReadId;
   const file=$('#cvFile').files[0];
   $('#cvFile').value='';
   if(!file)return;
+  await inspectCV(()=>file);
+});
+$('#trySampleCV').addEventListener('click',()=>inspectCV(async()=>{
+  const response=await fetch('sample-cv.txt',{signal:AbortSignal.timeout(6000)});
+  if(!response.ok)throw new Error('The sample CV could not load. Try downloading it or choose a file from your device.');
+  return new File([await response.blob()],'sample-cv.txt',{type:'text/plain'});
+},'The sample CV could not load. Try downloading it or choose a file from your device.'));
+async function inspectCV(loadFile,fallback='Could not read this file. Use an unlocked, text-based PDF or DOCX, or paste an excerpt.'){
+  const readId=++cvReadId;
   clearCVPreview();
   $('#cvSuggestions').textContent='';
   $('#cvStatus').textContent='Reading your CV in this browser…';
-  try{const text=await readCV(file);if(readId===cvReadId)reviewCV(text);}
-  catch(error){if(readId===cvReadId)$('#cvStatus').textContent=/^Choose |^No readable/.test(error.message)?error.message:'Could not read this file. Use an unlocked, text-based PDF or DOCX, or paste an excerpt.';}
-});
+  try{const text=await readCV(await loadFile());if(readId===cvReadId)reviewCV(text);}
+  catch(error){if(readId===cvReadId)$('#cvStatus').textContent=/^Choose |^No readable/.test(error.message)?error.message:fallback;}
+}
 function savedText(){return shortlistText(restoreShortlist(records,saved));}
 $('#copyShortlist').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(savedText());$('#shortlistStatus').textContent='Shortlist copied with official links.';}catch{$('#shortlistFallback').value=savedText();$('#shortlistFallback').hidden=false;$('#shortlistFallback').select();$('#shortlistStatus').textContent='Copy your shortlist below.';}});
 $('#downloadShortlist').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([savedText()],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='Fundlark-shortlist.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
