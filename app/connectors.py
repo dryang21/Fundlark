@@ -53,9 +53,9 @@ def storage_safe_topics(title):
     return list(dict.fromkeys(re.findall(r"[A-Za-z][A-Za-z-]{3,}", title.lower())))[:12]
 
 
-async def fetch_grants_gov(client, term, rows=30):
+async def fetch_grants_gov_page(client, term, rows=30, start=0):
     payload = {"rows": min(rows, 100), "keyword":term,
-               "oppStatuses":"forecasted|posted", "startRecordNum":0}
+               "oppStatuses":"forecasted|posted", "startRecordNum":start}
     r = await request_with_retry(client, "POST", "https://api.grants.gov/v1/api/search2", json=payload)
     r.raise_for_status()
     body = r.json()
@@ -72,6 +72,12 @@ async def fetch_grants_gov(client, term, rows=30):
         if record is None:
             raise ValueError("Grants.gov returned an opportunity without its ID or title")
         records.append(record)
+    count = data.get("hitCount")
+    return records, count if type(count) is int and count >= 0 else None
+
+
+async def fetch_grants_gov(client, term, rows=30):
+    records, _ = await fetch_grants_gov_page(client, term, rows=rows)
     return records
 
 

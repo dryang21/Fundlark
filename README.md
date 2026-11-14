@@ -202,3 +202,5 @@ and conference routes across 114 field/topic labels, plus a separate source-back
 seed of travel awards, scholarships and small grants. Directory entries are not open
 calls. See [coverage and launch gates](docs/research/launch-coverage.md) for the
 generator, verification process and remaining gaps.
+
+For periodic catalog upkeep, use the separate [Fundlark maintainer skill](skills/fundlark-maintainer/SKILL.md). It can prepare a paginated Grants.gov refresh and a reviewable catalog update. The public site reads a static snapshot; society, foundation, industry, and institution calls still need source review.
