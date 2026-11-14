@@ -72,6 +72,10 @@ export function membershipMatches(record, societies) {
   const confirmed = new Set(societies.map(societyKey).filter(Boolean));
   return (record.affiliation_tags?.societies||[]).filter(name=>confirmed.has(societyKey(name)));
 }
+export function institutionMatches(record, institutions) {
+  const institution=record.affiliation_tags?.institution;
+  return Boolean(institution&&institutions.some(name=>institutionKey(institution)===institutionKey(name)));
+}
 export function linkedPrograms(records, ids) {
   const wanted=new Set(ids);
   return records.filter(record=>wanted.has(record.id))
@@ -89,9 +93,8 @@ export function match(record, profile) {
   });
   const hits = topicEvidence.map(item=>item.term);
   const tags = record.affiliation_tags || {};
-  const institutions = profile.institutions.map(institutionKey);
   const affiliations = membershipMatches(record, profile.societies);
-  const institutionMatch=Boolean(tags.institution && institutions.includes(institutionKey(tags.institution)));
+  const institutionMatch=institutionMatches(record,profile.institutions);
   if(institutionMatch)affiliations.push(tags.institution);
   const requestedAffiliation=Boolean(tags.institution||tags.societies?.length);
   const stages = record.eligible_stages || [];
@@ -114,6 +117,8 @@ export function selectRecords(records, profile, {query='',category='all',availab
   const terms=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const stageOnly=profile.stage&&!profile.topics.length&&!profile.societies.length&&!profile.institutions.length;
   return records.map(o=>({...o,matching:match(o,profile)})).filter(o=>{
+    const internal=o.category==='Institution'&&o.affiliation_tags?.institution;
+    if(matchedOnly&&internal&&!institutionMatches(o,profile.institutions))return false;
     const status=statusOf(o);
     const available=availability==='all'||(availability==='active'?status!=='closed':availability==='open'?['open','rolling'].includes(status):status===availability);
     return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0||stageOnly&&o.matching.stageMatch)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[]),...(o.affiliation_tags?.societies||[]),...(o.affiliation_tags?.conferences||[])].join(' ').toLowerCase().includes(term));

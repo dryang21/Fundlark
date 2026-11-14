@@ -57,3 +57,26 @@ def test_supplement_prefers_editorial_routes_and_keeps_closed_rounds_closed():
     assert build([cur], archived, [federal])["opportunities"] == [
         dict(federal, last_verified_at=None, review_needed=True)
     ]
+
+
+def test_structured_award_details_survive_upsert_and_public_export(client):
+    from app import storage, publish
+
+    item = {
+        "id": "research:structured", "title": "Pilot Research Award", "funder": "Example University",
+        "category": "Institution", "url": "https://example.org/award",
+        "amount": "Up to C$15,000", "amount_max": 15000, "currency": "CAD",
+        "opens_on": "2026-11-01", "deadline": "2026-12-01",
+        "deadline_time": "17:00", "deadline_timezone": "America/Toronto",
+        "eligibility_rules": {"institution_required": True, "campus": "Example campus"},
+    }
+    with storage.connect() as db:
+        storage.insert_opportunity(db, item)
+        storage.insert_opportunity(db, {key: value for key, value in item.items()
+                                        if key not in storage.DETAIL_FIELDS})
+    result = next(row for row in publish.public_snapshot()["opportunities"] if row["id"] == item["id"])
+    assert result["amount_max"] == 15000
+    assert result["amount_min"] is None
+    assert result["currency"] == "CAD"
+    assert result["deadline_timezone"] == "America/Toronto"
+    assert result["eligibility_rules"]["campus"] == "Example campus"

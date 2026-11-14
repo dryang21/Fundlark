@@ -413,5 +413,75 @@
     "url": "https://www.optica.org/foundation/opportunities/fellowships/",
     "description": "Official optics and photonics fellowship directory.",
     "society": "Optica"
+  },
+  {
+    "id": "mit-internal-directory",
+    "name": "Massachusetts Institute of Technology funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://research.mit.edu/research-development/internal-funding-opportunities",
+    "description": "MIT research office lists internal programs across departments.",
+    "institution": "Massachusetts Institute of Technology",
+    "source_reviewed_on": "2026-11-14"
+  },
+  {
+    "id": "toronto-connaught",
+    "name": "University of Toronto funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://connaught.research.utoronto.ca/opportunities",
+    "description": "Connaught Fund opportunities; also check the requirements for your campus.",
+    "institution": "University of Toronto",
+    "source_reviewed_on": "2026-11-14"
+  },
+  {
+    "id": "oxford-internal-directory",
+    "name": "University of Oxford funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://www.law.ox.ac.uk/oxford-internal-research-funding-opportunities",
+    "description": "Oxford internal funding directory hosted by the Faculty of Law.",
+    "institution": "University of Oxford",
+    "source_reviewed_on": "2026-11-14"
+  },
+  {
+    "id": "cambridge-ahss-internal",
+    "name": "University of Cambridge funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://www.ahssresearch.group.cam.ac.uk/funding-opportunities/internal-funding",
+    "description": "Cambridge internal funding for arts, humanities, and social sciences.",
+    "institution": "University of Cambridge",
+    "source_reviewed_on": "2026-11-14"
+  },
+  {
+    "id": "eth-internal-directory",
+    "name": "ETH Zurich funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://grantsoffice.ethz.ch/funding-opportunities/internal.html",
+    "description": "ETH Zurich Grants Office internal programs.",
+    "institution": "ETH Zurich",
+    "source_reviewed_on": "2026-11-14"
+  },
+  {
+    "id": "duke-internal-directory",
+    "name": "Duke University funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://research.duke.edu/about-ori/seed-grants/",
+    "description": "Duke Research & Innovation seed grant listings.",
+    "institution": "Duke University",
+    "source_reviewed_on": "2026-11-14"
+  },
+  {
+    "id": "harvard-fas-internal",
+    "name": "Harvard University funding office",
+    "category": "Institution",
+    "mode": "directory",
+    "url": "https://research.fas.harvard.edu/current-opportunities",
+    "description": "Harvard FAS lists internal and selected external programs.",
+    "institution": "Harvard University",
+    "source_reviewed_on": "2026-11-14"
   }
 ]

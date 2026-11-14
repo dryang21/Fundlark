@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Discover research funding from public sources, then take Fundlark to your own AI assistant.">
   <title>Fundlark — Find funding for your next breakthrough</title>
-  <link rel="stylesheet" href="styles.css?v=profile-directory-1">
+  <link rel="stylesheet" href="styles.css?v=affiliations-1">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=expanded-catalog-1"></script>
+  <script type="module" src="demo.js?v=affiliations-1"></script>
 </head>
 <body>
   <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Search with my assistant ↗</a></header>
@@ -77,6 +77,11 @@
       <h2 id="membershipHeading">Funding from your societies</h2>
       <p>These awards are connected to your saved memberships. Individual applicant rules still apply.</p>
       <div id="membershipResults"></div>
+    </section>
+    <section id="institutionFunding" class="journey-panel" aria-labelledby="institutionHeading" hidden>
+      <h2 id="institutionHeading">Funding at your institutions</h2>
+      <p>See indexed programs and official offices for the institutions you added. Some internal calls require campus login.</p>
+      <div id="institutionResults" class="affiliation-results"></div>
     </section>
     <section id="opportunities" aria-labelledby="exploreHeading">
       <div class="section-head"><div><span class="eyebrow">A STARTING POINT FOR YOUR SEARCH</span><h2 id="exploreHeading">Explore funding</h2></div><a href="#use-skill">Search beyond this catalog ↓</a></div>

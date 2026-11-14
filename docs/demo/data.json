@@ -4111,6 +4111,271 @@
       "origin": "curated",
       "last_verified_at": "2026-11-14",
       "review_needed": false
+    },
+    {
+      "id": "curated:mit-jwafs-seed-2027",
+      "title": "MIT J-WAFS Water and Food Seed Grant — 2027",
+      "funder": "Massachusetts Institute of Technology",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://jwafs.mit.edu/SeedGrants?page=1",
+      "description": "Funds early-stage research addressing food and water challenges.",
+      "eligibility": "MIT faculty or research staff with PI privileges. Submit a letter of interest first; full proposals are by invitation.",
+      "topics": [
+        "food security",
+        "water",
+        "engineering",
+        "agriculture"
+      ],
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "status": "open",
+      "deadline": "2026-11-18",
+      "amount": "Up to $75,000 per year for one or two years",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Massachusetts Institute of Technology"
+      },
+      "currency": "USD",
+      "award_period_months": 24,
+      "opens_on": "2026-11-04",
+      "deadline_time": "17:00",
+      "deadline_timezone": "America/New_York",
+      "eligibility_rules": {
+        "role": "principal_investigator",
+        "institution_required": true,
+        "first_step": "letter_of_interest",
+        "annual_amount_max": 75000
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:duke-cook-2027",
+      "title": "Duke Cook Center Research Grants on Race, Institutions and Inequality — 2027",
+      "funder": "Duke University",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://cookcenter.duke.edu/advancing-research/seed-grants/",
+      "description": "Supports pilot and planning studies on inequality in society, institutions, and health.",
+      "eligibility": "Duke faculty teams should verify the call’s PI requirements. Early-career faculty participation is preferred.",
+      "topics": [
+        "social science",
+        "public health",
+        "education research",
+        "economics",
+        "inequality"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "status": "open",
+      "deadline": "2027-01-08",
+      "amount": "Up to $60,000 for pilots or $10,000 for planning",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "Duke University"
+      },
+      "currency": "USD",
+      "amount_max": 60000,
+      "award_period_months": 18,
+      "deadline_time": "17:00",
+      "deadline_timezone": "America/New_York",
+      "eligibility_rules": {
+        "institution_required": true,
+        "early_career_preferred": true
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:toronto-utm-research-seed-2026",
+      "title": "University of Toronto Mississauga Research Seed Grant — 2026–27",
+      "funder": "University of Toronto",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://www.utm.utoronto.ca/research-innovation/funding-awards/faculty-librarians/internal-funding/research-seed-grant",
+      "description": "Funds early-stage work to strengthen a specific external grant application.",
+      "eligibility": "Primary appointment at the Mississauga campus and eligibility to serve as a PI. Confirm contract and lead-applicant rules.",
+      "topics": [
+        "research",
+        "proposal development",
+        "interdisciplinary research"
+      ],
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "status": "open",
+      "deadline": "2026-12-01",
+      "amount": "Up to C$15,000",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "University of Toronto"
+      },
+      "amount_max": 15000,
+      "currency": "CAD",
+      "eligibility_rules": {
+        "institution_required": true,
+        "campus": "University of Toronto Mississauga",
+        "pi_privileges_required": true
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:oxford-martin-2027",
+      "title": "Oxford Martin School Research Programmes — 2027",
+      "funder": "University of Oxford",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://www.oxfordmartin.ox.ac.uk/about/funding",
+      "description": "Funds high-risk, solutions-focused research programmes across disciplines.",
+      "eligibility": "Requires two or more Oxford applicants across departments, with contracts covering the project period. Start with an expression of interest.",
+      "topics": [
+        "interdisciplinary research",
+        "social impact",
+        "research collaboration"
+      ],
+      "eligible_stages": [],
+      "status": "open",
+      "deadline": "2027-01-27",
+      "amount": "£250,000–£1 million over two to five years",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "University of Oxford"
+      },
+      "amount_min": 250000,
+      "amount_max": 1000000,
+      "currency": "GBP",
+      "award_period_months": 60,
+      "deadline_time": "13:00",
+      "deadline_timezone": "Europe/London",
+      "eligibility_rules": {
+        "institution_required": true,
+        "minimum_applicants": 2,
+        "minimum_departments": 2,
+        "first_step": "expression_of_interest"
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:eth-grants",
+      "title": "ETH Zurich Research Grants",
+      "funder": "ETH Zurich",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://grantsoffice.ethz.ch/funding-opportunities/internal/eth-grants.html",
+      "description": "Seed funding for pioneering ETH research, with single-PI and collaborative tracks.",
+      "eligibility": "PIs must be employed by ETH Zurich throughout the project. External funding and supervisory rules apply.",
+      "topics": [
+        "interdisciplinary research",
+        "research collaboration",
+        "engineering"
+      ],
+      "eligible_stages": [],
+      "status": "verify",
+      "deadline": null,
+      "amount": null,
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "ETH Zurich"
+      },
+      "deadline_time": "17:00",
+      "deadline_timezone": "Europe/Zurich",
+      "eligibility_rules": {
+        "institution_required": true,
+        "recurring_deadline_month_days": [
+          "03-01",
+          "09-01"
+        ],
+        "weekend_deadline_moves_to_monday": true
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:berkeley-aarc-2026",
+      "title": "UC Berkeley Grants in Asian American Research — 2026",
+      "funder": "University of California, Berkeley",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://issi.berkeley.edu/aarc/grants",
+      "description": "Supports research on Asian American populations and communities.",
+      "eligibility": "UC Berkeley faculty, staff who conduct research, and students. Rules and budgets vary by track.",
+      "topics": [
+        "ethnic studies",
+        "sociology",
+        "anthropology",
+        "history",
+        "social science"
+      ],
+      "eligible_stages": [
+        "faculty",
+        "staff",
+        "undergrad",
+        "masters",
+        "phd"
+      ],
+      "status": "closed",
+      "deadline": "2026-10-19",
+      "amount": "Up to $5,000 for faculty and graduate students; $1,000 for undergraduates",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "University of California, Berkeley"
+      },
+      "amount_max": 5000,
+      "currency": "USD",
+      "deadline_time": "17:00",
+      "deadline_timezone": "America/Los_Angeles",
+      "eligibility_rules": {
+        "institution_required": true
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
+    },
+    {
+      "id": "curated:nus-ai-seed-2026",
+      "title": "NUS Artificial Intelligence Institute Seed Grant — FY2026",
+      "funder": "National University of Singapore",
+      "category": "Institution",
+      "funding_type": "Research grant",
+      "url": "https://ai.nus.edu.sg/naii-seed-grant-call/",
+      "description": "Supports AI research projects within the NUS Artificial Intelligence Institute programme.",
+      "eligibility": "Check NUS faculty appointment and NAII membership requirements. The FY2026 round closed November 10.",
+      "topics": [
+        "artificial intelligence",
+        "machine learning"
+      ],
+      "eligible_stages": [
+        "faculty"
+      ],
+      "status": "closed",
+      "deadline": "2026-11-10",
+      "amount": "Up to S$250,000",
+      "source_date": "2026-11-14",
+      "affiliation_tags": {
+        "institution": "National University of Singapore"
+      },
+      "amount_max": 250000,
+      "currency": "SGD",
+      "deadline_time": "12:00",
+      "deadline_timezone": "Asia/Singapore",
+      "eligibility_rules": {
+        "institution_required": true
+      },
+      "origin": "curated",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false
     }
   ],
   "sources": [
@@ -4647,6 +4912,76 @@
       "availability": "not_assessed",
       "geography_note": null,
       "access_note": null
+    },
+    {
+      "id": "mit-internal-directory",
+      "name": "Massachusetts Institute of Technology funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://research.mit.edu/research-development/internal-funding-opportunities",
+      "description": "MIT research office lists internal programs across departments.",
+      "institution": "Massachusetts Institute of Technology",
+      "source_reviewed_on": "2026-11-14"
+    },
+    {
+      "id": "toronto-connaught",
+      "name": "University of Toronto funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://connaught.research.utoronto.ca/opportunities",
+      "description": "Connaught Fund opportunities; also check the requirements for your campus.",
+      "institution": "University of Toronto",
+      "source_reviewed_on": "2026-11-14"
+    },
+    {
+      "id": "oxford-internal-directory",
+      "name": "University of Oxford funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://www.law.ox.ac.uk/oxford-internal-research-funding-opportunities",
+      "description": "Oxford internal funding directory hosted by the Faculty of Law.",
+      "institution": "University of Oxford",
+      "source_reviewed_on": "2026-11-14"
+    },
+    {
+      "id": "cambridge-ahss-internal",
+      "name": "University of Cambridge funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://www.ahssresearch.group.cam.ac.uk/funding-opportunities/internal-funding",
+      "description": "Cambridge internal funding for arts, humanities, and social sciences.",
+      "institution": "University of Cambridge",
+      "source_reviewed_on": "2026-11-14"
+    },
+    {
+      "id": "eth-internal-directory",
+      "name": "ETH Zurich funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://grantsoffice.ethz.ch/funding-opportunities/internal.html",
+      "description": "ETH Zurich Grants Office internal programs.",
+      "institution": "ETH Zurich",
+      "source_reviewed_on": "2026-11-14"
+    },
+    {
+      "id": "duke-internal-directory",
+      "name": "Duke University funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://research.duke.edu/about-ori/seed-grants/",
+      "description": "Duke Research & Innovation seed grant listings.",
+      "institution": "Duke University",
+      "source_reviewed_on": "2026-11-14"
+    },
+    {
+      "id": "harvard-fas-internal",
+      "name": "Harvard University funding office",
+      "category": "Institution",
+      "mode": "directory",
+      "url": "https://research.fas.harvard.edu/current-opportunities",
+      "description": "Harvard FAS lists internal and selected external programs.",
+      "institution": "Harvard University",
+      "source_reviewed_on": "2026-11-14"
     }
   ],
   "limitations": [

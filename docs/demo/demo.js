@@ -1,9 +1,9 @@
 import {readCV} from './cv-reader.mjs';
 import {setupOrganizations} from './organization-picker.mjs?v=1';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-8';
+import {examples, cvReview, upcomingSaved} from './journey.mjs?v=cv-9';
 import {researchTerms, normalizeProfile, selectRecords, statusOf,
-  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-8';
+  mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, institutionMatches, societyKey, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=membership-9';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
@@ -82,11 +82,13 @@ function renderReturn(savedRecords){
   $('#returnSummary').textContent=`${savedRecords.length} saved ${savedRecords.length===1?'lead':'leads'}${changed?` · ${changed} with changed catalog details`:''}.`;
   $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${upcoming[0].deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
 }
-function awardLinks(awards){
+function awardLinks(awards,{limit=Infinity}={}){
   const row=record=>`<li><a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">${esc(record.title)} ↗</a><small>${esc([labels[statusOf(record)]||labels.verify,record.amount,record.deadline?'Deadline: '+record.deadline:null].filter(Boolean).join(' · '))}</small></li>`;
   const current=awards.filter(record=>statusOf(record)!=='closed'), past=awards.filter(record=>statusOf(record)==='closed');
-  return (current.length?`<ul class="award-links">${current.map(row).join('')}</ul>`:'<p>No current leads indexed for this source.</p>')+
-    (past.length?`<details><summary>Past rounds (${past.length})</summary><ul class="award-links">${past.map(row).join('')}</ul></details>`:'');
+  const group=items=>`<ul class="award-links">${items.map(row).join('')}</ul>`;
+  return (current.length?group(current.slice(0,limit)):'<p>No current leads indexed for this source.</p>')+
+    (current.length>limit?`<details><summary>More leads (${current.length-limit})</summary>${group(current.slice(limit))}</details>`:'')+
+    (past.length?`<details><summary>Past rounds (${past.length})</summary>${group(past)}</details>`:'');
 }
 function renderMemberships(){
   $('#membershipFunding').hidden=!profile.societies.length;
@@ -94,7 +96,18 @@ function renderMemberships(){
   $('#membershipResults').innerHTML=profile.societies.map(name=>{
     const awards=records.filter(record=>membershipMatches(record,[name]).length);
     const source=coverageSources.find(source=>source.kind==='society'&&[source.alias,source.name].some(value=>societyKey(value)===societyKey(name)));
-    return `<section><h3>${esc(organizations.display('societies',name))}</h3>${awardLinks(awards)}${source?`<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">Visit the society ↗</a>`:''}</section>`;
+    const route=discoveryLinks({societies:[name],institutions:[],topics:[]},sources)[0];
+    const link=route&&(!source||!route.url.includes('google.com/search?'))?route:source?{label:'Visit the society',url:source.url}:null;
+    return `<section><h3>${esc(organizations.display('societies',name))}</h3>${awardLinks(awards)}${link?`<a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>`:''}</section>`;
+  }).join('');
+}
+function renderInstitutions(){
+  $('#institutionFunding').hidden=!profile.institutions.length;
+  if(!profile.institutions.length)return;
+  $('#institutionResults').innerHTML=profile.institutions.map(name=>{
+    const awards=records.filter(record=>record.category==='Institution'&&institutionMatches(record,[name]));
+    const [route]=discoveryLinks({societies:[],institutions:[name],topics:[]},sources);
+    return `<section><h3>${esc(name)}</h3>${awardLinks(awards,{limit:5})}${route?`<a href="${esc(safeUrl(route.url))}" target="_blank" rel="noopener noreferrer">${esc(route.label)} ↗</a>`:''}</section>`;
   }).join('');
 }
 function refreshSupportTypes(){
@@ -112,6 +125,7 @@ function render(){
   const savedRecords=restoreShortlist(records,saved);
   renderReturn(savedRecords);
   renderMemberships();
+  renderInstitutions();
   const catalog=$('#savedOnly').checked?savedRecords:records;
   const availability=$('#availability').value, shortlist=$('#savedOnly').checked;
   const filtered=selectRecords(catalog,profile,{query:$('#query').value,category:$('#category').value,availability,fundingType:$('#fundingType').value,matchedOnly});
@@ -141,7 +155,9 @@ function render(){
     const concise=(value,fallback)=>{const text=(value||fallback).replace(/\s+/g,' ').trim();return text.length<=180?text:text.slice(0,177).replace(/\s+\S*$/,'')+'…';};
     const rules=concise(o.eligibility,'Check the official applicant rules.');
     const scope=concise(o.description,o.funding_type||'See the official call for award details.');
-    const timing=[labels[status]||labels.verify,o.deadline?'Deadline '+o.deadline:'Check the official date'].join(' · ');
+    const timing=[labels[status]||labels.verify,
+      status==='forecast'&&o.opens_on?'Opens '+o.opens_on:null,
+      o.deadline?'Deadline '+o.deadline+(o.deadline_time?' at '+o.deadline_time:'')+(o.deadline_timezone?' ('+o.deadline_timezone+')':''):'Check the official date'].filter(Boolean).join(' · ');
     const fitNotes=[o.matching.stageConcern?o.matching.stage:'',o.matching.affiliationConcern?'No matching affiliation in your profile':''].filter(Boolean);
     return `<article class="card"><div class="card-top"><span>${esc(o.funder)}${listingLabels[o.origin]?' · '+esc(listingLabels[o.origin]):''}</span><span class="category">${esc(o.category)}</span></div>
       <h3>${esc(o.title)}</h3>
@@ -212,10 +228,10 @@ async function initCommunity(){
   updateSharing();
 }
 async function init(){
-  const coverageRequest=json('coverage.json?v=cv-matches-1').catch(()=>null);
+  const coverageRequest=json('coverage.json?v=affiliations-1').catch(()=>null);
   const supplementalRequest=json('supplemental.json?v=expanded-catalog-1').catch(()=>null);
   try{
-    const [data, directory, supplemental]=await Promise.all([json('data.json?v=expanded-catalog-1').catch(()=>null),coverageRequest,supplementalRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    const [data, directory, supplemental]=await Promise.all([json('data.json?v=affiliations-1').catch(()=>null),coverageRequest,supplementalRequest]);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
     if(directory?.schema_version===1){
       coverageSources=directory.sources;

@@ -8,6 +8,11 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 APP_DIR = Path(__file__).parent
+DETAIL_FIELDS = {
+    "amount_min": "INTEGER", "amount_max": "INTEGER", "currency": "TEXT",
+    "award_period_months": "INTEGER", "opens_on": "TEXT", "deadline_time": "TEXT",
+    "deadline_timezone": "TEXT", "eligibility_rules": "TEXT",
+}
 # New installations use fundlark.sqlite3. Existing OpenGrant MVP data is picked up automatically.
 _default_db = APP_DIR.parent / "data" / "fundlark.sqlite3"
 _legacy_db = APP_DIR.parent / "data" / "opengrant.sqlite3"
@@ -85,7 +90,7 @@ def init_db():
         """)
         # Additive migrations preserve databases from the original MVP.
         for table, columns in {
-            "opportunities": {"affiliation_tags": "TEXT NOT NULL DEFAULT '{}'"},
+            "opportunities": {"affiliation_tags": "TEXT NOT NULL DEFAULT '{}'", **DETAIL_FIELDS},
             "source_checks": {"review_needed": "INTEGER NOT NULL DEFAULT 0", "etag": "TEXT",
                               "last_modified": "TEXT", "final_url": "TEXT"},
             "candidate_links": {"reviewed_at": "TEXT", "review_note": "TEXT"},
@@ -100,6 +105,16 @@ def init_db():
         catalog.extend(json.loads((APP_DIR / "coverage_catalog.json").read_text()))
         for item in catalog:
             insert_opportunity(db, item, origin="curated", if_absent=True)
+            details = opportunity_details(item)
+            for key, value in details.items():
+                if value is not None:
+                    db.execute(f"UPDATE opportunities SET {key}=? WHERE id=? AND {key} IS NULL",
+                               (value,item["id"]))
+
+
+def opportunity_details(item):
+    return {key: (json.dumps(item[key], ensure_ascii=False) if key == "eligibility_rules" else item[key])
+            if item.get(key) is not None else None for key in DETAIL_FIELDS}
 
 
 def insert_opportunity(db, item, origin="federal_api", if_absent=False):
@@ -115,13 +130,16 @@ def insert_opportunity(db, item, origin="federal_api", if_absent=False):
         item.get("last_verified_at", item.get("source_date") if origin == "curated" else now),
         int(bool(item.get("review_needed", False))), now, now, json.dumps(item.get("affiliation_tags", {}))
     )
+    record += tuple(opportunity_details(item).values())
     placeholders = ",".join("?" for _ in record)
     cols = "id,title,funder,category,funding_type,amount,deadline,status,description,topics,eligibility,eligible_stages,faculty_sponsor_possible,url,source_date,origin,last_checked_at,last_verified_at,review_needed,created_at,updated_at"
     cols += ",affiliation_tags"
+    cols += "," + ",".join(DETAIL_FIELDS)
     action = "INSERT OR IGNORE" if if_absent else "INSERT"
     update = "" if if_absent else " ON CONFLICT(id) DO UPDATE SET title=excluded.title,funder=excluded.funder,category=excluded.category,funding_type=excluded.funding_type,amount=excluded.amount,deadline=excluded.deadline,status=excluded.status,description=excluded.description,topics=excluded.topics,eligibility=excluded.eligibility,eligible_stages=excluded.eligible_stages,faculty_sponsor_possible=excluded.faculty_sponsor_possible,url=excluded.url,source_date=excluded.source_date,origin=excluded.origin,last_checked_at=excluded.last_checked_at,last_verified_at=excluded.last_verified_at,updated_at=excluded.updated_at"
     if update:
         update += ",affiliation_tags=excluded.affiliation_tags"
+        update += "".join(f",{key}=COALESCE(excluded.{key},opportunities.{key})" for key in DETAIL_FIELDS)
     db.execute(f"{action} INTO opportunities ({cols}) VALUES ({placeholders}){update}", record)
 
 
@@ -138,6 +156,7 @@ def decode_row(row):
     d["affiliation_tags"] = json.loads(d.get("affiliation_tags") or "{}")
     d["topics"] = json.loads(d.get("topics") or "[]")
     d["eligible_stages"] = json.loads(d.get("eligible_stages") or "[]")
+    d["eligibility_rules"] = json.loads(d["eligibility_rules"]) if d.get("eligibility_rules") else None
     d["faculty_sponsor_possible"] = bool(d["faculty_sponsor_possible"])
     d["review_needed"] = bool(d["review_needed"])
     d["status"] = dynamic_status(d)

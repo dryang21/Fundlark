@@ -21,3 +21,4 @@
 .organization-options button{text-align:left;padding:7px 9px;background:white;color:var(--ink);border:1px solid var(--line);border-radius:6px;cursor:pointer;font-size:12px}
 .organization-options button:hover{border-color:var(--green)}
 .organization-options small{display:block;color:var(--muted)}
+.affiliation-results{display:grid;gap:12px}.affiliation-results section{padding:14px;background:white;border-radius:8px}.affiliation-results h3{margin:0 0 8px}.affiliation-results summary{cursor:pointer;font-size:13px}

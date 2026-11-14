@@ -969,5 +969,100 @@
     "funder": "Society for Industrial and Applied Mathematics",
     "origin": "curated",
     "last_verified_at": "2026-11-14"
+  },
+  {
+    "id": "coverage:asme-undergraduate-2027",
+    "title": "ASME Engineering Scholarships — Undergraduate (2027–28)",
+    "status": "forecast",
+    "opens_on": "2026-12-01",
+    "deadline": "2027-02-15",
+    "funding_type": "Scholarship",
+    "description": "One application is used to consider eligible students for multiple ASME engineering scholarships.",
+    "eligibility": "Current ASME student members in an accredited or qualifying engineering programme. Individual scholarships may have additional requirements.",
+    "eligibility_rules": {
+      "membership_required": [
+        "ASME"
+      ]
+    },
+    "eligible_stages": [
+      "undergrad"
+    ],
+    "topics": [
+      "mechanical engineering",
+      "engineering education"
+    ],
+    "url": "https://www.asme.org/asme-programs/students-and-faculty/scholarships/4-year-baccalaureate-graduate-students",
+    "source_date": "2026-11-14",
+    "affiliation_tags": {
+      "societies": [
+        "ASME"
+      ]
+    },
+    "category": "Society",
+    "funder": "American Society of Mechanical Engineers",
+    "origin": "curated",
+    "last_verified_at": "2026-11-14"
+  },
+  {
+    "id": "coverage:asme-graduate-2027",
+    "title": "ASME Engineering Scholarships — Graduate (2027–28)",
+    "status": "forecast",
+    "opens_on": "2026-12-01",
+    "deadline": "2027-03-01",
+    "funding_type": "Scholarship",
+    "description": "One application is used to consider eligible students for multiple ASME engineering scholarships.",
+    "eligibility": "Current ASME student members in an accredited or qualifying engineering programme. Individual scholarships may have additional requirements.",
+    "eligibility_rules": {
+      "membership_required": [
+        "ASME"
+      ]
+    },
+    "eligible_stages": [
+      "masters",
+      "phd"
+    ],
+    "topics": [
+      "mechanical engineering",
+      "engineering education"
+    ],
+    "url": "https://www.asme.org/asme-programs/students-and-faculty/scholarships/4-year-baccalaureate-graduate-students",
+    "source_date": "2026-11-14",
+    "affiliation_tags": {
+      "societies": [
+        "ASME"
+      ]
+    },
+    "category": "Society",
+    "funder": "American Society of Mechanical Engineers",
+    "origin": "curated",
+    "last_verified_at": "2026-11-14"
+  },
+  {
+    "id": "coverage:sfn-scholars-2027",
+    "title": "Society for Neuroscience Scholars Program — 2027",
+    "status": "verify",
+    "deadline": null,
+    "funding_type": "Professional development",
+    "description": "Two years of career development and networking, with enrichment funds for selected fellows.",
+    "eligibility": "Graduate and postdoctoral researchers in neuroscience; confirm the 2027 applicant rules when the cycle opens in January.",
+    "topics": [
+      "neuroscience"
+    ],
+    "eligible_stages": [
+      "masters",
+      "phd",
+      "postdoc"
+    ],
+    "url": "https://www.sfn.org/initiatives/community/neuroscience-scholars-program",
+    "source_date": "2026-11-14",
+    "affiliation_tags": {
+      "societies": [
+        "SfN"
+      ]
+    },
+    "category": "Society",
+    "funder": "Society for Neuroscience",
+    "origin": "curated",
+    "last_verified_at": "2026-11-14"
   }
 ]

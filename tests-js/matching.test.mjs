@@ -120,3 +120,14 @@ test('official import refreshes same call only once and keeps editorial text',()
   const curated={...original,title:'Reviewed research call',origin:'curated'};
   assert.deepEqual(mergeCatalog([curated],[updated]),[curated]);
 });
+
+test('personalized discovery keeps internal grants at the selected university',()=>{
+  const rows=[
+    {id:'stanford',title:'Robotics seed award',category:'Institution',status:'open',affiliation_tags:{institution:'Stanford University'}},
+    {id:'mit',title:'Water and Food seed award',category:'Institution',status:'open',affiliation_tags:{institution:'Massachusetts Institute of Technology'}},
+    {id:'public',title:'Robotics fellowship',category:'Society',status:'open'},
+  ];
+  const profile=normalizeProfile({topics:['robotics'],institutions:['MIT']});
+  assert.deepEqual(selectRecords(rows,profile,{matchedOnly:true}).map(row=>row.id),['mit','public']);
+  assert.equal(selectRecords(rows,profile).length,3);
+});

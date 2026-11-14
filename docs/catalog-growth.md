@@ -27,3 +27,5 @@ python -m scripts.build_supplemental_catalog /tmp/fundlark-stanford.json /tmp/fu
 ```
 
 The supplemental static snapshot combines official listings with a basic research relevance filter for federal results. Listing metadata still needs applicant-level review. The site keeps editorial records when an imported listing points to the same call, hides closed rounds by default, and labels the import source on each card. SQLite inserts only new IDs; updating the static snapshot does not overwrite prior local reviews.
+
+Structured opportunity fields are additive: numeric `amount_min` and `amount_max` in whole currency units, ISO currency code, maximum award period in months, ISO opening and deadline dates, local deadline time with IANA time zone, and structured `eligibility_rules`. Keep the original amount and applicant summaries for tiered and conditional awards. Leave unknown fields null; do not assume an amount or convert currencies. Institution and society tags drive affiliation matching; the eligibility rules are source facts for review, not a determination that any applicant qualifies.
