@@ -47,3 +47,13 @@ test('CVs with common academic layouts recover current appointments without gues
   const heading=cvSuggestions('Current Appointment\nProfessor, Example University (2008-present)\nResearch Interests\nCoastal ecology\nEducation\nPhD, Past University');
   assert.deepEqual(heading.institutions,['Example University']);assert.deepEqual(heading.topics,['Coastal ecology']);
 });
+
+test('unlabelled CV suggests known topics without inferring affiliations from publication text',()=>{
+  const result=cvSuggestions('Selected Publications\nIEEE conference on machine-\nlearning for robotics\nContact: photonics@example.org',[{fields:['robotics','photonics']}],['machine learning','bio']);
+  assert.ok(result.topics.includes('machine learning'));
+  assert.ok(result.topics.includes('robotics'));
+  assert.ok(!result.topics.includes('photonics'));
+  assert.deepEqual(result.societies,[]);
+  assert.deepEqual(result.institutions,[]);
+  assert.equal(result.stage,'');
+});

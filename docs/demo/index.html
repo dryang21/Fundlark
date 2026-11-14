@@ -7,7 +7,7 @@
   <title>Fundlark — Find funding for your next breakthrough</title>
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=membership-3"></script>
+  <script type="module" src="demo.js?v=cv-review-1"></script>
 </head>
 <body>
   <header class="shell nav"><a class="brand" href="./">✳ Fundlark</a><a href="#use-skill">Search with my assistant ↗</a></header>
@@ -33,11 +33,20 @@
       <p class="note">Your profile stays in this browser. Matching uses the shared catalog; no account or AI subscription is needed to explore it.</p>
       <details id="cvHelper" class="affiliations">
         <summary>Start from a CV <span class="small">Optional · PDF, Word or text</span></summary>
-        <p class="note">Fundlark reads the text in this browser and looks for labeled interests, memberships and current appointments. Review suggested fields before adding them. Files are read locally. For scanned PDFs, paste text from an OCR copy.</p>
+        <p class="note">Fundlark reads the text in this browser and suggests research topics and looks for explicit membership and appointment evidence. Review suggested fields before adding them. Files are read locally. For scanned PDFs, paste text from an OCR copy.</p>
         <label for="cvFile">Choose a CV (PDF, DOCX or TXT)</label> <input id="cvFile" type="file" accept=".pdf,.docx,.txt">
         <label for="cvText">Or paste CV text</label><textarea id="cvText" rows="5" maxlength="50000" autocomplete="off" spellcheck="false"></textarea>
         <button id="scanCV" class="button secondary" type="button">Suggest profile details</button>
         <p id="cvStatus" class="note" role="status"></p><div id="cvSuggestions"></div>
+        <details id="cvPreview" hidden>
+          <summary>Review extracted text</summary>
+          <p class="note">Select just the research words you want to use. The extracted CV text stays in this panel for this visit and is never saved automatically.</p>
+          <label for="cvExtracted">Extracted CV text</label>
+          <textarea id="cvExtracted" rows="6" readonly spellcheck="false" autocomplete="off"></textarea>
+          <button id="useCVSelection" class="button secondary" type="button">Use selected text as research interests</button>
+          <button id="discardCV" class="text-button" type="button">Discard extracted text</button>
+          <p id="cvPreviewStatus" class="note" role="status"></p>
+        </details>
       </details>
       <form id="profileForm">
         <label for="topics">What do you work on? <span class="small">A sentence or a few topics is enough</span></label>

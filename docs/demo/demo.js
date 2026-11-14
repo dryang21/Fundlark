@@ -1,6 +1,6 @@
 import {readCV} from './cv-reader.mjs';
 import {filterSources, relatedSources} from './coverage.mjs';
-import {examples, cvSuggestions, upcomingSaved} from './journey.mjs?v=cv-2';
+import {examples, cvSuggestions, upcomingSaved} from './journey.mjs?v=cv-3';
 import {SOCIETIES, INSTITUTIONS, researchTerms, normalizeProfile, selectRecords, statusOf,
   mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks, shortlistText, publicRecordSnapshot, restoreShortlist, freshness, membershipMatches, societyKey, linkedPrograms} from './matching.mjs?v=membership-3';
 const $ = selector => document.querySelector(selector);
@@ -197,7 +197,7 @@ $('#stage').addEventListener('change',readProfile);
 $('#profileForm').addEventListener('click',event=>{const button=event.target.closest('button[data-kind]');if(button){profile[button.dataset.kind].splice(Number(button.dataset.index),1);readProfile();}});
 $('#profileForm').addEventListener('submit',event=>{event.preventDefault();readProfile({consumeAffiliations:true});resetFilters();$('#opportunities').scrollIntoView({behavior:'smooth'});});
 $('#clearProfile').addEventListener('click',()=>{
-  clearTimeout(profileTimer);cvReadId++;$('#cvText').value='';$('#cvFile').value='';$('#cvSuggestions').textContent='';$('#cvStatus').textContent='';profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#societyInput').value='';$('#institutionInput').value='';$('#sharePublic').checked=false;$('#matchedOnly').checked=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
+  clearTimeout(profileTimer);cvReadId++;clearCVPreview();$('#cvText').value='';$('#cvFile').value='';$('#cvSuggestions').textContent='';$('#cvStatus').textContent='';profile=normalizeProfile();$('#topics').value='';$('#stage').value='';$('#societyInput').value='';$('#institutionInput').value='';$('#sharePublic').checked=false;$('#matchedOnly').checked=false;$('#briefFallback').value='';$('#briefFallback').hidden=true;$('#copyStatus').textContent='';
   if(!exampleMode)try{localStorage.removeItem(PROFILE_KEY);}catch{}renderChips();render();$('#profileStatus').textContent=exampleMode?'Example profile cleared.':'Research profile cleared. Your saved shortlist is unchanged.';
 });
 $('#skillMode').addEventListener('change',()=>{updateSharing();$('#copyStatus').textContent='Copy a new request to apply this choice.';});
@@ -235,18 +235,50 @@ $('#results').addEventListener('input',event=>{
   const entry=saved.find(item=>item.key===event.target.dataset.note);
   if(entry){entry.note=event.target.value.slice(0,200);persistShortlist();}
 });
+function clearCVPreview(){
+  $('#cvExtracted').value='';
+  $('#cvPreview').open=false;
+  $('#cvPreview').hidden=true;
+  $('#cvPreviewStatus').textContent='';
+}
+function appendCVTopics(topics){
+  $('#topics').value=[$('#topics').value.trim(),...topics].filter(Boolean).join('; ').slice(0,3200);
+}
+function reviewCV(text){
+  clearCVPreview();
+  $('#cvExtracted').value=text;
+  $('#cvPreview').hidden=!text.trim();
+  const suggestions=cvSuggestions(text,coverageSources,records.flatMap(record=>record.topics||[]));
+  showCVSuggestions(suggestions);
+  if(!Object.values(suggestions).some(value=>value.length)&&text.trim())$('#cvPreview').open=true;
+}
+$('#discardCV').addEventListener('click',()=>{
+  clearCVPreview();
+  $('#cvStatus').textContent='Extracted text discarded.';
+});
+$('#useCVSelection').addEventListener('click',()=>{
+  const field=$('#cvExtracted');
+  const selected=field.value.slice(field.selectionStart,field.selectionEnd).trim();
+  if(!selected||selected.length>300||/[@]|https?:|\b\d{5}/i.test(selected)){
+    $('#cvPreviewStatus').textContent='Highlight a short research phrase without contact details, then try again.';
+    return;
+  }
+  appendCVTopics([selected]);
+  readProfile();
+  $('#cvPreviewStatus').textContent='Added to your research interests.';
+});
 function showCVSuggestions(suggestions){
   const items=[...suggestions.topics.map(value=>['topics',value]),...suggestions.societies.map(value=>['societies',value]),...suggestions.institutions.map(value=>['institutions',value]),...(suggestions.stage?[['stage',suggestions.stage]]:[])];
   const fieldLabels={topics:'Topic',societies:'Membership',institutions:'Current institution',stage:'Career stage'};
   const stageName=$('#stage').querySelector(`option[value="${suggestions.stage}"]`)?.textContent;
-  $('#cvStatus').textContent=items.length?'Select only the details you want to add. Nothing has been added yet.':'No labeled details found. Add your interests manually, or paste lines labeled Research interests, Current appointment or Professional memberships.';
+  $('#cvStatus').textContent=items.length?'Select only the details you want to add. Nothing has been added yet.':$('#cvExtracted').value.trim()?'The text was read, but no reliable profile details were found. Select a research phrase below or enter your interests manually.':'No text to review. Choose a CV or paste a short excerpt.';
   $('#cvSuggestions').innerHTML=items.length?`<fieldset><legend>Suggested details</legend>${items.map(([key,value],index)=>`<label><input type="checkbox" data-suggestion="${index}"> ${fieldLabels[key]}: ${esc(key==='stage'?stageName||value:value)}</label>`).join('')}<button id="applyCV" type="button" class="button secondary">Add selected details</button></fieldset>`:'';
   $('#applyCV')?.addEventListener('click',()=>{
     const selected=[...$('#cvSuggestions').querySelectorAll(':checked')].map(el=>items[Number(el.dataset.suggestion)]);
     if(!selected.length){$('#cvStatus').textContent='Select at least one suggestion to add.';return;}
     clearTimeout(profileTimer);
     const topics=selected.filter(([key])=>key==='topics').map(([,value])=>value);
-    if (topics.length) $('#topics').value=[$('#topics').value.trim(),...topics].filter(Boolean).join('; ').slice(0,3200);
+    if (topics.length) appendCVTopics(topics);
     for(const [key,value] of selected){
       if(key==='stage')$('#stage').value=value;
       if(key==='societies'||key==='institutions'){
@@ -264,16 +296,17 @@ $('#scanCV').addEventListener('click',()=>{
   $('#cvFile').value='';
   const text=$('#cvText').value;
   $('#cvText').value='';
-  showCVSuggestions(cvSuggestions(text, coverageSources));
+  reviewCV(text);
 });
 $('#cvFile').addEventListener('change',async()=>{
   const readId=++cvReadId;
   const file=$('#cvFile').files[0];
   $('#cvFile').value='';
   if(!file)return;
+  clearCVPreview();
   $('#cvSuggestions').textContent='';
   $('#cvStatus').textContent='Reading your CV in this browser…';
-  try{const text=await readCV(file);if(readId===cvReadId)showCVSuggestions(cvSuggestions(text, coverageSources));}
+  try{const text=await readCV(file);if(readId===cvReadId)reviewCV(text);}
   catch(error){if(readId===cvReadId)$('#cvStatus').textContent=/^Choose |^No readable/.test(error.message)?error.message:'Could not read this file. Use an unlocked, text-based PDF or DOCX, or paste an excerpt.';}
 });
 function savedText(){return shortlistText(restoreShortlist(records,saved));}

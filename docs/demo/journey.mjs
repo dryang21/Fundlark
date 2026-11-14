@@ -4,12 +4,13 @@ export const examples = {
   ecology: {researchText:'I study salt marsh restoration, coastal ecology, and climate adaptation',stage:'phd',societies:['Ecological Society of America'],institutions:['University of Bristol']},
 };
 
-export function cvSuggestions(text, sources=[]) {
+export function cvSuggestions(text, sources=[], catalogTopics=[]) {
   const topics=[], societies=[], institutions=[];
   let section='', stage='';
   const recent=[];
+  const body=text.slice(0,50000);
   const stagePatterns=[['postdoc',/\bpostdoc(?:toral)?\b/i],['phd',/\b(?:ph\.?d\.?|doctoral) (?:student|candidate)\b/i],['faculty',/\b(?:faculty|professor)\b/i],['resident',/\bresident\b/i],['staff',/\bresearch (?:staff|scientist)\b/i]];
-  for(const raw of text.slice(0,50000).split(/\r?\n/)) {
+  for(const raw of body.split(/\r?\n/)) {
     const line=raw.trim();
     if(/^(?:(?:professional )?memberships?|education|(?:selected )?publications?|(?:professional |academic )?experience|(?:academic )?employment|positions|(?:current |previous |academic )?appointments?|research interests|skills|awards|teaching):?$/i.test(line)){
       section=line.toLowerCase().replace(/:$/,'');continue;
@@ -39,12 +40,21 @@ export function cvSuggestions(text, sources=[]) {
     if(organization){if(!stage)stage=role;institutions.push(organization.trim());break;}
   }
   if(!topics.length){
-    const text=recent.join(' ').toLowerCase();
-    const fields=[...new Set(sources.flatMap(source=>source.fields||[]))];
-    for(const field of fields){
-      const pattern=field.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-      if(new RegExp(`\\b${pattern}\\b`,'i').test(text))topics.push(field);
-    }
+    // Topic hints can come from publication titles and project descriptions.
+    // They are never used as evidence of a current role or society membership.
+    const normalize=value=>value.normalize('NFKC').toLowerCase().replace(/[-‐‑–—\s]+/g,' ');
+    const corpus=normalize(body.replace(/\S+@\S+|https?:\/\/\S+/gi,' '));
+    const current=normalize(recent.join(' '));
+    const fields=[...new Set([...sources.flatMap(source=>source.fields||[]),...catalogTopics].map(normalize))]
+      .filter(term=>term.length>=4 && term.length<=100);
+    const ranked=fields.flatMap(term=>{
+      const escaped=term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      const re=new RegExp(`(?<![\\p{L}\\p{N}])${escaped}(?![\\p{L}\\p{N}])`,'gu');
+      const hits=[...corpus.matchAll(re)];
+      return hits.length?[{term,score:Math.min(hits.length,6)+Number(re.test(current))*3+Number(term.includes(' ')),first:hits[0].index}]:[];
+    });
+    ranked.sort((a,b)=>b.score-a.score||a.first-b.first);
+    topics.push(...ranked.slice(0,10).map(item=>item.term));
   }
   const clean=items=>[...new Set(items.filter(s=>s.trim()&&s.length<=160&&!/[@]|https?:/i.test(s)))].slice(0,12);
   const aliases={'american association of physicists in medicine':'AAPM','american society for radiation oncology':'ASTRO','institute of electrical and electronics engineers':'IEEE','association for computing machinery':'ACM'};
