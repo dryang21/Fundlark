@@ -15,7 +15,7 @@ test('CV uploader and extraction workflow are absent from the visible site and r
   assert.ok(!app.includes("#cvHelper"));
 });
 test('one optional research description feeds the assistant request',()=>{
-  for(const id of ['requestForm','requestDescription','requestStage','requestRegion','requestAffiliations','copyPrompt'])assert.ok(html.includes(`id="${id}"`),id);
+  for(const id of ['requestForm','requestDescription','requestStage','requestRegion','institutionInput','societyInput','institutionChips','societyChips','copyPrompt'])assert.ok(html.includes(`id="${id}"`),id);
   for(const id of ['researchBackground','researchProposal','researchKeywords','profileForm','eligibilityDetails'])assert.ok(!html.includes(`id="${id}"`),id);
 });
 test('project and explicit keywords rank ahead of background while retaining cross-disciplinary coverage',()=>{

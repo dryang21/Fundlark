@@ -4,6 +4,8 @@
 
 - One muted slate-blue accent for buttons, links, selected filters, section labels and the tracker; warm off-white page background.
 - Soft tinted status labels on result cards: green for open, blue for upcoming, amber for date not confirmed, grey for past rounds.
+- Editable keyword tags under the search: remove any extracted keyword, add your own, restore removed ones; results update immediately. Hyphenated terms such as "single-cell" stay together.
+- The AI-request form brings back separate Institutions and Memberships pickers: search the list, add any name, remove with ×. A worldwide institution search uses the Research Organization Registry.
 
 ## v5.2 — Cleaner, tighter interface (2026-11-15)
 
