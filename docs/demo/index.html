@@ -8,9 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="lark.svg">
   <link rel="stylesheet" href="styles.css?v=4.8">
   <link rel="stylesheet" href="clean-ui.css?v=4.9-scope">
-  <link rel="stylesheet" href="mono-theme.css?v=4.9-source-hubs">
+  <link rel="stylesheet" href="mono-theme.css?v=4.9-skill-install">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=4.9-personal-2"></script>
+  <script type="module" src="demo.js?v=4.9-skill-install"></script>
 </head>
 <body>
   <a class="skip-link" href="#research-profile">Skip to research profile</a>
@@ -199,9 +199,36 @@
     </section>
     <section id="use-skill" class="skill-panel" aria-labelledby="skillHeading">
       <div><span class="eyebrow">GO BEYOND THE CATALOG</span><h2 id="skillHeading">Continue with your<br>AI assistant.</h2><p>Copy your research request, open the assistant you already use, and paste it. An assistant with web browsing can look for current official calls beyond this catalog.</p><p class="small">No skill installation is needed for this request. Your AI provider's usage limits and privacy settings apply. The request includes the research details you entered here.</p><div id="discoveryRoutes" class="discovery-routes"></div></div>
-      <div class="install"><h3>Copy, open your assistant, paste</h3><div class="prompt"><button id="copyPrompt" class="button" type="button">Copy my funding search request</button><p id="copyStatus" role="status"></p><textarea id="briefFallback" rows="8" readonly hidden aria-label="Research brief to copy manually"></textarea></div><details class="advanced"><summary>Already use Codex or Claude Code? Add automatic contributions</summary><p>The optional Fundlark skill adds a repeatable verification workflow and can contribute public funding discoveries when you enable sharing. This requires a compatible agent with web and HTTP tools.</p><a class="button secondary" href="Fundlark-skill.zip" download>Download the optional skill ↗</a><ol><li>Download and unzip the skill.</li><li>Copy the <code>fundlark</code> folder into <code>~/.agents/skills/</code> for Codex or <code>~/.claude/skills/</code> for Claude Code.</li><li>Start a new session in that app.</li></ol><label class="sharing"><input type="checkbox" id="skillMode"> I have installed the Fundlark skill in my assistant.</label><label class="sharing"><input type="checkbox" id="sharePublic" disabled> Let that skill contribute newly discovered public funding facts.</label><p class="small" id="communityStatus" role="status">Checking whether contributions are available…</p><p class="small">Contributions exclude your research profile and chats. We review public funding records before sharing. Changes apply to newly copied requests; they cannot revoke a request already pasted into another assistant.</p></details><p class="small">Fundlark does not open your assistant or search the web automatically. Your agent can use only the context its platform makes available.</p></div>
+      <div class="install">
+        <h3>Copy, open your assistant, paste</h3>
+        <div class="prompt">
+          <button id="copyPrompt" class="button" type="button">Copy my funding search request</button>
+          <p id="copyStatus" role="status"></p>
+          <textarea id="briefFallback" rows="8" readonly hidden aria-label="Research brief to copy manually"></textarea>
+        </div>
+        <div class="advanced">
+          <h3>Install the Fundlark skill</h3>
+          <p>Use the same funding search and verification workflow in future chats. With Node.js 22.20 or later, run this in a terminal from your Codex or Claude Code workspace:</p>
+          <pre class="skill-command"><code id="skillInstallCommand">npx skills add dryang21/Fundlark --skill fundlark</code></pre>
+          <div class="skill-install-actions">
+            <button id="copySkillInstall" class="button secondary" type="button">Copy install command</button>
+            <a href="Fundlark-skill.zip" download>Download ZIP</a>
+            <a href="https://github.com/dryang21/Fundlark/blob/main/docs/skill-distribution.md#manual-install-from-zip">Manual setup</a>
+          </div>
+          <p id="skillInstallStatus" role="status"></p>
+          <p>Choose your assistant if prompted. Start a new session in that workspace and ask it to use Fundlark.</p>
+        </div>
+        <details class="advanced">
+          <summary>Use the skill with this request</summary>
+          <label class="sharing"><input type="checkbox" id="skillMode"> I have installed the Fundlark skill in my assistant.</label>
+          <label class="sharing"><input type="checkbox" id="sharePublic" disabled> Let that skill contribute newly discovered public funding facts.</label>
+          <p class="small" id="communityStatus" role="status">Checking whether contributions are available…</p>
+          <p class="small">Contributions exclude your research profile and chats. We review public funding records before sharing. Changes apply to newly copied requests; they cannot revoke a request already pasted into another assistant.</p>
+        </details>
+        <p class="small">Fundlark does not open your assistant or search the web automatically. Your agent can use only the context its platform makes available.</p>
+      </div>
     </section>
   </main>
-  <footer class="shell"><span>✳ Fundlark · Open-source software under MIT</span><span>Source links first. Uncertainty visible.</span></footer>
+  <footer class="shell"><span>✳ Fundlark · Open-source software under MIT</span><a href="#use-skill">Get the AI skill</a></footer>
 </body>
 </html>

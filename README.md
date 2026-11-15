@@ -2,7 +2,7 @@
 
 **Find research funding and keep track of what to apply for.**
 
-[Open the web demo](https://dryang21.github.io/Fundlark/) · [Install the AI skill](docs/skill-distribution.md#install-the-skill) · [Run locally](#run-locally)
+[Open the web demo](https://dryang21.github.io/Fundlark/) · [Install the AI skill](#install-the-fundlark-skill) · [Run locally](#run-locally)
 
 Fundlark is free, open-source software for researchers. Use the browser to explore a starter catalog or organize applications. Use the skill in your own AI assistant when you want it to search official sources beyond the catalog.
 
@@ -18,7 +18,17 @@ The demo is a snapshot, not a comprehensive live database. Past rounds are hidde
 
 ![Fundlark’s search page with options to browse funding or build a profile](docs/research/demo-preview.png)
 
-## Try the skill
+## Install the Fundlark skill
+
+In a terminal, run this from the folder you open in Codex or Claude Code (Node.js 22.20 or later):
+
+```sh
+npx skills add dryang21/Fundlark --skill fundlark
+```
+
+Select your assistant if prompted, then open a new session in that folder. Add `-g` to install for your user account across projects. Prefer no terminal? [Download the ZIP](https://dryang21.github.io/Fundlark/Fundlark-skill.zip) and follow the [manual setup steps](docs/skill-distribution.md#manual-install-from-zip).
+
+Try asking:
 
 > Use Fundlark to find funding for the project we’re discussing. Check current deadlines and eligibility on official sites. Separate opportunities I can apply for directly from ones that need an advisor or institutional lead. Save the results as `fundlark-library.json` for the tracker.
 

@@ -8,24 +8,40 @@ collection, review and the full local dashboard.
 
 ## Install the skill
 
-The standalone package needs only `skills/fundlark/`. The web app, database and
-Python dependencies are not required. Copy the complete folder, including its
-references and optional script, into one supported host location:
+### Install with the skills.sh CLI
+
+With Node.js 22.20 or later, open a terminal in the workspace you use with your assistant and run:
+
+```sh
+npx skills add dryang21/Fundlark --skill fundlark
+```
+
+Select your assistant if prompted. For an explicit choice, use `-a codex` or
+`-a claude-code`. Add `-g` to make the skill available across your projects.
+If npm asks to download the `skills` CLI, confirm to continue. See the
+[installer documentation](https://github.com/vercel-labs/skills#install-a-skill),
+including its [telemetry options](https://github.com/vercel-labs/skills#telemetry).
+
+For catalog maintainers, install the separate skill with
+`npx skills add dryang21/Fundlark --skill fundlark-maintainer`.
+
+### Manual install from ZIP
+
+[Download and unzip Fundlark-skill.zip](https://dryang21.github.io/Fundlark/Fundlark-skill.zip).
+Copy the complete `fundlark` folder into one of these locations. The project
+paths are relative to the folder you open in your assistant.
 
 | Host | Personal skills | Project skills |
 | --- | --- | --- |
 | Codex | `~/.agents/skills/fundlark/` | `.agents/skills/fundlark/` |
 | Claude Code | `~/.claude/skills/fundlark/` | `.claude/skills/fundlark/` |
 
-For example, from this repository on macOS/Linux:
+If you cloned the repository, use the `skills/fundlark/` folder instead.
+The skill does not require the web app, a database, or Python dependencies.
 
-```bash
-mkdir -p ~/.agents/skills
-cp -R skills/fundlark ~/.agents/skills/
-```
+### Start a funding search
 
-For Claude Code, use `~/.claude/skills` instead. Do not replace an existing
-customized copy without reviewing it. Start a new host session. Ask Codex:
+Start a new session in your assistant. Ask Codex:
 
 > Use $fundlark to find research funding for the project we've been discussing.
 > Separate options I can apply for from those needing a faculty collaborator.

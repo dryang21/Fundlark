@@ -592,6 +592,20 @@ $('#showPastRounds').addEventListener('click',()=>{$('#availability').value='clo
 $('#resumeShortlist').addEventListener('click',()=>{setDashboardView('tracker');$('#dashboard').scrollIntoView({behavior:'smooth'});});
 $('#resumeMatches').addEventListener('click',()=>{if(activatePersonalizedMatches()){setDashboardView('matches');$('#dashboard').scrollIntoView({behavior:'smooth'});}});
 $('#copyPrompt').addEventListener('click',copyRequest);
+$('#copySkillInstall').addEventListener('click',async()=>{
+  const command=$('#skillInstallCommand'),status=$('#skillInstallStatus');
+  try {
+    await navigator.clipboard.writeText(command.textContent);
+    status.textContent='Copied. Paste the command into your terminal.';
+  } catch {
+    const range=document.createRange();
+    range.selectNodeContents(command);
+    const selection=window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    status.textContent='Copy the highlighted command, then paste it into your terminal.';
+  }
+});
 $('#topicSummary').addEventListener('click',event=>{
   if(!event.target.closest('[data-search-description]'))return;
   $('#exploreQuery').value=$('#researchDescription').value.trim().slice(0,1200);
