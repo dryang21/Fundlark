@@ -7,7 +7,8 @@
 
 <p align="center">
   <a href="https://dryang21.github.io/Fundlark/"><strong>Open the website</strong></a> ·
-  <a href="#use-it-with-your-ai-assistant"><strong>Use it with your AI assistant</strong></a> ·
+  <a href="#for-you"><strong>Use it with your AI assistant</strong></a> ·
+  <a href="#for-ai-agents"><strong>For AI agents</strong></a> ·
   <a href="#faq"><strong>FAQ</strong></a> ·
   <a href="https://github.com/dryang21/Fundlark/issues/new/choose"><strong>Suggest a funding source</strong></a>
 </p>
@@ -50,8 +51,8 @@ Every lead links to the funder's own page, says whether you can apply yourself o
 | | Best for | What to do |
 | --- | --- | --- |
 | **🔎 Search the website** | Browsing what's out there, no setup | [Open the website](https://dryang21.github.io/Fundlark/) and type a topic, a funder or a sentence about your work. Edit the keyword tags, filter by field or career stage, and save calls to your tracker. |
-| **📋 Paste a request** | A personalized search in any AI assistant with web browsing (ChatGPT, Claude, Gemini…) | On the website, open **Use with AI**, describe your research and pick your institution and memberships, then copy the request and paste it into your assistant. |
-| **🧩 Install the skill** | The most thorough and repeatable search | One command adds Fundlark to Claude Code, Codex or Cursor. Your assistant then follows Fundlark's full checking workflow every time you ask about funding. |
+| **💬 Ask your AI assistant** | A personalized search in any assistant with web browsing (ChatGPT, Claude, Gemini…) | [Tell it to use Fundlark](#for-you), or build the request on the website under **Use with AI** and paste it. |
+| **🧩 Install the skill** | Repeat use in Claude Code, Codex or Cursor | Ask your assistant to install it, or run one command. It then follows Fundlark's checking workflow whenever you ask about funding. |
 
 <p align="center">
   <img src="docs/assets/readme-results.png" alt="Search results with editable keyword tags, status labels such as Open and Date not confirmed, and Save buttons" width="760">
@@ -59,21 +60,58 @@ Every lead links to the funder's own page, says whether you can apply yourself o
 
 ## Use it with your AI assistant
 
-In a terminal, from the folder you open in your assistant (Node.js 22.20 or later):
+### For you
+
+Just tell your assistant to use Fundlark. No terminal needed.
+
+**Chat assistants with web browsing** (ChatGPT, Claude, Gemini…): paste this, filling in the brackets.
+
+```text
+Read the Fundlark instructions at
+https://raw.githubusercontent.com/dryang21/Fundlark/main/skills/fundlark/SKILL.md
+and follow them to find funding for me. I'm a [career stage] in [field] at [institution] in [country].
+My project: [one or two sentences].
+```
+
+**Claude Code, Codex or Cursor:** ask once, and it's installed for future sessions.
+
+```text
+Install the Fundlark skill from github.com/dryang21/Fundlark, then use it to find funding for my project.
+```
+
+More things to ask:
+
+- *"Use Fundlark to find funding for the project we're discussing. Separate what I can apply for myself from what needs my advisor."*
+- *"I'm a PhD student in sociology at the University of Toronto. Use Fundlark to find dissertation fellowships and travel grants due in the next six months."*
+- *"Use Fundlark to refresh my fundlark-library.json and tell me what's new, changed or expired."*
+
+<details>
+<summary>Prefer to install it yourself?</summary>
+
+From the folder you open in your assistant (Node.js 22.20 or later):
 
 ```sh
 npx skills add dryang21/Fundlark --skill fundlark
 ```
 
-Choose your assistant when asked, then start a new session. Add `-g` to install it for all your projects. No terminal? [Download the ZIP](https://dryang21.github.io/Fundlark/Fundlark-skill.zip) and follow the [manual setup](docs/skill-distribution.md#manual-install-from-zip).
+Add `-g` to install it for all your projects. No terminal? [Download the ZIP](https://dryang21.github.io/Fundlark/Fundlark-skill.zip) and follow the [manual setup](docs/skill-distribution.md#manual-install-from-zip).
+</details>
 
-**Try asking:**
+### For AI agents
 
-- *"Use Fundlark to find funding for the project we're discussing. Separate what I can apply for myself from what needs my advisor."*
-- *"I'm a PhD student in sociology at the University of Toronto. Find dissertation fellowships and travel grants due in the next six months."*
-- *"Refresh my fundlark-library.json and tell me what's new, changed or expired."*
+If a user asks you to use Fundlark:
 
-**What the skill does differently from a plain prompt**
+1. **Install the skill** if you can run commands and the user agrees:
+   `npx skills add dryang21/Fundlark --skill fundlark` (use `-a claude-code` or `-a codex` to pick the host, and `-g` for all projects). Then load the installed `fundlark` skill.
+2. **Otherwise, read the instructions directly** from
+   `https://raw.githubusercontent.com/dryang21/Fundlark/main/skills/fundlark/SKILL.md`
+   and follow them. Resolve its `references/…` links against the same folder, for example
+   `https://raw.githubusercontent.com/dryang21/Fundlark/main/skills/fundlark/references/verification.md`.
+3. **Optional catalog index:** `docs/demo/data.json` and `docs/demo/fellowships.json` in this repository (raw URLs as above). They are starting points; confirm every call on the funder's official page.
+4. **Ask only for what changes the result** (career stage, country, field). Do not require a CV. Send only public topic keywords to search services.
+5. **Return** three to five priorities with official links, deadlines and who can apply, grouped into: apply yourself · needs an advisor or institution · details to confirm · future rounds. Offer to save a `fundlark-library.json` the user can import at https://dryang21.github.io/Fundlark/ → **My tracker → Import library** (format: `skills/fundlark/references/personal-library.md`).
+
+**What Fundlark adds to a plain prompt**
 
 - Starts students and postdocs with fellowships that pay the person, then travel and small grants.
 - Looks beyond government databases: your field's societies, your university's internal and limited-submission rounds, foundations and industry programs.

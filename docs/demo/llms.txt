@@ -1,0 +1,20 @@
+# Fundlark
+
+> Free, open-source help for PhD students, postdocs and early-career faculty looking for research funding: a searchable catalog of grants and fellowships, a browser tracker, and an AI-assistant skill.
+
+If a user asks you to use Fundlark to find funding:
+
+- Follow the skill instructions: https://raw.githubusercontent.com/dryang21/Fundlark/main/skills/fundlark/SKILL.md
+  Resolve its references/ links against the same folder.
+- Or install the skill if you can run commands and the user agrees: `npx skills add dryang21/Fundlark --skill fundlark`
+- Optional catalog indexes (starting points only; confirm each call on the funder's official page):
+  https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json
+  https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/fellowships.json
+- To save results for the website tracker, write fundlark-library.json as described in
+  https://raw.githubusercontent.com/dryang21/Fundlark/main/skills/fundlark/references/personal-library.md
+  The user imports it at https://dryang21.github.io/Fundlark/ (My tracker → Import library).
+
+## Links
+
+- Website: https://dryang21.github.io/Fundlark/
+- Repository and README: https://github.com/dryang21/Fundlark

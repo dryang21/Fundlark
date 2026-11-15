@@ -96,6 +96,7 @@ test('assistant request carries location and readable stage, and names the skill
   assert.match(plain,/Memberships: Not specified/);
   assert.match(plain,/fellowships\.json/);
   assert.doesNotMatch(plain,/Use the Fundlark skill/);
+  assert.match(plain,/skills\/fundlark\/SKILL\.md/);
   assert.match(assistantPrompt(profile,'',{skillMode:true}),/^Use the Fundlark skill/);
 });
 

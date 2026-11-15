@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.4.2 — Ask your AI to use Fundlark (2026-11-15)
+
+- README: "Use it with your AI assistant" now has instructions **for you** (paste one message, or ask Claude Code/Codex/Cursor to install it) and **for AI agents** (install the skill or read SKILL.md directly, then how to answer).
+- The website's copied request points the assistant to the Fundlark instructions, so any browsing assistant follows the same workflow without installing anything.
+- Added `llms.txt` to the website so visiting AI agents can find the instructions.
+
 ## v5.4 — Early-career positioning, color trim, sticky keywords (2026-11-15)
 
 - New headline "Find funding that fits your research." with the audience line "For PhD students, postdocs and early-career faculty" and a shorter subtitle.
