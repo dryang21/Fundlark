@@ -808,14 +808,27 @@
     "topics": [
       "computer science",
       "software engineering",
-      "computing"
+      "computing",
+      "artificial intelligence",
+      "computer vision",
+      "human-computer interaction",
+      "computer security"
     ],
     "url": "https://women.acm.org/scholarships/",
-    "source_date": "2026-11-14",
+    "source_date": "2026-11-15",
+    "scope_requires_topic_match": true,
+    "eligibility_rules": {
+      "application_route": "direct",
+      "mentor_required": true,
+      "manual_checks": [
+        "Confirm your computing-related program, conference dates and eligibility, and that you have not previously received this award."
+      ],
+      "next_step": "Choose an eligible February or March 2027 research conference and request the adviser letter before the December 15 deadline."
+    },
     "category": "Society",
     "funder": "Association for Computing Machinery",
     "origin": "curated",
-    "last_verified_at": "2026-11-14"
+    "last_verified_at": "2026-11-15"
   },
   {
     "id": "coverage:optica-women-scholars-2027",
@@ -837,11 +850,26 @@
       "engineering"
     ],
     "url": "https://www.optica.org/foundation/opportunities/scholarships/optica_women_scholars/",
-    "source_date": "2026-11-14",
+    "source_date": "2026-11-15",
+    "scope_requires_topic_match": true,
+    "eligibility_rules": {
+      "application_route": "direct",
+      "manual_checks": [
+        "Confirm the sponsor’s self-identification, enrollment and optics or photonics requirements."
+      ],
+      "next_step": "Check your degree and subject requirements, then ask two recommenders for letters on your optics work."
+    },
+    "deadline_time": "23:59",
+    "deadline_timezone": "America/New_York",
+    "timing_evidence": {
+      "url": "https://apply.optica.org/",
+      "checked": "2026-11-15",
+      "detail": "Optica’s application portal lists 11:59 p.m. Eastern on December 6, 2026."
+    },
     "category": "Society",
     "funder": "Optica",
     "origin": "curated",
-    "last_verified_at": "2026-11-14"
+    "last_verified_at": "2026-11-15"
   },
   {
     "id": "coverage:optica-deutsch-fellowship",
