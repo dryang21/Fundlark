@@ -6,6 +6,7 @@ import {fundingWindow} from './funding-window.mjs?v=5.0';
 import {grantHighlights} from './grant-highlights.mjs';
 import {paginateRecords,pageSequence} from './pagination.mjs';
 import {exploreFunding} from './workspace.mjs?v=5.0';
+import {describeQuery} from './search-text.mjs';
 import {HOST_COUNTRIES} from './host-regions.mjs';
 import {MAX_LIBRARY_BYTES,readLibrary,mergeLibrary,trackerBackup} from './personal-library.mjs';
 import {readBulkArchive} from './bulk-archive.mjs';
@@ -115,6 +116,7 @@ function render(){
 }
 function renderExplore(){
   renderExploreScope();
+  renderInterpretation();
   const includeArchive=exploreNeedsArchive();
   if(includeArchive&&!bulkArchive){
     $('#exploreResultCount').textContent=bulkArchiveError?'Past rounds could not be loaded':'Loading past rounds…';
@@ -179,10 +181,27 @@ function goToExplorePage(event){
   renderExplore();
   $('#exploreResultHeader').scrollIntoView({behavior:'auto',block:'start'});
 }
+const FUNDING_WORDS=/^(fellowships?|grants?|awards?|scholarships?|stipends?|prizes?|travel|funding|fund|bursar(y|ies)|seed|credits?)$/i;
+const STAGE_NAMES={undergrad:'undergraduate',masters:"master's",phd:'PhD / graduate',postdoc:'postdoc',faculty:'faculty',resident:'resident'};
+function renderInterpretation(){
+  const text=$('#exploreQuery').value.trim(),target=$('#searchInterpretation');
+  if(!text){target.textContent='Type a topic, funder or sentence about your work, or pick an example above.';return;}
+  // Funding words describe the kind of support, not the research topic.
+  const kinds=researchTerms(text).filter(term=>FUNDING_WORDS.test(term));
+  const {topics,words,stages}=describeQuery(text,researchTerms(text).filter(term=>!FUNDING_WORDS.test(term)));
+  const support=[...kinds,...words.filter(word=>FUNDING_WORDS.test(word))];
+  const others=words.filter(word=>!FUNDING_WORDS.test(word));
+  const parts=[];
+  if(topics.length)parts.push(`<strong>Research topics recognized:</strong> ${topics.map(esc).join(', ')}`);
+  if(others.length)parts.push(`<strong>${topics.length?'Also matching':'Matching'} your words:</strong> ${others.map(esc).join(', ')}`);
+  if(support.length)parts.push(`<strong>Support type:</strong> ${[...new Set(support.map(w=>w.toLowerCase()))].map(esc).join(', ')}`);
+  if(stages.length)parts.push(`<strong>Career stage:</strong> ${stages.map(s=>esc(STAGE_NAMES[s]||s)).join(', ')} (boosts matching fellowships)`);
+  target.innerHTML=parts.length?parts.join(' · '):'No searchable words found. Try a research topic or a funder name.';
+}
 function runSearch(text){
   $('#exploreQuery').value=text.trim().slice(0,1200);
   resetExplorePage();
-  $('#opportunities').scrollIntoView({behavior:'smooth',block:'start'});
+  $('#exploreResultHeader').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function renderFieldNavigation(){
   $('#disciplineChips').innerHTML=`<button type="button" class="field-chip" data-explore-field="" aria-pressed="${selectedExploreFields.size===0}">All fields</button>`+
@@ -388,13 +407,12 @@ $('#copySkillInstall').addEventListener('click',async()=>{
 });
 
 $('#heroSuggestions').innerHTML=HERO_SUGGESTIONS.map(term=>`<button type="button" class="source-pill" data-hero-search="${esc(term)}">${esc(term)}</button>`).join('');
-$('#heroSuggestions').addEventListener('click',event=>{const button=event.target.closest('[data-hero-search]');if(button){$('#heroSearchInput').value=button.dataset.heroSearch;runSearch(button.dataset.heroSearch);}});
+$('#heroSuggestions').addEventListener('click',event=>{const button=event.target.closest('[data-hero-search]');if(button)runSearch(button.dataset.heroSearch);});
+// One search box: results update as you type; Enter or the button jumps to them.
 $('#heroSearchForm').addEventListener('submit',event=>{
   event.preventDefault();
-  runSearch($('#heroSearchInput').value);
-  $('#exploreQuery').focus({preventScroll:true});
+  runSearch($('#exploreQuery').value);
 });
-$('#searchForm').addEventListener('submit',event=>{event.preventDefault();resetExplorePage();$('#exploreResultHeader').scrollIntoView({behavior:'smooth',block:'start'});});
 let searchTimer;
 $('#exploreQuery').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(resetExplorePage,200);});
 for(const id of ['exploreCategory','exploreStage','exploreFundingType','exploreAvailability','exploreSort'])
@@ -408,6 +426,7 @@ $('#exploreReset').addEventListener('click',()=>{
   $('#exploreQuery').value='';$('#exploreCategory').value='all';
   $('#exploreStage').value='';$('#exploreFundingType').value='';$('#exploreAvailability').value='active';
   $('#exploreSort').value='relevance';selectedExploreFields.clear();renderFieldNavigation();resetExplorePage();
+  $('#exploreQuery').focus({preventScroll:true});
 });
 for(const id of ['explorePaginationTop','explorePaginationBottom'])$(`#${id}`).addEventListener('click',goToExplorePage);
 $('#exploreResults').addEventListener('click',event=>{

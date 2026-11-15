@@ -51,7 +51,7 @@ const words = text => String(text || '').toLowerCase()
 
 /** Split a query into topical tokens and any career-stage hints it mentions. */
 export function parseQuery(text) {
-  const tokens = [], stages = new Set(), bigrams = new Set();
+  const tokens = [], stages = new Set(), bigrams = new Set(), shown = [];
   let previous = null;
   for (const raw of words(text)) {
     for (const piece of raw.split('-')) {
@@ -61,10 +61,10 @@ export function parseQuery(text) {
       const token = stem(piece);
       if (previous && previous !== token) bigrams.add(previous + ' ' + token);
       previous = token;
-      if (!tokens.includes(token)) tokens.push(token);
+      if (!tokens.includes(token)) { tokens.push(token); shown.push(piece); }
     }
   }
-  return {tokens: tokens.slice(0, 30), stages: [...stages], bigrams: [...bigrams].slice(0, 30)};
+  return {tokens: tokens.slice(0, 30), stages: [...stages], bigrams: [...bigrams].slice(0, 30), words: shown.slice(0, 30)};
 }
 
 const indexCache = new WeakMap(), tokenCache = new WeakMap();
@@ -131,4 +131,15 @@ export function requiredMatches(tokenCount) {
   if (tokenCount <= 2) return tokenCount;
   if (tokenCount <= 5) return 2;
   return Math.min(4, Math.ceil(tokenCount * 0.25));
+}
+
+/**
+ * Explain a query in plain terms for the page: recognized research topics,
+ * other words that also count, and career-stage hints.
+ */
+export function describeQuery(text, topics = []) {
+  const parsed = parseQuery(text);
+  const topicStems = new Set(topics.flatMap(topic => parseQuery(topic).tokens));
+  const words = parsed.words.filter((word, i) => !topicStems.has(parsed.tokens[i]));
+  return {topics, words, stages: parsed.stages};
 }

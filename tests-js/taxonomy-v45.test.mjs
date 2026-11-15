@@ -54,13 +54,15 @@ test('new homepage has a functional search form and accessible explicit steps',(
   const html=readFileSync(new URL('./index.html',demoRoot),'utf8');
   const js=readFileSync(new URL('./demo.js',demoRoot),'utf8');
   assert.match(html, /id="heroSearchForm"/);
-  assert.match(html, /id="heroSearchInput"/);
+  // v5.1: the hero box is the only search box.
+  assert.match(html, /<form id="heroSearchForm"[\s\S]*?id="exploreQuery"[\s\S]*?<\/form>/);
+  assert.ok(!html.includes('id="searchForm"')&&!html.includes('id="heroSearchInput"'));
   assert.match(html, /clean-ui\.css\?v=4\.\d+/);
   assert.match(html, /href="#use-skill"/);
   assert.match(html, /href="#dashboard"/);
-  assert.match(html, /href="#opportunities"/);
+  assert.match(html, /href="#top"/);
   assert.match(js,/\$\('#heroSearchForm'\)\.addEventListener\('submit'/);
-  assert.match(js,/runSearch\(\$\('#heroSearchInput'\)\.value\)/);
+  assert.match(js,/runSearch\(\$\('#exploreQuery'\)\.value\)/);
   assert.match(js,/\$\('#exploreQuery'\)\.value=text\.trim\(\)/);
 });
 

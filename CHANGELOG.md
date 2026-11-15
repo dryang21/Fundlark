@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.1 — One search box (2026-11-15)
+
+- The hero box is now the only search box; results update as you type, and Enter or an example search jumps to them. The duplicate box in the results section is removed.
+- A line under the search explains what it matched on: recognized research topics, other words that also count, support type (fellowship, grant, travel…) and any career stage that boosts matching fellowships.
+
 ## v5.0 — Broad search on the web, personalization in the skill (2026-11-15)
 
 - **Web demo is now a broad, cross-disciplinary search.** The research-profile form and personalized match dashboard are removed from the page. Search comes first, then the application tracker, then a hand-off panel that builds a request for the user's own AI assistant and compares what the website and the Fundlark skill each do.

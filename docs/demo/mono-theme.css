@@ -176,3 +176,8 @@ footer.shell{color:#777;border-color:#e5e5e5}
 .request-form .profile-grid label{display:block;margin-bottom:4px}
 .install>h3{font-size:14px;margin:0 0 10px}
 @media(max-width:700px){.request-form .profile-grid{grid-template-columns:1fr}.mode-compare{font-size:11px}.mode-compare th,.mode-compare td{padding:7px 8px}}
+
+/* v5.1 — one search box; the results section explains what the query matched. */
+.search-summary{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin:6px 0 18px;padding:12px 14px;border:1px solid #e3e3e3;border-radius:9px;background:#fff}
+.search-summary p{margin:0;font-size:12px;color:#4a4a4a;max-width:none;flex:1 1 420px}
+.search-summary strong{color:#1b1b1b;font-weight:650}
