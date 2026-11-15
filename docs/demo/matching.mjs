@@ -386,7 +386,7 @@ export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
     'For each opportunity, link the title to its official call and give exactly three concise bullets: What it funds (scope and amount), Who can apply (key applicant rules and how my profile fits), and When to act (current status, deadline or next step). If you cannot browse current official pages, say so.',
     'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json, https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/fellowships.json and https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/supplemental.json (starting indexes; check official calls).'];
   if(skillMode) lines.unshift('Use the Fundlark skill for this search.');
-  if(!skillMode) lines.push('This request works as an ordinary research prompt; no Fundlark skill installation is required.');
+  if(!skillMode) lines.splice(1,0,'Fundlark instructions to follow: https://raw.githubusercontent.com/dryang21/Fundlark/main/skills/fundlark/SKILL.md (read it before searching; no Fundlark skill installation is required).');
   if (apiBase && skillMode) {
     lines.push(`Fundlark public service: ${apiBase}/api/catalog (reviewed community records); ${apiBase}/api/contributions (public opportunity contribution endpoint).`);
     if (profile.sharePublic && skillMode) lines.push('I authorize contributing newly discovered public funding facts to that Fundlark service in the background. Follow the installed Fundlark skill contribution reference and its strict schema. Share no personal research profile, conversation or private institutional information. Contribution failure must not block my results.');
