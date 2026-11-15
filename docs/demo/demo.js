@@ -12,8 +12,9 @@ import {MAX_LIBRARY_BYTES,readLibrary,mergeLibrary,trackerBackup} from './person
 import {readBulkArchive} from './bulk-archive.mjs';
 import {FIELDS,fieldName,recordFields,filterHubs,TRACK_STATES,normalizedTrackerEntry,trackerStats,trackerCSV,trackerICS} from './explorer.mjs';
 import {filterSources} from './coverage.mjs';
+import {setupOrganizations} from './organization-picker.mjs?v=1';
 import {researchTerms, normalizeProfile, statusOf, mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks,
-  shortlistText, publicRecordSnapshot, restoreShortlist, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=personal-2';
+  shortlistText, publicRecordSnapshot, restoreShortlist, linkedPrograms, configureSocietyAliases, societyKey} from './matching.mjs?v=personal-2';
 
 const $ = selector => document.querySelector(selector);
 // After a release, a browser may pair a cached older page with this newer script.
@@ -44,16 +45,11 @@ try {request=normalizeProfile(JSON.parse(localStorage.getItem(PROFILE_KEY)||'{}'
 try {const value=JSON.parse(localStorage.getItem(SAVED_KEY)||'[]');if(Array.isArray(value))saved=value.map(x=>typeof x==='string'?{key:x}:x).filter(x=>x&&typeof x.key==='string'&&(!x.record||(typeof x.record==='object'&&typeof x.record.title==='string'&&typeof x.record.url==='string'))).slice(0,2000);}catch {storageAvailable=false;}
 
 /* ---------- Request for the AI assistant (the only "profile" on this page) ---------- */
-function splitAffiliations(text){
-  return String(text||'').split(/[;\n]/).map(item=>item.trim()).filter(Boolean).slice(0,10);
-}
 function readRequest(){
   const description=$('#requestDescription').value.trim();
-  // Earlier versions stored societies and institutions separately; keep them together here.
-  const affiliations=splitAffiliations($('#requestAffiliations').value);
   request=normalizeProfile({...request,researchBackground:description,researchProposal:'',
     topics:researchTerms(description),stage:$('#requestStage').value,researchRegion:$('#requestRegion').value,
-    institutions:affiliations,societies:[],sharePublic:$('#sharePublic').checked});
+    sharePublic:$('#sharePublic').checked});
   try {localStorage.setItem(PROFILE_KEY,JSON.stringify(request));storageAvailable=true;}catch {storageAvailable=false;}
   renderRoutes();
   return request;
@@ -63,6 +59,7 @@ function renderRoutes(){
   $('#discoveryRoutes').innerHTML=links.length?`<h3>Prefer to search directly?</h3><p class="small">Open your society or institution's funding page, or a web search. Only the terms in the link are sent when you open it.</p><div class="route-links">${links.map(link=>`<span><a href="${esc(safeUrl(link.url))}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>${link.note?`<small>${esc(link.note)}</small>`: ''}</span>`).join('')}</div>`:'';
 }
 async function copyRequest(){
+  organizations.consume();
   readRequest();
   const skillMode=$('#skillMode').checked;
   const prompt=assistantPrompt(request,communityEnabled?apiBase:'',{skillMode});
@@ -75,6 +72,26 @@ function updateSharing(){
   $('#sharePublic').disabled=!communityEnabled||!skillMode;
   $('#communityStatus').textContent=!communityEnabled?'Contributions are not available on this site.':'';
 }
+
+// Institutions and memberships: search a list or add any name; each is a removable tag.
+const organizations=setupOrganizations({$,esc,onAdd(kind,name){
+  const key=kind==='societies'?societyKey:value=>value.toLowerCase();
+  if(name&&!request[kind].some(item=>key(item)===key(name)))request[kind].push(name);
+},onChange(){renderAffiliationChips();readRequest();}});
+function renderAffiliationChips(){
+  for(const [kind,target] of [['societies','#societyChips'],['institutions','#institutionChips']]){
+    $(target).innerHTML=request[kind].map((name,index)=>{
+      const label=organizations.display(kind,name);
+      return `<span class="kw-chip" data-kind="added">${esc(label)}<button type="button" data-remove-org="${kind}" data-index="${index}" aria-label="Remove ${esc(label)}">×</button></span>`;
+    }).join('');
+  }
+}
+$('#requestForm').addEventListener('click',event=>{
+  const button=event.target.closest('[data-remove-org]');
+  if(!button)return;
+  request[button.dataset.removeOrg].splice(Number(button.dataset.index),1);
+  renderAffiliationChips();readRequest();
+});
 
 /* ---------- Funding cards ---------- */
 function fundingRow(o){
@@ -133,7 +150,7 @@ function renderExplore(){
   // Keep one array per catalog so word statistics are computed once, not per keystroke.
   const catalog=includeArchive?(combinedCatalog||=[...records,...bulkArchive]):records;
   const all=exploreFunding(catalog,{
-    description:$('#exploreQuery').value,
+    description:effectiveQuery(),
     fields:[...selectedExploreFields],category:$('#exploreCategory').value,
     availability:$('#exploreAvailability').value,fundingType:$('#exploreFundingType').value,
     stage:$('#exploreStage').value,sort:$('#exploreSort').value,corpus:catalog,
@@ -187,22 +204,48 @@ function goToExplorePage(event){
 }
 const FUNDING_WORDS=/^(fellowships?|grants?|awards?|scholarships?|stipends?|prizes?|travel|funding|fund|bursar(y|ies)|seed|credits?)$/i;
 const STAGE_NAMES={undergrad:'undergraduate',masters:"master's",phd:'PhD / graduate',postdoc:'postdoc',faculty:'faculty',resident:'resident'};
+// Editable keywords: terms read from the search text, minus any the user
+// removed, plus any they added. Edits persist until "Clear all".
+let excludedTerms=new Set(), addedTerms=[];
+const termKey=term=>String(term).trim().toLowerCase();
+function queryKeywords(text){
+  const kinds=researchTerms(text).filter(term=>FUNDING_WORDS.test(term));
+  const {topics,words,stages}=describeQuery(text,researchTerms(text).filter(term=>!FUNDING_WORDS.test(term)));
+  const chips=[
+    ...topics.map(term=>({term,kind:'topic'})),
+    ...words.filter(word=>!FUNDING_WORDS.test(word)).map(term=>({term,kind:'word'})),
+    ...[...kinds,...words.filter(word=>FUNDING_WORDS.test(word))].map(term=>({term:term.toLowerCase(),kind:'type'})),
+    ...stages.map(stage=>({term:stage,label:STAGE_NAMES[stage]||stage,kind:'stage'})),
+    ...addedTerms.map(term=>({term,kind:'added'}))];
+  // Keep hyphenated terms such as "single-cell" or "two-photon" as one tag.
+  for(const compound of new Set((text.toLowerCase().match(/[a-z0-9]+(?:-[a-z0-9]+)+/g)||[]))){
+    const parts=compound.split('-');
+    const idx=parts.map(part=>chips.findIndex(chip=>chip.kind!=='added'&&termKey(chip.term)===part));
+    if(idx.every(i=>i>=0)){
+      const first=Math.min(...idx);const kind=chips[first].kind;
+      for(const i of [...idx].sort((x,y)=>y-x))chips.splice(i,1);
+      chips.splice(Math.min(first,chips.length),0,{term:compound,kind});
+    }
+  }
+  const seen=new Set();
+  return chips.filter(chip=>{const key=termKey(chip.term);if(seen.has(key)||excludedTerms.has(key))return false;seen.add(key);return true;});
+}
+/** The text actually searched: the raw query until the user edits keywords. */
+function effectiveQuery(){
+  const text=$('#exploreQuery').value.trim();
+  if(!excludedTerms.size&&!addedTerms.length)return text;
+  return queryKeywords(text).map(chip=>chip.term).join('; ');
+}
 function renderInterpretation(){
   const target=$('#searchInterpretation');
   if(!target)return;
   const text=$('#exploreQuery').value.trim();
-  if(!text){target.textContent='Showing all current calls.';return;}
-  // Funding words describe the kind of support, not the research topic.
-  const kinds=researchTerms(text).filter(term=>FUNDING_WORDS.test(term));
-  const {topics,words,stages}=describeQuery(text,researchTerms(text).filter(term=>!FUNDING_WORDS.test(term)));
-  const support=[...kinds,...words.filter(word=>FUNDING_WORDS.test(word))];
-  const others=words.filter(word=>!FUNDING_WORDS.test(word));
-  const parts=[];
-  if(topics.length)parts.push(`<strong>Topics:</strong> ${topics.map(esc).join(', ')}`);
-  if(others.length)parts.push(`<strong>${topics.length?'Also':'Words'}:</strong> ${others.map(esc).join(', ')}`);
-  if(support.length)parts.push(`<strong>Type:</strong> ${[...new Set(support.map(w=>w.toLowerCase()))].map(esc).join(', ')}`);
-  if(stages.length)parts.push(`<strong>Stage:</strong> ${stages.map(s=>esc(STAGE_NAMES[s]||s)).join(', ')}`);
-  target.innerHTML=parts.length?`Matched on — ${parts.join(' · ')}`:'Try a research topic or a funder name.';
+  const chips=queryKeywords(text);
+  const kindLabel={topic:'topic',word:'word',type:'support type',stage:'career stage',added:'added'};
+  const list=chips.map(chip=>`<span class="kw-chip" data-kind="${chip.kind}" title="${esc(kindLabel[chip.kind])}">${esc(chip.label||chip.term)}<button type="button" data-remove-term="${esc(chip.term)}" aria-label="Remove keyword ${esc(chip.label||chip.term)}">×</button></span>`).join('');
+  const lead=chips.length?'<span class="kw-lead">Keywords</span>':(text?'<span class="kw-lead">No keywords — add one</span>':'<span class="kw-lead">All current calls</span>');
+  const restore=excludedTerms.size?'<button type="button" class="kw-restore" data-restore-terms>Restore removed</button>':'';
+  target.innerHTML=`${lead}${list}<form class="kw-add" data-add-term><label class="sr-only" for="addKeyword">Add a keyword</label><input id="addKeyword" type="text" maxlength="60" placeholder="+ Add keyword" autocomplete="off"></form>${restore}`;
 }
 function runSearch(text){
   $('#exploreQuery').value=text.trim().slice(0,1200);
@@ -364,6 +407,9 @@ async function init(){
       }
     }
     initializeSourceHubs();
+    organizations.setDirectory(coverageSources,[...sources.map(source=>source.institution),...records.map(record=>record.affiliation_tags?.institution)]);
+    request=normalizeProfile({...request,societies:request.societies.map(name=>organizations.resolve('societies',name)),institutions:request.institutions.map(name=>organizations.resolve('institutions',name))});
+    renderAffiliationChips();
     records=records.map(record=>({...record,field_ids:recordFields(record)}));
     refreshSupportTypes();
     for(const entry of saved)if(!entry.record){const record=records.find(o=>opportunityKey(o)===entry.key);if(record)entry.record=publicRecordSnapshot(record);}
@@ -382,9 +428,8 @@ async function init(){
 $('#requestDescription').value=[request.researchBackground,request.researchProposal].filter(Boolean).join('\n\n');
 $('#requestRegion').insertAdjacentHTML('beforeend',HOST_COUNTRIES.map(country=>`<option value="${esc(country)}">${esc(country)}</option>`).join(''));
 $('#requestStage').value=request.stage;$('#requestRegion').value=request.researchRegion;
-$('#requestAffiliations').value=[...request.institutions,...request.societies].join('; ');
 $('#sharePublic').checked=request.sharePublic;
-for(const id of ['requestDescription','requestAffiliations'])$(`#${id}`).addEventListener('change',readRequest);
+$('#requestDescription').addEventListener('change',readRequest);
 for(const id of ['requestStage','requestRegion'])$(`#${id}`).addEventListener('change',readRequest);
 $('#requestForm').addEventListener('submit',event=>{event.preventDefault();copyRequest();});
 $('#copyPrompt').addEventListener('click',copyRequest);
@@ -422,12 +467,38 @@ $('#exploreTogglePast').addEventListener('click',()=>{
   resetExplorePage();
 });
 $('#exploreReset').addEventListener('click',()=>{
+  excludedTerms=new Set();addedTerms=[];
   $('#exploreQuery').value='';$('#exploreCategory').value='all';
   $('#exploreStage').value='';$('#exploreFundingType').value='';$('#exploreAvailability').value='active';
   $('#exploreSort').value='relevance';selectedExploreFields.clear();renderFieldNavigation();resetExplorePage();
   $('#exploreQuery').focus({preventScroll:true});
 });
 for(const id of ['explorePaginationTop','explorePaginationBottom'])$(`#${id}`).addEventListener('click',goToExplorePage);
+$('#searchInterpretation').addEventListener('click',event=>{
+  const remove=event.target.closest('[data-remove-term]');
+  if(remove){
+    const key=termKey(remove.dataset.removeTerm);
+    const before=addedTerms.length;
+    addedTerms=addedTerms.filter(term=>termKey(term)!==key);
+    if(addedTerms.length===before)excludedTerms.add(key);
+    resetExplorePage();
+    $('#addKeyword')?.focus({preventScroll:true});
+    return;
+  }
+  if(event.target.closest('[data-restore-terms]')){excludedTerms=new Set();resetExplorePage();}
+});
+$('#searchInterpretation').addEventListener('submit',event=>{
+  if(!event.target.closest('[data-add-term]'))return;
+  event.preventDefault();
+  const value=$('#addKeyword').value.trim().replace(/\s+/g,' ').slice(0,60);
+  if(value){
+    excludedTerms.delete(termKey(value));
+    if(!addedTerms.some(term=>termKey(term)===termKey(value)))addedTerms.push(value);
+    resetExplorePage();
+  }
+  $('#addKeyword')?.focus({preventScroll:true});
+});
+
 $('#exploreResults').addEventListener('click',event=>{
   const btn=event.target.closest('[data-save]');if(btn)toggleSaved(btn.dataset.save);
   if(event.target.closest('[data-retry-archive]')){bulkArchiveError=false;renderExplore();}

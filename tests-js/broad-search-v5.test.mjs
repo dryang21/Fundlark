@@ -92,7 +92,8 @@ test('assistant request carries location and readable stage, and names the skill
   const plain=assistantPrompt(profile);
   assert.match(plain,/Career stage: PhD student/);
   assert.match(plain,/Where I do research: Canada/);
-  assert.match(plain,/Institutions and memberships: University of Toronto/);
+  assert.match(plain,/Current institutions: University of Toronto/);
+  assert.match(plain,/Memberships: Not specified/);
   assert.match(plain,/fellowships\.json/);
   assert.doesNotMatch(plain,/Use the Fundlark skill/);
   assert.match(assistantPrompt(profile,'',{skillMode:true}),/^Use the Fundlark skill/);

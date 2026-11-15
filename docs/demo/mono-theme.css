@@ -316,3 +316,35 @@ html body .mode-compare thead th{background:var(--fl-accent-soft);color:var(--fl
 html body .mode-compare td:last-child{color:var(--fl-accent-hover)}
 html body .tracker-count{background:var(--fl-accent-soft);color:var(--fl-accent)}
 html body .funding-row:hover{border-color:var(--fl-accent-line)}
+
+/* v5.3 — editable keyword tags */
+.search-summary{align-items:center}
+.kw-list{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;flex:1 1 480px;font-size:14px}
+.kw-lead{font-size:13px;font-weight:650;color:var(--fl-accent);margin-right:4px}
+.kw-chip{display:inline-flex;align-items:center;gap:2px;padding:3px 4px 3px 11px;border-radius:999px;font-size:13px;line-height:1.5;background:#fff;border:1px solid var(--fl-accent-line);color:#2b3a4a}
+.kw-chip[data-kind=topic]{background:var(--fl-accent);border-color:var(--fl-accent);color:#fff}
+.kw-chip[data-kind=added]{background:#dfe8f2;border-color:var(--fl-accent-line);color:var(--fl-accent-hover)}
+.kw-chip[data-kind=stage],.kw-chip[data-kind=type]{background:#fff;border-style:dashed}
+.kw-chip button{border:0;background:transparent;color:inherit;opacity:.7;font-size:15px;line-height:1;width:22px;height:22px;border-radius:50%;cursor:pointer;padding:0}
+.kw-chip button:hover,.kw-chip button:focus-visible{opacity:1;background:#ffffff33}
+.kw-chip:not([data-kind=topic]) button:hover{background:var(--fl-accent-soft)}
+.kw-add{display:inline-flex;margin:0}
+.kw-add input{width:150px;border:1px dashed var(--fl-accent-line);border-radius:999px;padding:4px 12px;font-size:13px;background:#fff;color:var(--fl-ink)}
+.kw-add input:focus{outline:none;border-style:solid;border-color:var(--fl-accent);box-shadow:0 0 0 3px #3a5a7c1f}
+.kw-restore{border:0;background:none;padding:0;font-size:13px;color:var(--fl-accent);text-decoration:underline;cursor:pointer}
+
+/* v5.3 — institution and membership pickers */
+.request-form .affiliation-pickers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 0}
+.request-form fieldset{border:0;padding:0;margin:0;min-width:0}
+.request-form legend{font-size:13px;font-weight:650;color:var(--fl-text);margin-bottom:5px;padding:0}
+.request-form .picker{display:flex;gap:6px}
+.request-form .picker input{flex:1;min-width:0}
+.request-form .picker .button{padding:8px 14px;font-size:14px}
+.request-form .organization-options:not([hidden]){display:grid;gap:2px;margin:4px 0;max-height:220px;overflow:auto;border:1px solid var(--fl-accent-line);border-radius:8px;background:#fff;padding:4px}
+.request-form .organization-options button{text-align:left;padding:7px 10px;background:#fff;color:var(--fl-ink);border:0;border-radius:6px;cursor:pointer;font-size:14px}
+.request-form .organization-options button:hover,.request-form .organization-options button:focus-visible{background:var(--fl-accent-soft);outline:none}
+.request-form .organization-options small{display:block;color:var(--fl-muted);font-size:12px}
+.request-form #lookupInstitution{font-size:13px;margin-top:6px}
+.request-form #registryStatus{font-size:12px;color:var(--fl-muted)}
+.request-form .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+@media(max-width:700px){.request-form .affiliation-pickers{grid-template-columns:1fr}}

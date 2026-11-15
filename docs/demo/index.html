@@ -37,7 +37,7 @@
         <p class="note" id="exploreCatalogScope" role="status">Loading catalog…</p>
         <button type="button" class="text-button" id="exploreTogglePast" aria-controls="exploreResults" hidden>Include past rounds</button>
       </div>
-      <div class="search-summary"><p id="searchInterpretation" class="note" aria-live="polite"></p><button type="button" class="text-button" id="exploreReset">Clear all</button></div>
+      <div class="search-summary"><div id="searchInterpretation" class="kw-list"></div><button type="button" class="text-button" id="exploreReset">Clear all</button></div>
       <div class="field-navigation"><div id="disciplineChips" class="field-chips" aria-label="Research fields"></div></div>
       <div class="workspace-filters explore-filters">
         <label>Funding source<select id="exploreCategory"><option value="all">All funding sources</option><option value="Society">Societies</option><option value="Institution">Institutions</option><option value="Government">Government</option><option value="Industry">Industry</option><option value="Foundation">Foundations</option></select></label>
@@ -82,8 +82,21 @@
             <div><label for="requestStage">Career stage</label><select id="requestStage"><option value="">Not specified</option><option value="undergrad">Undergraduate</option><option value="masters">Master's student</option><option value="phd">PhD student</option><option value="postdoc">Postdoctoral researcher</option><option value="resident">Resident</option><option value="faculty">Faculty</option><option value="staff">Research staff</option></select></div>
             <div><label for="requestRegion">Where you do research</label><select id="requestRegion"><option value="">Not specified</option><option value="Europe / EU">Europe / EU (country not specified)</option><option value="Other">Other / elsewhere</option></select></div>
           </div>
-          <label for="requestAffiliations">Institution and memberships</label>
-          <input id="requestAffiliations" type="text" maxlength="400" placeholder="e.g. University of Toronto; American Sociological Association">
+          <div class="profile-grid affiliation-pickers">
+            <fieldset><legend>Institutions</legend>
+              <div class="picker"><label class="sr-only" for="institutionInput">Search or add an institution</label><input id="institutionInput" maxlength="160" placeholder="e.g. Stanford" autocomplete="off" aria-controls="institutionOptions"><button type="button" id="addInstitution" class="button secondary">Add</button></div>
+              <div id="institutionOptions" class="organization-options" aria-label="Institution suggestions" hidden></div>
+              <button type="button" id="lookupInstitution" class="text-button">Not listed? Search worldwide</button>
+              <div id="registryStatus" class="small" role="status"></div>
+              <div id="registryOptions" class="organization-options" aria-label="Registry results" hidden></div>
+              <div id="institutionChips" class="chips"></div>
+            </fieldset>
+            <fieldset><legend>Memberships</legend>
+              <div class="picker"><label class="sr-only" for="societyInput">Search or add a membership</label><input id="societyInput" maxlength="160" placeholder="e.g. IEEE" autocomplete="off" aria-controls="societyOptions"><button type="button" id="addSociety" class="button secondary">Add</button></div>
+              <div id="societyOptions" class="organization-options" aria-label="Society suggestions" hidden></div>
+              <div id="societyChips" class="chips"></div>
+            </fieldset>
+          </div>
         </form>
         <h3>2 · Copy and paste into your AI assistant</h3>
         <div class="prompt">
