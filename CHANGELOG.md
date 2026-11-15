@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.3.1 — Color trim and sticky keywords (2026-11-15)
+
+- Accent color kept only on the main search box; status labels and amount/deadline chips keep their soft tints. Links, buttons, selected filters, the tracker, keyword tags and pickers are neutral again.
+- Clearing the search box (× or deleting the text) keeps its keywords as tags; only "Clear all" resets them.
+
 ## v5.3 — Calm accent color (2026-11-15)
 
 - One muted slate-blue accent for buttons, links, selected filters, section labels and the tracker; warm off-white page background.

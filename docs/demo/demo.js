@@ -216,7 +216,7 @@ function queryKeywords(text){
     ...words.filter(word=>!FUNDING_WORDS.test(word)).map(term=>({term,kind:'word'})),
     ...[...kinds,...words.filter(word=>FUNDING_WORDS.test(word))].map(term=>({term:term.toLowerCase(),kind:'type'})),
     ...stages.map(stage=>({term:stage,label:STAGE_NAMES[stage]||stage,kind:'stage'})),
-    ...addedTerms.map(term=>({term,kind:'added'}))];
+    ...addedTerms.map(item=>({...item}))];
   // Keep hyphenated terms such as "single-cell" or "two-photon" as one tag.
   for(const compound of new Set((text.toLowerCase().match(/[a-z0-9]+(?:-[a-z0-9]+)+/g)||[]))){
     const parts=compound.split('-');
@@ -249,6 +249,7 @@ function renderInterpretation(){
 }
 function runSearch(text){
   $('#exploreQuery').value=text.trim().slice(0,1200);
+  lastQueryText=$('#exploreQuery').value.trim();
   resetExplorePage();
   $('#exploreResultHeader').scrollIntoView({behavior:'smooth',block:'start'});
 }
@@ -417,7 +418,7 @@ async function init(){
   }catch {$('#snapshotStatus').textContent='The catalog could not be loaded.';$('#exploreCatalogScope').textContent='The catalog could not be loaded.';$('#exploreResults').innerHTML='<p>Catalog temporarily unavailable. Try again or use the official funder directory.</p>';updateSharing();return;}
   // A shared link such as ?q=graduate+fellowship opens with that search.
   const query=new URLSearchParams(location.search).get('q');
-  if(query)$('#exploreQuery').value=query.slice(0,1200);
+  if(query){$('#exploreQuery').value=query.slice(0,1200);lastQueryText=$('#exploreQuery').value.trim();}
   // Display problems are reported as such, not as a catalog outage.
   try{render();renderRoutes();}
   catch(error){console.error(error);$('#exploreResults').innerHTML='<p>Results could not be displayed. Reload the page (Cmd/Ctrl+Shift+R) to get the latest version.</p>';}
@@ -458,7 +459,20 @@ $('#heroSearchForm').addEventListener('submit',event=>{
   runSearch($('#exploreQuery').value);
 });
 let searchTimer;
-$('#exploreQuery').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(resetExplorePage,200);});
+let lastQueryText='';
+function pinKeywordsIfCleared(){
+  const text=$('#exploreQuery').value.trim();
+  if(!text&&lastQueryText){
+    // The box was emptied (× button or deleting the text): keep its keywords as tags.
+    addedTerms=queryKeywords(lastQueryText);excludedTerms=new Set();
+    lastQueryText='';
+    return;
+  }
+  // While text is being deleted, remember the fuller query rather than the remnant.
+  if(!lastQueryText.toLowerCase().startsWith(text.toLowerCase()))lastQueryText=text;
+}
+$('#exploreQuery').addEventListener('input',()=>{pinKeywordsIfCleared();clearTimeout(searchTimer);searchTimer=setTimeout(resetExplorePage,200);});
+$('#exploreQuery').addEventListener('search',()=>{pinKeywordsIfCleared();resetExplorePage();});
 for(const id of ['exploreCategory','exploreStage','exploreFundingType','exploreAvailability','exploreSort'])
   $(`#${id}`).addEventListener('change',resetExplorePage);
 $('#exploreTogglePast').addEventListener('click',()=>{
@@ -467,7 +481,7 @@ $('#exploreTogglePast').addEventListener('click',()=>{
   resetExplorePage();
 });
 $('#exploreReset').addEventListener('click',()=>{
-  excludedTerms=new Set();addedTerms=[];
+  excludedTerms=new Set();addedTerms=[];lastQueryText='';
   $('#exploreQuery').value='';$('#exploreCategory').value='all';
   $('#exploreStage').value='';$('#exploreFundingType').value='';$('#exploreAvailability').value='active';
   $('#exploreSort').value='relevance';selectedExploreFields.clear();renderFieldNavigation();resetExplorePage();
@@ -479,7 +493,7 @@ $('#searchInterpretation').addEventListener('click',event=>{
   if(remove){
     const key=termKey(remove.dataset.removeTerm);
     const before=addedTerms.length;
-    addedTerms=addedTerms.filter(term=>termKey(term)!==key);
+    addedTerms=addedTerms.filter(item=>termKey(item.term)!==key);
     if(addedTerms.length===before)excludedTerms.add(key);
     resetExplorePage();
     $('#addKeyword')?.focus({preventScroll:true});
@@ -493,7 +507,7 @@ $('#searchInterpretation').addEventListener('submit',event=>{
   const value=$('#addKeyword').value.trim().replace(/\s+/g,' ').slice(0,60);
   if(value){
     excludedTerms.delete(termKey(value));
-    if(!addedTerms.some(term=>termKey(term)===termKey(value)))addedTerms.push(value);
+    if(!addedTerms.some(item=>termKey(item.term)===termKey(value)))addedTerms.push({term:value,kind:'added'});
     resetExplorePage();
   }
   $('#addKeyword')?.focus({preventScroll:true});
