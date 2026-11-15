@@ -43,6 +43,6 @@ python3 scripts/package_skill.py
 python3 -m http.server 8059 --bind 127.0.0.1 --directory docs/demo
 ```
 
-Open [localhost:8059](http://127.0.0.1:8059/). The browser demo does not need a database, a login, or a paid API. The [catalog maintenance guide](docs/catalog-growth.md) covers bulk sources, verification and local exports.
+Open [localhost:8059](http://127.0.0.1:8059/). The browser demo does not need a database, a login, or a paid API. The [catalog maintenance guide](docs/catalog-growth.md) covers bulk sources, verification and local exports. See the [recommendation quality audit](docs/recommendation-quality.md) for shortlist coverage and release goals.
 
 [Report a problem or suggest a funding source](https://github.com/dryang21/Fundlark/issues/new/choose) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)

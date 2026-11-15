@@ -1,3 +1,4 @@
+import {fundingWindow} from './funding-window.mjs';
 /** Cross-discipline, local-first discovery helpers. No claim of verified eligibility. */
 export const FIELDS = [
   {id:'computing',label:'Computer science & AI',terms:['artificial intelligence','ai agents','llm','large language model','foundation model','computer science','computing','machine learning','data science','robotics','software engineering','cybersecurity','hci','cloud computing','quantum computing','computer vision','informatics','information science','natural language processing']},
@@ -45,12 +46,14 @@ export function normalizedTrackerEntry(value){
 }
 export function trackerStats(entries){const counts=Object.fromEntries(TRACK_STATES.map(s=>[s,0]));for(const entry of entries)counts[normalizedTrackerEntry(entry).state]++;return counts;}
 function csvCell(value){return '"'+String(value??'').replaceAll('"','""')+'"';}
-export function trackerCSV(entries){const header=['Title','Funder','Funding source','Deadline','Progress','My target date','My next step','Official link'];const rows=entries.map(({record,state,note,targetDate})=>[record.title,record.funder,record.category,record.deadline||'',normalizedTrackerEntry({state}).state,targetDate||'',note||'',record.url]);return [header,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';}
+export function trackerCSV(entries){const header=['Title','Funder','Funding source','Deadline','Progress','My target date','My next step','Official link'];const rows=entries.map(({record,state,note,targetDate})=>[record.title,record.funder,record.category,fundingWindow(record).deadline||'',normalizedTrackerEntry({state}).state,targetDate||'',note||'',record.url]);return [header,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';}
 function icsEscape(value){return String(value??'').replaceAll('\\','\\\\').replace(/\r?\n/g,'\\n').replaceAll(',','\\,').replaceAll(';','\\;');}
 export function trackerICS(entries){
   const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Fundlark//Application Deadlines//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
-  entries.filter(({record})=>/^\d{4}-\d{2}-\d{2}$/.test(record.deadline||'')).forEach(({record},i)=>{
-    const day=record.deadline.replaceAll('-','');const following=new Date(record.deadline+'T12:00:00Z');following.setUTCDate(following.getUTCDate()+1);
+  entries.forEach(({record},i)=>{
+    const {deadline}=fundingWindow(record);
+    if(!deadline)return;
+    const day=deadline.replaceAll('-','');const following=new Date(deadline+'T12:00:00Z');following.setUTCDate(following.getUTCDate()+1);
     const next=following.toISOString().slice(0,10).replaceAll('-','');
     lines.push('BEGIN:VEVENT',`UID:fundlark-${record.id||i}-${day}@local`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z')}`,`DTSTART;VALUE=DATE:${day}`,`DTEND;VALUE=DATE:${next}`,`SUMMARY:${icsEscape('Funding deadline: '+record.title)}`,`DESCRIPTION:${icsEscape('Confirm the deadline and your eligibility on the official sponsor site. '+record.url)}`,`URL:${record.url}`,'END:VEVENT');
   });

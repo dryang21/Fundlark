@@ -65,17 +65,23 @@ def federal_record(fields, forecast, as_of):
         return None
     published = federal_date(one("PostDate"))
     closes = federal_date(one("EstimatedSynopsisCloseDate" if forecast else "CloseDate"))
+    # Flag legacy distant feed dates for sponsor review; never infer rolling.
+    suspect = bool(closes and closes.year - as_of.year >= 10)
+    if suspect:
+        closes = None
     opens = federal_date(one("EstimatedSynopsisPostDate")) if forecast else published
     archived = federal_date(one("ArchiveDate"))
     updated = federal_date(one("LastUpdatedDate")) or published
     if (closes and closes < as_of) or (archived and archived < as_of):
         status = "closed"
+    elif suspect:
+        status = "verify"
     elif forecast:
         if not any(d and d >= as_of for d in (closes, opens)) and (not updated or updated < as_of - timedelta(days=180)):
             return None
         status = "forecast" if not opens or opens > as_of else "verify"
     elif closes and opens and opens <= as_of <= closes:
-        status = "open"
+        status = "verify"
     elif opens and opens > as_of:
         status = "forecast"
     elif updated and updated >= as_of - timedelta(days=180):
@@ -88,6 +94,8 @@ def federal_record(fields, forecast, as_of):
                category="Government", country_or_region="United States", origin="grantsgov_bulk",
                program_status_scope="specific_call", review_needed=True, status=status,
                funding_type="Federal grant" if "G" in instruments else "Cooperative agreement")
+    if suspect:
+        row["deadline_review"] = "distant_imported_date"
     if closes:
         row["deadline"] = closes.isoformat()
     if opens and status != "closed":
@@ -177,12 +185,18 @@ def horizon_record(result, as_of):
         status = "open"
     else:
         status = "verify"
-    return dict(id=f"horizon-{identifier.lower()}", title=title, funder="European Commission · Horizon Europe",
+    record = dict(id=f"horizon-{identifier.lower()}", title=title, funder="European Commission · Horizon Europe",
                 opportunity_number=identifier, category="Government", origin="horizon_feed",
                 country_or_region="European Union", url=EU_CALL + identifier,
                 program_status_scope="specific_call", review_needed=True, status=status,
                 funding_type="Research grant", deadline=deadline.isoformat(),
                 opens_on=opens.isoformat() if opens else None, source_checked_at=as_of.isoformat())
+    # Two dates alone do not establish a two-stage process. Horizon identifies
+    # these calls in its topic IDs. The first deadline is the initial route.
+    if identifier.lower().endswith("-two-stage") and len(deadlines) == 2:
+        record["initial_deadline"] = deadlines[0].isoformat()
+        record["application_phase"] = "initial" if deadline == deadlines[0] else "invited_stage_two"
+    return record
 
 
 def horizon_feed(as_of):

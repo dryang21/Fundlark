@@ -6,8 +6,14 @@ import {recordFields} from '../docs/demo/explorer.mjs';
 import {mergeCatalog, configureSocietyAliases, normalizeProfile, statusOf} from '../docs/demo/matching.mjs?v=personal-2';
 import {configureOpenAlexTaxonomy} from '../docs/demo/taxonomy.mjs?v=personal-2';
 import {filterDashboard, sourceCounts} from '../docs/demo/workspace.mjs';
+import {priorityShortlist} from '../docs/demo/recommendations.mjs';
+import {fundingWindow,localDay} from '../docs/demo/funding-window.mjs';
 import {evaluateEligibility} from '../docs/demo/eligibility.mjs';
 
+const dateArg=process.argv.find(arg=>arg.startsWith('--as-of='));
+const today=dateArg?.slice(8)||localDay();
+if(!/^\d{4}-\d{2}-\d{2}$/.test(today)||Number.isNaN(Date.parse(today))||new Date(today).toISOString().slice(0,10)!==today)
+  throw new Error('Use --as-of=YYYY-MM-DD.');
 const read=name=>JSON.parse(readFileSync(new URL(`../docs/demo/${name}.json`,import.meta.url),'utf8'));
 if(existsSync(new URL('../docs/demo/openalex-topics.json',import.meta.url)))configureOpenAlexTaxonomy(read('openalex-topics'));
 configureSocietyAliases(read('coverage').sources);
@@ -43,12 +49,12 @@ if(new Set(suite.map(c=>c.id)).size!==suite.length)throw new Error('Duplicate sy
 const items=suite.map(({id,description,regionNote,field,country,...fields})=>{
   const {topics}=buildResearchKeywords({description},known);
   const profile=normalizeProfile({...fields,researchBackground:description,topics});
-  const visible=filterDashboard(records,profile);
-  const inclusive=filterDashboard(records,profile,{eligibility:'all'});
+  const visible=filterDashboard(records,profile,{today});
+  const inclusive=filterDashboard(records,profile,{eligibility:'all',today});
   const top=visible.slice(0,5).map(row=>{
-    const fit=evaluateEligibility(row,profile);
-    return {id:row.id,title:row.title,funder:row.funder,category:row.category,url:row.url,status:statusOf(row),
-      deadline:row.deadline??null,eligibility:row.eligibility??null,assessment:fit.kind,
+    const fit=evaluateEligibility(row,profile,{today});
+    return {id:row.id,title:row.title,funder:row.funder,category:row.category,url:row.url,status:statusOf(row,today),
+      deadline:fundingWindow(row,today).deadline,eligibility:row.eligibility??null,assessment:fit.kind,
       blockers:fit.checks.filter(c=>c.state==='fail').map(c=>c.text),
       fieldOnly:row.matching.topicEvidence.length>0&&row.matching.topicEvidence.every(e=>e.matched.startsWith('field: ')),
       affiliationEvidence:row.matching.affiliations,
@@ -57,13 +63,22 @@ const items=suite.map(({id,description,regionNote,field,country,...fields})=>{
   const adobe=inclusive.find(x=>x.id==='curated:program-adobe-india');
   const manualControl=id==='german-robotics-faculty'?filterDashboard(records,{
     ...profile,topics:buildResearchKeywords({description,keywords:'robotics'},known).topics
-  }):null;
+  },{today}):null;
+  const recommended=priorityShortlist(visible,profile,today).map(({record,kind,route,next,window})=>({
+    id:record.id,title:record.title,kind,route,next,status:window.status,deadline:window.deadline,url:record.url
+  }));
   return {id,field,country,description,profile:fields,regionNote,keywords:topics,total:visible.length,
-    listedOpen:visible.filter(row=>['open','rolling'].includes(statusOf(row))).length,
-    knownConflicts:visible.filter(row=>evaluateEligibility(row,profile).kind==='ineligible').length,
-    heldOutByHostFilter:inclusive.length-visible.length,bySource:sourceCounts(visible),top,
+    listedOpen:visible.filter(row=>['open','rolling'].includes(statusOf(row,today))).length,
+    knownConflicts:visible.filter(row=>evaluateEligibility(row,profile,{today}).kind==='ineligible').length,
+    heldOutByHostFilter:inclusive.length-visible.length,bySource:sourceCounts(visible),top,recommended,
     ...(adobe?{adobe:{rank:visible.findIndex(x=>x.id===adobe.id)+1,assessment:evaluateEligibility(adobe,profile).kind}}:{}),
     ...(manualControl?{manualKeywordControl:{keyword:'robotics',total:manualControl.length,
-      horizon:manualControl.filter(r=>r.origin==='horizon_feed'&&/robotics/i.test(r.title)).map(r=>({title:r.title,url:r.url,status:statusOf(r)}))}}:{})};
+      horizon:manualControl.filter(r=>r.origin==='horizon_feed'&&/robotics/i.test(r.title)).map(r=>({title:r.title,url:r.url,status:statusOf(r,today)}))}}:{})};
 });
-console.log(JSON.stringify({snapshot:records.length,scope:'active default recommendations; synthetic profiles only',cases:items},null,2));
+const audits={profiles:items.length,withPriority:items.filter(c=>c.recommended.length).length,
+  withTwoPriorities:items.filter(c=>c.recommended.length>=2).length,
+  withIndividualApplication:items.filter(c=>c.recommended.some(r=>r.kind==='direct')).length,
+  recommendationSlots:items.reduce((total,c)=>total+c.recommended.length,0),
+  unconfirmedDeadlines:records.filter(r=>{const w=fundingWindow(r,today);return w.suspect&&!w.evidence;}).length};
+console.log(JSON.stringify({asOf:today,snapshot:records.length,
+  scope:'Synthetic regression audit; no independent relevance or eligibility judgments',audits,cases:items},null,2));

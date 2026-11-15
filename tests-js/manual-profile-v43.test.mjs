@@ -20,8 +20,7 @@ test('one research description and editable keywords replace three separate text
   assert.ok(html.includes('Every field is optional'));
   assert.ok(html.includes('id="profileForm"'));
   assert.ok(html.includes('id="eligibilityDetails"')&&html.includes('id="affiliationDetails"'));
-  assert.ok(!html.includes('<details class="affiliations" id="eligibilityDetails"'));
-  assert.ok(!html.includes('<details class="affiliations" id="affiliationDetails"'));
+  assert.match(html,/<details id="profileRefinements"[^>]*>[\s\S]*id="eligibilityDetails"[\s\S]*id="affiliationDetails"[\s\S]*<\/details>/);
 });
 test('project and explicit keywords rank ahead of background while retaining cross-disciplinary coverage',()=>{
   const fields={background:'My research background is physics and chemistry.',proposal:'I propose to improve sustainable battery recycling with robotics.',keywords:'battery recycling, robotics'};

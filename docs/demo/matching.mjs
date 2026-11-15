@@ -1,3 +1,4 @@
+import {fundingWindow, invitedPhase, localDay} from './funding-window.mjs';
 import {isAppointmentAllowed} from './appointment-options.mjs';
 // Browser-only matching. These scores explain overlap, never applicant eligibility.
 import {organizationKey, localInstitutions, resolveOrganization} from './organizations.mjs?v=1';
@@ -161,24 +162,19 @@ export function match(record, profile) {
     stageMatch:Boolean(profile.stage&&stages.includes(profile.stage)),
     score: [...scores.values()].reduce((n,score)=>n+score,0)+affiliations.length*15};
 }
-export function statusOf(record, today = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) {
-  if(record.status==='closed'||record.deadline&&record.deadline<today)return 'closed';
-  if(record.opens_on&&today<record.opens_on)return 'forecast';
-  // A scheduled opening date is not proof that the portal opened.
-  if(record.status==='forecast'&&record.opens_on)return 'verify';
-  return record.status;
-}
+export function statusOf(record,today) {return fundingWindow(record,today).status;}
 /**
  * Conservative guidance, NOT an eligibility verdict. A topic/career-stage hit
  * can never by itself become a "direct application". Every reason is shown.
  * Only explicit structured rules are assessed; unstructured conditions must
  * be checked on the official sponsor page.
  */
-export function applicationPath(record, rawProfile) {
+export function applicationPath(record, rawProfile, today=localDay()) {
   const profile=normalizeProfile(rawProfile), fit=record.matching||match(record,profile);
   const rules=record.eligibility_rules||{}, blockers=[], checks=[];
   const next=rules.next_step||'Read the current official call and confirm every applicant requirement.';
-  if(statusOf(record)==='closed')return {kind:'watch',label:'Past round / closed',next:'Watch the official sponsor for a new round.',blockers:[],checks:[]};
+  if(statusOf(record,today)==='closed')return {kind:'watch',label:'Past round / closed',next:'Watch the official sponsor for a new round.',blockers:[],checks:[]};
+  if(invitedPhase(record))return {kind:'check',label:'Invitation required',next:'Proceed only if the sponsor invited you to this stage. Otherwise, watch for the next initial call.',blockers,checks:['Confirm an invitation for this call.']};
   const member=Array.isArray(rules.membership_required)?rules.membership_required:[];
   const missingMembership=member.filter(name=>!profile.societies.some(value=>societyKey(value)===societyKey(name)));
   if(missingMembership.length)checks.push(`Confirm required membership: ${missingMembership.join(', ')}`);
@@ -201,6 +197,7 @@ export function applicationPath(record, rawProfile) {
   }
   if(rules.mentor_required)checks.push('Confirm mentor/sponsor support');
   if(rules.faculty_lead_required)checks.push('A faculty lead must be confirmed');
+  if(rules.required_prior_step)checks.push(String(rules.required_prior_step));
   if(rules.citizenship_required){
     const eligible=Array.isArray(rules.citizenship_required)?rules.citizenship_required:[rules.citizenship_required];
     if(profile.citizenship==='unknown')checks.push('Check citizenship or permanent-residence requirement');
@@ -271,9 +268,9 @@ export function fundingBrief(records,profile) {
   return groups;
 }
 /** Higher = better lead to investigate, not greater probability of an award. */
-export function fundingPriority(record,profile){
+export function fundingPriority(record,profile,today=localDay()){
   const fit=record.matching||match(record,profile);
-  const route=applicationPath(record,profile),status=statusOf(record);
+  const route=applicationPath(record,profile,today),status=statusOf(record,today);
   const stageFit=fit.stageMatch?18:0;
   const routeWeight={direct:8,partner:4,check:0,ineligible:-100,watch:-100}[route.kind]??0;
   const statusWeight={open:5,rolling:5,forecast:2,verify:0,closed:-100}[status]??0;
@@ -292,10 +289,10 @@ export function fundingPriority(record,profile){
  *
  * Important: the full catalog remains independently accessible in Browse.
  */
-export function plausibleProfileLead(record, rawProfile) {
+export function plausibleProfileLead(record, rawProfile, today=localDay()) {
   const profile=normalizeProfile(rawProfile);
   const fit=record.matching||match(record,profile);
-  const path=applicationPath({...record,matching:fit},profile);
+  const path=applicationPath({...record,matching:fit},profile,today);
   if(['watch','ineligible'].includes(path.kind))return false;
   // Keep topically relevant records with known non-stage blockers in the
   // dashboard so 'Likely ineligible' can explain why; do not silently
@@ -312,19 +309,19 @@ export function plausibleProfileLead(record, rawProfile) {
   // A career-stage-only profile should not match hundreds of generic calls.
   return Boolean(affiliated || fit.stageMatch);
 }
-export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,recommendedOnly=false,savedOnly=false,saved=[]} = {}) {
+export function selectRecords(records, profile, {query='',category='all',availability='active',fundingType='',matchedOnly=false,recommendedOnly=false,savedOnly=false,saved=[],today=localDay()} = {}) {
   const terms=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const stageOnly=profile.stage&&!profile.topics.length&&!profile.societies.length&&!profile.institutions.length;
   return records.map(o=>({...o,matching:match(o,profile)})).filter(o=>{
     const internal=o.category==='Institution'&&o.affiliation_tags?.institution;
     if(matchedOnly&&internal&&!institutionMatches(o,profile.institutions))return false;
-    if(matchedOnly&&recommendedOnly&&!plausibleProfileLead(o,profile))return false;
-    const status=statusOf(o);
+    if(matchedOnly&&recommendedOnly&&!plausibleProfileLead(o,profile,today))return false;
+    const status=statusOf(o,today);
     const available=availability==='all'||(availability==='active'?status!=='closed':availability==='open'?['open','rolling'].includes(status):status===availability);
     return (category==='all'||o.category===category)&&available&&(!fundingType||o.funding_type===fundingType)&&(!matchedOnly||o.matching.score>0||stageOnly&&o.matching.stageMatch)&&(!savedOnly||saved.includes(opportunityKey(o)))&&terms.every(term=>[o.title,o.funder,o.description,...(o.topics||[]),...(o.affiliation_tags?.societies||[]),...(o.affiliation_tags?.conferences||[])].join(' ').toLowerCase().includes(term));
-  }).sort((a,b)=>Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||
-    (matchedOnly?fundingPriority(b,profile)-fundingPriority(a,profile):0)||
-    ({open:0,rolling:0,forecast:1,verify:2}[statusOf(a)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b)]??3)||
+  }).sort((a,b)=>Number(statusOf(a,today)==='closed')-Number(statusOf(b,today)==='closed')||
+    (matchedOnly?fundingPriority(b,profile,today)-fundingPriority(a,profile,today):0)||
+    ({open:0,rolling:0,forecast:1,verify:2}[statusOf(a,today)]??3)-({open:0,rolling:0,forecast:1,verify:2}[statusOf(b,today)]??3)||
     b.matching.score-a.matching.score);
 }
 export function discoveryLinks(profile, sources=[]) {
@@ -396,10 +393,10 @@ export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
 }
 export function shortlistText(records) {
   const labels={verify:'Application window unconfirmed',forecast:'Upcoming call',open:'Listed open; confirm official call',rolling:'Listed rolling; confirm availability',closed:'Past round / closed'};
-  return records.map(o=>`${o.title}\n${o.funder} · ${o.amount || 'Amount not provided'}\nDeadline: ${o.deadline || 'Check official call'} · Status: ${labels[statusOf(o)]||labels.verify}\n${o.eligibility || 'Check applicant rules.'}\n${o.archived?'Saved snapshot; no longer in the current catalog. Recheck the official page.\n':''}${o.url}`).join('\n\n');
+  return records.map(o=>`${o.title}\n${o.funder} · ${o.amount || 'Amount not provided'}\nDeadline: ${fundingWindow(o).deadline || 'Check official call'} · Status: ${labels[statusOf(o)]||labels.verify}\n${o.eligibility || 'Check applicant rules.'}\n${o.archived?'Saved snapshot; no longer in the current catalog. Recheck the official page.\n':''}${o.url}`).join('\n\n');
 }
 export function publicRecordSnapshot(record) {
-  const fields=['id','title','funder','category','url','round','amount','deadline','status','description','eligibility','topics','eligible_stages','faculty_sponsor_possible','affiliation_tags','last_verified_at','origin','review_needed','amount_min','amount_max','currency','award_period_months','opens_on','deadline_time','deadline_timezone','eligibility_rules'];
+  const fields=['id','title','funder','category','url','round','amount','deadline','status','description','eligibility','topics','eligible_stages','faculty_sponsor_possible','affiliation_tags','last_verified_at','origin','review_needed','amount_min','amount_max','currency','award_period_months','opens_on','deadline_time','deadline_timezone','eligibility_rules','source_checked_at','deadline_review','application_phase','initial_deadline','program_status_scope','timing_evidence','official_call_url'];
   return Object.fromEntries(fields.filter(key=>record[key]!==undefined).map(key=>[key,record[key]]));
 }
 export function restoreShortlist(records, entries) {

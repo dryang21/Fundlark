@@ -14,6 +14,13 @@
       ],
       "url": "https://www.neh.gov/program/collections-stewardship",
       "deadline": "2026-12-15",
+      "deadline_time": "23:59",
+      "deadline_timezone": "America/New_York",
+      "timing_evidence": {
+        "url": "https://www.neh.gov/sites/default/files/Collections%20Stewardship%202026%20NOFO.pdf",
+        "checked": "2026-11-15",
+        "detail": "The notice lists December 15, 2026 at 11:59 p.m. Eastern for the second deadline."
+      },
       "status": "open",
       "amount": "Up to $350k per organization / $500k consortium",
       "description": "Preservation and access to physical or digital humanities collections, libraries and archives.",
@@ -31,12 +38,13 @@
       ],
       "origin": "curated",
       "source_date": "2026-11-14",
-      "last_verified_at": "2026-11-14",
+      "last_verified_at": "2026-11-15",
       "review_needed": false,
       "eligibility_rules": {
         "application_route": "partner",
         "next_step": "Find an eligible museum, archive or university organizational lead; check the current NEH Notice of Funding Opportunity.",
-        "faculty_lead_required": true
+        "faculty_lead_required": true,
+        "host_regions": ["United States"]
       }
     },
     {
@@ -409,6 +417,7 @@
         "climate"
       ],
       "url": "https://www.nsf.gov/eng",
+      "official_call_url": "https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation",
       "deadline": null,
       "status": "rolling",
       "amount": "Solicitation-specific",
@@ -421,20 +430,22 @@
       "faculty_sponsor_possible": true,
       "funding_type": "Research grant",
       "topics": [
-        "engineering",
-        "physical",
-        "medicine",
-        "climate"
+        "chemical engineering",
+        "bioengineering",
+        "environmental engineering",
+        "energy systems",
+        "transport phenomena"
       ],
       "origin": "curated",
       "source_date": "2026-11-14",
-      "last_verified_at": "2026-11-14",
+      "last_verified_at": "2026-11-15",
       "review_needed": false,
       "eligibility_rules": {
         "application_route": "partner",
-        "next_step": "Use NSF Engineering directorate to open the CBET solicitation and verify applicant rules.",
+        "next_step": "Check which CBET program fits the project and contact its program officer. Confirm submission eligibility with your grants office.",
         "faculty_lead_required": true
-      }
+      },
+      "scope_requires_topic_match": true
     },
     {
       "id": "cross:arc-discovery",

@@ -1,3 +1,4 @@
+import {fundingWindow, invitedPhase} from './funding-window.mjs';
 
 // Sample sessions never read or write personal browser storage.
 export const examples = {
@@ -7,6 +8,8 @@ export const examples = {
 
 export function upcomingSaved(records, today, days=30) {
   const until=new Date(Date.parse(today+'T00:00:00Z')+days*86400000).toISOString().slice(0,10);
-  return records.filter(o=>!o.archived && ['open','rolling'].includes(o.status) && /^\d{4}-\d{2}-\d{2}$/.test(o.deadline||'')&&o.deadline>=today&&o.deadline<=until)
-    .sort((a,b)=>a.deadline.localeCompare(b.deadline));
+  return records.filter(o=>{
+    const {status,deadline}=fundingWindow(o,today);
+    return !o.archived&&!invitedPhase(o)&&['open','rolling'].includes(status)&&deadline>=today&&deadline<=until;
+  }).sort((a,b)=>a.deadline.localeCompare(b.deadline));
 }

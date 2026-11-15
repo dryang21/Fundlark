@@ -1,3 +1,4 @@
+import {fundingWindow,localDay} from './funding-window.mjs';
 // Workspace-level helpers; cross-disciplinary catalog, not an eligibility engine.
 import {normalizeProfile, researchTerms, match, selectRecords, statusOf, applicationPath} from './matching.mjs?v=personal-2';
 import {filterByField, recordFields} from './explorer.mjs';
@@ -32,21 +33,21 @@ export function sourceCounts(records){
 }
 export function filterDashboard(records,rawProfile,filters={}){
   const profile=normalizeProfile(rawProfile);
-  const {query='',category='all',availability='active',fundingType='',field='',route='all',eligibility='host-compatible',savedOnly=false}=filters;
+  const {query='',category='all',availability='active',fundingType='',field='',route='all',eligibility='host-compatible',savedOnly=false,today=localDay()}=filters;
   if(!profile.stage&&!profile.topics.length&&!profile.societies.length&&!profile.institutions.length&&!savedOnly)return [];
   let list=selectRecords(records,profile,{
     matchedOnly:!savedOnly,
     recommendedOnly:!savedOnly,
-    availability,category,query,fundingType,
+    availability,category,query,fundingType,today,
   });
   list=filterByField(list,field);
-  if(route!=='all')list=list.filter(r=>applicationPath(r,profile).kind===route);
+  if(route!=='all')list=list.filter(r=>applicationPath(r,profile,today).kind===route);
   const eligibilityOrder={likely:0,verify:1,ineligible:2};
   const fitOrder=record=>{
     const fit=record.matching;
     return fit.topicEvidence.some(e=>!e.matched.startsWith('field: '))?0:fit.affiliations.length?1:2;
   };
-  return list.map(record=>({record,assessment:evaluateEligibility(record,profile)}))
+  return list.map(record=>({record,assessment:evaluateEligibility(record,profile,{today})}))
     .filter(({assessment})=>eligibility==='all'||(eligibility==='host-compatible'?
       savedOnly||!assessment.checks.some(check=>check.code==='region'&&check.state==='fail'):
       assessment.kind===eligibility))
@@ -95,7 +96,7 @@ export function exploreFunding(records,{description='',keywords='',fields=[],cat
     filtered.push({...record,exploreScore:hit+(exact?20:0)+(keywordsHit?3:0)});
   }
   filtered.sort((a,b)=>{
-    if(sort==='deadline')return (a.deadline||'9999-99-99').localeCompare(b.deadline||'9999-99-99')||b.exploreScore-a.exploreScore;
+    if(sort==='deadline')return (fundingWindow(a).deadline||'9999-99-99').localeCompare(fundingWindow(b).deadline||'9999-99-99')||b.exploreScore-a.exploreScore;
     if(sort==='verified')return String(b.last_verified_at||'').localeCompare(String(a.last_verified_at||''))||b.exploreScore-a.exploreScore;
     return b.exploreScore-a.exploreScore||Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||String(a.title).localeCompare(String(b.title));
   });

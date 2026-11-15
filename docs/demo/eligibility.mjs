@@ -6,6 +6,7 @@
  * absent or ambiguous becomes a verification question, never a negative fact.
  */
 import {normalizeProfile, societyKey, statusOf} from './matching.mjs?v=personal-2';
+import {localDay, invitedPhase} from './funding-window.mjs';
 import {organizationKey} from './organizations.mjs';
 
 export const ELIGIBILITY_STATUSES = Object.freeze({
@@ -30,14 +31,16 @@ const uniqueConditions=conditions=>conditions.filter((item,index)=>conditions.fi
  * @param {object} options today is injectable to keep automated tests stable.
  * @returns {{kind:'likely'|'verify'|'ineligible',label:string,summary:string,checks:Array<{code:string,state:string,text:string}>,next:string,route:string}}
  */
-export function evaluateEligibility(record,rawProfile,{today=new Date().toISOString().slice(0,10)}={}){
+export function evaluateEligibility(record,rawProfile,{today=localDay(),invitationConfirmed=null}={}){
   const profile=normalizeProfile(rawProfile);
   const rules=record.eligibility_rules||{};
   const conditions=[];
   const add=(state,code,text)=>conditions.push({state,code,text});
   const stages=Array.isArray(record.eligible_stages)?record.eligible_stages:[];
-  const route=rules.application_route||'unknown';
-  const partner=route==='partner'||rules.faculty_lead_required===true||record.faculty_sponsor_possible===true;
+  const invited=invitedPhase(record);
+  const underlying=rules.application_route||'unknown';
+  const route=invited?'invitation_only':underlying;
+  const partner=underlying==='partner'||rules.faculty_lead_required===true||record.faculty_sponsor_possible===true;
   const noStage=profile.stage==='';
   const sponsorStatus=statusOf(record,today);
   const current=isReviewedRecently(record,today);
@@ -49,9 +52,14 @@ export function evaluateEligibility(record,rawProfile,{today=new Date().toISOStr
     else add('fail','stage',`Career stage: ${stageText(profile.stage)} is not among the listed applicant stages (${stages.map(stageText).join(', ')}).`);
   }else add('unknown','stage','Eligible applicant career stages have not been structured for this program.');
 
-  if(route==='partner'||rules.faculty_lead_required===true){
+  if(invited){
+    if(invitationConfirmed===false)add('fail','invitation','The sponsor requires an invitation for this call and you do not have one.');
+    else if(invitationConfirmed===true)add('pass','invitation','Invitation confirmed for this call.');
+    else add('unknown','invitation','Only applicants invited by the sponsor can submit at this stage.');
+  }
+  if(underlying==='partner'||rules.faculty_lead_required===true){
     add('unknown','faculty-lead','Faculty/institutional submission route: confirm an eligible lead investigator and your permitted role.');
-  }else if(route==='direct')add('pass','route','An individual application route is listed (not proof of eligibility).');
+  }else if(underlying==='direct')add('pass','route','An individual application route is listed (not proof of eligibility).');
   else add('unknown','route','The official individual-applicant versus institutional submission route has not been confirmed.');
 
   const memberships=requiredNames(rules.membership_required);
@@ -141,6 +149,7 @@ export function evaluateEligibility(record,rawProfile,{today=new Date().toISOStr
   }
   if(rules.minimum_applicants!=null)add('unknown','team',`Confirm team of at least ${rules.minimum_applicants} applicants.`);
   if(rules.minimum_departments!=null)add('unknown','departments',`Confirm collaboration from at least ${rules.minimum_departments} departments.`);
+  requiredNames(rules.manual_checks).slice(0,5).forEach((item,index)=>add('unknown',`manual-${index+1}`,item));
   if(rules.required_prior_step)add('unknown','prior-step',String(rules.required_prior_step));
   if(rules.exclusion_group)add('unknown','exclusivity','Check whether applying to this program prohibits concurrent applications to related calls.');
 
@@ -149,16 +158,17 @@ export function evaluateEligibility(record,rawProfile,{today=new Date().toISOStr
   else if(sponsorStatus==='forecast')add('unknown','window','The application window is upcoming; recheck the official call when it opens.');
   if(!current)add('unknown','source','The funding record is unreviewed, flagged for review, or older than 180 days. Recheck the official source.');
 
+  if(rules.requirements_complete===false)add('unknown','completeness','The sponsor’s material applicant rules have not all been reviewed.');
   const checks=uniqueConditions(conditions);
   const failures=checks.filter(x=>x.state==='fail');
   const unresolved=checks.filter(x=>x.state==='unknown');
   // Sparse records must not become "likely eligible" from topic overlap,
   // stage alone, or a guessed direct-application path.
-  const structuredEvidence=stages.length>0&&route==='direct'&&Object.keys(rules).some(k=>[
+  const structuredEvidence=stages.length>0&&underlying==='direct'&&(rules.requirements_complete===true||Object.keys(rules).some(k=>[
     'membership_required','institution_required','minimum_research_effort_percent','pi_privileges_required',
     'citizenship_required','host_regions','current_host_regions','minimum_years_since_phd','max_years_since_phd',
-    'eligible_faculty_ranks','eligible_appointments','mentor_required','requirements_complete'
-  ].includes(k));
+    'eligible_faculty_ranks','eligible_appointments','mentor_required'
+  ].includes(k)));
   const kind=failures.length?'ineligible':unresolved.length||!structuredEvidence?'verify':'likely';
   if(kind==='verify'&&!unresolved.length)add('unknown','completeness','Structured applicant criteria are too sparse to establish a likely eligibility match.');
   const finalChecks=uniqueConditions(conditions);
@@ -167,7 +177,9 @@ export function evaluateEligibility(record,rawProfile,{today=new Date().toISOStr
     kind==='likely'?'All indexed, structured applicant requirements currently match your profile. Other sponsor conditions may still apply.':
     `${finalChecks.filter(c=>c.state==='unknown').length} eligibility or source check${finalChecks.filter(c=>c.state==='unknown').length===1?' remains':'s remain'} unresolved.`;
   return {kind,label:ELIGIBILITY_STATUSES[kind],summary,checks:finalChecks,route,
-    next:rules.next_step||'Review the current official call and check the remaining applicant requirements.',
+    next:invited&&invitationConfirmed!==true?'Check for an invitation for this call. If you were not invited, watch for the next initial round.':
+      rules.next_step||(partner?'Ask an eligible faculty or institutional lead whether they can submit and what role you can hold.':
+        finalChecks.find(check=>check.state==='unknown')?.text||'Review the official call and confirm how to submit.'),
     passCount:finalChecks.filter(c=>c.state==='pass').length,
     unknownCount:finalChecks.filter(c=>c.state==='unknown').length,
     failCount:failures.length,

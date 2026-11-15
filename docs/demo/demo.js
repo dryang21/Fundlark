@@ -1,6 +1,7 @@
 import {buildResearchKeywords,autoCorrectResearchText,researchProfileText,PROFILE_TOPIC_SUGGESTIONS} from './manual-profile.mjs?v=personal-2';
 import {configureOpenAlexTaxonomy,taxonomyStats,relatedTerms,canonicalLabel,canonicalConcept,vocabularyFields,browseResearchConcepts,searchResearchConcepts} from './taxonomy.mjs?v=personal-2';
-import {evaluateEligibility} from './eligibility.mjs?v=personal-2';
+import {fundingWindow} from './funding-window.mjs';
+import {priorityShortlist, recommendation} from './recommendations.mjs';
 import {grantHighlights} from './grant-highlights.mjs';
 import {paginateRecords,pageSequence} from './pagination.mjs';
 import {appointmentOptionsForStage} from './appointment-options.mjs';
@@ -191,10 +192,10 @@ function renderReturn(savedRecords){
   const upcoming=upcomingSaved(savedRecords,today);
   const changed=savedRecords.filter(o=>o.detailsChanged).length;
   $('#returnSummary').textContent=`${savedRecords.length} saved ${savedRecords.length===1?'lead':'leads'}${changed?` · ${changed} with changed catalog details`:''}.`;
-  $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${upcoming[0].deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
+  $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${fundingWindow(upcoming[0]).deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
 }
 function awardLinks(awards,{limit=Infinity}={}){
-  const row=record=>`<li><a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">${esc(record.title)} ↗</a><small>${esc([labels[statusOf(record)]||labels.verify,record.amount,record.deadline?'Deadline: '+record.deadline:null].filter(Boolean).join(' · '))}</small></li>`;
+  const row=record=>`<li><a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">${esc(record.title)} ↗</a><small>${esc([labels[statusOf(record)]||labels.verify,record.amount,fundingWindow(record).deadline?'Deadline: '+fundingWindow(record).deadline:null].filter(Boolean).join(' · '))}</small></li>`;
   const current=awards.filter(record=>statusOf(record)!=='closed'), past=awards.filter(record=>statusOf(record)==='closed');
   const group=items=>`<ul class="award-links">${items.map(row).join('')}</ul>`;
   return (current.length?group(current.slice(0,limit)):'<p>No current leads indexed for this source.</p>')+
@@ -225,39 +226,46 @@ function findFunding(){
   if(!activatePersonalizedMatches())return;
   setDashboardView('matches');$('#dashboard').scrollIntoView({behavior:'smooth'});
 }
-function fundingRow(o,{personalized=false}={}){
-  const status=statusOf(o),key=o.savedKey||opportunityKey(o),entry=saved.find(e=>e.key===key),isSaved=Boolean(entry);
-  const assessment=personalized?evaluateEligibility(o,profile):null;
+function fundingRow(o,{personalized=false,priority=null}={}){
+  const window=priority?.window||fundingWindow(o),{status,deadline,time,timezone}=window,key=o.savedKey||opportunityKey(o),entry=saved.find(e=>e.key===key),isSaved=Boolean(entry);
+  const advice=priority||(personalized?recommendation(o,profile):null);
+  const assessment=advice?.assessment;
   const snippet=(value,max=185)=>{const t=String(value||'').replace(/\s+/g,' ').trim();return t.length>max?t.slice(0,max-1).replace(/\s+\S*$/,'')+'…':t;};
   const evidence=personalized?[
     ...(o.matching?.topicEvidence||[]).slice(0,3).map(e=>e.related?`${e.term} · related to ${e.matched}`:e.term),
     ...(o.matching?.affiliations||[]).slice(0,1).map(e=>'Affiliation: '+e)]:[];
   const conflict=assessment?.kind==='ineligible';
   const issue=conflict?assessment.checks.find(check=>check.state==='fail'):null;
-  const statusText=o.program_status_scope==='program_family'?'Next call unconfirmed':({open:'Listed open',rolling:'Rolling',closed:'Past round',forecast:'Upcoming',verify:''}[status]||'');
-  const routeNote=personalized&&o.eligibility_rules?.application_route==='partner'?
-    '<span class="funding-partner-note">Faculty / institution-led application</span>':'';
+  const statusText=o.program_status_scope==='program_family'?'Next call unconfirmed':({open:'Listed open',rolling:'Rolling',closed:'Past round',forecast:'Upcoming',verify:'Window unconfirmed'}[status]||'');
+  const routeNote=advice||o.application_phase==='invited_stage_two'?
+    `<span class="funding-partner-note">${esc(advice?.route||'Invitation required')}</span>`:'';
+  const actionLabel=priority?{direct:'Prepare an individual application',partner:'Talk to a faculty or institutional lead',check:'Check eligibility first'}[priority.kind]:'';
   const rulesText=o.eligibility||'See the funder’s official applicant requirements.';
-  const eligibility=assessment?`<div class="eligibility-evidence"><strong>Applicant requirements</strong><p>${esc(assessment.summary)}</p><ul>${assessment.checks.map(item=>`<li class="check-${esc(item.state)}"><span aria-hidden="true">${item.state==='pass'?'✓':item.state==='fail'?'×':'?'}</span> ${esc(item.text)}</li>`).join('')}</ul><p><strong>Before applying:</strong> ${esc(assessment.next)}</p></div>`:
+  const eligibility=assessment?`<div class="eligibility-evidence"><strong>Applicant requirements</strong><p>${esc(assessment.summary)}</p><ul>${assessment.checks.map(item=>`<li class="check-${esc(item.state)}"><span aria-hidden="true">${item.state==='pass'?'✓':item.state==='fail'?'×':'?'}</span> ${esc(item.text)}</li>`).join('')}</ul><p><strong>Before applying:</strong> ${esc(advice.next)}</p></div>`:
     `<p><strong>Applicant requirements:</strong> ${esc(rulesText)}</p>`;
   const checked=(o.source_checked_at||o.last_verified_at)?.slice(0,10)||'Not recorded';
+  const timingNote=window.evidence?`<a href="${esc(safeUrl(window.evidence.url))}" target="_blank" rel="noopener noreferrer">Sponsor timing evidence ↗</a> · ${esc(window.evidence.detail)} Checked ${esc(window.evidence.checked)}.`:
+    window.suspect?'The source supplied an implausible or invalid date. The deadline is unconfirmed.':'';
   const checkLabel=o.origin==='ukri_listing'||o.source_checked_at?'Official listing checked':'Catalog checked';
   return `<article class="funding-row" data-source="${esc(o.category)}">
     <div class="funding-row-body">
       <div class="funding-row-top"><span class="sponsor-name">${esc(o.funder||'Funding organization')} · ${esc(o.category||'Other')}</span>${statusText?`<span class="status-text">${esc(statusText)}</span>`:''}</div>
+      ${actionLabel?`<p class="priority-label">${esc(actionLabel)}</p>`:''}
       <h4>${esc(o.title)}</h4>
-      <div class="funding-row-facts">${o.amount?`<span>${esc(snippet(o.amount,80))}</span>`:''}${o.deadline?`<span>Deadline listed: ${esc(o.deadline)}</span>`:''}${routeNote}</div>
+      <div class="funding-row-facts">${o.amount?`<span>${esc(snippet(o.amount,80))}</span>`:''}${deadline?`<span>${o.application_phase==='invited_stage_two'?'Invited-stage deadline':'Deadline listed'}: ${esc([deadline,time,timezone].filter(Boolean).join(' '))}</span>`:''}${routeNote}</div>
       ${personalized&&evidence.length?`<p class="match-explanation">Why it matches: ${esc(evidence.join(' · '))}</p>`:''}
       <ul class="grant-highlights" aria-label="Funding opportunity summary">${grantHighlights(o).map(item=>`<li><strong>${esc(item.label)}:</strong> ${esc(item.text)}</li>`).join('')}</ul>
       ${conflict?`<p class="funding-conflict"><strong>Potential eligibility conflict:</strong> ${esc(issue?.text||'One indexed mandatory applicant rule does not match your profile.')}</p>`:''}
+      ${advice&&!conflict?`<p class="funding-next"><strong>Next step:</strong> ${esc(advice.next)}</p>`:''}
       <details class="funding-row-details"><summary>Eligibility & details</summary>
         ${eligibility}
         <p><strong>Program:</strong> ${esc(o.description||o.funding_type||'See the official call.')}</p>
         ${o.opportunity_number?`<p><strong>Call number:</strong> ${esc(o.opportunity_number)}</p>`:''}
+        ${timingNote?`<p class="details-source-note">${timingNote}</p>`:''}
         <p class="details-source-note">${checkLabel}: ${esc(checked)} · Confirm current rules and deadlines with the sponsor.</p>
       </details>
     </div>
-    <div class="funding-row-actions"><a href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">${o.program_status_scope==='program_family'?'Program details ↗':'Official call ↗'}</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save to tracker'}</button></div>
+    <div class="funding-row-actions"><a href="${esc(safeUrl(o.official_call_url||o.url))}" target="_blank" rel="noopener noreferrer">${o.program_status_scope==='program_family'?'Program details ↗':'Official call ↗'}</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save to tracker'}</button></div>
   </article>`;
 }
 function dashboardEmpty(){
@@ -268,6 +276,7 @@ function render(){
   renderReturn(savedRecords);
   const matches=hasProfile()?filterDashboard(records,profile,{availability:'active'}):[];
   renderDashboard(matches);
+  renderPriority(matches);
   renderTracker();
   renderFieldNavigation();
   renderSourceChips(matches);
@@ -294,6 +303,17 @@ function render(){
   $('#results').innerHTML=dashboardSegment.count?dashboardSegment.items.map(r=>fundingRow(r,{personalized:true})).join(''):dashboardEmpty();
   renderExplore();
   renderRoutes();
+}
+function renderPriority(matches){
+  const panel=$('#priorityPanel');
+  panel.hidden=!hasProfile();
+  if(panel.hidden)return;
+  const picks=priorityShortlist(matches,profile);
+  $('#prioritySummary').textContent=picks.length?
+    'Recently checked open or rolling calls. Each lead shows who can submit and what to do next.':
+    'No recently checked open or rolling matches yet. Check the leads below or search official sources with your AI assistant.';
+  $('#refinePriority').hidden=Boolean(picks.length);
+  $('#priorityResults').innerHTML=picks.map(pick=>fundingRow(pick.record,{personalized:true,priority:pick})).join('');
 }
 function renderSourceChips(matches){
   const counts=sourceCounts(matches),selected=$('#category').value;
@@ -409,7 +429,7 @@ function renderCatalogStatus(){
   }
   pastRoundCount=counts.closed+bulkArchiveCount;
   indexedCount=counts.open+counts.forecast+counts.verify+pastRoundCount;
-  $('#snapshotStatus').textContent=`${indexedCount.toLocaleString('en-US')} indexed records · ${counts.open.toLocaleString('en-US')} listed open or rolling · ${counts.forecast.toLocaleString('en-US')} upcoming · ${counts.verify.toLocaleString('en-US')} with unconfirmed windows · ${pastRoundCount.toLocaleString('en-US')} past rounds`;
+  $('#snapshotStatus').textContent=`${counts.open.toLocaleString('en-US')} calls listed open or rolling · Check the official call before applying`;
 }
 async function initCommunity(){
   try{
@@ -438,9 +458,22 @@ async function init(){
   const globalSourcesRequest=json('global-source-hubs.json?v=global-v1').catch(()=>null);
   try{
     const [data, directory, supplemental,hubData,crossData,openalexData,globalPrograms,globalSources,ukri,bulk]=await Promise.all([json('data.json?v=personal-2').catch(()=>null),coverageRequest,supplementalRequest,hubRequest,crossRequest,taxonomyRequest,globalProgramsRequest,globalSourcesRequest,ukriRequest,bulkRequest]);
-    if(openalexData)configureOpenAlexTaxonomy(openalexData);const baseAvailable=data?.schema_version===1&&Array.isArray(data.opportunities);
+    if(openalexData)configureOpenAlexTaxonomy(openalexData);
+    const hasRows=(payload,key='opportunities')=>payload?.schema_version===1&&Array.isArray(payload[key]);
+    const baseAvailable=hasRows(data);
+    const directoryAvailable=hasRows(directory)&&Array.isArray(directory.sources)&&Array.isArray(directory.fields);
+    const bulkAvailable=hasRows(bulk)&&Number.isSafeInteger(bulk.archive_count)&&bulk.archive_count>=0&&/^[a-f0-9]{16}$/.test(bulk.archive_revision);
+    const unavailable=[
+      ['core catalog',baseAvailable],['societies and conferences',directoryAvailable],
+      ['additional funding listings',hasRows(supplemental)],['cross-discipline examples',hasRows(crossData)],
+      ['global program registry',hasRows(globalPrograms)],['UKRI',hasRows(ukri)],
+      ['bulk federal and EU calls',bulkAvailable],['funder directories',hasRows(hubData,'sources')&&hasRows(globalSources,'sources')]
+    ].filter(([,available])=>!available).map(([name])=>name);
+    $('#catalogHealth').hidden=!unavailable.length;
+    $('#catalogHealth').textContent=unavailable.length?`Some funding sources could not load: ${unavailable.join(', ')}. Results may be incomplete; reload to try again.`:'';
+    if(unavailable.length===8)throw new Error('No public funding bundles loaded');
     records=baseAvailable?data.opportunities:[];sources=baseAvailable?(data.sources||[]):[];
-    if(directory?.schema_version===1){
+    if(directoryAvailable){
       coverageSources=directory.sources;
       configureSocietyAliases(coverageSources);
       records=mergeCatalog(records,directory.opportunities);
@@ -456,7 +489,7 @@ async function init(){
     if(crossData?.schema_version===1&&Array.isArray(crossData.opportunities))records=mergeCatalog(records,crossData.opportunities);
     if(globalPrograms?.schema_version===1&&Array.isArray(globalPrograms.opportunities))records=mergeCatalog(records,globalPrograms.opportunities);
     if(ukri?.schema_version===1&&Array.isArray(ukri.opportunities))records=mergeCatalog(records,ukri.opportunities);
-    if(bulk?.schema_version===1&&Array.isArray(bulk.opportunities)&&Number.isSafeInteger(bulk.archive_count)&&bulk.archive_count>=0&&/^[a-f0-9]{16}$/.test(bulk.archive_revision)){
+    if(bulkAvailable){
       records=mergeCatalog(records,bulk.opportunities);
       bulkArchiveCount=bulk.archive_count;
       bulkArchiveRevision=bulk.archive_revision;
@@ -634,7 +667,8 @@ $('#exploreReset').addEventListener('click',()=>{
   $('#exploreSort').value='relevance';selectedExploreFields.clear();renderFieldNavigation();resetExplorePage();
 });
 for(const id of ['explorePaginationTop','explorePaginationBottom'])$(`#${id}`).addEventListener('click',goToExplorePage);
-for(const id of ['results','exploreResults'])$(`#${id}`).addEventListener('click',event=>{const btn=event.target.closest('[data-save]');if(btn)toggleSaved(btn.dataset.save);});
+$('#refinePriority').addEventListener('click',()=>{$('#profileRefinements').open=true;});
+for(const id of ['results','exploreResults','priorityResults'])$(`#${id}`).addEventListener('click',event=>{const btn=event.target.closest('[data-save]');if(btn)toggleSaved(btn.dataset.save);});
 $('#exploreResults').addEventListener('click',event=>{
   if(event.target.closest('[data-retry-archive]')){bulkArchiveError=false;renderExplore();}
 });
@@ -667,7 +701,7 @@ function renderDashboard(matches){
 function savedWithProgress(){
   const lookup=new Map(restoreShortlist(records,saved).map(record=>[record.savedKey||opportunityKey(record),record]));
   return saved.map(entry=>({...normalizedTrackerEntry(entry),key:entry.key,record:lookup.get(entry.key)||entry.record})).filter(e=>e.record?.url&&e.record?.title)
-    .sort((a,b)=>String(a.record.deadline||'9999-99-99').localeCompare(String(b.record.deadline||'9999-99-99')));
+    .sort((a,b)=>(fundingWindow(a.record).deadline||'9999-99-99').localeCompare(fundingWindow(b.record).deadline||'9999-99-99'));
 }
 function renderTracker(){
   const entries=savedWithProgress();const stats=trackerStats(entries),filter=$('#trackerFilter').value;
@@ -675,8 +709,8 @@ function renderTracker(){
   const list=entries.filter(entry=>!filter||entry.state===filter);
   $('#trackerCount').textContent=`${list.length} shown of ${entries.length} saved`;
   $('#trackerList').innerHTML=list.length?list.map(entry=>{
-    const k=esc(entry.key),record=entry.record;
-    return `<article class="tracker-row"><div class="tracker-record"><span class="dash-lead-sponsor">${esc(record.funder||'Funding sponsor')}</span><h3>${esc(record.title)}</h3><p>${record.deadline?'Listed deadline '+esc(record.deadline):'Deadline not established'} · <a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">Official details ↗</a></p></div><div class="tracker-controls"><label>Application stage<select data-tracker-state="${k}">${TRACK_STATES.map(s=>`<option ${s===entry.state?'selected':''}>${esc(s)}</option>`).join('')}</select></label><label>My target date<input type="date" data-tracker-date="${k}" value="${esc(entry.targetDate)}"></label><label class="tracker-note">My next action<input type="text" maxlength="400" placeholder="e.g. request mentor letter" data-tracker-note="${k}" value="${esc(entry.note)}"></label><button type="button" class="text-button tracker-remove" data-tracker-remove="${k}">Remove</button></div></article>`;
+    const k=esc(entry.key),record=entry.record,{deadline}=fundingWindow(record);
+    return `<article class="tracker-row"><div class="tracker-record"><span class="dash-lead-sponsor">${esc(record.funder||'Funding sponsor')}</span><h3>${esc(record.title)}</h3><p>${deadline?'Listed deadline '+esc(deadline):'No fixed deadline confirmed'} · <a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">Official details ↗</a></p></div><div class="tracker-controls"><label>Application stage<select data-tracker-state="${k}">${TRACK_STATES.map(s=>`<option ${s===entry.state?'selected':''}>${esc(s)}</option>`).join('')}</select></label><label>My target date<input type="date" data-tracker-date="${k}" value="${esc(entry.targetDate)}"></label><label class="tracker-note">My next action<input type="text" maxlength="400" placeholder="e.g. request mentor letter" data-tracker-note="${k}" value="${esc(entry.note)}"></label><button type="button" class="text-button tracker-remove" data-tracker-remove="${k}">Remove</button></div></article>`;
   }).join(''):`<div class="tracker-empty">${entries.length?'No applications in this stage.':'No applications saved yet. Save a funding lead to start tracking its requirements, next step and progress.'} <a href="#opportunities">Explore funding →</a></div>`;
 }
 $('#trackerFilter').addEventListener('change',renderTracker);

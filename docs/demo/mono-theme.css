@@ -148,3 +148,15 @@ footer.shell{color:#777;border-color:#e5e5e5}
 .skill-command code{font-size:12px}
 .skill-install-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;font-size:12px}
 #skillInstallStatus:empty{display:none}
+
+.profile-refine{margin:18px 0;padding:12px 16px;border:1px solid #ddd;border-radius:8px}
+.profile-refine>summary{cursor:pointer;font-weight:650}
+.profile-refine>summary .small{font-weight:400}
+.priority-panel{margin:0 0 24px;padding:16px;border:1px solid #ddd;border-radius:10px;background:#fafafa}
+.priority-panel h3{margin:0}
+.priority-panel .note{margin:6px 0 12px}
+.priority-panel .funding-list:empty{display:none}
+.priority-panel .funding-row{background:#fff;padding:12px}
+.priority-label,.funding-next{font-size:12px;margin:6px 0}
+.priority-label{font-weight:700}
+.catalog-health{font-size:12px}

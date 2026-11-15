@@ -38,7 +38,6 @@ test('only a known applicant-rule conflict has a prominent warning in personaliz
   assert.match(js,/\$\{conflict\?`<p class="funding-conflict">/);
   assert.doesNotMatch(js,/class="eligibility-badge"/);
   assert.doesNotMatch(js,/class="requirements-warning"/);
-  assert.doesNotMatch(js,/renderPriority\(matches\)/);
   assert.doesNotMatch(html,/First applications to investigate/);
   assert.doesNotMatch(html,/class="eligibility-help"/);
   assert.doesNotMatch(html,/id="matchSummary"/);

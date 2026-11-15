@@ -8,9 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="lark.svg">
   <link rel="stylesheet" href="styles.css?v=4.8">
   <link rel="stylesheet" href="clean-ui.css?v=4.9-scope">
-  <link rel="stylesheet" href="mono-theme.css?v=4.9-skill-install">
+  <link rel="stylesheet" href="mono-theme.css?v=4.10-recommendations">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=4.9-skill-install"></script>
+  <script type="module" src="demo.js?v=4.10-recommendations"></script>
 </head>
 <body>
   <a class="skip-link" href="#research-profile">Skip to research profile</a>
@@ -28,6 +28,7 @@
         </form>
         <div class="hero-actions"><a class="hero-profile-link" href="#research-profile">Or build a personalized funding plan <span aria-hidden="true">→</span></a></div>
         <div class="snapshot" id="snapshotStatus" role="status">Loading public funding catalog…</div>
+        <p id="catalogHealth" class="note catalog-health" role="status" hidden></p>
       </div>
     </section>
     <aside id="exampleBanner" class="journey-panel" hidden><strong>Example mode</strong><p>Try searching and saving. Changes here won’t affect your own profile or shortlist.</p><a href="./" class="button secondary">Back to my Fundlark</a></aside>
@@ -76,6 +77,8 @@
           </section>
         </div>
         <div class="profile-grid"><div><label for="stage">Career stage</label><select id="stage"><option value="">Choose if useful</option><option value="undergrad">Undergraduate</option><option value="masters">Master's student</option><option value="phd">PhD student</option><option value="postdoc">Postdoctoral researcher</option><option value="resident">Resident</option><option value="faculty">Faculty</option><option value="staff">Research staff</option></select></div></div>
+        <details id="profileRefinements" class="profile-refine">
+          <summary>Add a location, memberships, or other eligibility details <span class="small">Optional</span></summary>
         <section class="profile-section" id="eligibilityDetails" aria-labelledby="eligibilityHeading">
           <h3 id="eligibilityHeading">Eligibility details <span class="small">Optional · more details improve matching</span></h3>
           <p class="note">All fields are optional. Leave an answer unknown if you are unsure. Fundlark cannot certify eligibility from a research-topic match.</p>
@@ -109,6 +112,7 @@
           </fieldset>
         </div>
         </section>
+        </details>
         <div class="profile-actions"><button class="button" type="submit">Find funding</button><button id="clearProfile" type="button" class="text-button">Clear my profile</button><span id="profileStatus" role="status"></span></div>
       </form>
     </section>
@@ -121,6 +125,12 @@
         <button id="dashboardTabTracker" class="workspace-tab" type="button" aria-pressed="false">My application tracker <span id="trackerTabCount">0</span></button>
       </div>
       <div id="dashboardMatchesPanel" class="dashboard-content">
+        <section id="priorityPanel" class="priority-panel" aria-labelledby="priorityHeading" hidden>
+          <h3 id="priorityHeading">Start with these</h3>
+          <p id="prioritySummary" class="note"></p>
+          <a id="refinePriority" href="#profileRefinements" hidden>Refine your eligibility details</a>
+          <div id="priorityResults" class="funding-list"></div>
+        </section>
         <div class="workspace-filter-box">
           <div class="workspace-filter-head"><h3>Matched opportunities</h3><span id="resultCount" aria-live="polite"></span></div>
           <div class="source-select" aria-label="Filter matched funding by sponsor source"><span>Funding source</span><div id="dashboardSourceChips" class="filter-pills"></div></div>
