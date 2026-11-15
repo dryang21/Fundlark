@@ -3,6 +3,7 @@ import {fundingWindow,localDay} from './funding-window.mjs';
 import {normalizeProfile, researchTerms, match, selectRecords, statusOf, applicationPath} from './matching.mjs?v=personal-2';
 import {filterByField, recordFields} from './explorer.mjs';
 import {evaluateEligibility} from './eligibility.mjs?v=personal-2';
+import {parseQuery,lexicalScore,requiredMatches} from './search-text.mjs';
 
 export const STUDENT_STAGES = new Set(['undergrad','masters','phd']);
 export const POST_PHD_STAGES = new Set(['postdoc','resident','staff','faculty']);
@@ -55,8 +56,8 @@ export function filterDashboard(records,rawProfile,filters={}){
       fitOrder(a.record)-fitOrder(b.record)||eligibilityOrder[a.assessment.kind]-eligibilityOrder[b.assessment.kind])
     .map(({record})=>record);
 }
-function statusFits(record,availability){
-  const status=statusOf(record);
+function statusFits(record,availability,today){
+  const status=statusOf(record,today);
   return availability==='all'||
     (availability==='active'&&status!=='closed')||
     (availability==='open'&&['open','rolling'].includes(status))||
@@ -68,15 +69,18 @@ function statusFits(record,availability){
  * Searches a natural-language description, explicit keywords, and selected disciplines.
  * This ranks topical overlap; it never asserts applicant eligibility.
  */
-export function exploreFunding(records,{description='',keywords='',fields=[],category='all',availability='active',fundingType='',stage='',sort='relevance'}={}){
+export function exploreFunding(records,{description='',keywords='',fields=[],category='all',availability='active',fundingType='',stage='',sort='relevance',corpus=records,today=localDay()}={}){
   const input=[description,keywords].filter(Boolean).join('; ').trim();
   const topics=researchTerms(input); // bounded by researchTerms; no candidate-affiliation shortcuts
-  const terms=topics.map(s=>s.toLowerCase());
   const profile=normalizeProfile({topics});
-  const phrases=[description,keywords].map(s=>s.trim().toLowerCase()).filter(Boolean);
+  const phrases=[description,keywords].map(s=>s.trim().toLowerCase()).filter(s=>s.length>=3);
+  // Plain-language fallback: every query word counts, not only dictionary concepts.
+  const parsed=parseQuery(input);
+  const needed=requiredMatches(parsed.tokens.length);
+  const stageHints=stage?[]:parsed.stages;
   const filtered=[];
   for(const record of records){
-    if(!statusFits(record,availability))continue;
+    if(!statusFits(record,availability,today))continue;
     if(category!=='all'&&record.category!==category)continue;
     if(fundingType&&record.funding_type!==fundingType)continue;
     if(fields.length&&!fields.some(field=>recordFields(record).includes(field)))continue;
@@ -87,18 +91,24 @@ export function exploreFunding(records,{description='',keywords='',fields=[],cat
     // Archive entries contain citation metadata only; avoid running topic
     // expansion thousands of times on that sparse data for each keystroke.
     const history=record.origin==='grantsgov_bulk'&&record.status==='closed';
-    const hit=terms.length&&!history?match(record,profile).score:0;
+    const hit=topics.length&&!history?match(record,profile).score:0;
     const exact=phrases.some(phrase=>text.includes(phrase));
-    // An explicit name / funder search should work even if the term extractor
-    // does not recognize the phrase as a scientific research topic.
-    const keywordsHit=terms.some(term=>term.length>=3&&text.includes(term));
-    if(input&&!hit&&!exact&&!keywordsHit)continue;
-    filtered.push({...record,exploreScore:hit+(exact?20:0)+(keywordsHit?3:0)});
+    const lexical=lexicalScore(record,parsed,corpus);
+    const wordsHit=parsed.tokens.length>0&&lexical.matched>=needed;
+    // Long descriptions: reward records that share many of the words, not one rare title word.
+    const coverage=parsed.tokens.length>5?Math.min(1.5,0.5+lexical.matched/Math.max(needed,1)*0.5):1.5;
+    if(input&&!hit&&!exact&&!wordsHit&&!(stageHints.length&&!parsed.tokens.length&&stageHints.some(s=>stages.includes(s))))continue;
+    const status=statusOf(record,today);
+    // A stage hint ("postdoc", "PhD") helps only records that already match the topic.
+    const topical=hit>0||lexical.matched>=Math.max(2,needed);
+    const stageBoost=stageHints.some(s=>stages.includes(s))?(topical?10:2):0;
+    const liveBoost=['open','rolling'].includes(status)?2:status==='closed'?-4:0;
+    filtered.push({...record,exploreScore:hit*2+lexical.score*coverage+(exact?20:0)+stageBoost+(input?liveBoost:0)});
   }
   filtered.sort((a,b)=>{
-    if(sort==='deadline')return (fundingWindow(a).deadline||'9999-99-99').localeCompare(fundingWindow(b).deadline||'9999-99-99')||b.exploreScore-a.exploreScore;
+    if(sort==='deadline')return (fundingWindow(a,today).deadline||'9999-99-99').localeCompare(fundingWindow(b,today).deadline||'9999-99-99')||b.exploreScore-a.exploreScore;
     if(sort==='verified')return String(b.last_verified_at||'').localeCompare(String(a.last_verified_at||''))||b.exploreScore-a.exploreScore;
-    return b.exploreScore-a.exploreScore||Number(statusOf(a)==='closed')-Number(statusOf(b)==='closed')||String(a.title).localeCompare(String(b.title));
+    return b.exploreScore-a.exploreScore||Number(statusOf(a,today)==='closed')-Number(statusOf(b,today)==='closed')||String(a.title).localeCompare(String(b.title));
   });
   return filtered;
 }

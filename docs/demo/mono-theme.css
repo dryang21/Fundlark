@@ -156,3 +156,23 @@ footer.shell{color:#777;border-color:#e5e5e5}
 .priority-label{display:flex;align-items:center;flex-wrap:wrap;gap:6px;color:#444}
 .priority-tag{padding:2px 7px;border:1px solid #ddd;border-radius:5px;background:#f5f5f5;color:#252525;font-weight:700}
 .catalog-health{font-size:12px}
+
+/* v5.0 — broad search first; personalization handed to the Fundlark skill. */
+.hero-suggestions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 0;font-size:12px;color:#646464}
+.hero-suggestions .source-pill{min-height:31px;padding:5px 10px;font-size:11px}
+.search-scope-note{margin:4px 0 14px}
+.tracker-count{display:inline-block;min-width:1.6em;margin-left:6px;padding:0 7px;border-radius:9px;background:#efefef;color:#4a4a4a;font-size:13px;font-weight:650;letter-spacing:0;vertical-align:middle;text-align:center}
+.dashboard-panel>.tracker-panel{border:0;padding:0;margin:0;box-shadow:none;background:transparent}
+.mode-compare{width:100%;border-collapse:collapse;margin:18px 0 6px;font-size:12px;background:#fff;border:1px solid #e0e0e0;border-radius:9px;overflow:hidden}
+.mode-compare th,.mode-compare td{padding:9px 11px;text-align:left;vertical-align:top;border-bottom:1px solid #ececec;color:#3a3a3a}
+.mode-compare thead th{font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:#555;background:#f6f6f6}
+.mode-compare tbody th{font-weight:650;color:#1d1d1d;white-space:nowrap}
+.mode-compare tbody tr:last-child>*{border-bottom:0}
+.mode-compare td:last-child{color:#141414;font-weight:550}
+.request-form{display:grid;gap:8px;margin:0 0 20px}
+.request-form label{font-size:12px;font-weight:650;color:#2a2a2a}
+.request-form textarea,.request-form input,.request-form select{width:100%;border:1px solid #d0d0d0;border-radius:8px;background:#fff;padding:9px 10px;color:#191919;font:inherit;font-size:13px}
+.request-form .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.request-form .profile-grid label{display:block;margin-bottom:4px}
+.install>h3{font-size:14px;margin:0 0 10px}
+@media(max-width:700px){.request-form .profile-grid{grid-template-columns:1fr}.mode-compare{font-size:11px}.mode-compare th,.mode-compare td{padding:7px 8px}}

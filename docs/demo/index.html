@@ -3,165 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Discover research funding from public sources, then take Fundlark to your own AI assistant.">
+  <meta name="description" content="Search research grants and fellowships across fields, then get a personalized shortlist with the Fundlark AI skill.">
   <title>Fundlark — Find funding for your next breakthrough</title>
   <link rel="icon" type="image/svg+xml" href="lark.svg">
   <link rel="stylesheet" href="styles.css?v=4.8">
   <link rel="stylesheet" href="clean-ui.css?v=4.9-scope">
-  <link rel="stylesheet" href="mono-theme.css?v=4.10-unified-matches">
+  <link rel="stylesheet" href="mono-theme.css?v=5.0-broad-search">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=4.10-unified-matches"></script>
+  <script type="module" src="demo.js?v=5.0-broad-search"></script>
 </head>
 <body>
-  <a class="skip-link" href="#research-profile">Skip to research profile</a>
-  <header class="site-header"><div class="shell nav"><a class="brand" href="./" aria-label="Fundlark home"><img class="brand-mark" src="lark.svg" width="29" height="29" alt=""><span>Fundlark</span><small>OPEN RESEARCH FUNDING</small></a><nav aria-label="Main navigation"><a href="#research-profile">01 <span>Research profile</span></a><a href="#dashboard">02 <span>My funding</span></a><a href="#opportunities">03 <span>Explore</span></a><a href="#sourceHubs" class="nav-directory">Funder directory</a></nav></div></header>
+  <a class="skip-link" href="#opportunities">Skip to funding search</a>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="./" aria-label="Fundlark home"><img class="brand-mark" src="lark.svg" width="29" height="29" alt=""><span>Fundlark</span><small>OPEN RESEARCH FUNDING</small></a><nav aria-label="Main navigation"><a href="#opportunities">01 <span>Search</span></a><a href="#dashboard">02 <span>My tracker</span></a><a href="#use-skill">03 <span>Personalize with AI</span></a><a href="#sourceHubs" class="nav-directory">Funder directory</a></nav></div></header>
   <main class="shell">
     <section class="hero" aria-labelledby="heroHeading">
       <div class="hero-copy">
         <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> FUNDLARK · OPEN RESEARCH FUNDING</div>
-        <h1 id="heroHeading">Find research funding<br><em>that fits your work.</em></h1>
-        <p>Search grants and fellowships across disciplines, or create a research profile for a personalized funding shortlist—with eligibility caveats made clear.</p>
+        <h1 id="heroHeading">Find research funding<br><em>across every field.</em></h1>
+        <p>Search a free, public catalog of grants and fellowships in plain language — a topic, a funder, or a sentence about your work. No account needed.</p>
         <form id="heroSearchForm" class="hero-quick-search" role="search" aria-label="Quick funding search">
           <label class="sr-only" for="heroSearchInput">Search research grants, funders, or topics</label>
-          <span class="search-glyph" aria-hidden="true">⌕</span><input id="heroSearchInput" type="search" placeholder="Search funding by topic, funder, or program…" autocomplete="off" maxlength="1200">
+          <span class="search-glyph" aria-hidden="true">⌕</span><input id="heroSearchInput" type="search" placeholder="e.g. postdoctoral fellowship in cancer immunology" autocomplete="off" maxlength="1200">
           <button type="submit">Search funding <span aria-hidden="true">↗</span></button>
         </form>
-        <div class="hero-actions"><a class="hero-profile-link" href="#research-profile">Or build a personalized funding plan <span aria-hidden="true">→</span></a></div>
+        <div class="hero-suggestions"><span>Try:</span><div id="heroSuggestions" class="filter-pills" aria-label="Example searches"></div></div>
+        <div class="hero-actions"><a class="hero-profile-link" href="#use-skill">Want a shortlist matched to your CV, stage and institution? Personalize with your AI assistant <span aria-hidden="true">→</span></a></div>
         <div class="snapshot" id="snapshotStatus" role="status">Loading public funding catalog…</div>
         <p id="catalogHealth" class="note catalog-health" role="status" hidden></p>
       </div>
     </section>
-    <aside id="exampleBanner" class="journey-panel" hidden><strong>Example mode</strong><p>Try searching and saving. Changes here won’t affect your own profile or shortlist.</p><a href="./" class="button secondary">Back to my Fundlark</a></aside>
-    <details id="examplePicker" class="example-picker" aria-label="Try an example">
-      <summary>New here? Try an example research profile</summary>
-      <div class="example-choices"><a href="?example=computing#opportunities">AI faculty researcher <span aria-hidden="true">↗</span></a><a href="?example=ecology#opportunities">Coastal ecology PhD student <span aria-hidden="true">↗</span></a></div>
-    </details>
     <section id="returnPanel" class="journey-panel" aria-labelledby="returnHeading" hidden>
       <h2 id="returnHeading">Pick up where you left off</h2><p id="returnSummary"></p>
-      <p id="returnDeadlines"></p><div class="hero-actions"><button id="resumeShortlist" type="button" class="button">Open my shortlist</button><button id="resumeMatches" type="button" class="button secondary">See my matches</button></div>
-    </section>
-    <section id="research-profile" class="profile-panel" aria-labelledby="profileHeading">
-      <span class="eyebrow">STEP 1 / DEFINE YOUR RESEARCH</span><h2 id="profileHeading">Tell us about your research</h2>
-      <p class="note">Start with your research idea. Every field is optional. Your profile stays in this browser.</p>
-      <form id="profileForm">
-        <div class="research-entry">
-          <div class="research-entry-section">
-            <label for="researchDescription">Describe your research background and proposed project <span class="small">Optional · field, experience, and the work you want to fund</span></label>
-            <textarea id="researchDescription" rows="5" maxlength="3200" placeholder="e.g. I study sustainable materials and electrochemistry. I want to develop recyclable battery electrodes with machine learning."></textarea>
-          </div>
-          <section class="keyword-editor" aria-labelledby="keywordEditorHeading">
-            <div class="keyword-editor-heading"><h3 id="keywordEditorHeading">Research keywords <span class="small">Automatically extracted · editable</span></h3><button type="button" id="restoreExtractedKeywords" class="text-button">Restore extracted terms</button></div>
-            <div id="topicSummary" class="topic-summary" aria-live="polite"></div>
-          <div id="relatedTopicSuggestions" class="related-topic-suggestions" aria-label="Suggested related research topics"></div>
-          <details class="vocabulary-browser" id="vocabularyBrowser">
-            <summary>Browse research keywords by discipline <span class="small">Optional</span></summary>
-            <div class="vocabulary-controls">
-              <label>Discipline<select id="vocabularyField"><option value="">All disciplines</option></select></label>
-              <label>Find a keyword<input id="vocabularyQuery" type="search" maxlength="100" placeholder="Search concepts and synonyms"></label>
-            </div>
-            <p class="small" id="vocabularyCount" role="status"></p>
-            <div id="vocabularyResults" class="vocabulary-results" aria-label="Browse matching research keywords"></div>
-          </details>
-          <span id="vocabularyStatus" class="visually-hidden" role="status"></span>
-            <div class="keyword-picker" id="keywordPicker">
-              <label for="profileAddKeyword" class="keyword-picker-label">Add a research keyword from the dictionary</label>
-              <div class="keyword-picker-input-wrap">
-                <input id="profileAddKeyword" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="keywordSuggestionList" aria-describedby="keywordPickerHelp" autocomplete="off" spellcheck="false" maxlength="100" placeholder="Search keywords, synonyms, or misspellings…">
-                <span class="keyword-picker-icon" aria-hidden="true">⌕</span>
-                <div id="keywordSuggestionList" role="listbox" class="keyword-suggestion-list" hidden></div>
-              </div>
-              <span class="visually-hidden" id="keywordPickerHelp">Select a suggestion with Enter, or use the arrow keys to navigate.</span>
-              <span id="keywordPickerStatus" role="status" class="visually-hidden" aria-live="polite"></span>
-            </div>
-            <div class="keyword-suggestions"><span>Try a topic:</span><div id="profileSuggestedTopics" class="filter-pills" aria-label="Suggested research keywords"></div></div>
-          </section>
-        </div>
-        <div class="profile-grid"><div><label for="stage">Career stage</label><select id="stage"><option value="">Choose if useful</option><option value="undergrad">Undergraduate</option><option value="masters">Master's student</option><option value="phd">PhD student</option><option value="postdoc">Postdoctoral researcher</option><option value="resident">Resident</option><option value="faculty">Faculty</option><option value="staff">Research staff</option></select></div></div>
-        <details id="profileRefinements" class="profile-refine">
-          <summary>Add a location, memberships, or other eligibility details <span class="small">Optional</span></summary>
-        <section class="profile-section" id="eligibilityDetails" aria-labelledby="eligibilityHeading">
-          <h3 id="eligibilityHeading">Eligibility details <span class="small">Optional · more details improve matching</span></h3>
-          <p class="note">All fields are optional. Leave an answer unknown if you are unsure. Fundlark cannot certify eligibility from a research-topic match.</p>
-          <div class="profile-grid eligibility-grid">
-            <div id="academicYearField" hidden><label for="academicYear">Current year of study</label><input id="academicYear" type="number" min="1" max="15" step="1" placeholder="For example: 2"></div>
-            <div id="expectedCompletionField" hidden><label for="expectedCompletionYear">Expected program or appointment completion year</label><input id="expectedCompletionYear" type="number" min="2020" max="2100" step="1" placeholder="For example: 2028"></div>
-            <div id="phdCompletionField" hidden><label for="phdCompletionYear">Year your PhD was awarded <span class="small">Only if you already have a PhD</span></label><input id="phdCompletionYear" type="number" min="1950" max="2100" step="1" placeholder="Optional · year of degree"><p class="field-help" id="phdElapsed" aria-live="polite"></p></div>
-            <div id="appointmentField" hidden><label for="appointment" id="appointmentLabel">Appointment / training type</label><select id="appointment"><option value="">Not specified</option></select></div>
-            <div id="facultyRankField" hidden><label for="facultyRank">Faculty rank</label><select id="facultyRank"><option value="">Not specified</option><option value="assistant">Assistant professor</option><option value="associate">Associate professor</option><option value="full">Full professor</option><option value="other">Other faculty appointment</option></select></div>
-            <div><label for="researchRegion">Current research host region</label><select id="researchRegion"><option value="">Not specified</option><option value="Europe / EU">Europe / EU (country not specified)</option><option value="Other">Other / elsewhere</option></select></div>
-            <div id="researchEffortField" hidden><label for="researchEffort">Available protected research time (%)</label><input id="researchEffort" type="number" min="0" max="100" step="1" placeholder="For example: 30"></div>
-            <div id="mentorConfirmedField" hidden><label for="mentorConfirmed">Required research mentor / sponsor support confirmed?</label><select id="mentorConfirmed"><option value="">Not checked / unknown</option><option value="true">Yes, confirmed</option><option value="false">No, not yet</option></select></div>
-            <div id="piPrivilegesField" hidden><label for="piPrivileges">Institution permits you to serve as grant PI?</label><select id="piPrivileges"><option value="">Unknown / not checked</option><option value="true">Yes, confirmed</option><option value="false">No</option></select></div>
-            <div><label for="citizenship">Citizenship/immigration eligibility <span class="small">Only if relevant</span></label><select id="citizenship"><option value="unknown">Not specified</option><option value="us_citizen">U.S. citizen</option><option value="us_permanent_resident">U.S. permanent resident</option><option value="other">Other / not in these categories</option></select></div>
-          </div>
-          <p class="small">No sensitive eligibility details are included in the copied assistant prompt unless you explicitly share them separately.</p>
-        </section>
-        <section class="profile-section" id="affiliationDetails" aria-labelledby="affiliationHeading"><h3 id="affiliationHeading">Memberships and institutions <span class="small">Optional · find member and internal funding</span></h3><div class="profile-grid">
-          <fieldset><legend>Professional memberships</legend>
-            <div class="picker"><label class="sr-only" for="societyInput">Choose or add a membership</label><input id="societyInput" maxlength="160" placeholder="Try Institute of Physics or IOP" aria-controls="societyOptions"><button type="button" id="addSociety" class="button secondary">Add</button></div>
-            <div id="societyOptions" class="organization-options" aria-label="Society suggestions" hidden></div>
-            <div id="societyChips" class="chips"></div><p class="small">Search by full name or abbreviation. Add any membership you hold, even if it isn’t listed.</p>
-          </fieldset>
-          <fieldset><legend>Current institutions</legend>
-            <div class="picker"><label class="sr-only" for="institutionInput">Choose or add an institution</label><input id="institutionInput" maxlength="160" placeholder="Try Stanford University or MIT" aria-controls="institutionOptions"><button type="button" id="addInstitution" class="button secondary">Add</button></div>
-            <div id="institutionOptions" class="organization-options" aria-label="Institution suggestions" hidden></div>
-            <button type="button" id="lookupInstitution" class="text-button">Search worldwide registry</button>
-            <div id="registryStatus" class="small" role="status"></div>
-            <div id="registryOptions" class="organization-options" aria-label="Registry results" hidden></div>
-            <div id="institutionChips" class="chips"></div><p class="small">Add any current institution. Worldwide search sends only the name you type here to the Research Organization Registry.</p>
-          </fieldset>
-        </div>
-        </section>
-        </details>
-        <div class="profile-actions"><button class="button" type="submit">Find funding</button><button id="clearProfile" type="button" class="text-button">Clear my profile</button><span id="profileStatus" role="status"></span></div>
-      </form>
-    </section>
-    <section id="dashboard" class="dashboard-panel" aria-labelledby="dashboardHeading">
-      <div class="section-head"><div><span class="eyebrow">STEP 2 / PERSONALIZED FUNDING</span><h2 id="dashboardHeading">My funding dashboard</h2></div></div>
-      <p id="dashboardIntro" class="note">Add your research interests above to discover potential funding matches.</p>
-      <p id="dashboardStats" class="dashboard-count" aria-live="polite"></p>
-      <div class="workspace-tabs" role="group" aria-label="Dashboard view">
-        <button id="dashboardTabMatches" class="workspace-tab" type="button" aria-pressed="true">Matches</button>
-        <button id="dashboardTabTracker" class="workspace-tab" type="button" aria-pressed="false">My application tracker <span id="trackerTabCount">0</span></button>
-      </div>
-      <div id="dashboardMatchesPanel" class="dashboard-content">
-        <div class="workspace-filter-box">
-          <div class="workspace-filter-head"><h3>Matched opportunities</h3><span id="resultCount" aria-live="polite"></span></div>
-          <div class="source-select" aria-label="Filter matched funding by sponsor source"><span>Funding source</span><div id="dashboardSourceChips" class="filter-pills"></div></div>
-          <div class="workspace-filters">
-            <label>Search within my matches<input id="query" type="search" placeholder="Program, topic or funder"></label>
-            <label>Applicant route<select id="applicantRoute"><option value="all">All routes</option><option value="direct">Individual (verify rules)</option><option value="partner">Faculty / institution partner</option><option value="check">Need eligibility checks</option></select></label>
-            <label>Applicant eligibility<select id="eligibilityFilter"><option value="host-compatible">Hide host-region conflicts</option><option value="all">Include all potential matches</option><option value="likely">Indexed criteria match</option><option value="verify">Details to confirm</option><option value="ineligible">Known rule conflict</option></select></label>
-            <label>Field<select id="fieldFilter"><option value="">All disciplines</option></select></label>
-            <label>Availability<select id="availability"><option value="active">Programs to check (hide past rounds)</option><option value="open">Listed open / rolling</option><option value="verify">Window unconfirmed</option><option value="forecast">Upcoming calls</option><option value="closed">Past rounds</option><option value="all">All programs</option></select></label>
-            <label>Support type<select id="fundingType"><option value="">All support types</option></select></label>
-            <label class="saved-filter"><input id="savedOnly" type="checkbox"> Saved opportunities <span id="savedCount">(0)</span></label>
-            <select id="category" aria-label="Sponsor source" hidden><option value="all">All sources</option><option value="Industry">Industry</option><option value="Government">Government</option><option value="Foundation">Foundation</option><option value="Institution">Institution</option><option value="Society">Society</option></select>
-          </div>
-          <div class="filter-actions"><button id="resetFilters" type="button" class="text-button">Clear filters</button></div>
-        </div>
-        <p id="archiveHint" class="note" hidden><button id="showPastRounds" type="button" class="text-button">Browse matching past rounds</button> to monitor future cycles.</p>
-        <div id="shortlistTools" class="shortlist-tools" hidden><span id="shortlistStorageLabel">Saved in this browser.</span><button id="copyShortlist" type="button" class="text-button">Copy shortlist</button><button id="downloadShortlist" type="button" class="text-button">Download shortlist</button><span id="shortlistStatus" role="status"></span><textarea id="shortlistFallback" rows="6" readonly hidden aria-label="Shortlist to copy manually"></textarea></div>
-        <nav id="dashboardPaginationTop" class="pagination-controls" aria-label="Matched funding pages — above results" hidden></nav>
-        <div id="results" class="funding-list" aria-live="polite"><p>Loading matches…</p></div>
-        <nav id="dashboardPaginationBottom" class="pagination-controls pagination-bottom" aria-label="Matched funding pages — below results" hidden></nav>
-      </div>
-      <section id="tracker" class="tracker-panel dashboard-content" aria-labelledby="trackerHeading" hidden>
-        <div class="section-head"><div><h3 id="trackerHeading">My application tracker</h3><p class="note">Your saved leads, notes and target dates remain in this browser. <a href="#use-skill">Use the skill</a> to create or refresh a funding library.</p></div><div class="tracker-export"><button id="importLibrary" class="button secondary" type="button">Import funding library</button><input id="libraryFile" type="file" accept=".json,application/json" hidden><button id="backupTracker" class="button secondary" type="button">Download backup</button><button id="exportTracker" class="button secondary" type="button">Export CSV</button><button id="exportCalendar" class="button secondary" type="button">Export deadlines (.ics)</button></div></div>
-        <p id="libraryStatus" class="note" role="status"></p>
-        <div id="trackerStats" class="tracker-stats"></div>
-        <div class="tracker-toolbar"><label for="trackerFilter">Show <select id="trackerFilter"><option value="">All saved applications</option><option>Interested</option><option>Checking eligibility</option><option>Preparing</option><option>Submitted</option><option>Awarded</option><option>Declined</option></select></label><span id="trackerCount" role="status"></span></div>
-        <div id="trackerList" class="tracker-list"></div>
-      </section>
+      <p id="returnDeadlines"></p><div class="hero-actions"><button id="resumeShortlist" type="button" class="button">Open my tracker</button></div>
     </section>
     <section id="opportunities" aria-labelledby="exploreHeading">
-      <div class="section-head"><div><span class="eyebrow">STEP 3 / OPEN FUNDING DISCOVERY</span><h2 id="exploreHeading">Explore all funding</h2></div><a href="#sourceHubs">Browse official funder hubs ↓</a></div>
+      <div class="section-head"><div><span class="eyebrow">STEP 1 / SEARCH</span><h2 id="exploreHeading">Search funding</h2></div><a href="#sourceHubs">Browse official funder hubs ↓</a></div>
       <div class="explore-catalog-scope">
         <p class="note" id="exploreCatalogScope" role="status">Loading catalog…</p>
         <button type="button" class="text-button" id="exploreTogglePast" aria-controls="exploreResults" hidden>Include past rounds</button>
       </div>
       <div class="explore-query-box">
-        <form id="searchForm"><label for="exploreQuery">Search by topic, funder, grant name, or call number</label><input id="exploreQuery" type="search" maxlength="1200" placeholder="e.g. cancer research, climate resilience, NSF, fellowship"><div class="explore-search-actions"><button type="submit" class="button">Search funding</button><button type="button" class="text-button" id="exploreReset">Clear explore filters</button></div></form>
+        <form id="searchForm"><label for="exploreQuery">Describe what you need in plain words — a topic, a career stage, a funder or a call number</label><input id="exploreQuery" type="search" maxlength="1200" placeholder="e.g. graduate fellowship in materials science, climate adaptation, NSF"><div class="explore-search-actions"><button type="submit" class="button">Search funding</button><button type="button" class="text-button" id="exploreReset">Clear explore filters</button></div></form>
       </div>
       <div class="field-navigation"><div class="field-navigation-title"><strong>Select one or more research fields</strong><span>Fields are heuristic tags; choose multiple or leave all selected.</span></div><div id="disciplineChips" class="field-chips"></div></div>
       <div class="workspace-filters explore-filters">
@@ -172,11 +54,77 @@
         <label>Sort by<select id="exploreSort"><option value="relevance">Topical relevance</option><option value="deadline">Earliest listed deadline</option><option value="verified">Most recently source-checked</option></select></label>
       </div>
       <div id="exploreResultHeader" class="workspace-filter-head explore-result-header"><h3>Catalog search results</h3><span id="exploreResultCount" aria-live="polite"></span></div>
+      <p class="note search-scope-note">Broad results ranked by how closely each call matches your words. Fundlark does not check whether <em>you</em> can apply — open “Eligibility &amp; details” and the official call, or <a href="#use-skill">use the skill</a> for a personalized, verified shortlist.</p>
       <div class="explore-pagination-tools">
         <nav id="explorePaginationTop" class="pagination-controls" aria-label="Funding results pages — above results" hidden></nav>
       </div>
       <div id="exploreResults" class="funding-list"><p>Loading opportunities…</p></div>
       <nav id="explorePaginationBottom" class="pagination-controls pagination-bottom" aria-label="Funding results pages — below results" hidden></nav>
+    </section>
+    <section id="dashboard" class="dashboard-panel" aria-labelledby="dashboardHeading">
+      <div class="section-head"><div><span class="eyebrow">STEP 2 / ORGANIZE</span><h2 id="dashboardHeading">My application tracker <span id="trackerTabCount" class="tracker-count">0</span></h2></div></div>
+      <div id="shortlistTools" class="shortlist-tools" hidden><span id="shortlistStorageLabel">Saved in this browser.</span><button id="copyShortlist" type="button" class="text-button">Copy shortlist</button><button id="downloadShortlist" type="button" class="text-button">Download shortlist</button><span id="shortlistStatus" role="status"></span><textarea id="shortlistFallback" rows="6" readonly hidden aria-label="Shortlist to copy manually"></textarea></div>
+      <section id="tracker" class="tracker-panel dashboard-content" aria-label="Saved applications">
+        <div class="section-head"><div><p class="note">Save calls from the search, then track stage, target date and next step. Everything stays in this browser. <a href="#use-skill">The Fundlark skill</a> can write a personalized funding library you import here.</p></div><div class="tracker-export"><button id="importLibrary" class="button secondary" type="button">Import funding library</button><input id="libraryFile" type="file" accept=".json,application/json" hidden><button id="backupTracker" class="button secondary" type="button">Download backup</button><button id="exportTracker" class="button secondary" type="button">Export CSV</button><button id="exportCalendar" class="button secondary" type="button">Export deadlines (.ics)</button></div></div>
+        <p id="libraryStatus" class="note" role="status"></p>
+        <div id="trackerStats" class="tracker-stats"></div>
+        <div class="tracker-toolbar"><label for="trackerFilter">Show <select id="trackerFilter"><option value="">All saved applications</option><option>Interested</option><option>Checking eligibility</option><option>Preparing</option><option>Submitted</option><option>Awarded</option><option>Declined</option></select></label><span id="trackerCount" role="status"></span></div>
+        <div id="trackerList" class="tracker-list"></div>
+      </section>
+    </section>
+    <section id="use-skill" class="skill-panel" aria-labelledby="skillHeading">
+      <div><span class="eyebrow">STEP 3 / PERSONALIZE</span><h2 id="skillHeading">Want a shortlist<br>made for you?</h2>
+        <p>The search above is deliberately broad: it finds calls about your topic, not calls <em>you</em> can win. For a personalized shortlist, hand your details to the Fundlark skill in the AI assistant you already use.</p>
+        <table class="mode-compare"><caption class="sr-only">Website search compared with the Fundlark skill</caption>
+          <thead><tr><th scope="col"></th><th scope="col">Website search</th><th scope="col">Fundlark skill</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Sources</th><td>This public catalog snapshot</td><td>Live official funder pages, societies, your institution</td></tr>
+            <tr><th scope="row">Matches on</th><td>Your search words and filters</td><td>Your project, CV, career stage, location and memberships</td></tr>
+            <tr><th scope="row">Eligibility</th><td>Shows each call's stated rules</td><td>Checks the rules against your situation and flags blockers</td></tr>
+            <tr><th scope="row">Deadlines</th><td>As listed when the catalog was built</td><td>Re-checked on the official call</td></tr>
+            <tr><th scope="row">Output</th><td>Results you save to the tracker</td><td>A prioritized plan plus a library file for the tracker</td></tr>
+          </tbody></table>
+        <div id="discoveryRoutes" class="discovery-routes"></div></div>
+      <div class="install">
+        <h3>1 · Describe your situation <span class="small">Optional — goes only into the text you copy</span></h3>
+        <form id="requestForm" class="request-form">
+          <label for="requestDescription">Research project or interests</label>
+          <textarea id="requestDescription" rows="4" maxlength="3200" placeholder="e.g. I'm a postdoc using single-cell genomics to study tumour immunology. I'd like a fellowship that funds my salary."></textarea>
+          <div class="profile-grid">
+            <div><label for="requestStage">Career stage</label><select id="requestStage"><option value="">Not specified</option><option value="undergrad">Undergraduate</option><option value="masters">Master's student</option><option value="phd">PhD student</option><option value="postdoc">Postdoctoral researcher</option><option value="resident">Resident</option><option value="faculty">Faculty</option><option value="staff">Research staff</option></select></div>
+            <div><label for="requestRegion">Where you do research</label><select id="requestRegion"><option value="">Not specified</option><option value="Europe / EU">Europe / EU (country not specified)</option><option value="Other">Other / elsewhere</option></select></div>
+          </div>
+          <label for="requestAffiliations">Institution and memberships <span class="small">Optional</span></label>
+          <input id="requestAffiliations" type="text" maxlength="400" placeholder="e.g. University of Toronto; American Sociological Association">
+        </form>
+        <h3>2 · Copy the request and paste it into your assistant</h3>
+        <div class="prompt">
+          <button id="copyPrompt" class="button" type="button">Copy my funding search request</button>
+          <p id="copyStatus" role="status"></p>
+          <textarea id="briefFallback" rows="8" readonly hidden aria-label="Research brief to copy manually"></textarea>
+          <p class="small">Works in any assistant with web browsing. Installing the skill below adds Fundlark's verification steps and lets it write a tracker file.</p>
+        </div>
+        <div class="advanced">
+          <h3>3 · Recommended: install the Fundlark skill</h3>
+          <p>Gives your assistant Fundlark's search and verification workflow in every future chat. With Node.js 22.20 or later, run this in a terminal from your Codex or Claude Code workspace:</p>
+          <pre class="skill-command"><code id="skillInstallCommand">npx skills add dryang21/Fundlark --skill fundlark</code></pre>
+          <div class="skill-install-actions">
+            <button id="copySkillInstall" class="button secondary" type="button">Copy install command</button>
+            <a href="Fundlark-skill.zip" download>Download ZIP</a>
+            <a href="https://github.com/dryang21/Fundlark/blob/main/docs/skill-distribution.md#manual-install-from-zip">Manual setup</a>
+          </div>
+          <p id="skillInstallStatus" role="status"></p>
+          <p>Choose your assistant if prompted. Start a new session in that workspace and ask it to use Fundlark.</p>
+        </div>
+        <details class="advanced">
+          <summary>Use the skill with this request</summary>
+          <label class="sharing"><input type="checkbox" id="skillMode"> I have installed the Fundlark skill in my assistant.</label>
+          <label class="sharing"><input type="checkbox" id="sharePublic" disabled> Let that skill contribute newly discovered public funding facts.</label>
+          <p class="small" id="communityStatus" role="status">Checking whether contributions are available…</p>
+          <p class="small">Contributions exclude your research profile and chats. We review public funding records before sharing. Changes apply to newly copied requests; they cannot revoke a request already pasted into another assistant.</p>
+        </details>
+        <p class="small">Fundlark does not open your assistant or search the web automatically. Your agent can use only the context its platform makes available.</p>
+      </div>
     </section>
     <section id="sourceHubs" class="source-hubs" aria-labelledby="sourceHubHeading">
       <div class="section-head"><div><span class="eyebrow">GLOBAL COVERAGE / OFFICIAL SOURCES</span><h2 id="sourceHubHeading">Go beyond the indexed catalog</h2></div><a href="#coverage">Explore societies &amp; conferences ↓</a></div>
@@ -200,37 +148,6 @@
       <p id="coverageCount" aria-live="polite"></p>
       <ul id="coverageResults" class="coverage-list"></ul>
       <button id="coverageMore" type="button" class="button secondary" hidden>Show more sources</button>
-    </section>
-    <section id="use-skill" class="skill-panel" aria-labelledby="skillHeading">
-      <div><span class="eyebrow">GO BEYOND THE CATALOG</span><h2 id="skillHeading">Continue with your<br>AI assistant.</h2><p>Copy your research request, open the assistant you already use, and paste it. An assistant with web browsing can look for current official calls beyond this catalog.</p><p class="small">No skill installation is needed for this request. Your AI provider's usage limits and privacy settings apply. The request includes the research details you entered here.</p><div id="discoveryRoutes" class="discovery-routes"></div></div>
-      <div class="install">
-        <h3>Copy, open your assistant, paste</h3>
-        <div class="prompt">
-          <button id="copyPrompt" class="button" type="button">Copy my funding search request</button>
-          <p id="copyStatus" role="status"></p>
-          <textarea id="briefFallback" rows="8" readonly hidden aria-label="Research brief to copy manually"></textarea>
-        </div>
-        <div class="advanced">
-          <h3>Install the Fundlark skill</h3>
-          <p>Use the same funding search and verification workflow in future chats. With Node.js 22.20 or later, run this in a terminal from your Codex or Claude Code workspace:</p>
-          <pre class="skill-command"><code id="skillInstallCommand">npx skills add dryang21/Fundlark --skill fundlark</code></pre>
-          <div class="skill-install-actions">
-            <button id="copySkillInstall" class="button secondary" type="button">Copy install command</button>
-            <a href="Fundlark-skill.zip" download>Download ZIP</a>
-            <a href="https://github.com/dryang21/Fundlark/blob/main/docs/skill-distribution.md#manual-install-from-zip">Manual setup</a>
-          </div>
-          <p id="skillInstallStatus" role="status"></p>
-          <p>Choose your assistant if prompted. Start a new session in that workspace and ask it to use Fundlark.</p>
-        </div>
-        <details class="advanced">
-          <summary>Use the skill with this request</summary>
-          <label class="sharing"><input type="checkbox" id="skillMode"> I have installed the Fundlark skill in my assistant.</label>
-          <label class="sharing"><input type="checkbox" id="sharePublic" disabled> Let that skill contribute newly discovered public funding facts.</label>
-          <p class="small" id="communityStatus" role="status">Checking whether contributions are available…</p>
-          <p class="small">Contributions exclude your research profile and chats. We review public funding records before sharing. Changes apply to newly copied requests; they cannot revoke a request already pasted into another assistant.</p>
-        </details>
-        <p class="small">Fundlark does not open your assistant or search the web automatically. Your agent can use only the context its platform makes available.</p>
-      </div>
     </section>
   </main>
   <footer class="shell"><span>✳ Fundlark · Open-source software under MIT</span><a href="#use-skill">Get the AI skill</a></footer>

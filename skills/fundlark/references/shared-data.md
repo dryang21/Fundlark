@@ -17,9 +17,11 @@ official search records, which can omit full eligibility and announcement detail
 `review_needed` or `stale` calls for caution even when a stored status says open.
 Keep field-level uncertainty when comparing matches.
 
-The optional project endpoint is:
+The optional project endpoints are:
 
-`https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json`
+- `https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json` (core snapshot)
+- `https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/fellowships.json`
+  (curated early-career fellowships; program leads with dates only where the funder stated them)
 
 This endpoint works only after the repository and snapshot are actually published.
 Its presence in this file is not proof of availability. Try it once when useful;

@@ -53,8 +53,7 @@ test('published global hubs are source entry points and maintain discipline/type
 
 test('global funding bundles are explicitly loaded in the browser application',()=>{
  const app=readFileSync(new URL('../docs/demo/demo.js',import.meta.url),'utf8');
- assert.match(app,/global-programs\.json/);
- assert.match(app,/global-source-hubs\.json/);
- assert.match(app,/globalPrograms\?\.schema_version===1/);
- assert.match(app,/globalSources\?\.schema_version===1/);
+ for(const name of ['global-programs','global-source-hubs','fellowships'])assert.match(app,new RegExp(`bundle\\('${name}'`));
+ assert.match(app,/for\(const extra of \[supplemental,crossData,globalPrograms,ukri,fellowships\]\)/);
+ assert.match(app,/hasRows\(globalSources,'sources'\)/);
 });

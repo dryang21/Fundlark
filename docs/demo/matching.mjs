@@ -371,18 +371,21 @@ export function mergeCatalog(base, community) {
   }
   return [...merged.values()];
 }
+const STAGE_LABELS={undergrad:'Undergraduate',masters:"Master's student",phd:'PhD student',postdoc:'Postdoctoral researcher',resident:'Resident',faculty:'Faculty',staff:'Research staff'};
 export function assistantPrompt(profile, apiBase = '', {skillMode=false} = {}) {
   const lines = ['Find research funding relevant to my profile. Use the shared catalog as a starting point when accessible, then search official sources and verify current calls.',
     `Research description: ${[profile.researchBackground,profile.researchProposal].filter(Boolean).join('; ') || 'Not specified'}`,
     `Research keywords: ${profile.researchKeywords || profile.topics.join('; ') || 'Not specified'}`,
-    `Career stage: ${profile.stage || 'Not specified'}`,
-    `Confirmed memberships: ${profile.societies.join('; ') || 'Not specified'}`,
-    `Current institutions: ${profile.institutions.join('; ') || 'Not specified'}`,
+    `Career stage: ${STAGE_LABELS[profile.stage] || 'Not specified'}`,
+    `Where I do research: ${profile.researchRegion || 'Not specified'}`,
+    ...(profile.societies.length?[`Confirmed memberships: ${profile.societies.join('; ')}`]:[]),
+    `Institutions and memberships: ${profile.institutions.join('; ') || 'Not specified'}`,
     'Search official government, industry, foundation, society and institutional funding sources relevant to my field and geography. Ask about location or applicant type only if it changes eligibility.',
     'Explain research relevance separately from eligibility. Include official URLs, source check dates, deadlines and uncertainties. Do not assume a medical field.',
     'Start with three to five priorities and an upcoming deadline calendar. Group leads into direct applications, institution or faculty-led applications, requirements to confirm, and future rounds. Include precise blockers such as protected research effort, PI privileges and mutually exclusive submissions when the official call states them. Never count credits as cash.',
     'For each opportunity, link the title to its official call and give exactly three concise bullets: What it funds (scope and amount), Who can apply (key applicant rules and how my profile fits), and When to act (current status, deadline or next step). If you cannot browse current official pages, say so.',
-    'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json and https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/supplemental.json (starting indexes; check official calls).'];
+    'Shared funding catalog: https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/data.json, https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/fellowships.json and https://raw.githubusercontent.com/dryang21/Fundlark/main/docs/demo/supplemental.json (starting indexes; check official calls).'];
+  if(skillMode) lines.unshift('Use the Fundlark skill for this search.');
   if(!skillMode) lines.push('This request works as an ordinary research prompt; no Fundlark skill installation is required.');
   if (apiBase && skillMode) {
     lines.push(`Fundlark public service: ${apiBase}/api/catalog (reviewed community records); ${apiBase}/api/contributions (public opportunity contribution endpoint).`);

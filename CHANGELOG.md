@@ -1,5 +1,15 @@
 # Changelog
 
+## v5.0 — Broad search on the web, personalization in the skill (2026-11-15)
+
+- **Web demo is now a broad, cross-disciplinary search.** The research-profile form and personalized match dashboard are removed from the page. Search comes first, then the application tracker, then a hand-off panel that builds a request for the user's own AI assistant and compares what the website and the Fundlark skill each do.
+- **Plain-language search.** Any query word now counts, not only research-dictionary concepts, so funder names ("Damon Runyon") and unlisted topics ("gentrification") are found. Title words and adjacent phrases ("single cell") rank higher than scattered words; stage words ("postdoc", "PhD") boost matching fellowships only when the topic also matches. Added `search-text.mjs`.
+- **Early-career fellowships.** New `fellowships.json` (19 records, built by `scripts/build_fellowships.py`): Damon Runyon, Jane Coffin Childs, Helen Hay Whitney, LSRF, HHMI Hanna Gray, CRI Irvington, AACR, BWF CASI, HFSP, Humboldt, Schmidt Science Fellows, NSF GRFP, Hertz, NDSEG, DOE CSGF, Paul & Daisy Soros and NAEd/Spencer. Each was checked on the funder's page on 2026-11-15; deadlines appear only where that page stated them, with timing evidence.
+- **Stale rounds.** A record named for a year two or more years past (e.g. "2022 … Fund") with no current deadline is shown as a past round.
+- **Assistant request** includes research location and a readable career stage, adds the fellowships index, and opens with "Use the Fundlark skill" when the user says it is installed.
+- **Skill 0.3.0:** start junior researchers with fellowships that fund the person; treat aggregators and newsletters as pointers to the official page and report conflicts.
+- Tests: new `broad-search-v5.test.mjs`; UI tests updated for the new layout (132 JS + 67 Python passing).
+
 ## Unreleased
 
 - Extend affiliation pickers with reviewed profile/CV suggestions and cross-disciplinary examples; recognize unknown organizations in explicit CV membership sections.

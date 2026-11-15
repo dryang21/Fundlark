@@ -7,14 +7,11 @@ import {filterDashboard,exploreFunding} from '../docs/demo/workspace.mjs';
 const html=readFileSync(new URL('../docs/demo/index.html',import.meta.url),'utf8');
 const js=readFileSync(new URL('../docs/demo/demo.js',import.meta.url),'utf8');
 
-test('single research field, visible editable chips, add and reset controls, no CV uploader',()=>{
-  for(const id of ['researchDescription','topicSummary','profileAddKeyword','keywordSuggestionList','restoreExtractedKeywords'])assert.ok(html.includes(`id="${id}"`));
-  for(const id of ['researchBackground','researchProposal','researchKeywords','cvFile'])assert.ok(!html.includes(`id="${id}"`));
-  assert.ok(html.indexOf('id="topicSummary"')<html.indexOf('id="stage"'));
-  assert.match(js,/data-remove-topic/);
-  assert.match(js,/removeProfileKeyword\(/);
-  assert.match(js,/addProfileKeywords\(/);
-  assert.match(js,/profile\.excludedTopics/);
+test('v5 request form has one research description and no CV uploader or keyword editor',()=>{
+  assert.ok(html.includes('id="requestDescription"'));
+  for(const id of ['researchBackground','researchProposal','researchKeywords','cvFile','topicSummary','profileAddKeyword'])assert.ok(!html.includes(`id="${id}"`));
+  assert.ok(html.indexOf('id="requestDescription"')<html.indexOf('id="requestStage"'));
+  assert.match(js,/researchTerms\(description\)/);
 });
 test('automatic spelling corrections normalize obvious scientific typos',()=>{
   const original='I study reinforcment learing with artifical intellgence for radiotheraphy.';

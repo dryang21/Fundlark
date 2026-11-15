@@ -17,31 +17,26 @@ test('appointment subtype dropdown is generic and stage-aware',()=>{
   assert.equal(normalizeProfile({stage:'resident',appointment:'clinical_resident'}).appointment,'clinical_resident');
   assert.equal(normalizeProfile({stage:'phd',appointment:'clinical_resident'}).appointment,'');
   assert.doesNotMatch(html,/Clinical\/medical physics resident/);
-  assert.match(js,/function updateAppointmentOptions\(stage\)/);
-  assert.match(js,/appointmentOptionsForStage\(stage\)/);
 });
 
-test('Step 2 uses ten records per page, two sets of controls and page reset on filters',()=>{
+test('search uses ten records per page, two sets of controls and page reset on filters',()=>{
   const rows=Array.from({length:34},(_,i)=>({id:i}));
   assert.deepEqual([paginateRecords(rows,1).items.length,paginateRecords(rows,2).items.length,paginateRecords(rows,4).items.length],[10,10,4]);
   assert.deepEqual(pageSequence(1,4),[1,2,3,4]);
-  assert.match(html,/id="dashboardPaginationTop"/);
-  assert.match(html,/id="dashboardPaginationBottom"/);
-  assert.match(js,/dashboardSegment=paginateRecords\(ranked\.records,dashboardPage\)/);
-  assert.match(js,/dashboardSegment\.items\.map\(r=>fundingRow/);
-  assert.match(js,/resetDashboardPage\(\)/);
-  assert.match(js,/data-dashboard-page/);
+  assert.match(html,/id="explorePaginationTop"/);
+  assert.match(html,/id="explorePaginationBottom"/);
+  assert.match(js,/segment=paginateRecords\(all,explorePage\)/);
+  assert.match(js,/resetExplorePage\(\)/);
+  assert.match(js,/data-explore-page/);
 });
 
-test('only a known applicant-rule conflict has a prominent warning in personalized results',()=>{
-  assert.match(js,/const conflict=assessment\?\.kind==='ineligible'/);
-  assert.match(js,/\$\{conflict\?`<p class="funding-conflict">/);
+test('search cards make no personalized eligibility claims; details stay one click away',()=>{
+  assert.doesNotMatch(js,/class="funding-conflict"/);
+  assert.doesNotMatch(js,/priority-tag/);
   assert.doesNotMatch(js,/class="eligibility-badge"/);
-  assert.doesNotMatch(js,/class="requirements-warning"/);
-  assert.doesNotMatch(html,/First applications to investigate/);
-  assert.doesNotMatch(html,/class="eligibility-help"/);
   assert.doesNotMatch(html,/id="matchSummary"/);
   assert.match(js,/details class="funding-row-details"/);
+  assert.match(html,/does not check whether <em>you<\/em> can apply/);
 });
 
 test('mentor not yet confirmed is not a definitive ineligibility rule, but confirmed conflict is',()=>{

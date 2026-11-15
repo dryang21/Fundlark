@@ -23,7 +23,13 @@ collaborators' affiliations. A Stanford degree does not establish access to Stan
 internal grants. Do not merge similar institution names without checking identity.
 Use current appointment evidence if available and let the user correct the profile.
 
-Search three complementary routes:
+Search four complementary routes:
+
+- **Personal fellowships:** for students, postdocs and residents, look first at
+  named fellowships that fund the applicant (national graduate fellowships,
+  disease and field foundations, postdoctoral mobility schemes, transition awards).
+  Note degree-date windows, years since PhD, mentor or lab-change rules,
+  citizenship or host-country limits, and nomination-only schemes.
 
 - **Industry:** select sponsors by field. Include computing/AI programs, cloud or
   hardware credits, medical-device investigator-initiated research, pharmaceutical
