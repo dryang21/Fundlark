@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {parseQuery,lexicalScore,requiredMatches,stem} from '../docs/demo/search-text.mjs';
+import {parseQuery,lexicalScore,requiredMatches,stem,describeQuery} from '../docs/demo/search-text.mjs';
 import {exploreFunding} from '../docs/demo/workspace.mjs';
 import {fundingWindow,staleTitleYear} from '../docs/demo/funding-window.mjs';
 import {assistantPrompt,normalizeProfile,mergeCatalog} from '../docs/demo/matching.mjs';
@@ -104,4 +104,15 @@ test('page leads with broad search and explains what the skill adds',()=>{
   assert.match(html,/id="heroSuggestions"/);
   assert.match(html,/class="mode-compare"/);
   for(const gone of ['research-profile','profileForm','dashboardMatchesPanel','examplePicker'])assert.ok(!html.includes(`id="${gone}"`),gone);
+});
+
+test('one search box, with a plain explanation of what the query matched',()=>{
+  const searchInputs=[...html.matchAll(/<input[^>]*type="search"[^>]*>/g)].map(m=>m[0]).filter(tag=>/id="exploreQuery"/.test(tag));
+  assert.equal(searchInputs.length,1);
+  assert.match(html,/id="searchInterpretation"/);
+  const explained=describeQuery('postdoc fellowship on tumor microenvironment and gentrification',['tumor microenvironment']);
+  assert.deepEqual(explained.topics,['tumor microenvironment']);
+  assert.ok(explained.words.includes('gentrification'));
+  assert.ok(!explained.words.includes('tumor')&&!explained.words.includes('microenvironment'));
+  assert.deepEqual(explained.stages,['postdoc']);
 });

@@ -8,22 +8,22 @@
   <link rel="icon" type="image/svg+xml" href="lark.svg">
   <link rel="stylesheet" href="styles.css?v=4.8">
   <link rel="stylesheet" href="clean-ui.css?v=4.9-scope">
-  <link rel="stylesheet" href="mono-theme.css?v=5.0-broad-search">
+  <link rel="stylesheet" href="mono-theme.css?v=5.1-one-search">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=5.0-broad-search"></script>
+  <script type="module" src="demo.js?v=5.1-one-search"></script>
 </head>
 <body>
-  <a class="skip-link" href="#opportunities">Skip to funding search</a>
-  <header class="site-header"><div class="shell nav"><a class="brand" href="./" aria-label="Fundlark home"><img class="brand-mark" src="lark.svg" width="29" height="29" alt=""><span>Fundlark</span><small>OPEN RESEARCH FUNDING</small></a><nav aria-label="Main navigation"><a href="#opportunities">01 <span>Search</span></a><a href="#dashboard">02 <span>My tracker</span></a><a href="#use-skill">03 <span>Personalize with AI</span></a><a href="#sourceHubs" class="nav-directory">Funder directory</a></nav></div></header>
+  <a class="skip-link" href="#exploreQuery">Skip to funding search</a>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="./" aria-label="Fundlark home"><img class="brand-mark" src="lark.svg" width="29" height="29" alt=""><span>Fundlark</span><small>OPEN RESEARCH FUNDING</small></a><nav aria-label="Main navigation"><a href="#top">01 <span>Search</span></a><a href="#dashboard">02 <span>My tracker</span></a><a href="#use-skill">03 <span>Personalize with AI</span></a><a href="#sourceHubs" class="nav-directory">Funder directory</a></nav></div></header>
   <main class="shell">
-    <section class="hero" aria-labelledby="heroHeading">
+    <section class="hero" id="top" aria-labelledby="heroHeading">
       <div class="hero-copy">
         <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> FUNDLARK · OPEN RESEARCH FUNDING</div>
         <h1 id="heroHeading">Find research funding<br><em>across every field.</em></h1>
         <p>Search a free, public catalog of grants and fellowships in plain language — a topic, a funder, or a sentence about your work. No account needed.</p>
         <form id="heroSearchForm" class="hero-quick-search" role="search" aria-label="Quick funding search">
-          <label class="sr-only" for="heroSearchInput">Search research grants, funders, or topics</label>
-          <span class="search-glyph" aria-hidden="true">⌕</span><input id="heroSearchInput" type="search" placeholder="e.g. postdoctoral fellowship in cancer immunology" autocomplete="off" maxlength="1200">
+          <label class="sr-only" for="exploreQuery">Search funding in plain words — a topic, a career stage, a funder or a call number</label>
+          <span class="search-glyph" aria-hidden="true">⌕</span><input id="exploreQuery" type="search" placeholder="e.g. postdoctoral fellowship in cancer immunology" autocomplete="off" maxlength="1200" aria-describedby="searchInterpretation">
           <button type="submit">Search funding <span aria-hidden="true">↗</span></button>
         </form>
         <div class="hero-suggestions"><span>Try:</span><div id="heroSuggestions" class="filter-pills" aria-label="Example searches"></div></div>
@@ -37,14 +37,12 @@
       <p id="returnDeadlines"></p><div class="hero-actions"><button id="resumeShortlist" type="button" class="button">Open my tracker</button></div>
     </section>
     <section id="opportunities" aria-labelledby="exploreHeading">
-      <div class="section-head"><div><span class="eyebrow">STEP 1 / SEARCH</span><h2 id="exploreHeading">Search funding</h2></div><a href="#sourceHubs">Browse official funder hubs ↓</a></div>
+      <div class="section-head"><div><span class="eyebrow">STEP 1 / SEARCH</span><h2 id="exploreHeading">Funding results</h2></div><a href="#sourceHubs">Browse official funder hubs ↓</a></div>
       <div class="explore-catalog-scope">
         <p class="note" id="exploreCatalogScope" role="status">Loading catalog…</p>
         <button type="button" class="text-button" id="exploreTogglePast" aria-controls="exploreResults" hidden>Include past rounds</button>
       </div>
-      <div class="explore-query-box">
-        <form id="searchForm"><label for="exploreQuery">Describe what you need in plain words — a topic, a career stage, a funder or a call number</label><input id="exploreQuery" type="search" maxlength="1200" placeholder="e.g. graduate fellowship in materials science, climate adaptation, NSF"><div class="explore-search-actions"><button type="submit" class="button">Search funding</button><button type="button" class="text-button" id="exploreReset">Clear explore filters</button></div></form>
-      </div>
+      <div class="search-summary"><p id="searchInterpretation" class="note" aria-live="polite"></p><button type="button" class="text-button" id="exploreReset">Clear search &amp; filters</button></div>
       <div class="field-navigation"><div class="field-navigation-title"><strong>Select one or more research fields</strong><span>Fields are heuristic tags; choose multiple or leave all selected.</span></div><div id="disciplineChips" class="field-chips"></div></div>
       <div class="workspace-filters explore-filters">
         <label>Funding source<select id="exploreCategory"><option value="all">All funding sources</option><option value="Society">Societies</option><option value="Institution">Institutions</option><option value="Government">Government</option><option value="Industry">Industry</option><option value="Foundation">Foundations</option></select></label>
