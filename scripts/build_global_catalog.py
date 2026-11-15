@@ -85,7 +85,7 @@ def build():
         raise ValueError('Duplicate source hub IDs after merge')
 
     existing = []
-    for fn in ['data.json','supplemental.json','coverage.json','crossdisciplinary.json']:
+    for fn in ['data.json','supplemental.json','coverage.json','crossdisciplinary.json','fellowships.json']:
         data = json.loads((DEMO/fn).read_text(encoding='utf-8'))
         existing.extend(data.get('opportunities',[]))
     existing_keys={program_key(item) for item in existing}

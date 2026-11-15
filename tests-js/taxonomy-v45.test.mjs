@@ -56,11 +56,12 @@ test('new homepage has a functional search form and accessible explicit steps',(
   assert.match(html, /id="heroSearchForm"/);
   assert.match(html, /id="heroSearchInput"/);
   assert.match(html, /clean-ui\.css\?v=4\.\d+/);
-  assert.match(html, /href="#research-profile"/);
+  assert.match(html, /href="#use-skill"/);
   assert.match(html, /href="#dashboard"/);
   assert.match(html, /href="#opportunities"/);
   assert.match(js,/\$\('#heroSearchForm'\)\.addEventListener\('submit'/);
-  assert.match(js,/\$\('#exploreQuery'\)\.value=\$\('#heroSearchInput'\)\.value\.trim\(\)/);
+  assert.match(js,/runSearch\(\$\('#heroSearchInput'\)\.value\)/);
+  assert.match(js,/\$\('#exploreQuery'\)\.value=text\.trim\(\)/);
 });
 
 test('discipline browsing shows relevant concepts and supports local keyword search',()=>{
@@ -72,8 +73,7 @@ test('discipline browsing shows relevant concepts and supports local keyword sea
   assert.ok(list.items.some(x=>x.label==='reinforcement learning'));
   assert.ok(list.items.every(x=>x.fields.includes('Computer science')));
   assert.equal(browseResearchConcepts({query:'keyword_that_will_not_exist_2394'}).total,0);
+  // v5: discipline browsing in the page uses field chips; the concept browser API stays for the skill and audits.
   const html=readFileSync(new URL('./index.html',demoRoot),'utf8');
-  assert.match(html,/id="vocabularyBrowser"/);
-  assert.match(html,/id="vocabularyField"/);
-  assert.match(html,/id="vocabularyResults"/);
+  assert.match(html,/id="disciplineChips"/);
 });

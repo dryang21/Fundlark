@@ -15,6 +15,17 @@ const validDay=value=>{
   return !Number.isNaN(instant.valueOf())&&instant.toISOString().slice(0,10)===value;
 };
 
+/** True when every year in a title ("2022", "2023-24", "FY2023") is at least two years before today. */
+export function staleTitleYear(title,today=localDay()){
+  const current=Number(String(today).slice(0,4));
+  const years=[];
+  for(const m of String(title||'').matchAll(/(?<!\d)(?:FY\s?)?((?:19|20)\d{2})(?:\s?[-–\/]\s?(\d{2,4}))?(?!\d)/gi)){
+    years.push(Number(m[1]));
+    if(m[2])years.push(m[2].length===2?Math.floor(Number(m[1])/100)*100+Number(m[2]):Number(m[2]));
+  }
+  return years.length>0&&Math.max(...years)<=current-2;
+}
+
 export function fundingWindow(record,today=localDay()){
   const evidence=Object.hasOwn(reviewedTiming,record.url)?reviewedTiming[record.url]:record.timing_evidence||null;
   const raw=record.deadline;
@@ -26,7 +37,10 @@ export function fundingWindow(record,today=localDay()){
   const rolling=evidence?.type==='rolling'||(record.status==='rolling'&&!suspect&&!raw);
   const deadline=rolling||suspect?null:raw||null;
   const opens=validDay(record.opens_on)?record.opens_on:null;
-  const closed=record.status==='closed'||Boolean(deadline&&deadline<today);
+  // A round named for a year at least two years back ("2022 Alumni Fund") with no
+  // current deadline or opening date is a past round, whatever its stored label says.
+  const staleRound=!deadline&&!rolling&&!(opens&&opens>=today)&&staleTitleYear(record.title,today);
+  const closed=record.status==='closed'||Boolean(deadline&&deadline<today)||staleRound;
   const status=closed?'closed':opens&&today<opens?'forecast':
     rolling?'rolling':suspect?'verify':
     record.status==='forecast'&&opens?'verify':

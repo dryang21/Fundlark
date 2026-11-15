@@ -14,13 +14,10 @@ test('CV uploader and extraction workflow are absent from the visible site and r
   assert.ok(!app.includes("cvReview("));
   assert.ok(!app.includes("#cvHelper"));
 });
-test('one research description and editable keywords replace three separate text fields',()=>{
-  for(const id of ['researchDescription','profileAddKeyword','keywordSuggestionList','topicSummary','stage','profileSuggestedTopics'])assert.ok(html.includes(`id="${id}"`));
-  for(const id of ['researchBackground','researchProposal','researchKeywords'])assert.ok(!html.includes(`id="${id}"`));
-  assert.ok(html.includes('Every field is optional'));
-  assert.ok(html.includes('id="profileForm"'));
-  assert.ok(html.includes('id="eligibilityDetails"')&&html.includes('id="affiliationDetails"'));
-  assert.match(html,/<details id="profileRefinements"[^>]*>[\s\S]*id="eligibilityDetails"[\s\S]*id="affiliationDetails"[\s\S]*<\/details>/);
+test('one optional research description feeds the assistant request',()=>{
+  for(const id of ['requestForm','requestDescription','requestStage','requestRegion','requestAffiliations','copyPrompt'])assert.ok(html.includes(`id="${id}"`),id);
+  for(const id of ['researchBackground','researchProposal','researchKeywords','profileForm','eligibilityDetails'])assert.ok(!html.includes(`id="${id}"`),id);
+  assert.ok(html.includes('Optional — goes only into the text you copy'));
 });
 test('project and explicit keywords rank ahead of background while retaining cross-disciplinary coverage',()=>{
   const fields={background:'My research background is physics and chemistry.',proposal:'I propose to improve sustainable battery recycling with robotics.',keywords:'battery recycling, robotics'};

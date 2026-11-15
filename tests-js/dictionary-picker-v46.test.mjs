@@ -23,21 +23,15 @@ test('manual keywords are strictly vocabulary-backed, aliases canonicalized',()=
   const result=buildResearchKeywords({description:'unknown unusual technique',keywords:'NLP, AI, robotics'});
   assert.deepEqual(result.topics.slice(0,3),['natural language processing','artificial intelligence','robotics']);
 });
-test('combobox requires choosing suggestion and has accessible listbox and keyboard controls',()=>{
+test('v5 page has no profile keyword combobox; personalization is delegated to the skill',()=>{
   const html=read('index.html'),js=read('demo.js');
-  assert.match(html,/id="profileAddKeyword"[^>]*role="combobox"/);
-  assert.match(html,/aria-autocomplete="list"/);
-  assert.match(html,/id="keywordSuggestionList" role="listbox"/);
-  assert.ok(!html.includes('id="addProfileKeyword"'));
-  assert.match(js,/searchResearchConcepts\(input\.value/);
-  assert.match(js,/event\.key==='ArrowDown'/);
-  assert.match(js,/event\.key==='ArrowUp'/);
-  assert.match(js,/event\.key==='Enter'/);
-  assert.match(js,/canonicalConcept\(String\(value/);
+  assert.ok(!html.includes('id="profileAddKeyword"'));
+  assert.ok(!js.includes('canonicalConcept('));
+  assert.match(html,/id="use-skill"/);
 });
 test('monochrome UI is loaded after base styles, color limited to status signals',()=>{
   const html=read('index.html'),css=read('mono-theme.css');
-  assert.match(html,/mono-theme\.css\?v=4\.\d+/);
+  assert.match(html,/mono-theme\.css\?v=[45]\.\d+/);
   assert.ok(html.indexOf('mono-theme.css')>html.indexOf('clean-ui.css'));
   assert.match(css,/--ink:#171717/);
   assert.match(css,/\.eligibility-verify/);

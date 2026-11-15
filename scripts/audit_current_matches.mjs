@@ -17,7 +17,7 @@ if(!/^\d{4}-\d{2}-\d{2}$/.test(today)||Number.isNaN(Date.parse(today))||new Date
 const read=name=>JSON.parse(readFileSync(new URL(`../docs/demo/${name}.json`,import.meta.url),'utf8'));
 if(existsSync(new URL('../docs/demo/openalex-topics.json',import.meta.url)))configureOpenAlexTaxonomy(read('openalex-topics'));
 configureSocietyAliases(read('coverage').sources);
-const bundleNames=['data','coverage','supplemental','crossdisciplinary','global-programs','ukri-calls','bulk-calls'];
+const bundleNames=['data','coverage','supplemental','crossdisciplinary','global-programs','ukri-calls','bulk-calls','fellowships'];
 const records=bundleNames.map(name=>read(name).opportunities).reduce(mergeCatalog)
   .map(record=>({...record,field_ids:recordFields(record)}));
 const known=records.flatMap(record=>record.topics||[]);

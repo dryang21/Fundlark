@@ -4,17 +4,20 @@
 
 [Open the web demo](https://dryang21.github.io/Fundlark/) · [Install the AI skill](#install-the-fundlark-skill) · [Run locally](#run-locally)
 
-Fundlark is free, open-source software for researchers. Use the browser to explore a starter catalog or organize applications. Use the skill in your own AI assistant when you want it to search official sources beyond the catalog.
+Fundlark is free, open-source software for researchers, with two parts:
+
+- **The website** is a broad search. Type a topic, a funder or a sentence about your work and browse grants and fellowships across every field, then save the ones you like to a tracker. It shows each call's stated rules but does not decide whether *you* can apply.
+- **The Fundlark skill** is for a personalized shortlist. Your own AI assistant searches live official sources for your project, career stage, institution and memberships, checks deadlines and eligibility, and writes a library file the tracker can import.
 
 ## Start here
 
 | I want to… | What to do |
 | --- | --- |
-| **Try it without installing anything** | [Open the demo](https://dryang21.github.io/Fundlark/) and try an example or describe a research project. The browser shows the keywords it matched. |
-| **Find funding for my field or institution** | [Install the Fundlark skill](docs/skill-distribution.md#install-the-skill) in Codex or Claude Code. Ask it to check official calls for your topic, career stage, institution and society memberships. |
-| **Track opportunities I’ve found** | Ask the skill to write a `fundlark-library.json`. In the demo, open **My funding → My application tracker → Import funding library**. Reimport a refreshed library without losing your notes or application progress. |
+| **Browse what's out there** | [Open the website](https://dryang21.github.io/Fundlark/) and search in plain words, e.g. *postdoctoral fellowship cancer immunology* or *graduate fellowship*. Filter by field, source, stage or availability. |
+| **Get a shortlist made for me** | [Install the Fundlark skill](docs/skill-distribution.md#install-the-skill) in Codex or Claude Code. Ask it to check official calls for your topic, career stage, institution and society memberships. No skill? The website's **Personalize with AI** panel copies a ready-made request for any assistant with web browsing. |
+| **Track opportunities I’ve found** | Ask the skill to write a `fundlark-library.json`. On the website, open **My tracker → Import funding library**. Reimport a refreshed library without losing your notes or application progress. |
 
-The demo is a snapshot, not a comprehensive live database. Past rounds are hidden by default. Read the official call before applying. Your demo profile and tracker stay in browser storage; download a private backup if you want to move them or restore them later. The optional skill uses the tools and account of your chosen AI assistant.
+The demo is a snapshot, not a comprehensive live database. Past rounds are hidden by default. Read the official call before applying. Your tracker and request details stay in browser storage; download a private backup if you want to move them or restore them later. The optional skill uses the tools and account of your chosen AI assistant.
 
 ![Fundlark’s search page with options to browse funding or build a profile](docs/research/demo-preview.png)
 

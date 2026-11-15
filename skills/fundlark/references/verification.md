@@ -10,6 +10,12 @@ Treat these as separate questions:
 | Can this person apply? | Individual/institution rules, career stage, geography, citizenship where relevant, host requirements and PI restrictions. |
 | What support is offered? | Explicit award amount, currency, duration, and whether cash, compute, hardware, or credits. |
 
+Prefer the funder's own page or call document over aggregators, university
+research-office digests and news posts. When they disagree, report the funder's
+date and say which secondary source conflicts. If the funder's page cannot be
+reached, keep the lead under "requirements to confirm" rather than quoting the
+secondary date as fact.
+
 Do not convert missing deadlines into “rolling.” Use rolling only when the official
 page explicitly accepts applications continuously. Keep forecasted calls separate.
 A recurring program's past round does not establish the next deadline.

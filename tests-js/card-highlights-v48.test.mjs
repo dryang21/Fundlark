@@ -7,10 +7,9 @@ const html=readFileSync(new URL('../docs/demo/index.html',import.meta.url),'utf8
 const js=readFileSync(new URL('../docs/demo/demo.js',import.meta.url),'utf8');
 const css=readFileSync(new URL('../docs/demo/mono-theme.css',import.meta.url),'utf8');
 
-test('cards include source-grounded highlights for every funding result, personalized and explore',()=>{
+test('cards include source-grounded highlights for every search result',()=>{
   assert.match(js,/grantHighlights\(o\)\.map/);
   assert.match(js,/class="grant-highlights"/);
-  assert.match(js,/fundingRow\(r,\{personalized:true,priority:/);
   assert.match(js,/fundingRow\(r\)/);
   assert.match(css,/\.grant-highlights/);
 });
@@ -46,6 +45,7 @@ test('removed redundant keyword instructions stay removed while accessible live 
   assert.doesNotMatch(html,/Remove unwanted terms using/);
   assert.doesNotMatch(html,/959 indexed research concepts/);
   assert.doesNotMatch(html,/Fundlark extracts research keywords automatically/);
-  assert.match(html,/id="keywordPickerStatus" role="status" class="visually-hidden"/);
-  assert.match(js,/const corrections='';/);
+  // v5 moved keyword editing into the skill; the page keeps live status regions for search and copy.
+  assert.match(html,/id="exploreResultCount" aria-live="polite"/);
+  assert.match(html,/id="copyStatus" role="status"/);
 });

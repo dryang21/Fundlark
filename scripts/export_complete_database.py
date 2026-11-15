@@ -14,7 +14,7 @@ from build_global_catalog import write_sqlite
 
 DEMO=ROOT/'docs/demo'
 OUTPUT=ROOT/'data/global'
-FILES=['data.json','coverage.json','supplemental.json','crossdisciplinary.json','global-programs.json','ukri-calls.json','bulk-calls.json']
+FILES=['data.json','coverage.json','supplemental.json','crossdisciplinary.json','global-programs.json','ukri-calls.json','bulk-calls.json','fellowships.json']
 
 
 def archive_rows(manifest):
