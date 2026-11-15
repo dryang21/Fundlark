@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.3 — Calm accent color (2026-11-15)
+
+- One muted slate-blue accent for buttons, links, selected filters, section labels and the tracker; warm off-white page background.
+- Soft tinted status labels on result cards: green for open, blue for upcoming, amber for date not confirmed, grey for past rounds.
+
 ## v5.2 — Cleaner, tighter interface (2026-11-15)
 
 - One type scale: body text 15px, secondary text 13–14px, nothing below 12px (many labels were 10–11px).

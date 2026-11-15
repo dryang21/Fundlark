@@ -86,7 +86,7 @@ function fundingRow(o){
     window.suspect?'Listed date looks wrong; check the official call.':'';
   return `<article class="funding-row" data-source="${esc(o.category)}">
     <div class="funding-row-body">
-      <div class="funding-row-top"><span class="sponsor-name">${esc(o.funder||'Funding organization')} · ${esc(o.category||'Other')}</span>${statusText?`<span class="status-text">${esc(statusText)}</span>`:''}</div>
+      <div class="funding-row-top"><span class="sponsor-name">${esc(o.funder||'Funding organization')} · ${esc(o.category||'Other')}</span>${statusText?`<span class="status-text" data-status="${o.program_status_scope==='program_family'?'verify':esc(status)}">${esc(statusText)}</span>`:''}</div>
       <h4>${esc(o.title)}</h4>
       <div class="funding-row-facts">${o.amount?`<span>${esc(String(o.amount).slice(0,80))}</span>`:''}${deadline?`<span>${o.application_phase==='invited_stage_two'?'Invited stage':'Deadline'} ${esc([deadline,time,timezone].filter(Boolean).join(' '))}</span>`:''}${routeNote}</div>
       <ul class="grant-highlights" aria-label="Funding opportunity summary">${grantHighlights(o).map(item=>`<li><strong>${esc(item.label)}:</strong> ${esc(item.text)}</li>`).join('')}</ul>
