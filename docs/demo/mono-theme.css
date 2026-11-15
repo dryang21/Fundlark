@@ -271,3 +271,48 @@ html body .tracker-controls .tracker-remove{font-size:14px}
 html body .tracker-row h3{font-size:18px}
 html body .funding-row-actions .save-button[aria-pressed=false]{border-color:#d0d0d0;color:var(--fl-ink);background:#fff}
 html body .funding-row-actions .save-button[aria-pressed=false]:hover{background:var(--fl-soft)}
+
+/* ===== v5.3 — calm accent color =====
+ * One muted slate-blue accent for actions and selection, soft tinted status
+ * labels, and a warm off-white page. Text stays dark grey for contrast. */
+:root{
+  --fl-accent:#3a5a7c;--fl-accent-hover:#2f4b69;--fl-accent-soft:#eef3f8;--fl-accent-line:#cbd8e6;
+  --fl-page:#f8f8f6;
+  --fl-open:#2f6b4f;--fl-open-bg:#e8f2ec;
+  --fl-soon:#3a5a8c;--fl-soon-bg:#e9eff8;
+  --fl-check:#86642a;--fl-check-bg:#f6efe1;
+  --fl-past:#6a6a6a;--fl-past-bg:#efefef;
+}
+html body{background:var(--fl-page)}
+html body .site-header{background:rgba(248,248,246,.97)}
+html body .eyebrow{color:var(--fl-accent)}
+html body .eyebrow-dot{background:var(--fl-accent)}
+
+/* Primary actions and links */
+html body .hero-quick-search button,html body .button:not(.secondary),html body #copyPrompt,
+html body .pagination-controls button[aria-current=page]{background:var(--fl-accent);border-color:var(--fl-accent);color:#fff}
+html body .hero-quick-search button:hover,html body .button:not(.secondary):hover,html body #copyPrompt:hover{background:var(--fl-accent-hover);border-color:var(--fl-accent-hover)}
+html body .hero-quick-search:focus-within{border-color:var(--fl-accent);box-shadow:0 0 0 3px #3a5a7c22}
+html body .hero-profile-link,html body .funding-row-actions a,html body .text-button,html body .hub-card a,html body .coverage-list li a,html body .tracker-row a{color:var(--fl-accent)}
+html body .button.secondary:hover,html body .source-pill:hover,html body .field-chip:hover{border-color:var(--fl-accent-line);background:var(--fl-accent-soft)}
+
+/* Selected chips and saved state */
+html body .field-chip[aria-pressed=true],html body .source-pill[aria-pressed=true]{background:var(--fl-accent);border-color:var(--fl-accent);color:#fff}
+html body .funding-row-actions .save-button[aria-pressed=true]{background:var(--fl-accent-soft);border-color:var(--fl-accent-line);color:var(--fl-accent)}
+
+/* Status labels on cards */
+html body .funding-row .status-text{padding:2px 9px;border-radius:999px;font-weight:650;font-size:12px;background:var(--fl-past-bg);color:var(--fl-past)}
+html body .funding-row .status-text[data-status=open],html body .funding-row .status-text[data-status=rolling]{background:var(--fl-open-bg);color:var(--fl-open)}
+html body .funding-row .status-text[data-status=forecast]{background:var(--fl-soon-bg);color:var(--fl-soon)}
+html body .funding-row .status-text[data-status=verify]{background:var(--fl-check-bg);color:var(--fl-check)}
+html body .funding-row-facts span{background:var(--fl-accent-soft);color:#3d4b5a}
+
+/* Panels and summaries */
+html body .search-summary{background:var(--fl-accent-soft);border-color:var(--fl-accent-line)}
+html body .search-summary strong{color:var(--fl-accent)}
+html body .tracker-state{background:var(--fl-accent-soft);border-color:var(--fl-accent-line)}
+html body .tracker-state strong{color:var(--fl-accent)}
+html body .mode-compare thead th{background:var(--fl-accent-soft);color:var(--fl-accent)}
+html body .mode-compare td:last-child{color:var(--fl-accent-hover)}
+html body .tracker-count{background:var(--fl-accent-soft);color:var(--fl-accent)}
+html body .funding-row:hover{border-color:var(--fl-accent-line)}
