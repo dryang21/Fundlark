@@ -12,7 +12,6 @@ import {MAX_LIBRARY_BYTES,readLibrary,mergeLibrary,trackerBackup} from './person
 import {readBulkArchive} from './bulk-archive.mjs';
 import {FIELDS,fieldName,recordFields,filterHubs,TRACK_STATES,normalizedTrackerEntry,trackerStats,trackerCSV,trackerICS} from './explorer.mjs';
 import {filterSources} from './coverage.mjs';
-import {upcomingSaved} from './journey.mjs?v=cv-10';
 import {researchTerms, normalizeProfile, statusOf, mergeCatalog, opportunityKey, assistantPrompt, discoveryLinks,
   shortlistText, publicRecordSnapshot, restoreShortlist, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=personal-2';
 
@@ -68,39 +67,38 @@ async function copyRequest(){
   const skillMode=$('#skillMode').checked;
   const prompt=assistantPrompt(request,communityEnabled?apiBase:'',{skillMode});
   $('#briefFallback').hidden=false;$('#briefFallback').value=prompt;
-  try {await navigator.clipboard.writeText(prompt);$('#copyStatus').textContent='Copied. Open your AI assistant and paste this request. Review the text below before sending.';}
+  try {await navigator.clipboard.writeText(prompt);$('#copyStatus').textContent='Copied — paste it into your AI assistant.';}
   catch {$('#briefFallback').select();$('#copyStatus').textContent='Copy the request below, then paste it into your AI assistant.';}
 }
 function updateSharing(){
   const skillMode=$('#skillMode').checked;
   $('#sharePublic').disabled=!communityEnabled||!skillMode;
-  $('#communityStatus').textContent=!communityEnabled?'Automatic contributions are unavailable on this host. Searching and copied requests still work.':skillMode?'Available. With sharing enabled, your installed skill can submit public discoveries for review.':'Automatic contributions are available after you install the optional skill and select the checkbox above.';
+  $('#communityStatus').textContent=!communityEnabled?'Contributions are not available on this site.':'';
 }
 
 /* ---------- Funding cards ---------- */
 function fundingRow(o){
   const window=fundingWindow(o),{status,deadline,time,timezone}=window,key=o.savedKey||opportunityKey(o),isSaved=saved.some(e=>e.key===key);
-  const statusText=o.program_status_scope==='program_family'?'Next call unconfirmed':({open:'Listed open',rolling:'Rolling',closed:'Past round',forecast:'Upcoming',verify:'Window unconfirmed'}[status]||'');
+  const statusText=o.program_status_scope==='program_family'?'Date not confirmed':({open:'Open',rolling:'Rolling',closed:'Past round',forecast:'Upcoming',verify:'Date not confirmed'}[status]||'');
   const routeNote=o.application_phase==='invited_stage_two'?'<span class="funding-partner-note">Invitation required</span>':'';
-  const checked=(o.source_checked_at||o.last_verified_at)?.slice(0,10)||'Not recorded';
-  const timingNote=window.evidence?`<a href="${esc(safeUrl(window.evidence.url))}" target="_blank" rel="noopener noreferrer">Sponsor timing evidence ↗</a> · ${esc(window.evidence.detail)} Checked ${esc(window.evidence.checked)}.`:
-    window.suspect?'The source supplied an implausible or invalid date. The deadline is unconfirmed.':'';
-  const checkLabel=o.origin==='ukri_listing'||o.source_checked_at?'Official listing checked':'Catalog checked';
+  const checked=(o.source_checked_at||o.last_verified_at)?.slice(0,10)||'—';
+  const timingNote=window.evidence?`${esc(window.evidence.detail)} <a href="${esc(safeUrl(window.evidence.url))}" target="_blank" rel="noopener noreferrer">Source ↗</a>`:
+    window.suspect?'Listed date looks wrong; check the official call.':'';
   return `<article class="funding-row" data-source="${esc(o.category)}">
     <div class="funding-row-body">
       <div class="funding-row-top"><span class="sponsor-name">${esc(o.funder||'Funding organization')} · ${esc(o.category||'Other')}</span>${statusText?`<span class="status-text">${esc(statusText)}</span>`:''}</div>
       <h4>${esc(o.title)}</h4>
-      <div class="funding-row-facts">${o.amount?`<span>${esc(String(o.amount).slice(0,80))}</span>`:''}${deadline?`<span>${o.application_phase==='invited_stage_two'?'Invited-stage deadline':'Deadline listed'}: ${esc([deadline,time,timezone].filter(Boolean).join(' '))}</span>`:''}${routeNote}</div>
+      <div class="funding-row-facts">${o.amount?`<span>${esc(String(o.amount).slice(0,80))}</span>`:''}${deadline?`<span>${o.application_phase==='invited_stage_two'?'Invited stage':'Deadline'} ${esc([deadline,time,timezone].filter(Boolean).join(' '))}</span>`:''}${routeNote}</div>
       <ul class="grant-highlights" aria-label="Funding opportunity summary">${grantHighlights(o).map(item=>`<li><strong>${esc(item.label)}:</strong> ${esc(item.text)}</li>`).join('')}</ul>
-      <details class="funding-row-details"><summary>Eligibility & details</summary>
-        <p><strong>Applicant requirements:</strong> ${esc(o.eligibility||'See the funder’s official applicant requirements.')}</p>
+      <details class="funding-row-details"><summary>Details</summary>
+        <p><strong>Who can apply:</strong> ${esc(o.eligibility||'See the official call.')}</p>
         <p><strong>Program:</strong> ${esc(o.description||o.funding_type||'See the official call.')}</p>
         ${o.opportunity_number?`<p><strong>Call number:</strong> ${esc(o.opportunity_number)}</p>`:''}
         ${timingNote?`<p class="details-source-note">${timingNote}</p>`:''}
-        <p class="details-source-note">${checkLabel}: ${esc(checked)} · Confirm current rules and deadlines with the sponsor.</p>
+        <p class="details-source-note">Checked ${esc(checked)}</p>
       </details>
     </div>
-    <div class="funding-row-actions"><a href="${esc(safeUrl(o.official_call_url||o.url))}" target="_blank" rel="noopener noreferrer">${o.program_status_scope==='program_family'?'Program details ↗':'Official call ↗'}</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save to tracker'}</button></div>
+    <div class="funding-row-actions"><a href="${esc(safeUrl(o.official_call_url||o.url))}" target="_blank" rel="noopener noreferrer">Official page ↗</a><button type="button" class="save-button" data-save="${esc(key)}" aria-pressed="${isSaved}">${isSaved?'Saved ✓':'Save'}</button></div>
   </article>`;
 }
 function fundingPageButtons(pageInfo){
@@ -116,11 +114,9 @@ function fundingPageButtons(pageInfo){
 /* ---------- Broad search ---------- */
 function render(){
   const savedRecords=restoreShortlist(records,saved);
-  renderReturn(savedRecords);
   renderTracker();
   renderFieldNavigation();
   $('#trackerTabCount').textContent=String(saved.length);
-  $('#shortlistTools').hidden=!savedRecords.length;
   renderExplore();
 }
 function renderExplore(){
@@ -145,10 +141,10 @@ function renderExplore(){
   const segment=paginateRecords(all,explorePage);
   explorePage=segment.page; // Clamp if the catalog or result count changed.
   $('#exploreResultCount').textContent=segment.count?
-    `${segment.first}–${segment.last} of ${segment.count.toLocaleString('en-US')} results · Page ${segment.page} of ${segment.totalPages.toLocaleString('en-US')}`:
+    `${segment.count.toLocaleString('en-US')} results`:
     '0 results';
   $('#exploreResults').innerHTML=segment.count?segment.items.map(r=>fundingRow(r)).join(''):
-    `<div class="dashboard-empty"><strong>No catalog records found</strong><p>This catalog is a starting point, not every funder. Try fewer or broader words, another field, or past rounds. A blank list doesn’t mean there is no funding for you.</p><div class="hero-actions"><a href="#use-skill" class="button secondary">Search live sources with the AI skill</a><a href="#sourceHubs">Browse official funding sources</a></div></div>`;
+    `<div class="dashboard-empty"><strong>No matches</strong><p>Try broader words or another field, or search live funder sites with the AI skill.</p><a href="#use-skill" class="button secondary">Use the AI skill</a></div>`;
   for (const nav of [$('#explorePaginationTop'),$('#explorePaginationBottom')]) {
     nav.hidden=segment.totalPages<=1;
     nav.innerHTML=nav.hidden?'':fundingPageButtons(segment);
@@ -158,14 +154,13 @@ function renderExploreScope(){
   if(!indexedCount)return;
   const availability=$('#exploreAvailability').value;
   const past=pastRoundCount.toLocaleString('en-US');
-  const total=`${indexedCount.toLocaleString('en-US')} total catalog records`;
-  const scope=availability==='all'?`includes ${past} past rounds`:availability==='closed'?'past rounds only':`${past} past rounds hidden`;
+  const current=(indexedCount-pastRoundCount).toLocaleString('en-US');
+  const text=availability==='all'?`${indexedCount.toLocaleString('en-US')} calls, including ${past} past rounds`:availability==='closed'?`${past} past rounds`:`${current} current calls`;
   const summary=$('#exploreCatalogScope');
-  const text=pastRoundCount?`${total} · ${scope}`:total;
   if(summary.textContent!==text)summary.textContent=text;
   const button=$('#exploreTogglePast');
   button.hidden=!pastRoundCount;
-  button.textContent=availability==='all'?'Hide past rounds':availability==='closed'?'Show all records':'Include past rounds';
+  button.textContent=availability==='all'?'Hide past rounds':availability==='closed'?'Show current':'Show past rounds';
 }
 function exploreNeedsArchive(){
   return bulkArchiveCount>0&&['all','closed'].includes($('#exploreAvailability').value)&&
@@ -196,18 +191,18 @@ function renderInterpretation(){
   const target=$('#searchInterpretation');
   if(!target)return;
   const text=$('#exploreQuery').value.trim();
-  if(!text){target.textContent='Type a topic, funder or sentence about your work, or pick an example above.';return;}
+  if(!text){target.textContent='Showing all current calls.';return;}
   // Funding words describe the kind of support, not the research topic.
   const kinds=researchTerms(text).filter(term=>FUNDING_WORDS.test(term));
   const {topics,words,stages}=describeQuery(text,researchTerms(text).filter(term=>!FUNDING_WORDS.test(term)));
   const support=[...kinds,...words.filter(word=>FUNDING_WORDS.test(word))];
   const others=words.filter(word=>!FUNDING_WORDS.test(word));
   const parts=[];
-  if(topics.length)parts.push(`<strong>Research topics recognized:</strong> ${topics.map(esc).join(', ')}`);
-  if(others.length)parts.push(`<strong>${topics.length?'Also matching':'Matching'} your words:</strong> ${others.map(esc).join(', ')}`);
-  if(support.length)parts.push(`<strong>Support type:</strong> ${[...new Set(support.map(w=>w.toLowerCase()))].map(esc).join(', ')}`);
-  if(stages.length)parts.push(`<strong>Career stage:</strong> ${stages.map(s=>esc(STAGE_NAMES[s]||s)).join(', ')} (boosts matching fellowships)`);
-  target.innerHTML=parts.length?parts.join(' · '):'No searchable words found. Try a research topic or a funder name.';
+  if(topics.length)parts.push(`<strong>Topics:</strong> ${topics.map(esc).join(', ')}`);
+  if(others.length)parts.push(`<strong>${topics.length?'Also':'Words'}:</strong> ${others.map(esc).join(', ')}`);
+  if(support.length)parts.push(`<strong>Type:</strong> ${[...new Set(support.map(w=>w.toLowerCase()))].map(esc).join(', ')}`);
+  if(stages.length)parts.push(`<strong>Stage:</strong> ${stages.map(s=>esc(STAGE_NAMES[s]||s)).join(', ')}`);
+  target.innerHTML=parts.length?`Matched on — ${parts.join(' · ')}`:'Try a research topic or a funder name.';
 }
 function runSearch(text){
   $('#exploreQuery').value=text.trim().slice(0,1200);
@@ -227,16 +222,6 @@ function refreshSupportTypes(){
 }
 
 /* ---------- Tracker ---------- */
-function renderReturn(savedRecords){
-  const panel=$('#returnPanel');
-  panel.hidden=!savedRecords.length;
-  if(panel.hidden)return;
-  const today=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
-  const upcoming=upcomingSaved(savedRecords,today);
-  const changed=savedRecords.filter(o=>o.detailsChanged).length;
-  $('#returnSummary').textContent=`${savedRecords.length} saved ${savedRecords.length===1?'lead':'leads'}${changed?` · ${changed} with changed catalog details`:''}.`;
-  $('#returnDeadlines').textContent=upcoming.length?`Earliest listed deadline: ${fundingWindow(upcoming[0]).deadline} · ${upcoming[0].title}. Confirm the official call.`:'No listed open deadlines in the next 30 days among your saved leads.';
-}
 function toggleSaved(key){
   if(saved.some(entry=>entry.key===key))saved=saved.filter(entry=>entry.key!==key);
   else{const record=records.find(o=>opportunityKey(o)===key)||bulkArchive?.find(o=>opportunityKey(o)===key);if(record)saved.push({key,record:publicRecordSnapshot(record),state:'Interested',created:new Date().toISOString().slice(0,10)});}
@@ -249,16 +234,18 @@ function savedWithProgress(){
 }
 function renderTracker(){
   const entries=savedWithProgress();const stats=trackerStats(entries),filter=$('#trackerFilter').value;
-  $('#trackerStats').innerHTML=TRACK_STATES.map(s=>`<span class="tracker-state"><strong>${stats[s]}</strong>${esc(s)}</span>`).join('');
+  $('#trackerStats').innerHTML=entries.length?TRACK_STATES.map(s=>`<span class="tracker-state"><strong>${stats[s]}</strong>${esc(s)}</span>`).join(''):'';
+  $('#trackerStats').hidden=!entries.length;
+  $('#trackerToolbar').hidden=!entries.length;
   const list=entries.filter(entry=>!filter||entry.state===filter);
-  $('#trackerCount').textContent=`${list.length} shown of ${entries.length} saved`;
+  $('#trackerCount').textContent=filter?`${list.length} of ${entries.length}`:'';
   $('#trackerList').innerHTML=list.length?list.map(entry=>{
     const k=esc(entry.key),record=entry.record,{deadline}=fundingWindow(record);
-    return `<article class="tracker-row"><div class="tracker-record"><span class="dash-lead-sponsor">${esc(record.funder||'Funding sponsor')}</span><h3>${esc(record.title)}</h3><p>${deadline?'Listed deadline '+esc(deadline):'No fixed deadline confirmed'} · <a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">Official details ↗</a></p></div><div class="tracker-controls"><label>Application stage<select data-tracker-state="${k}">${TRACK_STATES.map(s=>`<option ${s===entry.state?'selected':''}>${esc(s)}</option>`).join('')}</select></label><label>My target date<input type="date" data-tracker-date="${k}" value="${esc(entry.targetDate)}"></label><label class="tracker-note">My next action<input type="text" maxlength="400" placeholder="e.g. request mentor letter" data-tracker-note="${k}" value="${esc(entry.note)}"></label><button type="button" class="text-button tracker-remove" data-tracker-remove="${k}">Remove</button></div></article>`;
-  }).join(''):`<div class="tracker-empty">${entries.length?'No applications in this stage.':'No applications saved yet. Use “Save to tracker” on any search result, or import a library from the Fundlark skill.'} <a href="#opportunities">Search funding →</a></div>`;
+    return `<article class="tracker-row"><div class="tracker-record"><span class="dash-lead-sponsor">${esc(record.funder||'Funding sponsor')}</span><h3>${esc(record.title)}</h3><p>${deadline?'Deadline '+esc(deadline):'No deadline listed'} · <a href="${esc(safeUrl(record.url))}" target="_blank" rel="noopener noreferrer">Official page ↗</a></p></div><div class="tracker-controls"><label>Application stage<select data-tracker-state="${k}">${TRACK_STATES.map(s=>`<option ${s===entry.state?'selected':''}>${esc(s)}</option>`).join('')}</select></label><label>My target date<input type="date" data-tracker-date="${k}" value="${esc(entry.targetDate)}"></label><label class="tracker-note">My next action<input type="text" maxlength="400" placeholder="e.g. request mentor letter" data-tracker-note="${k}" value="${esc(entry.note)}"></label><button type="button" class="text-button tracker-remove" data-tracker-remove="${k}">Remove</button></div></article>`;
+  }).join(''):`<div class="tracker-empty">${entries.length?'Nothing at this stage.':'Nothing saved yet. Use “Save” on a search result.'}</div>`;
 }
 function persistShortlist(){
-  try{localStorage.setItem(SAVED_KEY,JSON.stringify(saved));$('#shortlistStatus').textContent='Shortlist saved on this browser.';return true;}
+  try{localStorage.setItem(SAVED_KEY,JSON.stringify(saved));$('#shortlistStatus').textContent='';return true;}
   catch{$('#shortlistStatus').textContent='Browser storage is full or unavailable. Copy or download funding links to keep them.';return false;}
 }
 function downloadText(contents,name,type){const url=URL.createObjectURL(new Blob([contents],{type}));const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
@@ -267,12 +254,12 @@ function savedText(){return shortlistText(restoreShortlist(records,saved));}
 /* ---------- Directories ---------- */
 function renderCoverage(){
   const filtered=filterSources(coverageSources,{query:$('#coverageQuery').value,field:$('#coverageField').value,kind:$('#coverageKind').value});
-  $('#coverageCount').textContent=`${filtered.length} sources${filtered.length?' · showing '+Math.min(filtered.length,coverageLimit):''}`;
+  $('#coverageCount').textContent=filtered.length===coverageSources.length?'':`${filtered.length} of ${coverageSources.length} sources`;
   $('#coverageResults').innerHTML=filtered.slice(0,coverageLimit).map(source=>{
     const awards=linkedPrograms(records,source.program_ids||[]);
     const funding=awards.length?
       `<details><summary>Funding records (${awards.length})</summary>${awardLinks(awards)}</details>`:
-      '<small>Directory only; funding not reviewed.</small>';
+      '';
     return `<li><a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a><span>${esc(source.alias)} · ${esc(source.kind)} · ${esc(source.fields.join(', '))}</span>${funding}</li>`;
   }).join('')||'<li>No sources in this directory match these filters.</li>';
   $('#coverageMore').hidden=filtered.length<=coverageLimit;
@@ -295,8 +282,8 @@ function initializeSourceHubs(){
 }
 function renderSourceHubs(){
   const filtered=filterHubs(sourceHubs,{field:$('#hubField').value,region:$('#hubRegion').value,kind:$('#hubKind').value,query:$('#hubQuery').value});
-  $('#hubCount').textContent=`${filtered.length} source entr${filtered.length===1?'y':'ies'} · ${sourceHubs.length} in this directory. Funding pages and current rounds need verification.`;
-  $('#hubResults').innerHTML=filtered.slice(0,hubLimit).map(h=>`<article class="hub-card"><span class="hub-kind">${esc(h.kind)} · ${esc(h.region)}</span><h3>${esc(h.name)}</h3><p>${esc(h.description)}</p><div class="hub-field-tags">${h.fields.slice(0,3).map(f=>`<span>${esc(f==='all'?'All disciplines':fieldName(f))}</span>`).join('')}</div><a href="${esc(safeUrl(h.url))}" target="_blank" rel="noopener noreferrer">Visit funding source ↗</a></article>`).join('')||'<p class="tracker-empty">No funder sources match the selected filters. Try all fields or regions.</p>';
+  $('#hubCount').textContent=`${filtered.length} funder${filtered.length===1?'':'s'}`;
+  $('#hubResults').innerHTML=filtered.slice(0,hubLimit).map(h=>`<article class="hub-card"><span class="hub-kind">${esc(h.kind)} · ${esc(h.region)}</span><h3>${esc(h.name)}</h3><p>${esc(h.description)}</p><div class="hub-field-tags">${h.fields.slice(0,3).map(f=>`<span>${esc(f==='all'?'All disciplines':fieldName(f))}</span>`).join('')}</div><a href="${esc(safeUrl(h.url))}" target="_blank" rel="noopener noreferrer">Visit ↗</a></article>`).join('')||'<p class="tracker-empty">No funder sources match the selected filters. Try all fields or regions.</p>';
   $('#hubMore').hidden=filtered.length<=hubLimit;
 }
 
@@ -310,7 +297,7 @@ function renderCatalogStatus(){
   }
   pastRoundCount=counts.closed+bulkArchiveCount;
   indexedCount=counts.open+counts.forecast+counts.verify+pastRoundCount;
-  $('#snapshotStatus').textContent=`${(counts.open+counts.forecast+counts.verify).toLocaleString('en-US')} current and upcoming leads · ${counts.open.toLocaleString('en-US')} listed open or rolling · Check the official call before applying`;
+  $('#snapshotStatus').textContent=`${(counts.open+counts.forecast+counts.verify).toLocaleString('en-US')} current calls · ${counts.open.toLocaleString('en-US')} open now`;
 }
 async function initCommunity(){
   try{
@@ -358,7 +345,7 @@ async function init(){
       records=mergeCatalog(records,directory.opportunities);
       $('#coverageField').insertAdjacentHTML('beforeend',directory.fields.map(field=>`<option value="${esc(field)}">${esc(field)}</option>`).join(''));
       const withFunding=coverageSources.filter(source=>linkedPrograms(records,source.program_ids||[]).length).length;
-      $('#coverageSummary').textContent=`${coverageSources.length} society and conference sources · ${withFunding} linked to indexed funding · ${coverageSources.length-withFunding} directory-only · ${directory.opportunities.length} curated records (including past/unconfirmed rounds).`;
+      $('#coverageSummary').textContent=`${coverageSources.length} sources · ${withFunding} with funding in the catalog`;
       renderCoverage();
     }else $('#coverageSummary').textContent='The source directory could not be loaded.';
     for(const extra of [supplemental,crossData,globalPrograms,ukri,fellowships])
@@ -407,7 +394,7 @@ $('#copySkillInstall').addEventListener('click',async()=>{
   const command=$('#skillInstallCommand'),status=$('#skillInstallStatus');
   try {
     await navigator.clipboard.writeText(command.textContent);
-    status.textContent='Copied. Paste the command into your terminal.';
+    status.textContent='Copied.';
   } catch {
     const range=document.createRange();
     range.selectNodeContents(command);
@@ -452,7 +439,6 @@ $('#disciplineChips').addEventListener('click',event=>{
   renderFieldNavigation();resetExplorePage();
 });
 
-$('#resumeShortlist').addEventListener('click',()=>$('#dashboard').scrollIntoView({behavior:'smooth'}));
 $('#trackerFilter').addEventListener('change',renderTracker);
 $('#trackerList').addEventListener('change',event=>{
   const target=event.target;const key=target.dataset.trackerState||target.dataset.trackerDate||target.dataset.trackerNote;
@@ -488,8 +474,7 @@ $('#backupTracker').addEventListener('click',()=>{
 });
 $('#exportTracker').addEventListener('click',()=>downloadText(trackerCSV(savedWithProgress()),'Fundlark-application-tracker.csv','text/csv;charset=utf-8'));
 $('#exportCalendar').addEventListener('click',()=>downloadText(trackerICS(savedWithProgress()),'Fundlark-funding-deadlines.ics','text/calendar;charset=utf-8'));
-$('#copyShortlist').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(savedText());$('#shortlistStatus').textContent='Shortlist copied with official links.';}catch{$('#shortlistFallback').value=savedText();$('#shortlistFallback').hidden=false;$('#shortlistFallback').select();$('#shortlistStatus').textContent='Copy your shortlist below.';}});
-$('#downloadShortlist').addEventListener('click',()=>downloadText(savedText(),'Fundlark-shortlist.txt','text/plain;charset=utf-8'));
+$('#copyShortlist').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(savedText());$('#shortlistStatus').textContent='Copied.';}catch{$('#shortlistFallback').value=savedText();$('#shortlistFallback').hidden=false;$('#shortlistFallback').select();$('#shortlistStatus').textContent='Copy your shortlist below.';}});
 
 for(const id of ['coverageQuery','coverageField','coverageKind'])$(`#${id}`).addEventListener(id==='coverageQuery'?'input':'change',()=>{coverageLimit=12;renderCoverage();});
 $('#coverageMore').addEventListener('click',()=>{coverageLimit+=12;renderCoverage();});

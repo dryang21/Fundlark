@@ -17,7 +17,6 @@ test('CV uploader and extraction workflow are absent from the visible site and r
 test('one optional research description feeds the assistant request',()=>{
   for(const id of ['requestForm','requestDescription','requestStage','requestRegion','requestAffiliations','copyPrompt'])assert.ok(html.includes(`id="${id}"`),id);
   for(const id of ['researchBackground','researchProposal','researchKeywords','profileForm','eligibilityDetails'])assert.ok(!html.includes(`id="${id}"`),id);
-  assert.ok(html.includes('Optional — goes only into the text you copy'));
 });
 test('project and explicit keywords rank ahead of background while retaining cross-disciplinary coverage',()=>{
   const fields={background:'My research background is physics and chemistry.',proposal:'I propose to improve sustainable battery recycling with robotics.',keywords:'battery recycling, robotics'};

@@ -1,5 +1,13 @@
 # Changelog
 
+## v5.2 — Cleaner, tighter interface (2026-11-15)
+
+- One type scale: body text 15px, secondary text 13–14px, nothing below 12px (many labels were 10–11px).
+- One neutral palette: the tracker, its stat cards, labels and saved state no longer use the old green theme.
+- Shorter copy: removed caveat and instruction text that users don't need, the duplicate "pick up where you left off" panel and the green shortlist bar; tightened labels ("Best match", "Open now", "Official page", "Save").
+- Societies and conferences now share the funder directory's layout.
+- If a browser pairs a cached older page with a newer script, the page reloads once instead of reporting that the catalog could not be loaded.
+
 ## v5.1 — One search box (2026-11-15)
 
 - The hero box is now the only search box; results update as you type, and Enter or an example search jumps to them. The duplicate box in the results section is removed.
