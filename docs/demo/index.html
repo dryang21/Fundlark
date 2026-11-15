@@ -3,30 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Search research grants and fellowships across fields, then get a personalized shortlist with the Fundlark AI skill.">
-  <title>Fundlark — Find funding for your next breakthrough</title>
+  <meta name="description" content="Find funding that fits your research. Grants and fellowships for PhD students, postdocs and early-career faculty, plus an AI-assistant skill for a personalized search.">
+  <title>Fundlark — Find funding that fits your research</title>
   <link rel="icon" type="image/svg+xml" href="lark.svg">
   <link rel="stylesheet" href="styles.css?v=4.8">
   <link rel="stylesheet" href="clean-ui.css?v=4.9-scope">
-  <link rel="stylesheet" href="mono-theme.css?v=5.3.2">
+  <link rel="stylesheet" href="mono-theme.css?v=5.4">
   <script src="config.js" defer></script>
   <script type="module" src="demo.js?v=5.3.1"></script>
 </head>
 <body>
   <a class="skip-link" href="#exploreQuery">Skip to funding search</a>
-  <header class="site-header"><div class="shell nav"><a class="brand" href="./" aria-label="Fundlark home"><img class="brand-mark" src="lark.svg" width="29" height="29" alt=""><span>Fundlark</span><small>OPEN RESEARCH FUNDING</small></a><nav aria-label="Main navigation"><a href="#top">01 <span>Search</span></a><a href="#dashboard">02 <span>My tracker</span></a><a href="#use-skill">03 <span>Personalize with AI</span></a><a href="#sourceHubs" class="nav-directory">Funder directory</a></nav></div></header>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="./" aria-label="Fundlark home"><img class="brand-mark" src="lark.svg" width="29" height="29" alt=""><span>Fundlark</span><small>OPEN RESEARCH FUNDING</small></a><nav aria-label="Main navigation"><a href="#top">01 <span>Search</span></a><a href="#dashboard">02 <span>My tracker</span></a><a href="#use-skill">03 <span>Use with AI</span></a><a href="#sourceHubs" class="nav-directory">Funder directory</a></nav></div></header>
   <main class="shell">
     <section class="hero" id="top" aria-labelledby="heroHeading">
       <div class="hero-copy">
-        <h1 id="heroHeading">Find research funding<br><em>across every field.</em></h1>
-        <p>Search grants and fellowships with a topic, a funder or a sentence about your work.</p>
+        <p class="hero-audience">For PhD students, postdocs and early-career faculty</p>
+        <h1 id="heroHeading">Find funding that<br>fits your research.</h1>
+        <p>Explore grants and fellowships across disciplines, save what fits, and keep track of what comes next.</p>
         <form id="heroSearchForm" class="hero-quick-search" role="search" aria-label="Quick funding search">
           <label class="sr-only" for="exploreQuery">Search funding in plain words — a topic, a career stage, a funder or a call number</label>
           <span class="search-glyph" aria-hidden="true">⌕</span><input id="exploreQuery" type="search" placeholder="e.g. postdoctoral fellowship in cancer immunology" autocomplete="off" maxlength="1200" aria-describedby="searchInterpretation">
           <button type="submit">Search funding <span aria-hidden="true">↗</span></button>
         </form>
         <div class="hero-suggestions"><div id="heroSuggestions" class="filter-pills" aria-label="Example searches"></div></div>
-        <div class="hero-actions"><a class="hero-profile-link" href="#use-skill">Get a personalized shortlist with the AI skill <span aria-hidden="true">→</span></a></div>
+        <div class="start-paths">
+          <a class="start-path" href="#opportunities"><strong>Explore funding</strong><span>Browse the catalog by topic, funder or career stage. No setup needed.</span></a>
+          <a class="start-path" href="#use-skill"><strong>Use with my AI assistant</strong><span>Search official sources for your research, stage and institution.</span></a>
+        </div>
         <div class="snapshot" id="snapshotStatus" role="status">Loading public funding catalog…</div>
         <p id="catalogHealth" class="note catalog-health" role="status" hidden></p>
       </div>
@@ -62,8 +66,8 @@
       </section>
     </section>
     <section id="use-skill" class="skill-panel" aria-labelledby="skillHeading">
-      <div><span class="eyebrow">03 · Personalize</span><h2 id="skillHeading">Get a shortlist<br>made for you</h2>
-        <p>The Fundlark skill runs in your own AI assistant. It searches live funder sites for your project, career stage and institution, and checks eligibility.</p>
+      <div><span class="eyebrow">03 · Use with AI</span><h2 id="skillHeading">Find funding with<br>your AI assistant</h2>
+        <p>The Fundlark skill helps the assistant you already use search official funding sources for your research, career stage and institution, and check the details on each call.</p>
         <table class="mode-compare"><caption class="sr-only">Website search compared with the Fundlark skill</caption>
           <thead><tr><th scope="col"></th><th scope="col">Website search</th><th scope="col">Fundlark skill</th></tr></thead>
           <tbody>
@@ -146,6 +150,6 @@
       <button id="coverageMore" type="button" class="button secondary" hidden>Show more sources</button>
     </section>
   </main>
-  <footer class="shell"><span>✳ Fundlark · Open-source software under MIT</span><a href="#use-skill">Get the AI skill</a></footer>
+  <footer class="shell"><div><p class="footer-line">Built for researchers, because finding funding is already enough work.</p><span>Free and open source (MIT) · The catalog is a starting point, so confirm details with the funder.</span></div><a href="https://github.com/dryang21/Fundlark">GitHub</a></footer>
 </body>
 </html>
