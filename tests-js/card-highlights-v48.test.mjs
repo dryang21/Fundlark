@@ -10,7 +10,7 @@ const css=readFileSync(new URL('../docs/demo/mono-theme.css',import.meta.url),'u
 test('cards include source-grounded highlights for every funding result, personalized and explore',()=>{
   assert.match(js,/grantHighlights\(o\)\.map/);
   assert.match(js,/class="grant-highlights"/);
-  assert.match(js,/fundingRow\(r,\{personalized:true\}\)/);
+  assert.match(js,/fundingRow\(r,\{personalized:true,priority:/);
   assert.match(js,/fundingRow\(r\)/);
   assert.match(css,/\.grant-highlights/);
 });

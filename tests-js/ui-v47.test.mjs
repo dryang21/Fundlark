@@ -27,7 +27,7 @@ test('Step 2 uses ten records per page, two sets of controls and page reset on f
   assert.deepEqual(pageSequence(1,4),[1,2,3,4]);
   assert.match(html,/id="dashboardPaginationTop"/);
   assert.match(html,/id="dashboardPaginationBottom"/);
-  assert.match(js,/dashboardSegment=paginateRecords\(filtered,dashboardPage\)/);
+  assert.match(js,/dashboardSegment=paginateRecords\(ranked\.records,dashboardPage\)/);
   assert.match(js,/dashboardSegment\.items\.map\(r=>fundingRow/);
   assert.match(js,/resetDashboardPage\(\)/);
   assert.match(js,/data-dashboard-page/);

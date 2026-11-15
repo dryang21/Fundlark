@@ -1,6 +1,7 @@
 # Recommendation quality
 
-The demo puts up to five next steps above the broader matches. This shortlist uses
+The demo labels up to five recommended leads at the top of the filtered matches.
+Every opportunity appears once. The shortlist uses
 recently reviewed calls with a current window, a specific research or affiliation
 match, and no known applicant conflict. It distinguishes an individual application,
 an application led by a faculty member or institution, and a lead with conditions

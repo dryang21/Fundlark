@@ -1,4 +1,4 @@
-import {normalizeProfile} from './matching.mjs?v=personal-2';
+import {normalizeProfile,opportunityKey} from './matching.mjs?v=personal-2';
 import {evaluateEligibility} from './eligibility.mjs?v=personal-2';
 import {fundingWindow, invitedPhase, localDay} from './funding-window.mjs';
 
@@ -53,4 +53,18 @@ export function priorityShortlist(candidates,profile,today=localDay()){
     if(info.kind in rank)rows.push({record,...info});
   }
   return rows.sort((a,b)=>rank[a.kind]-rank[b.kind]).slice(0,5);
+}
+
+// Promote the best of the currently filtered matches before pagination.
+export function rankDashboardMatches(candidates,profile,today=localDay()){
+  const seen=new Set();
+  const unique=candidates.filter(record=>{
+    const key=record.savedKey||opportunityKey(record)||record;
+    if(seen.has(key))return false;
+    seen.add(key);
+    return true;
+  });
+  const picks=priorityShortlist(unique,profile,today);
+  const priorities=new Map(picks.map(pick=>[pick.record,pick]));
+  return {priorities,records:[...priorities.keys(),...unique.filter(record=>!priorities.has(record))]};
 }

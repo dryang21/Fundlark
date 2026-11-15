@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {fundingWindow} from '../docs/demo/funding-window.mjs';
 import {trackerICS} from '../docs/demo/explorer.mjs';
 import {evaluateEligibility} from '../docs/demo/eligibility.mjs';
-import {priorityShortlist,recommendation} from '../docs/demo/recommendations.mjs';
+import {priorityShortlist,rankDashboardMatches,recommendation} from '../docs/demo/recommendations.mjs';
 
 const DAY='2026-11-15';
 const profile={stage:'phd',researchRegion:'United States'};
@@ -67,4 +67,16 @@ test('a broad field tag and an overseas partner route stay out of the first five
     eligibility_rules:{application_route:'partner',host_regions:['United Kingdom']}};
   assert.equal(recommendation(overseas,profile,DAY).kind,'partner');
   assert.deepEqual(priorityShortlist([fieldOnly,overseas],profile,DAY),[]);
+});
+
+test('recommendations are promoted within the filtered list and counted once',()=>{
+  const sponsor={...curated,funder:'Example sponsor',topics:['photonics']};
+  const first={...sponsor,id:'direct'};
+  const conflict={...sponsor,id:'conflict',url:'https://example.org/funding/conflict',
+    eligibility_rules:{application_route:'direct',host_regions:['Canada']}};
+  const otherSource={...sponsor,id:'outside-filter',category:'Foundation',url:'https://example.org/funding/other'};
+  const candidates=[conflict,first,{...first},otherSource].filter(record=>record.category==='Society');
+  const ranked=rankDashboardMatches(candidates,profile,DAY);
+  assert.deepEqual(ranked.records.map(record=>record.id),['direct','conflict']);
+  assert.deepEqual([...ranked.priorities.keys()].map(record=>record.id),['direct']);
 });

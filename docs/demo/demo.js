@@ -1,7 +1,7 @@
 import {buildResearchKeywords,autoCorrectResearchText,researchProfileText,PROFILE_TOPIC_SUGGESTIONS} from './manual-profile.mjs?v=personal-2';
 import {configureOpenAlexTaxonomy,taxonomyStats,relatedTerms,canonicalLabel,canonicalConcept,vocabularyFields,browseResearchConcepts,searchResearchConcepts} from './taxonomy.mjs?v=personal-2';
 import {fundingWindow} from './funding-window.mjs';
-import {priorityShortlist, recommendation} from './recommendations.mjs';
+import {rankDashboardMatches, recommendation} from './recommendations.mjs?v=unified-1';
 import {grantHighlights} from './grant-highlights.mjs';
 import {paginateRecords,pageSequence} from './pagination.mjs';
 import {appointmentOptionsForStage} from './appointment-options.mjs';
@@ -250,7 +250,7 @@ function fundingRow(o,{personalized=false,priority=null}={}){
   return `<article class="funding-row" data-source="${esc(o.category)}">
     <div class="funding-row-body">
       <div class="funding-row-top"><span class="sponsor-name">${esc(o.funder||'Funding organization')} · ${esc(o.category||'Other')}</span>${statusText?`<span class="status-text">${esc(statusText)}</span>`:''}</div>
-      ${actionLabel?`<p class="priority-label">${esc(actionLabel)}</p>`:''}
+      ${actionLabel?`<p class="priority-label"><span class="priority-tag">Recommended</span> ${esc(actionLabel)}</p>`:''}
       <h4>${esc(o.title)}</h4>
       <div class="funding-row-facts">${o.amount?`<span>${esc(snippet(o.amount,80))}</span>`:''}${deadline?`<span>${o.application_phase==='invited_stage_two'?'Invited-stage deadline':'Deadline listed'}: ${esc([deadline,time,timezone].filter(Boolean).join(' '))}</span>`:''}${routeNote}</div>
       ${personalized&&evidence.length?`<p class="match-explanation">Why it matches: ${esc(evidence.join(' · '))}</p>`:''}
@@ -276,7 +276,6 @@ function render(){
   renderReturn(savedRecords);
   const matches=hasProfile()?filterDashboard(records,profile,{availability:'active'}):[];
   renderDashboard(matches);
-  renderPriority(matches);
   renderTracker();
   renderFieldNavigation();
   renderSourceChips(matches);
@@ -290,7 +289,8 @@ function render(){
   $('#trackerTabCount').textContent=String(saved.length);
   $('#shortlistTools').hidden=!savedRecords.length;
   $('#shortlistStorageLabel').textContent=exampleMode?'Example shortlist · this visit only':'Shortlist saved on this browser only.';
-  const dashboardSegment=paginateRecords(filtered,dashboardPage);
+  const ranked=rankDashboardMatches(filtered,profile);
+  const dashboardSegment=paginateRecords(ranked.records,dashboardPage);
   dashboardPage=dashboardSegment.page;
   $('#resultCount').textContent=dashboardSegment.count?
     `${dashboardSegment.first}–${dashboardSegment.last} of ${dashboardSegment.count}`:
@@ -300,20 +300,9 @@ function render(){
     nav.innerHTML=nav.hidden?'':fundingPageButtons(dashboardSegment,'dashboard');
   }
   $('#archiveHint').hidden=$('#availability').value!=='active'||!hasProfile();
-  $('#results').innerHTML=dashboardSegment.count?dashboardSegment.items.map(r=>fundingRow(r,{personalized:true})).join(''):dashboardEmpty();
+  $('#results').innerHTML=dashboardSegment.count?dashboardSegment.items.map(r=>fundingRow(r,{personalized:true,priority:ranked.priorities.get(r)})).join(''):dashboardEmpty();
   renderExplore();
   renderRoutes();
-}
-function renderPriority(matches){
-  const panel=$('#priorityPanel');
-  panel.hidden=!hasProfile();
-  if(panel.hidden)return;
-  const picks=priorityShortlist(matches,profile);
-  $('#prioritySummary').textContent=picks.length?
-    'Recently checked open or rolling calls. Each lead shows who can submit and what to do next.':
-    'No recently checked open or rolling matches yet. Check the leads below or search official sources with your AI assistant.';
-  $('#refinePriority').hidden=Boolean(picks.length);
-  $('#priorityResults').innerHTML=picks.map(pick=>fundingRow(pick.record,{personalized:true,priority:pick})).join('');
 }
 function renderSourceChips(matches){
   const counts=sourceCounts(matches),selected=$('#category').value;
@@ -667,8 +656,7 @@ $('#exploreReset').addEventListener('click',()=>{
   $('#exploreSort').value='relevance';selectedExploreFields.clear();renderFieldNavigation();resetExplorePage();
 });
 for(const id of ['explorePaginationTop','explorePaginationBottom'])$(`#${id}`).addEventListener('click',goToExplorePage);
-$('#refinePriority').addEventListener('click',()=>{$('#profileRefinements').open=true;});
-for(const id of ['results','exploreResults','priorityResults'])$(`#${id}`).addEventListener('click',event=>{const btn=event.target.closest('[data-save]');if(btn)toggleSaved(btn.dataset.save);});
+for(const id of ['results','exploreResults'])$(`#${id}`).addEventListener('click',event=>{const btn=event.target.closest('[data-save]');if(btn)toggleSaved(btn.dataset.save);});
 $('#exploreResults').addEventListener('click',event=>{
   if(event.target.closest('[data-retry-archive]')){bulkArchiveError=false;renderExplore();}
 });

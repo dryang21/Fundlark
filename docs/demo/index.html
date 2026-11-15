@@ -8,9 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="lark.svg">
   <link rel="stylesheet" href="styles.css?v=4.8">
   <link rel="stylesheet" href="clean-ui.css?v=4.9-scope">
-  <link rel="stylesheet" href="mono-theme.css?v=4.10-recommendations">
+  <link rel="stylesheet" href="mono-theme.css?v=4.10-unified-matches">
   <script src="config.js" defer></script>
-  <script type="module" src="demo.js?v=4.10-recommendations"></script>
+  <script type="module" src="demo.js?v=4.10-unified-matches"></script>
 </head>
 <body>
   <a class="skip-link" href="#research-profile">Skip to research profile</a>
@@ -121,16 +121,10 @@
       <p id="dashboardIntro" class="note">Add your research interests above to discover potential funding matches.</p>
       <p id="dashboardStats" class="dashboard-count" aria-live="polite"></p>
       <div class="workspace-tabs" role="group" aria-label="Dashboard view">
-        <button id="dashboardTabMatches" class="workspace-tab" type="button" aria-pressed="true">All matched funding</button>
+        <button id="dashboardTabMatches" class="workspace-tab" type="button" aria-pressed="true">Matches</button>
         <button id="dashboardTabTracker" class="workspace-tab" type="button" aria-pressed="false">My application tracker <span id="trackerTabCount">0</span></button>
       </div>
       <div id="dashboardMatchesPanel" class="dashboard-content">
-        <section id="priorityPanel" class="priority-panel" aria-labelledby="priorityHeading" hidden>
-          <h3 id="priorityHeading">Start with these</h3>
-          <p id="prioritySummary" class="note"></p>
-          <a id="refinePriority" href="#profileRefinements" hidden>Refine your eligibility details</a>
-          <div id="priorityResults" class="funding-list"></div>
-        </section>
         <div class="workspace-filter-box">
           <div class="workspace-filter-head"><h3>Matched opportunities</h3><span id="resultCount" aria-live="polite"></span></div>
           <div class="source-select" aria-label="Filter matched funding by sponsor source"><span>Funding source</span><div id="dashboardSourceChips" class="filter-pills"></div></div>
