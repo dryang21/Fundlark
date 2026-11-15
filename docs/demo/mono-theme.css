@@ -333,3 +333,16 @@ html body .funding-row-facts span{background:var(--fl-accent-soft);color:#3d4b5a
 .request-form #registryStatus{font-size:12px;color:var(--fl-muted)}
 .request-form .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 @media(max-width:700px){.request-form .affiliation-pickers{grid-template-columns:1fr}}
+
+/* v5.4 — early-career positioning: audience line, two starting paths, footer line */
+html body .hero-audience{margin:0 0 14px;font-size:13px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--fl-muted)}
+html body .hero h1{margin-top:0}
+.start-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:806px;margin:18px 0 0}
+.start-path{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border:1px solid #dedede;border-radius:10px;background:#fff;text-decoration:none;color:var(--fl-ink)}
+.start-path strong{font-size:15px}
+.start-path strong::after{content:" →";font-weight:500}
+.start-path span{font-size:14px;color:var(--fl-muted);line-height:1.45}
+.start-path:hover{border-color:#bdbdbd;background:var(--fl-soft)}
+html body footer.shell{align-items:flex-end}
+.footer-line{margin:0 0 4px;font-size:15px;font-weight:600;color:var(--fl-text)}
+@media(max-width:700px){.start-paths{grid-template-columns:1fr}}

@@ -1,6 +1,10 @@
 # Changelog
 
-## v5.3.1 — Color trim and sticky keywords (2026-11-15)
+## v5.4 — Early-career positioning, color trim, sticky keywords (2026-11-15)
+
+- New headline "Find funding that fits your research." with the audience line "For PhD students, postdocs and early-career faculty" and a shorter subtitle.
+- Two starting paths under the search: Explore funding, and Use with my AI assistant. The AI section is renamed "Find funding with your AI assistant".
+- Footer: "Built for researchers, because finding funding is already enough work." plus a one-line reminder to confirm details with the funder.
 
 - Color is used only for the soft status labels and amount/deadline chips. Buttons (including Search), links, selected filters, the tracker, keyword tags and pickers are neutral again; the search box × is black.
 - Clearing the search box (× or deleting the text) keeps its keywords as tags; only "Clear all" resets them.
