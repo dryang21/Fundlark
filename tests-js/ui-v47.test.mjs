@@ -36,7 +36,8 @@ test('search cards make no personalized eligibility claims; details stay one cli
   assert.doesNotMatch(js,/class="eligibility-badge"/);
   assert.doesNotMatch(html,/id="matchSummary"/);
   assert.match(js,/details class="funding-row-details"/);
-  assert.match(html,/does not check whether <em>you<\/em> can apply/);
+  // v5.2: the skill panel explains what personalization adds, without caveat copy on every result.
+  assert.match(html,/checks eligibility/);
 });
 
 test('mentor not yet confirmed is not a definitive ineligibility rule, but confirmed conflict is',()=>{

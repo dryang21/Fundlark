@@ -181,3 +181,93 @@ footer.shell{color:#777;border-color:#e5e5e5}
 .search-summary{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin:6px 0 18px;padding:12px 14px;border:1px solid #e3e3e3;border-radius:9px;background:#fff}
 .search-summary p{margin:0;font-size:12px;color:#4a4a4a;max-width:none;flex:1 1 420px}
 .search-summary strong{color:#1b1b1b;font-weight:650}
+
+/* ===== v5.2 — clean, tight UI: one type scale, one neutral palette ===== */
+:root{--fl-ink:#171717;--fl-text:#2b2b2b;--fl-muted:#5f5f5f;--fl-line:#e3e3e3;--fl-soft:#f4f4f4;--fl-card:#fff}
+body{font-size:15px;line-height:1.55;color:var(--fl-ink)}
+
+/* Type scale: 13 (meta) · 14 (secondary) · 15 (body) · 17 (card titles) */
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fl-muted)}
+.note,.small,small,.snapshot,#exploreCatalogScope,.source-count,#hubCount,#coverageCount,#coverageSummary,footer{font-size:13px;color:var(--fl-muted)}
+.hero-copy>p{font-size:18px;color:var(--fl-muted);margin-bottom:22px}
+.hero-quick-search input{font-size:16px}
+.hero-suggestions{margin-top:14px}
+.hero-suggestions .source-pill,.field-chip,.source-pill{font-size:13px;min-height:34px;padding:6px 12px}
+.hero-profile-link{font-size:14px}
+.hero .snapshot{margin-top:10px}
+.search-summary p{font-size:14px}
+.text-button{font-size:14px}
+.workspace-filters label,.source-filters label,.coverage-filters label,.request-form label,.tracker-toolbar label{font-size:13px;font-weight:650;color:var(--fl-text)}
+.workspace-filters select,.source-filters select,.source-filters input,.coverage-filters select,.coverage-filters input,.tracker-toolbar select{font-size:14px;font-weight:500;color:var(--fl-ink)}
+.explore-result-header{border:0;margin:6px 0 10px;padding:0}
+#exploreResultCount{font-size:14px;font-weight:650;color:var(--fl-text)}
+
+/* Funding cards */
+.funding-row h4{font-size:17px;line-height:1.35}
+.sponsor-name,.status-text{font-size:13px}
+.funding-row-facts span{font-size:13px}
+.grant-highlights li{font-size:14px;line-height:1.55;color:var(--fl-text)}
+.funding-row-details summary{font-size:13px}
+.funding-row-details p{font-size:14px}
+.funding-row-actions a{font-size:14px}
+.save-button{font-size:14px;min-height:38px}
+.save-button[aria-pressed=true]{background:var(--fl-ink);color:#fff;border-color:var(--fl-ink)}
+.pagination-controls button{font-size:14px}
+
+/* Step 2: same neutral palette as the rest of the page */
+.tracker-stats{gap:8px}
+.tracker-state{background:var(--fl-soft);color:var(--fl-muted);font-size:13px;border:1px solid var(--fl-line)}
+.tracker-state strong{color:var(--fl-ink);font-size:22px}
+.tracker-row{border-color:var(--fl-line);background:var(--fl-card)}
+.tracker-row h3{font-size:18px}
+.tracker-row p,.dash-lead-sponsor{font-size:13px;color:var(--fl-muted)}
+.tracker-controls label{font-size:13px;font-weight:650;color:var(--fl-text)}
+.tracker-controls select,.tracker-controls input{font-size:14px;border-color:#d4d4d4;color:var(--fl-ink)}
+.tracker-export{gap:8px}
+.tracker-export .button,.button.secondary{font-size:14px}
+.tracker-empty{font-size:14px;color:var(--fl-muted);background:var(--fl-soft);border:1px dashed #d6d6d6}
+.tracker-count{font-size:14px}
+#trackerCount{font-size:13px;color:var(--fl-muted)}
+.dashboard-panel .section-head{margin-bottom:4px}
+
+/* Step 3 */
+.skill-panel{background:#fff;border-color:var(--fl-line)}
+.skill-panel p{font-size:15px;color:var(--fl-muted)}
+.mode-compare{font-size:14px}
+.mode-compare thead th{font-size:12px}
+.install>h3,.install h3{font-size:16px}
+.install h3 .small{font-weight:500;margin-left:4px}
+.request-form textarea,.request-form input,.request-form select{font-size:15px}
+.skill-command code{font-size:14px}
+.advanced summary{font-size:14px}
+
+/* Directories: match the other panels */
+.hub-card h3{font-size:16px}
+.hub-card p{font-size:14px}
+.hub-kind{font-size:12px}
+.hub-field-tags span{font-size:12px}
+.hub-card a{font-size:14px}
+.coverage-panel{padding:36px}
+.coverage-panel h2{font-size:31px;letter-spacing:-.03em;margin:7px 0 6px}
+.coverage-list li a{font-size:15px}
+.coverage-list li span{font-size:13px}
+.coverage-list details summary{font-size:13px}
+.coverage-filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:14px 0 8px}
+.coverage-filters label{display:flex;flex-direction:column;gap:5px}
+.coverage-filters input,.coverage-filters select{border:1px solid #d0d0d0;border-radius:8px;padding:9px 10px;background:#fff}
+@media(max-width:700px){.coverage-panel{padding:22px 18px}.coverage-filters{grid-template-columns:1fr}.hero-copy>p{font-size:16px}}
+/* v5.2 overrides that must beat older, more specific rules */
+html body .hero .snapshot{font-size:13px;color:var(--fl-muted)}
+html body .hero-quick-search button{font-size:15px;padding:12px 20px}
+html body .funding-row .sponsor-name{font-size:13px;color:var(--fl-muted)}
+html body .funding-row .status-text{font-size:13px;color:var(--fl-muted)}
+html body .funding-row-actions .save-button{font-size:14px;padding:9px 14px}
+html body footer.shell{font-size:13px}
+html body .skill-panel .prompt{border:0;padding:0;background:transparent}
+html body .skill-panel .prompt textarea{font-size:13px}
+html body #copyPrompt{font-size:15px;padding:12px 20px}
+html body .skill-install-actions{font-size:14px}
+html body .tracker-controls .tracker-remove{font-size:14px}
+html body .tracker-row h3{font-size:18px}
+html body .funding-row-actions .save-button[aria-pressed=false]{border-color:#d0d0d0;color:var(--fl-ink);background:#fff}
+html body .funding-row-actions .save-button[aria-pressed=false]:hover{background:var(--fl-soft)}
