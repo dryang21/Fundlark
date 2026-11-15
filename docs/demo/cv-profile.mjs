@@ -6,7 +6,10 @@ const currentHeading = /^(?:(?:current|present) (?:academic |professional |resea
 const employmentHeading = /^(?:(?:academic |professional |research |clinical |industry |industrial |work |faculty |previous |past |selected |chronology of )*(?:appointments?|positions?|employment|experiences?)(?: (?:and|&) (?:employment|affiliations))?|(?:employment|work) (?:history|record)|professorships|positions held)$/i;
 const educationHeading = /^(?:education(?: (?:and|&) (?:training|clinical training))?|academic (?:background|qualifications)|degrees?|(?:clinical |professional )?training)$/i;
 const serviceHeading = /^(?:professional |academic )?service (?:and|&) affiliations$/i;
-const otherHeading = /^(?:(?:selected|professional|academic|refereed|peer.reviewed|invited|conference|journal|research|leadership|current|past|previous)\s+)*(?:publications?|presentations?|honou?rs?|awards?|service|leadership|conferences?|talks?|lectures?|teaching|mentoring|patents?|references?|funding|grants?|fellowships?|certifications?|outreach|activities|contact|biography|languages|skills)\b/i;
+const projectHeading = /^(?:selected |current |ongoing )?(?:research experience|research projects|research work)$/i;
+// This must match the WHOLE heading. A prefix-only match accidentally treated
+// "Teaching Assistant" and "Journal of Applied ..." as section boundaries.
+const otherHeading = /^(?:(?:selected|professional|academic|refereed|peer.reviewed|invited|conference|journal|research|leadership|current|past|previous)\s+)*(?:publications?|presentations?|honou?rs?|awards?|service|leadership|conferences?|talks?|lectures?|teaching|mentoring|patents?|references?|funding|grants?|fellowships?|certifications?|outreach|activities|contact|biography|languages|skills)(?:\s*(?:and|&)\s*(?:fellowships?|awards?|presentations?|affiliations?|activities|skills))?$/i;
 const activeYear = /\b(?:since\s+(?:19|20)\d{2}|(?:19|20)\d{2}\s*(?:[-–—−]\s*(?:to\s+)?|to\s+)(?:the present|present|current|ongoing|today|to date|date|now)\b)/i;
 const openYear = /\b(?:19|20)\d{2}\s*[-–—−](?=\s*(?:[,;]|$|[\p{L}])\s*)/iu;
 const closedDate = /\b(?:19|20)\d{2}\s*(?:[-–—−]|to)\s*(?:(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?|spring|summer|fall|autumn|winter)\.?\s+)?(?:19|20)?\d{2}\b/i;
@@ -32,9 +35,14 @@ const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const normal = value => value.normalize('NFKC').toLowerCase().replace(/[-‐‑–—−\s]+/g,' ').trim();
 
 function sectionOf(label) {
+  // "Journal of Applied Clinical Medical Physics" is a publication venue, not
+  // a new "Journal" section. It used to terminate PROFESSIONAL SERVICE and
+  // silently drop memberships on CVs containing journal-reviewer lists.
+  if (/^(?:journal|conference|research|faculty|professional)\s+(?:of|on|in|for|at)\b/i.test(label))return '';
   if (topicHeading.test(label)) return 'topics';
   if (memberHeading.test(label)) return 'members';
   if (currentHeading.test(label)) return 'current';
+  if (projectHeading.test(label)) return 'projects';
   if (employmentHeading.test(label)) return /^(?:previous|past)\b/i.test(label)?'past':'employment';
   if (educationHeading.test(label)) return 'education';
   if (serviceHeading.test(label)) return 'service';
@@ -69,7 +77,7 @@ export function cvReview(text, sources=[], catalogTopics=[], today=new Date()) {
   const result={topics:[],societies:[],institutions:[],stage:''};
   const evidence={topics:new Map(),societies:new Map(),institutions:new Map(),stage:new Map()};
   const stageScores=new Map();
-  const currentLines=[], researchLines=[];
+  const currentLines=[], researchLines=[], explicitResearchLines=[], projectLines=[];
   const knownSocieties=new Map(SOCIETIES.map(name=>[societyKey(name),name]));
   for(const source of sources.filter(source=>source.kind==='society')){
     const name=source.alias||source.name;
@@ -106,7 +114,9 @@ export function cvReview(text, sources=[], catalogTopics=[], today=new Date()) {
     }
     const line=nextSection?colon[2]:lineWithoutNumber;
     sectionRows++;
-    if(section==='topics'&&sectionRows<=16&&!privateText.test(line)) {
+    if(section==='topics'&&sectionRows<=16&&!privateText.test(line))explicitResearchLines.push(line);
+    if(section==='projects'&&sectionRows<=60&&!privateText.test(line))projectLines.push(line);
+    if((section==='topics'&&sectionRows<=16||section==='projects'&&sectionRows<=60)&&!privateText.test(line)) {
       researchLines.push(line);
     }
     // A publication, a talk, a committee role or an honor does not establish membership.
@@ -200,22 +210,40 @@ export function cvReview(text, sources=[], catalogTopics=[], today=new Date()) {
     if(stage||orgWord.test(line))previousEntry={index,line,stage};
   }
 
-  const generic=new Set(['and','with','for','the','other','research','science','systems','technology','engineering','award','impact','annual','year','conference','program','education','student','paper','best','based','university','meeting','journal','field','work','national','international','medicine']);
+  const generic=new Set(['and','with','for','the','other','research','science','systems','technology','engineering','award','impact','annual','year','conference','program','education','student','paper','best','based','university','meeting','journal','field','work','national','international','medicine','human','using','clinical','scholarship','department']);
   const fields=[...new Set([...sources.flatMap(source=>source.fields||[]),...catalogTopics].map(normal))]
     .filter(term=>term.length>=2&&term.length<=100&&!generic.has(term)&&(term.length>2||['ai','ml','vr','ar'].includes(term)));
   const corpus=normal(body.replace(/\S+@\S+|https?:\/\/\S+/gi,' '));
   const focused=normal(researchLines.join(' ')), current=normal(currentLines.join(' '));
+  // Specific methods are identified from actual research text only. These are
+  // vocabulary patterns, not inferred skills or fabricated CV claims.
+  const priorityPhrases=['foundation model agents','large language model agents','large language model','ai agents',
+    'reinforcement learning','model predictive control','radiotherapy treatment planning',
+    'radiation therapy treatment planning','medical physics','radiotherapy','radiation oncology',
+    'machine learning','artificial intelligence','clinical ai','computer vision','robotics',
+    'climate adaptation','coastal ecology'];
+  if(projectLines.length){
+    for(const phrase of priorityPhrases){
+      const re=new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegex(normal(phrase))}(?![\\p{L}\\p{N}])`,'u');
+      if(re.test(focused)){
+        const excerpt=researchLines.find(line=>re.test(normal(line)))||'';
+        remember('topics',phrase,excerpt);
+      }
+    }
+  }
   const ranked=fields.flatMap(term=>{
     const re=new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegex(term)}(?![\\p{L}\\p{N}])`,'gu');
     const hits=[...corpus.matchAll(re)];
     const inResearch=re.test(focused);
     return hits.length?[{term,re,score:Math.min(hits.length,6)+Number(inResearch)*12+Number(re.test(current))*3+(term.includes(' ')?3:0),first:hits[0].index,focused:inResearch}]:[];
   }).sort((a,b)=>b.score-a.score||a.first-b.first);
-  for(const phrase of researchLines.join('; ').replace(/\b(?:and|or);\s+/ig,'').split(/[,;|•]+/u).map(tidy)){
+  for(const phrase of explicitResearchLines.join('; ').replace(/\b(?:and|or);\s+/ig,'').split(/[,;|•]+/u).map(tidy)){
     if(phrase.split(/\s+/).length<=8&&!generic.has(normal(phrase))&&!/\b(?:references available|curriculum vitae)\b/i.test(phrase))remember('topics',phrase,phrase);
   }
   for(const {term,re,focused:inResearch} of ranked){
     if(result.topics.length>=12||(!inResearch&&result.topics.length>=8))break;
+    if(focused&&!inResearch&&result.topics.length>=5)continue;
+    if(focused&&!term.includes(' ')&&!['ai','robotics','ecology','radiotherapy','oncology','photonics','linguistics','epidemiology'].includes(term))continue;
     if(result.topics.some(topic=>normal(topic).includes(term)))continue;
     const excerpt=(inResearch?researchLines:lines).find(line=>!privateText.test(line)&&re.test(normal(line)));
     remember('topics',term,excerpt||'');

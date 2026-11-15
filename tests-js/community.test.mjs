@@ -43,7 +43,7 @@ async function api(path,body,admin=false,headers={}){
 const submit=(record=opportunity)=>api('/api/contributions',{sharing_consent:true,opportunities:[record]});
 test('real Worker/D1 contribution, review, reuse, privacy and limits',async()=>{
   assert.equal((await api('/api/config')).body.contributions_enabled,true);
-  const homepage=await fetch(origin+'/');assert.equal(homepage.status,200);assert.match(await homepage.text(),/Funding that fits your work/);
+  const homepage=await fetch(origin+'/');assert.equal(homepage.status,200);assert.match(await homepage.text(),/id="heroSearchForm"/);
   assert.equal((await api('/api/admin/contributions')).status,401);
   assert.equal((await api('/api/contributions',{sharing_consent:false,opportunities:[opportunity]})).status,400);
   assert.equal((await api('/api/contributions',{sharing_consent:true,opportunities:[opportunity],profile:'PRIVATE'})).status,400);

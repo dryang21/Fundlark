@@ -323,6 +323,10 @@
       "phd"
     ],
     "faculty_sponsor_possible": false,
+    "eligibility_rules": {
+      "application_route": "direct",
+      "host_regions": ["India"]
+    },
     "url": "https://research.adobe.com/india-ai-research-fellowship/",
     "source_date": "2026-11-14"
   },

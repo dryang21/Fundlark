@@ -1,0 +1,815 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-14",
+  "opportunities": [
+    {
+      "id": "cross:neh-collections-2026",
+      "title": "NEH Collections Stewardship (December 2026)",
+      "funder": "National Endowment for the Humanities",
+      "category": "Government",
+      "field_ids": [
+        "humanities",
+        "arts",
+        "education"
+      ],
+      "url": "https://www.neh.gov/program/collections-stewardship",
+      "deadline": "2026-12-15",
+      "status": "open",
+      "amount": "Up to $350k per organization / $500k consortium",
+      "description": "Preservation and access to physical or digital humanities collections, libraries and archives.",
+      "eligibility": "Applications are submitted by eligible organizations; a researcher needs an eligible institutional applicant.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "humanities",
+        "arts",
+        "education"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Find an eligible museum, archive or university organizational lead; check the current NEH Notice of Funding Opportunity.",
+        "faculty_lead_required": true
+      }
+    },
+    {
+      "id": "cross:neh-endowments-2027",
+      "title": "NEH Endowments for Advancing the Humanities",
+      "funder": "National Endowment for the Humanities",
+      "category": "Government",
+      "field_ids": [
+        "humanities",
+        "education",
+        "arts"
+      ],
+      "url": "https://www.neh.gov/program/endowments-advancing-humanities",
+      "deadline": "2027-01-13",
+      "status": "open",
+      "amount": "Up to $3 million (requires nonfederal match)",
+      "description": "Support for long-term humanities teaching and research infrastructure through organizational endowments.",
+      "eligibility": "Organizational applications with major nonfederal matching-fund requirements; not an individual fellowship.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "humanities",
+        "education",
+        "arts"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Coordinate with university or museum leadership and verify the matching-fund requirement.",
+        "faculty_lead_required": true
+      }
+    },
+    {
+      "id": "cross:nsf-mri-2027",
+      "title": "NSF Major Research Instrumentation (MRI) — January 2027 window",
+      "funder": "U.S. National Science Foundation",
+      "category": "Government",
+      "field_ids": [
+        "engineering",
+        "physical",
+        "computing",
+        "life",
+        "math",
+        "climate"
+      ],
+      "url": "https://www.nsf.gov/funding/opportunities/mri-major-research-instrumentation-program",
+      "deadline": "2027-01-29",
+      "status": "forecast",
+      "amount": "Depends on equipment proposal",
+      "description": "Acquisition or development of major research instrumentation for scientific and engineering research.",
+      "eligibility": "Eligible U.S. institutions and some research organizations submit on behalf of research teams; window opens January 4, 2027.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "engineering",
+        "physical",
+        "computing",
+        "life",
+        "math",
+        "climate"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Identify an institution-authorized proposal team and equipment needs, then check NSF 27-500.",
+        "faculty_lead_required": true
+      }
+    },
+    {
+      "id": "cross:dfg-walter-benjamin",
+      "title": "DFG Walter Benjamin Programme",
+      "funder": "German Research Foundation (DFG)",
+      "category": "Government",
+      "field_ids": [
+        "physical",
+        "life",
+        "medicine",
+        "engineering",
+        "computing",
+        "math",
+        "social",
+        "humanities",
+        "arts"
+      ],
+      "url": "https://www.dfg.de/en/research-funding/funding-opportunities/programmes/individual/walter-benjamin",
+      "deadline": null,
+      "status": "rolling",
+      "amount": "Postdoctoral research position/fellowship; location-dependent",
+      "description": "Postdoctoral qualification-stage research position or fellowship in Germany or abroad, with host support.",
+      "eligibility": "Early-phase postdocs only. Special German academic-system integration restrictions apply to fellowships outside Germany.",
+      "eligible_stages": [
+        "postdoc"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "physical",
+        "life",
+        "medicine",
+        "engineering",
+        "computing",
+        "math",
+        "social",
+        "humanities",
+        "arts"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Verify early-postdoc status and German academic-system rules; secure host acceptance.",
+        "mentor_required": true
+      }
+    },
+    {
+      "id": "cross:dfg-individual-grants",
+      "title": "DFG Individual Research Grants",
+      "funder": "German Research Foundation (DFG)",
+      "category": "Government",
+      "field_ids": [
+        "physical",
+        "life",
+        "medicine",
+        "engineering",
+        "computing",
+        "math",
+        "social",
+        "humanities",
+        "arts",
+        "climate"
+      ],
+      "url": "https://www.dfg.de/en/research-funding/funding-opportunities/programmes/individual/research-grants",
+      "deadline": null,
+      "status": "rolling",
+      "amount": "Project-specific",
+      "description": "Supports defined original research projects by qualified researchers in all disciplines.",
+      "eligibility": "As a rule doctorate holders working at German research institutions; commercial-only institutions excluded.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "physical",
+        "life",
+        "medicine",
+        "engineering",
+        "computing",
+        "math",
+        "social",
+        "humanities",
+        "arts",
+        "climate"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Confirm qualified investigator status and German host institution requirements.",
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:spencer-small",
+      "title": "Spencer Foundation Small Research Grants on Education",
+      "funder": "Spencer Foundation",
+      "category": "Foundation",
+      "field_ids": [
+        "education",
+        "social",
+        "humanities"
+      ],
+      "url": "https://www.spencer.org/grant_types/small-research-grant",
+      "deadline": null,
+      "status": "verify",
+      "amount": "Up to $50,000",
+      "description": "Field-initiated research on education and learning across settings; two competitions per year.",
+      "eligibility": "Investigators must satisfy current proposal and institutional criteria; current submission window not confirmed.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "education",
+        "social",
+        "humanities"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Verify the next published application cycle, PI rules, and eligible applicant institution."
+      }
+    },
+    {
+      "id": "cross:ukri-mrc-iaa",
+      "title": "UKRI/MRC Impact Acceleration Award — Translation",
+      "funder": "UK Research and Innovation",
+      "category": "Government",
+      "field_ids": [
+        "medicine"
+      ],
+      "url": "https://www.ukri.org/opportunity/ukri-translation-mrc-impact-acceleration-awards/",
+      "deadline": "2027-03-10",
+      "status": "open",
+      "amount": "£50,000–£300,000",
+      "description": "Translation award to de-risk a medical product, diagnostic, device or therapy.",
+      "eligibility": "Requires an eligible UK research organization and translation-specific scope.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "medical product development",
+        "diagnostics",
+        "medical devices",
+        "translational medicine",
+        "radiotherapy",
+        "medical imaging"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Find an eligible UK MRC host and inspect the program-specific call and closing time.",
+        "faculty_lead_required": true,
+        "host_regions": [
+          "United Kingdom"
+        ]
+      },
+      "scope_requires_topic_match": true
+    },
+    {
+      "id": "cross:usda-hsi-edu",
+      "title": "USDA NIFA Hispanic-Serving Institutions Education Grants",
+      "funder": "USDA NIFA",
+      "category": "Government",
+      "field_ids": [
+        "agriculture",
+        "education",
+        "life"
+      ],
+      "url": "https://www.nifa.usda.gov/grants/funding-opportunities/hispanic-serving-institutions-education-grants-program",
+      "deadline": "2026-12-03",
+      "status": "open",
+      "amount": "See official NOFO",
+      "description": "Strengthens eligible Hispanic-Serving Institutions through teaching, applied research and related programs.",
+      "eligibility": "Only eligible U.S. Hispanic-serving institutions may apply. Confirm the institution’s designation under the official call.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "agriculture",
+        "education",
+        "life"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Confirm that your institution is an eligible HSI and review current NIFA NOFO.",
+        "faculty_lead_required": true,
+        "current_host_regions": [
+          "United States",
+          "Puerto Rico",
+          "Guam",
+          "U.S. Virgin Islands",
+          "American Samoa",
+          "Northern Mariana Islands"
+        ]
+      }
+    },
+    {
+      "id": "cross:erc-consolidator-2027",
+      "title": "ERC Consolidator Grant 2027",
+      "funder": "European Research Council",
+      "category": "Government",
+      "field_ids": [
+        "physical",
+        "life",
+        "medicine",
+        "engineering",
+        "computing",
+        "math",
+        "social",
+        "humanities",
+        "arts",
+        "climate"
+      ],
+      "url": "https://erc.europa.eu/apply-grant/consolidator-grant",
+      "deadline": "2027-01-12",
+      "status": "open",
+      "amount": "See 2027 work programme",
+      "description": "Independent frontier research across disciplines with an eligible host in the EU or associated countries.",
+      "eligibility": "Principal investigators typically 5–15 years since PhD, with eligible extensions; host eligibility and time commitments apply.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "physical",
+        "life",
+        "medicine",
+        "engineering",
+        "computing",
+        "math",
+        "social",
+        "humanities",
+        "arts",
+        "climate"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Confirm 5–15 years after PhD and secure an eligible European host; check extensions and current call.",
+        "minimum_years_since_phd": 5,
+        "max_years_since_phd": 15,
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:nsf-eng-cbet",
+      "title": "NSF Engineering Core Research: CBET",
+      "funder": "U.S. National Science Foundation",
+      "category": "Government",
+      "field_ids": [
+        "engineering",
+        "physical",
+        "medicine",
+        "climate"
+      ],
+      "url": "https://www.nsf.gov/eng",
+      "deadline": null,
+      "status": "rolling",
+      "amount": "Solicitation-specific",
+      "description": "Core engineering proposals in chemical, bioengineering, energy and transport systems, generally accepted at any time.",
+      "eligibility": "Institutional proposal under NSF core programs; specific call, budget and PI requirements must be confirmed.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "engineering",
+        "physical",
+        "medicine",
+        "climate"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Use NSF Engineering directorate to open the CBET solicitation and verify applicant rules.",
+        "faculty_lead_required": true
+      }
+    },
+    {
+      "id": "cross:arc-discovery",
+      "title": "ARC Discovery Projects — 2028 commencement (forecast)",
+      "funder": "Australian Research Council",
+      "category": "Government",
+      "field_ids": [
+        "physical",
+        "engineering",
+        "computing",
+        "math",
+        "humanities",
+        "social",
+        "life",
+        "arts",
+        "climate"
+      ],
+      "url": "https://www.arc.gov.au/funding-research/applying-grant/discovery/discovery-projects",
+      "deadline": null,
+      "status": "verify",
+      "amount": "A$30,000–A$500,000 per year, up to 5 years",
+      "description": "Australian fundamental and applied research across non-medical disciplines, supporting projects and teams.",
+      "eligibility": "Eligible Australian research institutions submit; 2028 programme uses updated rules. This listing is not confirmation of a currently open call.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "physical",
+        "engineering",
+        "computing",
+        "math",
+        "humanities",
+        "social",
+        "life",
+        "arts",
+        "climate"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Check 2028 ARC guidelines and your institution eligibility; ARC Discovery excludes clinical/medical research.",
+        "faculty_lead_required": true
+      }
+    },
+    {
+      "id": "cross:uk-ahrc-catalyst-2026",
+      "title": "AHRC Catalyst Awards — Emerging Research Leaders",
+      "funder": "Arts and Humanities Research Council (UKRI)",
+      "category": "Government",
+      "field_ids": [
+        "humanities",
+        "arts",
+        "social",
+        "education"
+      ],
+      "url": "https://www.ukri.org/opportunity/ahrc-catalyst-awards-applicant-led-mode/",
+      "deadline": null,
+      "status": "rolling",
+      "amount": "£100,000–£300,000 full economic cost",
+      "description": "Applicant-led research support for researchers without experience of leading a significant project.",
+      "eligibility": "Applicant must be based at an organization eligible for AHRC funding in the UK. Career and team details require checking.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "humanities",
+        "arts",
+        "social",
+        "education"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Confirm UK eligible host, project-lead criteria and 80% FEC funding conditions.",
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:uk-ahrc-standard-2026",
+      "title": "AHRC Standard Research Grant — Applicant-Led",
+      "funder": "Arts and Humanities Research Council (UKRI)",
+      "category": "Government",
+      "field_ids": [
+        "humanities",
+        "arts",
+        "social",
+        "education"
+      ],
+      "url": "https://www.ukri.org/opportunity/ahrc-responsive-mode-standard-research-grant/",
+      "deadline": null,
+      "status": "rolling",
+      "amount": "£300,000–£1,500,000 full economic cost",
+      "description": "Larger collaborative humanities, arts and interdisciplinary research projects, with at least two team leads.",
+      "eligibility": "Project lead at UK AHRC-eligible research institution; international co-leads allowed under rules.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "humanities",
+        "arts",
+        "social",
+        "education"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Find UK institutional project lead and qualified co-lead; verify research scope and FEC conditions.",
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:uk-ahrc-ips-2027",
+      "title": "AHRC International Placement Scheme 2027",
+      "funder": "Arts and Humanities Research Council (UKRI)",
+      "category": "Government",
+      "field_ids": [
+        "humanities",
+        "arts",
+        "social"
+      ],
+      "url": "https://www.ukri.org/opportunity/international-placement-scheme-2027/",
+      "deadline": "2027-03-09",
+      "status": "open",
+      "amount": "£2,070–£18,500",
+      "description": "Two- to five-month international research placements at participating archives, libraries and research institutions.",
+      "eligibility": "AHRC-supported doctoral researchers and other specified UK early-career applicants; check precise current eligibility.",
+      "eligible_stages": [
+        "phd",
+        "postdoc",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "humanities",
+        "arts",
+        "social"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Check AHRC funding history or UK institutional eligibility and approved placement host.",
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:neh-fellowships-2027",
+      "title": "NEH Fellowships — 2027 Competition",
+      "funder": "National Endowment for the Humanities",
+      "category": "Government",
+      "field_ids": [
+        "humanities",
+        "arts",
+        "social"
+      ],
+      "url": "https://www.neh.gov/grants/research/fellowships",
+      "deadline": "2027-04-14",
+      "status": "forecast",
+      "amount": "Up to $60,000",
+      "description": "Fellowships paid to individual humanities scholars; 2027 application access is scheduled for January 15.",
+      "eligibility": "Historical 2026 subject restrictions may differ from 2027. Verify scope and individual eligibility when application opens.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "humanities",
+        "arts",
+        "social"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Recheck 2027 NEH guidelines on January 15; do not assume every humanities topic is eligible."
+      },
+      "opens_on": "2027-01-15"
+    },
+    {
+      "id": "cross:ba-ecr-seed-2026",
+      "title": "British Academy ECR Network Seed Fund 2026–27",
+      "funder": "British Academy",
+      "category": "Society",
+      "field_ids": [
+        "humanities",
+        "social",
+        "education",
+        "arts"
+      ],
+      "url": "https://www.thebritishacademy.ac.uk/funding/schemes/british-academy-early-career-researcher-network-seed-fund/",
+      "deadline": "2026-11-18",
+      "status": "open",
+      "amount": "Small seed funding; see member guidelines",
+      "description": "Nine-month ECR-led network seed projects, only for qualifying British Academy ECR Network members.",
+      "eligibility": "Both lead and co-applicant must be eligible British Academy ECRN members, have attended three events and meet prior funding cap.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "humanities",
+        "social",
+        "education",
+        "arts"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Confirm ECRN membership, event history and total grant awards in preceding two years.",
+        "membership_required": [
+          "British Academy ECRN"
+        ]
+      }
+    },
+    {
+      "id": "cross:br-fapesp-yig-international-2026",
+      "title": "FAPESP Young Investigator Grant for International Researchers",
+      "funder": "São Paulo Research Foundation (FAPESP)",
+      "category": "Foundation",
+      "field_ids": [
+        "medicine",
+        "life",
+        "engineering",
+        "computing",
+        "climate",
+        "physical",
+        "agriculture",
+        "social"
+      ],
+      "url": "https://fapesp.br/en/18389/call-for-proposals-fapesp-young-investigator-grant-for-international-researchers",
+      "deadline": "2026-11-19",
+      "status": "open",
+      "amount": "Up to 60 months; see official rules",
+      "description": "International young investigators starting independent research in São Paulo in selected strategic areas.",
+      "eligibility": "Must currently live abroad and have lived and worked outside Brazil for at least two years after PhD; future São Paulo host needed.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "medicine",
+        "life",
+        "engineering",
+        "computing",
+        "climate",
+        "physical",
+        "agriculture",
+        "social"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Confirm post-PhD work abroad, a São Paulo host and fit to one of the seven strategic research themes.",
+        "minimum_years_since_phd": 2,
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:nsf-eri-2027",
+      "title": "NSF Engineering Research Initiation (ERI) 2027",
+      "funder": "U.S. National Science Foundation",
+      "category": "Government",
+      "field_ids": [
+        "engineering",
+        "physical",
+        "computing",
+        "climate"
+      ],
+      "url": "https://www.nsf.gov/funding/opportunities/eri-engineering-research-initiation",
+      "deadline": "2027-09-16",
+      "status": "forecast",
+      "amount": "Up to $200,000 over 24 months",
+      "description": "Engineering research initiation awards for faculty investigators at qualifying U.S. non-R1 institutions.",
+      "eligibility": "PI must meet early federal funding thresholds and non-R1 U.S. institution restriction; R1 faculty are not eligible.",
+      "eligible_stages": [
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": true,
+      "funding_type": "Research grant",
+      "topics": [
+        "engineering",
+        "physical",
+        "computing",
+        "climate"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "partner",
+        "next_step": "Confirm non-R1 institution status, doctoral qualification and prior federal PI funding history.",
+        "faculty_lead_required": true,
+        "institution_required": true
+      }
+    },
+    {
+      "id": "cross:neh-japan-fellowship-2027",
+      "title": "NEH Fellowships for Advanced Social Science Research on Japan — 2027",
+      "funder": "National Endowment for the Humanities",
+      "category": "Government",
+      "field_ids": [
+        "social",
+        "humanities",
+        "education"
+      ],
+      "url": "https://www.neh.gov/grants/research/fellowships-advanced-social-science-research-japan",
+      "deadline": "2027-04-14",
+      "status": "forecast",
+      "amount": "Up to $60,000",
+      "description": "Individual scholar fellowships for advanced social-science research on Japan; opens January 15, 2027.",
+      "eligibility": "Specialized Japan social sciences; verify scholar and subject eligibility in published 2027 program guidance.",
+      "eligible_stages": [
+        "postdoc",
+        "faculty",
+        "staff"
+      ],
+      "faculty_sponsor_possible": false,
+      "funding_type": "Research support",
+      "topics": [
+        "social",
+        "humanities",
+        "education"
+      ],
+      "origin": "curated",
+      "source_date": "2026-11-14",
+      "last_verified_at": "2026-11-14",
+      "review_needed": false,
+      "eligibility_rules": {
+        "application_route": "check",
+        "next_step": "Check topic and nationality/institution requirements when 2027 call opens."
+      },
+      "opens_on": "2027-01-15"
+    }
+  ],
+  "limitations": "Curated sample of official 2026–27 program pages across fields. Not exhaustive. No sponsor eligibility approval or continuous monitoring is implied."
+}

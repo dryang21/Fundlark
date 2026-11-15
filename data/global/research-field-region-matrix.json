@@ -1,0 +1,1403 @@
+{
+  "schema_version": 1,
+  "source": "program-registry global seed only",
+  "fields": [
+    "Computing and AI",
+    "Medicine and health",
+    "Life sciences",
+    "Engineering",
+    "Physics/chemistry/materials",
+    "Climate and earth",
+    "Mathematics/statistics",
+    "Social sciences",
+    "Humanities",
+    "Education",
+    "Agriculture",
+    "Arts and design",
+    "Business/law/policy"
+  ],
+  "regions": [
+    "Australia",
+    "Canada",
+    "China",
+    "European Union",
+    "Germany",
+    "Hong Kong",
+    "India",
+    "International",
+    "Japan",
+    "New Zealand",
+    "Singapore",
+    "South Korea",
+    "United Kingdom",
+    "United States",
+    "United States/Canada"
+  ],
+  "matrix": [
+    {
+      "region": "Australia",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Medicine and health",
+      "program_family_records": 16,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Climate and earth",
+      "program_family_records": 1,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Australia",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Canada",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "China",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "European Union",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Germany",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Computing and AI",
+      "program_family_records": 9,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Engineering",
+      "program_family_records": 9,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Hong Kong",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Computing and AI",
+      "program_family_records": 1,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "India",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Computing and AI",
+      "program_family_records": 14,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Medicine and health",
+      "program_family_records": 12,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Life sciences",
+      "program_family_records": 11,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Engineering",
+      "program_family_records": 3,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 6,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Climate and earth",
+      "program_family_records": 5,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Social sciences",
+      "program_family_records": 6,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Humanities",
+      "program_family_records": 3,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Education",
+      "program_family_records": 1,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "International",
+      "field": "Business/law/policy",
+      "program_family_records": 3,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Japan",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "New Zealand",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Computing and AI",
+      "program_family_records": 1,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Medicine and health",
+      "program_family_records": 11,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Engineering",
+      "program_family_records": 5,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "Singapore",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Engineering",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "South Korea",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Computing and AI",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Life sciences",
+      "program_family_records": 11,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Engineering",
+      "program_family_records": 11,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 11,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United Kingdom",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Computing and AI",
+      "program_family_records": 10,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Medicine and health",
+      "program_family_records": 10,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Life sciences",
+      "program_family_records": 10,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Engineering",
+      "program_family_records": 7,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 14,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Mathematics/statistics",
+      "program_family_records": 13,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Social sciences",
+      "program_family_records": 13,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Humanities",
+      "program_family_records": 6,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Education",
+      "program_family_records": 4,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States",
+      "field": "Business/law/policy",
+      "program_family_records": 3,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Computing and AI",
+      "program_family_records": 1,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Medicine and health",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Life sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Engineering",
+      "program_family_records": 1,
+      "uncovered_in_curated_global_seed": false,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Physics/chemistry/materials",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Climate and earth",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Mathematics/statistics",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Social sciences",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Humanities",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Education",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Agriculture",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Arts and design",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    },
+    {
+      "region": "United States/Canada",
+      "field": "Business/law/policy",
+      "program_family_records": 0,
+      "uncovered_in_curated_global_seed": true,
+      "status_note": "Zero means no curated topical program record, not no funding exists."
+    }
+  ]
+}

@@ -1,0 +1,1836 @@
+{
+  "schema_version": 1,
+  "description": "Discovery targets only. These are NOT indexed funding opportunities or verified sponsors of current calls.",
+  "entries": [
+    {
+      "name": "Stanford University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Harvard University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Massachusetts Institute of Technology",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of California Berkeley",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of California Los Angeles",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of California San Diego",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of California San Francisco",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "California Institute of Technology",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Princeton University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Yale University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Columbia University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Pennsylvania",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Cornell University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Duke University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Northwestern University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Chicago",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Washington",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Michigan",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Johns Hopkins University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Georgia Institute of Technology",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Texas at Austin",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Rice University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Brown University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "New York University",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Wisconsin Madison",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of North Carolina Chapel Hill",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of California Davis",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Illinois Urbana-Champaign",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Maryland",
+      "country_or_region": "United States",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Oxford",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Cambridge",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Imperial College London",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University College London",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "King’s College London",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Edinburgh",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Manchester",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Bristol",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Warwick",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Glasgow",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Birmingham",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Southampton",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Leeds",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Sheffield",
+      "country_or_region": "United Kingdom",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Toronto",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of British Columbia",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "McGill University",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Waterloo",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Alberta",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "McMaster University",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Université de Montréal",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Ottawa",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Calgary",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Queen’s University",
+      "country_or_region": "Canada",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Melbourne",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Sydney",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Australian National University",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "UNSW Sydney",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Monash University",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Queensland",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Adelaide",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Western Australia",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Technology Sydney",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "RMIT University",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Macquarie University",
+      "country_or_region": "Australia",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Auckland",
+      "country_or_region": "New Zealand",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Otago",
+      "country_or_region": "New Zealand",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Victoria University of Wellington",
+      "country_or_region": "New Zealand",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Canterbury",
+      "country_or_region": "New Zealand",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Hong Kong",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Chinese University of Hong Kong",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Hong Kong University of Science and Technology",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "City University of Hong Kong",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Hong Kong Polytechnic University",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Hong Kong Baptist University",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Lingnan University",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Education University of Hong Kong",
+      "country_or_region": "Hong Kong",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "National University of Singapore",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Nanyang Technological University",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Singapore Management University",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Singapore University of Technology and Design",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Singapore Institute of Technology",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Duke-NUS Medical School",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "A*STAR research institutes",
+      "country_or_region": "Singapore",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Tsinghua University",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Peking University",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Fudan University",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Shanghai Jiao Tong University",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Zhejiang University",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Science and Technology of China",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Nanjing University",
+      "country_or_region": "China",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Tokyo",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Kyoto University",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Osaka University",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Tohoku University",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Tokyo Institute of Science",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Nagoya University",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "RIKEN research centers",
+      "country_or_region": "Japan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Seoul National University",
+      "country_or_region": "South Korea",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "KAIST",
+      "country_or_region": "South Korea",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "POSTECH",
+      "country_or_region": "South Korea",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Yonsei University",
+      "country_or_region": "South Korea",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Korea University",
+      "country_or_region": "South Korea",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "National Taiwan University",
+      "country_or_region": "Taiwan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "National Tsing Hua University",
+      "country_or_region": "Taiwan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "National Yang Ming Chiao Tung University",
+      "country_or_region": "Taiwan",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Indian Institute of Science",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "IIT Bombay",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "IIT Delhi",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "IIT Madras",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "IIT Kanpur",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "IIT Kharagpur",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Delhi",
+      "country_or_region": "India",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Technical University of Munich",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Ludwig Maximilian University of Munich",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Heidelberg University",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "RWTH Aachen University",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Humboldt University of Berlin",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Freie Universität Berlin",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Freiburg",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Bonn",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Göttingen",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Max Planck institutes",
+      "country_or_region": "Germany",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "PSL University",
+      "country_or_region": "France",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Sorbonne University",
+      "country_or_region": "France",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Université Paris-Saclay",
+      "country_or_region": "France",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "École Polytechnique",
+      "country_or_region": "France",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Sciences Po",
+      "country_or_region": "France",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "CNRS research institutes",
+      "country_or_region": "France",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Delft University of Technology",
+      "country_or_region": "Netherlands",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Amsterdam",
+      "country_or_region": "Netherlands",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Leiden University",
+      "country_or_region": "Netherlands",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Utrecht University",
+      "country_or_region": "Netherlands",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Wageningen University & Research",
+      "country_or_region": "Netherlands",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Erasmus University Rotterdam",
+      "country_or_region": "Netherlands",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "ETH Zurich",
+      "country_or_region": "Switzerland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "École Polytechnique Fédérale de Lausanne",
+      "country_or_region": "Switzerland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Zurich",
+      "country_or_region": "Switzerland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Geneva",
+      "country_or_region": "Switzerland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Basel",
+      "country_or_region": "Switzerland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Karolinska Institutet",
+      "country_or_region": "Sweden",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "KTH Royal Institute of Technology",
+      "country_or_region": "Sweden",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Lund University",
+      "country_or_region": "Sweden",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Uppsala University",
+      "country_or_region": "Sweden",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Chalmers University of Technology",
+      "country_or_region": "Sweden",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Copenhagen",
+      "country_or_region": "Denmark",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Technical University of Denmark",
+      "country_or_region": "Denmark",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Aarhus University",
+      "country_or_region": "Denmark",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Oslo",
+      "country_or_region": "Norway",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Norwegian University of Science and Technology",
+      "country_or_region": "Norway",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Bergen",
+      "country_or_region": "Norway",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Helsinki",
+      "country_or_region": "Finland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Aalto University",
+      "country_or_region": "Finland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Turku",
+      "country_or_region": "Finland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Vienna",
+      "country_or_region": "Austria",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Vienna University of Technology",
+      "country_or_region": "Austria",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Medical University of Vienna",
+      "country_or_region": "Austria",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "KU Leuven",
+      "country_or_region": "Belgium",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Ghent University",
+      "country_or_region": "Belgium",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Université catholique de Louvain",
+      "country_or_region": "Belgium",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Bologna",
+      "country_or_region": "Italy",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Politecnico di Milano",
+      "country_or_region": "Italy",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Sapienza University of Rome",
+      "country_or_region": "Italy",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Scuola Normale Superiore",
+      "country_or_region": "Italy",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Barcelona",
+      "country_or_region": "Spain",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Autonomous University of Barcelona",
+      "country_or_region": "Spain",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Complutense University of Madrid",
+      "country_or_region": "Spain",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Polytechnic University of Madrid",
+      "country_or_region": "Spain",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Trinity College Dublin",
+      "country_or_region": "Ireland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University College Dublin",
+      "country_or_region": "Ireland",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of São Paulo",
+      "country_or_region": "Brazil",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Campinas",
+      "country_or_region": "Brazil",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Federal University of Rio de Janeiro",
+      "country_or_region": "Brazil",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of Cape Town",
+      "country_or_region": "South Africa",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "University of the Witwatersrand",
+      "country_or_region": "South Africa",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Stellenbosch University",
+      "country_or_region": "South Africa",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Hebrew University of Jerusalem",
+      "country_or_region": "Israel",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Technion – Israel Institute of Technology",
+      "country_or_region": "Israel",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Weizmann Institute of Science",
+      "country_or_region": "Israel",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Tel Aviv University",
+      "country_or_region": "Israel",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Khalifa University",
+      "country_or_region": "United Arab Emirates",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "Mohamed bin Zayed University of Artificial Intelligence",
+      "country_or_region": "United Arab Emirates",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    },
+    {
+      "name": "New York University Abu Dhabi",
+      "country_or_region": "United Arab Emirates",
+      "type": "university_or_research_institution",
+      "discovery_status": "not_yet_verified",
+      "internal_opportunities_indexed": false,
+      "next_action": "Find official university research office internal grants, student funding, seed schemes and foundation relations pages; confirm whether a campus login is required.",
+      "official_funding_page": null,
+      "specific_programs": []
+    }
+  ]
+}

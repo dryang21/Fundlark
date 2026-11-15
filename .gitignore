@@ -18,3 +18,8 @@ node_modules/
 
 docs/demo/cv-assets/
 /cv/
+
+# Generated local databases
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

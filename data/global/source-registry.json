@@ -1,0 +1,3163 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-14",
+  "sources": [
+    {
+      "id": "global-source:us-grants-gov",
+      "name": "US Grants.gov",
+      "url": "https://www.grants.gov/search-grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "daily",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "Official cross-agency posted and forecast opportunities. Public API search2.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-national-science-foundation",
+      "name": "US National Science Foundation",
+      "url": "https://www.nsf.gov/funding/opportunities",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "natural sciences",
+        "engineering",
+        "computer science",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-national-endowment-for-the-humanities",
+      "name": "US National Endowment for the Humanities",
+      "url": "https://www.neh.gov/grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "humanities",
+        "history",
+        "linguistics",
+        "arts"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-national-endowment-for-the-arts",
+      "name": "US National Endowment for the Arts",
+      "url": "https://www.arts.gov/grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "arts",
+        "design",
+        "creative industries"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-department-of-energy-office-of-science",
+      "name": "US Department of Energy Office of Science",
+      "url": "https://science.osti.gov/grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "energy",
+        "physics",
+        "chemistry",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-nasa-nspires",
+      "name": "US NASA NSPIRES",
+      "url": "https://nspires.nasaprs.com/external/",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "space science",
+        "earth science",
+        "physics",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-usda-nifa",
+      "name": "US USDA NIFA",
+      "url": "https://www.nifa.usda.gov/grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "agriculture",
+        "food science",
+        "environment"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-dod-cdmrp",
+      "name": "US DoD CDMRP",
+      "url": "https://cdmrp.health.mil/funding/",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "biomedicine",
+        "cancer research",
+        "health"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-small-business-innovation-research",
+      "name": "US Small Business Innovation Research",
+      "url": "https://www.sbir.gov/",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "technology",
+        "entrepreneurship"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-noaa",
+      "name": "US NOAA",
+      "url": "https://www.noaa.gov/office-education/grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "oceanography",
+        "climate science",
+        "education"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:us-nih-explore-funding",
+      "name": "US NIH Explore Funding",
+      "url": "https://grants.nih.gov/funding",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "medicine",
+        "biomedical research"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "As of FY2026 NIH NOFOs are published at Grants.gov; do not ingest old NIH Guide RSS as new active opportunities.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:eu-funding-tenders",
+      "name": "EU Funding & Tenders",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "daily",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "Public opportunities API documented on official support/apis page.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:european-research-council",
+      "name": "European Research Council",
+      "url": "https://erc.europa.eu/apply-grant",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:marie-sk-odowska-curie-actions",
+      "name": "Marie Skłodowska-Curie Actions",
+      "url": "https://marie-sklodowska-curie-actions.ec.europa.eu/funding",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:european-research-executive-agency",
+      "name": "European Research Executive Agency",
+      "url": "https://rea.ec.europa.eu/funding-and-grants_en",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:european-innovation-council",
+      "name": "European Innovation Council",
+      "url": "https://eic.ec.europa.eu/eic-funding-opportunities_en",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "innovation",
+        "engineering",
+        "entrepreneurship"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:cost-european-cooperation-in-science-and-technology",
+      "name": "COST European Cooperation in Science and Technology",
+      "url": "https://www.cost.eu/funding/",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "interdisciplinary research",
+        "international collaboration"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:euraxess-jobs-and-funding",
+      "name": "EURAXESS Jobs and Funding",
+      "url": "https://euraxess.ec.europa.eu/jobs/funding",
+      "region": "European Union",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:ukri-funding-finder",
+      "name": "UKRI Funding Finder",
+      "url": "https://www.ukri.org/opportunity/",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "daily",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "Central funding listings for UK research councils.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:uk-research-fellowships",
+      "name": "UK Research Fellowships",
+      "url": "https://www.ukri.org/apply-for-funding/our-fellowship-opportunities/",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nihr-uk-funding",
+      "name": "NIHR UK Funding",
+      "url": "https://www.nihr.ac.uk/research-funding",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "clinical research"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:royal-society-uk",
+      "name": "Royal Society UK",
+      "url": "https://www.royalsociety.org/grants/search/grant-listings/",
+      "region": "United Kingdom",
+      "kind": "Society",
+      "fields": [
+        "natural sciences",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:royal-academy-of-engineering-uk",
+      "name": "Royal Academy of Engineering UK",
+      "url": "https://raeng.org.uk/programmes-and-prizes/programmes",
+      "region": "United Kingdom",
+      "kind": "Society",
+      "fields": [
+        "engineering",
+        "technology"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:british-academy-uk",
+      "name": "British Academy UK",
+      "url": "https://www.thebritishacademy.ac.uk/funding/",
+      "region": "United Kingdom",
+      "kind": "Society",
+      "fields": [
+        "humanities",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:wellcome-research-funding",
+      "name": "Wellcome Research Funding",
+      "url": "https://wellcome.org/research-funding/schemes",
+      "region": "United Kingdom",
+      "kind": "Foundation",
+      "fields": [
+        "health sciences",
+        "biomedical research",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:leverhulme-trust",
+      "name": "Leverhulme Trust",
+      "url": "https://www.leverhulme.ac.uk/funding",
+      "region": "United Kingdom",
+      "kind": "Foundation",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nuffield-foundation",
+      "name": "Nuffield Foundation",
+      "url": "https://www.nuffieldfoundation.org/funding",
+      "region": "United Kingdom",
+      "kind": "Foundation",
+      "fields": [
+        "education",
+        "social science",
+        "policy"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:cancer-research-uk",
+      "name": "Cancer Research UK",
+      "url": "https://www.cancerresearchuk.org/funding-for-researchers",
+      "region": "United Kingdom",
+      "kind": "Foundation",
+      "fields": [
+        "cancer research",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:dfg-germany",
+      "name": "DFG Germany",
+      "url": "https://www.dfg.de/en/research-funding/funding-opportunities/programmes",
+      "region": "Germany",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:daad-germany",
+      "name": "DAAD Germany",
+      "url": "https://www.daad.de/en/studying-in-germany/scholarships/",
+      "region": "Germany",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:alexander-von-humboldt-foundation",
+      "name": "Alexander von Humboldt Foundation",
+      "url": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes",
+      "region": "Germany",
+      "kind": "Foundation",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:anr-france",
+      "name": "ANR France",
+      "url": "https://anr.fr/en/call-for-proposals/",
+      "region": "France",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:cnrs-france",
+      "name": "CNRS France",
+      "url": "https://www.cnrs.fr/en",
+      "region": "France",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nwo-netherlands",
+      "name": "NWO Netherlands",
+      "url": "https://www.nwo.nl/en/calls",
+      "region": "Netherlands",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:zonmw-netherlands",
+      "name": "ZonMw Netherlands",
+      "url": "https://www.zonmw.nl/en/subsidies",
+      "region": "Netherlands",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:snsf-switzerland",
+      "name": "SNSF Switzerland",
+      "url": "https://www.snf.ch/en",
+      "region": "Switzerland",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:swedish-research-council",
+      "name": "Swedish Research Council",
+      "url": "https://www.vr.se/english/applying-for-funding/calls-and-decisions.html",
+      "region": "Sweden",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:formas-sweden",
+      "name": "Formas Sweden",
+      "url": "https://formas.se/en/start-page/apply-for-funding.html",
+      "region": "Sweden",
+      "kind": "Government",
+      "fields": [
+        "climate science",
+        "environment",
+        "agriculture"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:forte-sweden",
+      "name": "Forte Sweden",
+      "url": "https://forte.se/en/funding/",
+      "region": "Sweden",
+      "kind": "Government",
+      "fields": [
+        "social science",
+        "public health"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:research-council-of-norway",
+      "name": "Research Council of Norway",
+      "url": "https://www.forskningsradet.no/en/apply-for-funding/",
+      "region": "Norway",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:innovation-fund-denmark",
+      "name": "Innovation Fund Denmark",
+      "url": "https://innovationsfonden.dk/en",
+      "region": "Denmark",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "innovation",
+        "business"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:independent-research-fund-denmark",
+      "name": "Independent Research Fund Denmark",
+      "url": "https://dff.dk/en/grants",
+      "region": "Denmark",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:novo-nordisk-foundation",
+      "name": "Novo Nordisk Foundation",
+      "url": "https://novonordiskfonden.dk/en/grants/",
+      "region": "Denmark",
+      "kind": "Foundation",
+      "fields": [
+        "biomedicine",
+        "health sciences",
+        "sustainability"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:research-council-finland",
+      "name": "Research Council Finland",
+      "url": "https://www.aka.fi/en/research-funding/apply-for-funding/",
+      "region": "Finland",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:fwf-austria",
+      "name": "FWF Austria",
+      "url": "https://www.fwf.ac.at/en/funding",
+      "region": "Austria",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:research-ireland",
+      "name": "Research Ireland",
+      "url": "https://www.researchireland.ie/funding/",
+      "region": "Ireland",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:fwo-flanders",
+      "name": "FWO Flanders",
+      "url": "https://www.fwo.be/en/fellowships-funding/",
+      "region": "Belgium",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:ncn-poland",
+      "name": "NCN Poland",
+      "url": "https://www.ncn.gov.pl/en/finansowanie-nauki/konkursy",
+      "region": "Poland",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:fct-portugal",
+      "name": "FCT Portugal",
+      "url": "https://www.fct.pt/en/financiamento/",
+      "region": "Portugal",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:aei-spain",
+      "name": "AEI Spain",
+      "url": "https://www.aei.gob.es/convocatorias",
+      "region": "Spain",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:airc-italy",
+      "name": "AIRC Italy",
+      "url": "https://www.direzionescientifica.airc.it/",
+      "region": "Italy",
+      "kind": "Foundation",
+      "fields": [
+        "cancer research"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:la-caixa-foundation-research",
+      "name": "La Caixa Foundation Research",
+      "url": "https://fundacionlacaixa.org/en/research-and-health-research-grants",
+      "region": "Spain",
+      "kind": "Foundation",
+      "fields": [
+        "health sciences",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:canada-tri-agency-funding-calendar",
+      "name": "Canada Tri-Agency Funding Calendar",
+      "url": "https://www.canada.ca/en/research-coordinating-committee/program-calendar.html",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:cihr-canada",
+      "name": "CIHR Canada",
+      "url": "https://cihr-irsc.gc.ca/e/193.html",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nserc-canada",
+      "name": "NSERC Canada",
+      "url": "https://www.nserc-crsng.gc.ca/",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "natural sciences",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:sshrc-canada",
+      "name": "SSHRC Canada",
+      "url": "https://www.sshrc-crsh.gc.ca/funding-financement/index-eng.aspx",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "humanities",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:canada-foundation-for-innovation",
+      "name": "Canada Foundation for Innovation",
+      "url": "https://www.innovation.ca/",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "infrastructure",
+        "research"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:mitacs-canada",
+      "name": "Mitacs Canada",
+      "url": "https://www.mitacs.ca/our-programs/",
+      "region": "Canada",
+      "kind": "Foundation",
+      "fields": [
+        "engineering",
+        "interdisciplinary research"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:australian-grantconnect",
+      "name": "Australian GrantConnect",
+      "url": "https://www.grants.gov.au/",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "daily",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:australian-research-council",
+      "name": "Australian Research Council",
+      "url": "https://www.arc.gov.au/funding-research",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:australian-nhmrc",
+      "name": "Australian NHMRC",
+      "url": "https://www.nhmrc.gov.au/funding/find-funding",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "biomedicine",
+        "health sciences"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:australian-medical-research-future-fund",
+      "name": "Australian Medical Research Future Fund",
+      "url": "https://www.health.gov.au/our-work/medical-research-future-fund",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:csiro-australia",
+      "name": "CSIRO Australia",
+      "url": "https://www.csiro.au/en/work-with-us/funding-programs",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:mbie-new-zealand",
+      "name": "MBIE New Zealand",
+      "url": "https://www.mbie.govt.nz/science-and-technology/science-and-innovation/funding-information-and-opportunities",
+      "region": "New Zealand",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:royal-society-te-ap-rangi",
+      "name": "Royal Society Te Apārangi",
+      "url": "https://www.royalsociety.org.nz/what-we-do/funds-and-opportunities",
+      "region": "New Zealand",
+      "kind": "Society",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:health-research-council-new-zealand",
+      "name": "Health Research Council New Zealand",
+      "url": "https://www.hrc.govt.nz/funding",
+      "region": "New Zealand",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:rgc-hong-kong",
+      "name": "RGC Hong Kong",
+      "url": "https://www.ugc.edu.hk/eng/rgc/funding_opport/",
+      "region": "Hong Kong",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:itf-hong-kong",
+      "name": "ITF Hong Kong",
+      "url": "https://itcfas.itf.gov.hk/itcfas/eqpreport/?locale=en_US",
+      "region": "Hong Kong",
+      "kind": "Government",
+      "fields": [
+        "innovation",
+        "engineering",
+        "technology"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:health-and-medical-research-fund-hong-kong",
+      "name": "Health and Medical Research Fund Hong Kong",
+      "url": "https://rfs.healthbureau.gov.hk/",
+      "region": "Hong Kong",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:hong-kong-jockey-club-charities-trust",
+      "name": "Hong Kong Jockey Club Charities Trust",
+      "url": "https://charities.hkjc.com/",
+      "region": "Hong Kong",
+      "kind": "Foundation",
+      "fields": [
+        "social science",
+        "education",
+        "health sciences"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:singapore-nrf",
+      "name": "Singapore NRF",
+      "url": "https://www.nrf.gov.sg/grants/",
+      "region": "Singapore",
+      "kind": "Government",
+      "fields": [
+        "science",
+        "engineering",
+        "innovation"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:singapore-nmrc",
+      "name": "Singapore NMRC",
+      "url": "https://www.nmrc.sg/grants/competitive-research-grants/",
+      "region": "Singapore",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:singapore-a-star",
+      "name": "Singapore A-STAR",
+      "url": "https://www.a-star.edu.sg/",
+      "region": "Singapore",
+      "kind": "Government",
+      "fields": [
+        "science",
+        "engineering",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:ai-singapore",
+      "name": "AI Singapore",
+      "url": "https://aisingapore.org/",
+      "region": "Singapore",
+      "kind": "Government",
+      "fields": [
+        "artificial intelligence",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:singapore-moe-research",
+      "name": "Singapore MOE Research",
+      "url": "https://www.moe.gov.sg/",
+      "region": "Singapore",
+      "kind": "Government",
+      "fields": [
+        "education",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:jsps-japan",
+      "name": "JSPS Japan",
+      "url": "https://www.jsps.go.jp/english/e-grants/",
+      "region": "Japan",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:jst-japan",
+      "name": "JST Japan",
+      "url": "https://www.jst.go.jp/EN/",
+      "region": "Japan",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:amed-japan",
+      "name": "AMED Japan",
+      "url": "https://www.amed.go.jp/en/",
+      "region": "Japan",
+      "kind": "Government",
+      "fields": [
+        "biomedicine",
+        "health sciences"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nedo-japan",
+      "name": "NEDO Japan",
+      "url": "https://www.nedo.go.jp/english/",
+      "region": "Japan",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "innovation"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nrf-korea",
+      "name": "NRF Korea",
+      "url": "https://www.nrf.re.kr/eng",
+      "region": "South Korea",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:iitp-korea",
+      "name": "IITP Korea",
+      "url": "https://www.iitp.kr/eng/main.it",
+      "region": "South Korea",
+      "kind": "Government",
+      "fields": [
+        "computer science",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nsfc-china",
+      "name": "NSFC China",
+      "url": "https://www.nsfc.gov.cn/english/site_1/index.html",
+      "region": "China",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:chinese-academy-of-sciences",
+      "name": "Chinese Academy of Sciences",
+      "url": "https://english.cas.cn/",
+      "region": "China",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nstc-taiwan",
+      "name": "NSTC Taiwan",
+      "url": "https://www.nstc.gov.tw/",
+      "region": "Taiwan",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:anrf-india",
+      "name": "ANRF India",
+      "url": "https://anrfonline.in/",
+      "region": "India",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:icmr-india",
+      "name": "ICMR India",
+      "url": "https://www.icmr.gov.in/",
+      "region": "India",
+      "kind": "Government",
+      "fields": [
+        "health sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:department-of-biotechnology-india",
+      "name": "Department of Biotechnology India",
+      "url": "https://dbtindia.gov.in/",
+      "region": "India",
+      "kind": "Government",
+      "fields": [
+        "biomedicine",
+        "life sciences"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:csir-india",
+      "name": "CSIR India",
+      "url": "https://www.csir.res.in/",
+      "region": "India",
+      "kind": "Government",
+      "fields": [
+        "science",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:icssr-india",
+      "name": "ICSSR India",
+      "url": "https://icssr.org/",
+      "region": "India",
+      "kind": "Government",
+      "fields": [
+        "social science",
+        "humanities"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:israel-science-foundation",
+      "name": "Israel Science Foundation",
+      "url": "https://www.isf.org.il/",
+      "region": "Israel",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:mbzuai-uae",
+      "name": "MBZUAI UAE",
+      "url": "https://mbzuai.ac.ae/",
+      "region": "United Arab Emirates",
+      "kind": "Institution",
+      "fields": [
+        "artificial intelligence",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": "Mohamed bin Zayed University of Artificial Intelligence",
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:brazil-cnpq",
+      "name": "Brazil CNPq",
+      "url": "https://www.gov.br/cnpq/pt-br",
+      "region": "Brazil",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:fapesp-brazil",
+      "name": "FAPESP Brazil",
+      "url": "https://fapesp.br/en",
+      "region": "Brazil",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:capes-brazil",
+      "name": "CAPES Brazil",
+      "url": "https://www.gov.br/capes/pt-br",
+      "region": "Brazil",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:anid-chile",
+      "name": "ANID Chile",
+      "url": "https://anid.cl/",
+      "region": "Chile",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:conicet-argentina",
+      "name": "CONICET Argentina",
+      "url": "https://www.conicet.gov.ar/",
+      "region": "Argentina",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nrf-south-africa",
+      "name": "NRF South Africa",
+      "url": "https://www.nrf.ac.za/",
+      "region": "South Africa",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:african-academy-of-sciences",
+      "name": "African Academy of Sciences",
+      "url": "https://aasciences.africa/",
+      "region": "Africa",
+      "kind": "Society",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:openai-researcher-access",
+      "name": "OpenAI Researcher Access",
+      "url": "https://openai.com/form/researcher-access-program/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "AI safety"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:anthropic-ai-for-science",
+      "name": "Anthropic AI for Science",
+      "url": "https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:google-academic-research-awards",
+      "name": "Google Academic Research Awards",
+      "url": "https://research.google/programs-and-events/google-academic-research-awards/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computer science",
+        "technology"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:microsoft-research-fellowship",
+      "name": "Microsoft Research Fellowship",
+      "url": "https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computer science",
+        "interdisciplinary research"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:amazon-research-awards",
+      "name": "Amazon Research Awards",
+      "url": "https://www.amazon.science/research-awards/call-for-proposals",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "computer science",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:nvidia-academic-grant-program",
+      "name": "NVIDIA Academic Grant Program",
+      "url": "https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "computer science",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:aws-cloud-credit-for-research",
+      "name": "AWS Cloud Credit for Research",
+      "url": "https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "cloud computing",
+        "computer science",
+        "interdisciplinary research"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:meta-research-rfp",
+      "name": "Meta Research RFP",
+      "url": "https://ai.meta.com/research/request-for-proposals/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:google-research-programs",
+      "name": "Google Research Programs",
+      "url": "https://research.google/programs-and-events/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:microsoft-research-academic-programs",
+      "name": "Microsoft Research Academic Programs",
+      "url": "https://www.microsoft.com/en-us/research/academic-programs/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:adobe-research-fellowship",
+      "name": "Adobe Research Fellowship",
+      "url": "https://research.adobe.com/fellowship/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computer science",
+        "creative technologies"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:qualcomm-innovation-fellowship",
+      "name": "Qualcomm Innovation Fellowship",
+      "url": "https://www.qualcomm.com/research/university-relations/innovation-fellowship",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "engineering",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:ibm-research-university-programs",
+      "name": "IBM Research University Programs",
+      "url": "https://research.ibm.com/university",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "artificial intelligence",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:google-cloud-research",
+      "name": "Google Cloud Research",
+      "url": "https://cloud.google.com/edu/researchers",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "cloud computing",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:samsung-research",
+      "name": "Samsung Research",
+      "url": "https://research.samsung.com/",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "engineering",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:intel-research",
+      "name": "Intel Research",
+      "url": "https://www.intel.com/content/www/us/en/research/overview.html",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "engineering",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:cohere-research",
+      "name": "Cohere Research",
+      "url": "https://cohere.com/research",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "natural language processing",
+        "artificial intelligence"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:biswas-family-foundation-fast-grants",
+      "name": "Biswas Family Foundation Fast Grants",
+      "url": "https://www.biswasfamilyfoundation.org/science/fast-grants",
+      "region": "International",
+      "kind": "Foundation",
+      "fields": [
+        "artificial intelligence",
+        "science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:simons-foundation",
+      "name": "Simons Foundation",
+      "url": "https://www.simonsfoundation.org/funding-opportunities/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "mathematics",
+        "physics",
+        "biology",
+        "neuroscience"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:alfred-p-sloan-foundation",
+      "name": "Alfred P Sloan Foundation",
+      "url": "https://apply.sloan.org/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "engineering",
+        "mathematics",
+        "economics",
+        "physics"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:chan-zuckerberg-initiative",
+      "name": "Chan Zuckerberg Initiative",
+      "url": "https://chanzuckerberg.com/science/science-funding/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "biomedicine",
+        "neuroscience",
+        "open science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:spencer-foundation",
+      "name": "Spencer Foundation",
+      "url": "https://www.spencer.org/research-grants",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "education",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:russell-sage-foundation",
+      "name": "Russell Sage Foundation",
+      "url": "https://www.russellsage.org/research/grants",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "social science",
+        "public policy"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:national-geographic-society",
+      "name": "National Geographic Society",
+      "url": "https://www.nationalgeographic.org/explore/grants-investments",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "environment",
+        "geography",
+        "anthropology"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:gates-foundation-grand-challenges",
+      "name": "Gates Foundation Grand Challenges",
+      "url": "https://gcgh.grandchallenges.org/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "biomedicine",
+        "public health"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:schmidt-sciences",
+      "name": "Schmidt Sciences",
+      "url": "https://www.schmidtsciences.org/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "artificial intelligence",
+        "science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:packard-science-fellowships",
+      "name": "Packard Science Fellowships",
+      "url": "https://www.packard.org/what-we-fund/science-and-engineering/fellowships-for-science-and-engineering/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "science",
+        "engineering"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:robert-wood-johnson-foundation",
+      "name": "Robert Wood Johnson Foundation",
+      "url": "https://www.rwjf.org/en/grants.html",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "public health",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:wenner-gren-foundation",
+      "name": "Wenner-Gren Foundation",
+      "url": "https://wennergren.org/program/",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "anthropology",
+        "archaeology"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:templeton-foundation",
+      "name": "Templeton Foundation",
+      "url": "https://www.templeton.org/grants/apply-for-grant",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "philosophy",
+        "religious studies",
+        "science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:mellon-foundation",
+      "name": "Mellon Foundation",
+      "url": "https://www.mellon.org/grantmaking",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "humanities",
+        "arts"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:hfsp",
+      "name": "HFSP",
+      "url": "https://www.hfsp.org/funding",
+      "region": "International",
+      "kind": "Foundation",
+      "fields": [
+        "biomedicine",
+        "life sciences"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:embo-grants-and-fellowships",
+      "name": "EMBO Grants and Fellowships",
+      "url": "https://www.embo.org/funding/fellowships-grants-and-career-support/",
+      "region": "Europe",
+      "kind": "Society",
+      "fields": [
+        "life sciences",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-chemical-society-prf",
+      "name": "American Chemical Society PRF",
+      "url": "https://www.acs.org/funding/grants/petroleum-research-fund/programs.html",
+      "region": "United States",
+      "kind": "Society",
+      "fields": [
+        "chemistry",
+        "materials science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-philosophical-society",
+      "name": "American Philosophical Society",
+      "url": "https://www.amphilsoc.org/grants/research",
+      "region": "United States",
+      "kind": "Society",
+      "fields": [
+        "humanities",
+        "social science",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-geophysical-union",
+      "name": "American Geophysical Union",
+      "url": "https://www.agu.org/Students/Awards-Funding",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "earth science",
+        "climate science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:society-for-neuroscience",
+      "name": "Society for Neuroscience",
+      "url": "https://www.sfn.org/initiatives/awards",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "neuroscience",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-economic-association",
+      "name": "American Economic Association",
+      "url": "https://www.aeaweb.org/resources/funding-and-grants",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "economics",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:modern-language-association",
+      "name": "Modern Language Association",
+      "url": "https://profession.mla.org/grants/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "humanities",
+        "linguistics",
+        "literature"
+      ],
+      "access": "public",
+      "refresh_priority": "monthly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-physical-society",
+      "name": "American Physical Society",
+      "url": "https://www.aps.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "physics",
+        "astronomy"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:association-for-computing-machinery",
+      "name": "Association for Computing Machinery",
+      "url": "https://www.acm.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:institute-of-electrical-and-electronics-engineers",
+      "name": "Institute of Electrical and Electronics Engineers",
+      "url": "https://www.ieee.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "engineering",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-mathematical-society",
+      "name": "American Mathematical Society",
+      "url": "https://www.ams.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "mathematics"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:society-for-industrial-and-applied-mathematics",
+      "name": "Society for Industrial and Applied Mathematics",
+      "url": "https://www.siam.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "mathematics",
+        "computer science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-educational-research-association",
+      "name": "American Educational Research Association",
+      "url": "https://www.aera.net/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "education",
+        "social science"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-historical-association",
+      "name": "American Historical Association",
+      "url": "https://www.historians.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "history"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-anthropological-association",
+      "name": "American Anthropological Association",
+      "url": "https://americananthro.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "anthropology"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-association-for-cancer-research",
+      "name": "American Association for Cancer Research",
+      "url": "https://www.aacr.org/professionals/research-funding/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "cancer research",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-society-of-clinical-oncology",
+      "name": "American Society of Clinical Oncology",
+      "url": "https://www.conquer.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "cancer research",
+        "medicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-association-of-physicists-in-medicine",
+      "name": "American Association of Physicists in Medicine",
+      "url": "https://www.aapm.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "medical physics",
+        "radiotherapy"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:american-heart-association",
+      "name": "American Heart Association",
+      "url": "https://professional.heart.org/en/research-programs",
+      "region": "United States",
+      "kind": "Society",
+      "fields": [
+        "cardiology",
+        "biomedicine"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:ecological-society-of-america",
+      "name": "Ecological Society of America",
+      "url": "https://www.esa.org/",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "ecology",
+        "environment"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "source-domain",
+      "last_source_review": null,
+      "institution": null,
+      "notes": "",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:stanford-university",
+      "name": "Stanford University",
+      "url": "https://seedfunding.stanford.edu/opportunities",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Stanford University",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:harvard-university",
+      "name": "Harvard University",
+      "url": "https://research.fas.harvard.edu/harvard-funding",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Harvard University",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:harvard-university-funding-portal",
+      "name": "Harvard University Funding Portal",
+      "url": "https://harvard.communityforce.com/Funds/Search.aspx",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Harvard University Funding Portal",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:massachusetts-institute-of-technology",
+      "name": "Massachusetts Institute of Technology",
+      "url": "https://research.mit.edu/research-development/internal-funding-opportunities",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Massachusetts Institute of Technology",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:princeton-university",
+      "name": "Princeton University",
+      "url": "https://research.princeton.edu/resources/funding/dean-research-funding",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Princeton University",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:yale-university",
+      "name": "Yale University",
+      "url": "https://research.yale.edu/funding-opportunities",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Yale University",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-california-berkeley",
+      "name": "University of California Berkeley",
+      "url": "https://brdo.berkeley.edu/finding-funding-brdo",
+      "region": "United States",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of California Berkeley",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-cambridge",
+      "name": "University of Cambridge",
+      "url": "https://www.research-services.admin.cam.ac.uk/find-research-funding/internal-funding-opportunities",
+      "region": "United Kingdom",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "public",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of Cambridge",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-oxford",
+      "name": "University of Oxford",
+      "url": "https://www.law.ox.ac.uk/oxford-internal-research-funding-opportunities",
+      "region": "United Kingdom",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of Oxford",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-toronto",
+      "name": "University of Toronto",
+      "url": "https://www.utsc.utoronto.ca/research/internal-funding-programs",
+      "region": "Canada",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of Toronto",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-british-columbia",
+      "name": "University of British Columbia",
+      "url": "https://ors.ubc.ca/funding-opportunities-proposals/internal-funding-opportunities",
+      "region": "Canada",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of British Columbia",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-sydney",
+      "name": "University of Sydney",
+      "url": "https://www.sydney.edu.au/research/funding.html",
+      "region": "Australia",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of Sydney",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:university-of-melbourne",
+      "name": "University of Melbourne",
+      "url": "https://fbe.unimelb.edu.au/research/research-funding-hub",
+      "region": "Australia",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "University of Melbourne",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:national-university-of-singapore",
+      "name": "National University of Singapore",
+      "url": "https://nus.edu.sg/research/odprt-home/research-administration-and-shared-services",
+      "region": "Singapore",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "National University of Singapore",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:national-university-of-singapore-ai-institute",
+      "name": "National University of Singapore AI Institute",
+      "url": "https://ai.nus.edu.sg/naii-seed-grant-call/",
+      "region": "Singapore",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "National University of Singapore AI Institute",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:national-university-health-system-singapore",
+      "name": "National University Health System Singapore",
+      "url": "https://www.nuhs.edu.sg/research/grant-calendar/active-grant-calls",
+      "region": "Singapore",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "National University Health System Singapore",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:hong-kong-baptist-university",
+      "name": "Hong Kong Baptist University",
+      "url": "https://research.hkbu.edu.hk/page/detail/21754",
+      "region": "Hong Kong",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Hong Kong Baptist University",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    },
+    {
+      "id": "global-source:chinese-university-of-hong-kong",
+      "name": "Chinese University of Hong Kong",
+      "url": "https://www.fno.cuhk.edu.hk/department/publicly-funded-research-projects/",
+      "region": "Hong Kong",
+      "kind": "Institution",
+      "fields": [
+        "all"
+      ],
+      "access": "mixed",
+      "refresh_priority": "weekly",
+      "evidence_type": "official-listing-candidate",
+      "last_source_review": null,
+      "institution": "Chinese University of Hong Kong",
+      "notes": "Internal funding may require a campus login or sponsor nomination; do not infer general eligibility.",
+      "listing_type": "official_funder_portal",
+      "monitor_policy": "check_public_changes_only"
+    }
+  ]
+}

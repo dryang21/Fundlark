@@ -1,0 +1,23 @@
+# Fundlark v4.9 profile audit — November 14, 2026
+
+We ran the matcher used by the browser demo against seven fictional profiles, using the same keyword extraction and default host-region filter as the site. The audit used 1,917 records loaded for matching; the large past-round archive is excluded from personalized search. An installed Qwen model reviewed the ranked output locally. It did not visit sources or make eligibility determinations. Selected claims were separately checked against official sponsor pages. The German robotics case was also reproduced in the live browser demo. No personal CVs were used.
+
+| Synthetic profile | Default leads | Listed open or rolling | What happened |
+|---|---:|---:|---|
+| Stanford medical physics resident, AAPM and ASTRO | 54 | 16 | Relevant Stanford and society leads surfaced. The [RSNA Resident Grant](https://www.rsna.org/research/funding-opportunities/research-grants/resident-fellow-research-grant) is open and includes medical physics residents, but RSNA membership was not given for this profile. |
+| U.S. AI PhD | 57 | 14 | Adobe India was correctly excluded. Research credits and conference support appeared prominently; the number does not mean 57 cash grants. |
+| India AI PhD | 58 | 14 | [Adobe India](https://research.adobe.com/india-ai-research-fellowship/) ranked first, with its application window unconfirmed. The [IEEE Photonics scholarship](https://ieeephotonics.org/awards/graduate-student-scholarship/) was a weak second hit for a general AI profile: its rules require Photonics Society student membership. |
+| UK digital humanities postdoc | 18 | 11 | [AHRC’s International Placement Scheme](https://www.ukri.org/opportunity/international-placement-scheme-2027/) was a useful lead with specific UK early-career requirements to check. Some DFG results also ranked high; [DFG’s Walter Benjamin rules](https://www.dfg.de/en/research-funding/proposal-funding-process/faq/walter-benjamin) depend on whether the position is in Germany or the fellowship is abroad. |
+| Canadian mechanical engineering undergraduate, ASME | 22 | 9 | [ASME scholarships](https://www.asme.org/asme-programs/students-and-faculty/scholarships) were relevant and ranked first; the sponsor requires student membership. Optics and geoscience opportunities ranked higher than their topic fit warranted. |
+| German robotics faculty, TUM and IEEE | 0 | 0 | The prose produced no keywords. Adding “robotics” manually produced 27 leads, including an [open Horizon Europe topic](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL4-2027-02-DIGITAL-EMERGING-52-two-stage). This was a retrieval failure even though the relevant call was already indexed. |
+| Nigerian agriculture faculty, University of Ibadan | 14 | 6 | Nigeria was unavailable in the location picker. Four of the five top results were U.S. government programs. The first was a [USDA grant limited to Hispanic-serving institutions](https://www.nifa.usda.gov/grants/funding-opportunities/hispanic-serving-institutions-education-grants-program); it should not be a lead for the given institution. [RUFORUM’s Kenya/Nigeria program](https://www.ruforum.org/arcaa) is a relevant source to monitor, not evidence of a current open round. |
+
+All 30 displayed top-five cards were classified as needing verification. This includes plausible leads with incomplete profiles, uncertain application windows, and weak or incompatible matches that lack structured restrictions. It is not a measured error rate. The seven cases show uneven performance and do not establish complete coverage or accuracy across all users.
+
+## Fix in order
+
+1. Prevent valid descriptions from silently producing zero topics. Normalize phrases such as “human–robot interaction”; offer a topic or broader search when the extraction returns nothing. Keep the German profile as a regression case.
+2. Expand the host-country picker and encode verified eligibility rules separately from sponsor location. Prioritize requirements like eligible institution type or affiliation, with a distinct route for relocation or collaboration. Keep a correct country match separate from citizenship and do not infer demographics.
+3. In the first five results, prefer strong topic and applicant fit over broad field overlap. Show cash awards, credits, scholarships, and conference travel distinctly. Add regional and campus coverage where the shortlist remains weak, and measure whether known suitable calls surface for each profile.
+
+Re-run the deterministic part from the v4.9 checkout with `node scripts/audit_current_matches.mjs`. Counts vary as the catalog or application windows change.

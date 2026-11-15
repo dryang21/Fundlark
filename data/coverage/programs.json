@@ -787,6 +787,10 @@
     "description": "Recognizes contributions to foundational robotics, with reimbursement for eligible travel and society activities.",
     "eligibility": "Nominees must have earned a PhD within the past two years and need endorsement from a Foundation Cluster technical committee.",
     "eligible_stages": [],
+    "eligibility_rules": {
+      "max_years_since_phd": 2,
+      "required_prior_step": "Verify the exact PhD conferment date and obtain endorsement from an eligible technical committee."
+    },
     "topics": [
       "robotics",
       "robot control",
@@ -1109,5 +1113,68 @@
     "funding_type": "Research grant",
     "amount_max": 7000,
     "currency": "USD"
+  },
+  {
+    "id": "acs-sigal-mobility-2027",
+    "title": "ACS Irving S. Sigal Global Mobility Award — Fall 2027",
+    "source": "ACS",
+    "status": "verify",
+    "deadline": "2027-01-15",
+    "deadline_time": "23:59",
+    "deadline_timezone": "America/New_York",
+    "funding_type": "Conference travel",
+    "amount": "Typically $3,000 plus meeting registration",
+    "currency": "USD",
+    "description": "Travel and registration support for postdoctoral chemists presenting at the ACS Fall 2027 meeting.",
+    "eligibility": "Chemistry postdocs based in Poland, Romania, Czechia or Georgia who submit an abstract and have never presented in person at an ACS meeting.",
+    "eligible_stages": [
+      "postdoc"
+    ],
+    "topics": [
+      "chemistry",
+      "chemical sciences"
+    ],
+    "url": "https://www.acs.org/funding/awards/irving-s-sigal-global-mobility-award.html",
+    "source_date": "2026-11-14"
+  },
+  {
+    "id": "acs-bridge-travel-spring-2027",
+    "title": "ACS Bridge Travel & Professional Development Award — Spring 2027",
+    "source": "ACS",
+    "status": "forecast",
+    "opens_on": "2026-12-08",
+    "deadline": "2027-01-13",
+    "funding_type": "Conference travel",
+    "description": "Helps chemistry students attend the ACS Spring 2027 meeting for professional development.",
+    "eligibility": "See the ACS call for its applicant tracks and nomination or application requirements.",
+    "eligible_stages": [],
+    "topics": [
+      "chemistry",
+      "chemical sciences"
+    ],
+    "url": "https://www.acs.org/funding/awards/acs-bridge-travel-professional-development-award.html",
+    "source_date": "2026-11-14"
+  },
+  {
+    "id": "acs-lilly-emerging-talent-spring-2027",
+    "title": "ACS WCC/Lilly Emerging Talent Award — Spring 2027",
+    "source": "ACS",
+    "status": "verify",
+    "deadline": "2026-12-15",
+    "funding_type": "Conference travel",
+    "description": "Travel support for early-career chemists presenting their research at a scientific meeting.",
+    "eligibility": "Undergraduate and graduate students and postdoctoral chemists can apply. See the sponsor for meeting and presentation requirements.",
+    "eligible_stages": [
+      "undergrad",
+      "masters",
+      "phd",
+      "postdoc"
+    ],
+    "topics": [
+      "chemistry",
+      "chemical sciences"
+    ],
+    "url": "https://www.acs.org/funding/awards/women-chemists-lilly-emerging-talent-award.html",
+    "source_date": "2026-11-14"
   }
 ]

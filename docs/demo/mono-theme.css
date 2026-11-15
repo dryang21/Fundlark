@@ -1,0 +1,145 @@
+/* Fundlark v4.6: monochrome, accessibility-minded research workspace.
+ * Neutral UI is the default. Color is reserved for semantic status badges,
+ * validation feedback, and eligibility warnings.
+ */
+:root{
+  --ink:#171717;--muted:#606060;--green:#161616;--teal:#161616;
+  --blue:#222;--paper:#fafafa;--line:#e4e4e4;--surface-soft:#f7f7f7;
+  accent-color:#171717;
+}
+html{color-scheme:light}
+body{background:#fafafa;color:#181818}
+h1,h2,h3,h4,.profile-panel h2,.dashboard-panel h2,.source-hubs h2,#opportunities h2,
+.profile-section h3,.keyword-editor-heading h3,.funding-row h4,.workspace-filter-head h3{color:#171717}
+small,.small,.note,.form-guide,.field-help,.snapshot,.source-count,.status-text,
+.profile-panel .note,.profile-panel label,.profile-panel legend,.eligibility-help{color:#646464}
+a,.nav a,.nav nav a,.nav nav a span,.nav .brand,.section-head a,
+.hero-profile-link,.text-button,.source-link,.funding-row-actions a{color:#242424}
+a:hover,.nav nav a:hover,.hero-profile-link:hover{color:#050505}
+.eyebrow,.hero .eyebrow,.category{color:#525252}
+.eyebrow-dot{background:#181818}
+.site-header{background:rgba(255,255,255,.98);border-bottom-color:#e7e7e7}
+.nav .brand{color:#171717}
+.nav .brand small{border-left-color:#ddd;color:#6e6e6e}
+.nav nav .nav-directory{border-left-color:#dedede}
+.hero h1,.hero h1 em{color:#151515}
+.hero-copy>p,.hero .snapshot,.example-picker{color:#646464}
+.hero-quick-search{border-color:#d0d0d0;box-shadow:0 3px 12px #00000009}
+.hero-quick-search input,.profile-panel textarea,.profile-panel input,.profile-panel select{color:#191919}
+.hero-quick-search:focus-within{border-color:#555;box-shadow:0 0 0 3px #10101018}
+.hero-quick-search button,.button:not(.secondary),.pagination-controls button[aria-current=page]{
+  color:#fff;background:#171717;border-color:#171717;
+}
+.hero-quick-search button:hover,.button:not(.secondary):hover{background:#373737;border-color:#373737}
+.button.secondary,.button.secondary:hover{background:#fff;color:#202020;border-color:#d0d0d0}
+.button.secondary:hover{background:#f3f3f3}
+.button:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,
+textarea:focus-visible,select:focus-visible,[role=option]:focus-visible{
+  outline:2px solid #525252;outline-offset:2px;
+}
+.profile-panel textarea:focus-visible,.profile-panel input:focus-visible,.profile-panel select:focus-visible,
+.workspace-filters input:focus-visible,.workspace-filters select:focus-visible{outline:2px solid #525252}
+.profile-panel,.dashboard-panel,.source-hubs,#opportunities,#coverage,.skill-panel{
+  border-color:#e2e2e2;background:#fff;
+}
+.form-guide{border-left-color:#cfcfcf}
+.profile-section{border-color:#ededed}
+.profile-panel textarea,.profile-panel input,.profile-panel select,
+.workspace-filters input:not([type=checkbox]),.workspace-filters select,
+.explore-query-box input,.explore-query-box textarea,
+.source-filters input,.source-filters select{border-color:#d3d3d3;color:#1c1c1c;background:#fff}
+.profile-section h3,.workspace-filter-head h3,.funding-row .sponsor-name{color:#292929}
+.keyword-editor,#opportunities .explore-query-box,.workspace-filter-box{background:#fafafa;border-color:#e4e4e4}
+.keyword-editor .keyword-count,.keyword-editor .vocabulary-status{color:#646464}
+.keyword-editor .editable-topic-chip{border-color:#d8d8d8;background:#f2f2f2;color:#252525}
+.editable-topic-chip:hover{border-color:#a8a8a8;background:#e9e9e9;color:#151515}
+.keyword-origin{color:#747474}
+.keyword-corrections{color:#555!important}
+.keyword-corrections strong{color:#202020}
+.vocabulary-browser{border-color:#e2e2e2}
+.vocabulary-browser summary{color:#222}
+.vocabulary-controls label{color:#595959}
+.vocabulary-controls select,.vocabulary-controls input{border-color:#d5d5d5;color:#202020}
+.vocabulary-option,.source-pill,.field-chip,.chip{
+  background:#fff;color:#303030;border-color:#dadada;
+}
+.vocabulary-option:hover,.source-pill:hover,.field-chip:hover{background:#f1f1f1;border-color:#999}
+.source-pill[aria-pressed=true],.field-chip[aria-pressed=true]{background:#202020;color:#fff;border-color:#202020}
+.source-pill[aria-pressed=true] span,.field-chip[aria-pressed=true] span{background:#494949;color:#fff}
+.field-chip span,.source-pill span{background:#f1f1f1;color:#616161}
+.related-topic-suggestions .source-pill{color:#303030}
+.dash-stat{background:#fafafa;border-color:#e5e5e5}
+.dash-stat strong{color:#171717}.dash-stat span{color:#646464}
+.workspace-tabs{border-bottom-color:#dedede}
+.workspace-tab{color:#666}
+.workspace-tab[aria-pressed=true]{color:#171717;border-bottom-color:#171717}
+.workspace-tab span{background:#eee;color:#444}
+.workspace-filter-head>span,.source-select>span{color:#3b3b3b}
+.workspace-filters label,.source-filters label{color:#515151}
+.workspace-filters .saved-filter input,.filters input{accent-color:#171717}
+.funding-row{border-color:#e2e2e2;background:#fff;box-shadow:none}
+.funding-row:hover{border-color:#a6a6a6;background:#fbfbfb}
+.funding-row h4{color:#171717}.funding-row .sponsor-name{color:#5c5c5c}
+.funding-row .match-explanation,.funding-row-details,.application-route-note{color:#606060}
+.funding-row-facts span{background:#f1f1f1;color:#595959}
+.route-label,.route-label.route-partner,.route-label.route-direct,.route-label.route-watch,.route-label.route-check{
+  background:#f0f0f0;color:#474747;border:1px solid #e6e6e6;
+}
+.funding-row-details summary,.card summary,.card details summary{color:#202020}
+.funding-row .requirements-warning{color:#8a5917} /* warning, semantic */
+.priority-note{background:#fafafa;border-color:#e3e3e3}
+.priority-note summary{color:#252525}
+.pagination-controls button{color:#252525;border-color:#d5d5d5;background:#fff}
+.pagination-controls button:hover:not(:disabled){background:#efefef;border-color:#aaa}
+.pagination-controls button[aria-current=page]{background:#171717;color:#fff;border-color:#171717}
+#opportunities .explore-query-box label{color:#343434}
+.field-chip[aria-pressed=true] span{background:#555;color:#fff}
+.hub-card{border-color:#e4e4e4}
+.hub-card .hub-kind,.hub-card p{color:var(--muted)}
+.hub-field-tags span{background:#f1f1f1;color:#595959}
+.hub-results .tracker-empty{border-color:#d3d3d3}
+.coverage-list{color:#444}
+.skill-panel .prompt,.prompt{background:#fff;border-color:#ddd}
+footer.shell{color:#777;border-color:#e5e5e5}
+/* Semantic accents only: eligibility/alerts need to remain distinguishable. */
+.eligibility-likely,.badge.success{background:#eff8f0!important;color:#206b40!important;border-color:#b9d9c3!important}
+.eligibility-verify,.badge.caution,.check-unknown{background:#fff7e8!important;color:#815513!important;border-color:#eacb90!important}
+.eligibility-ineligible,.check-fail{background:#fff1f1!important;color:#993d3d!important;border-color:#ecc2c2!important}
+.badge:not(.caution):not(.success):not(.error),.status-badge{background:#f0f0f0;color:#434343}
+/* Searchable controlled-vocabulary combobox. */
+.keyword-picker{position:relative;margin-top:14px;max-width:100%}
+.keyword-picker-label{display:block;font-size:12px;color:#353535;font-weight:650;margin-bottom:7px}
+.keyword-picker-input-wrap{position:relative}
+#profileAddKeyword{width:100%;min-height:44px;padding:11px 43px 11px 13px;background:#fff;border:1px solid #c9c9c9;border-radius:8px;color:#171717}
+.keyword-picker-icon{position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:22px;line-height:1;color:#858585;pointer-events:none}
+.keyword-picker #keywordPickerHelp{margin:8px 0 2px;font-size:11px;color:#747474}
+.keyword-picker-status{min-height:0;margin:4px 0;font-size:11px;color:#5c5c5c}
+.keyword-suggestion-list{position:absolute;top:calc(100% + 5px);left:0;right:0;max-height:296px;overflow-y:auto;overscroll-behavior:contain;background:#fff;border:1px solid #c7c7c7;border-radius:8px;box-shadow:0 12px 24px #00000019;z-index:23;padding:4px}
+.keyword-suggestion-list[hidden]{display:none}
+.keyword-suggestion-option{display:flex;flex-direction:column;gap:2px;padding:9px 11px;border-radius:5px;cursor:pointer}
+.keyword-suggestion-option:hover,.keyword-suggestion-option[aria-selected=true]{background:#ededed}
+.suggestion-name{font-weight:650;color:#171717;font-size:13px}
+.suggestion-meta{font-size:11px;color:#686868}
+.keyword-suggestion-empty{padding:9px 11px;margin:0;color:#696969;font-size:12px}
+@media(max-width:600px){.keyword-suggestion-list{max-height:250px}}
+
+/* v4.7 — dense, decision-first results. Reserve color for actual rule conflicts. */
+.dashboard-count{font-size:13px;line-height:1.5;color:#626262;margin:8px 0 14px}
+.workspace-filter-head{align-items:center}
+.workspace-filter-head h3{margin:0}
+.funding-row-top .status-text{font-size:11px;color:#747474}
+.funding-partner-note{color:#535353;font-size:12px}
+.funding-conflict{display:block;margin:10px 0 5px;padding:9px 11px;border-left:3px solid #aa4545;background:#fff5f5;color:#843737;font-size:12px;border-radius:3px}
+.funding-row-details .details-source-note{font-size:11px;color:#737373}
+.funding-row-details .eligibility-evidence{margin-top:8px}
+.pagination-controls{scroll-margin-top:100px}
+#dashboardMatchesPanel .workspace-filter-head{scroll-margin-top:94px}
+
+/* v4.8: concise, grounded grant-card bullet summaries. */
+.grant-highlights { list-style:disc; margin:9px 0 10px; padding-left:19px; color:#424242; font-size:12px; line-height:1.55; }
+.grant-highlights li { margin:3px 0; padding-left:1px; overflow-wrap:anywhere; }
+.grant-highlights strong { font-weight:650; color:#202020; }
+.visually-hidden {position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border:0 !important;}
+@media(max-width:700px){.grant-highlights{font-size:12px;line-height:1.5;margin:8px 0 10px;}}
+
+.topic-summary:empty,.related-topic-suggestions:empty{display:none;}

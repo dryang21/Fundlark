@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "test": "node --test tests-js/*.test.mjs",
+    "test:core": "node --test tests-js/coverage.test.mjs tests-js/eligibility-improvements.test.mjs tests-js/journey.test.mjs tests-js/matching.test.mjs tests-js/organizations.test.mjs tests-js/recommendation-benchmark.test.mjs tests-js/personalized-workflow.test.mjs tests-js/workspace-v4.test.mjs",
     "dev:community": "npm run build:cv && wrangler dev --config services/community/wrangler.jsonc",
     "db:local": "wrangler d1 execute DB --local --config services/community/wrangler.jsonc --file services/community/schema.sql",
     "deploy:community": "npm run build:cv && wrangler deploy --config services/community/wrangler.jsonc",

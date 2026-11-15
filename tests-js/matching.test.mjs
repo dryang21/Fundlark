@@ -12,7 +12,9 @@ test('non-medical profiles and custom societies rank with distinct stage guidanc
 });
 test('browser profile handles corrupt storage shapes and bounds fields',()=>{
   assert.equal(normalizeProfile(null).sharePublic,false);
-  assert.deepEqual(normalizeProfile({topics:'private CV',institutions:[null,4,'Stanford University'],stage:'CEO',sharePublic:'true'}),{topics:[],institutions:['Stanford University'],societies:[],researchText:'',stage:'',sharePublic:false});
+  assert.deepEqual(normalizeProfile({topics:'private CV',institutions:[null,4,'Stanford University'],stage:'CEO',sharePublic:'true'}),{
+    topics:[],excludedTopics:[],institutions:['Stanford University'],societies:[],researchText:'',researchBackground:'',researchProposal:'',researchKeywords:'',stage:'',appointment:'',facultyRank:'',researchRegion:'',
+    academicYear:null,expectedCompletionYear:null,phdCompletionYear:null,yearsSincePhd:null,researchEffortPercent:null,piPrivileges:null,mentorConfirmed:null,citizenship:'unknown',sharePublic:false});
 });
 test('AI does not match an unrelated word such as aid',()=>{
   const profile=normalizeProfile({topics:['AI']});
@@ -97,7 +99,7 @@ test('personalized results surface compatible leads before strong topics with kn
     {id:'members',title:'Mathematics and statistics',affiliation_tags:{societies:['Example Society']},status:'open'},
     {id:'postdoc',title:'Mathematics fellowship',eligible_stages:['postdoc'],status:'forecast'},
   ];
-  assert.deepEqual(selectRecords(rows,profile,{matchedOnly:true}).map(row=>row.id),['postdoc','faculty','members']);
+  assert.deepEqual(selectRecords(rows,profile,{matchedOnly:true}).map(row=>row.id),['postdoc','members','faculty']);
 });
 
 test('specific CV phrases can match curated broad fields without counting the same field twice',()=>{

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "kind": "fundlark-library",
+  "entries": [
+    {
+      "title": "MPS Mathematical Sciences Research Programs (NSF 26-520)",
+      "funder": "National Science Foundation",
+      "url": "https://www.nsf.gov/funding/opportunities/mps-mathsci-mps-mathematical-sciences-research-programs/nsf26-520/solicitation",
+      "category": "Government",
+      "status": "rolling",
+      "deadline": null,
+      "description": "Supports numerical and computational mathematics, including work on partial differential equations.",
+      "eligibility": "An eligible organization submits. The PhD student should discuss a role and the submission route with their advisor.",
+      "last_verified_at": "2026-11-14",
+      "round": "NSF 26-520"
+    },
+    {
+      "title": "Individual Research Grants",
+      "funder": "DFG",
+      "url": "https://www.dfg.de/en/research-funding/funding-opportunities/programmes/individual/research-grants",
+      "category": "Government",
+      "status": "rolling",
+      "deadline": null,
+      "description": "Project grants across disciplines, including materials and catalysis.",
+      "eligibility": "Normally requires a completed doctorate and a qualifying German research institution.",
+      "last_verified_at": "2026-11-14"
+    },
+    {
+      "title": "ESRC applicant-led: explore awards",
+      "funder": "UK Research and Innovation",
+      "url": "https://www.ukri.org/opportunity/esrc-applicant-led-explore-awards/",
+      "category": "Government",
+      "status": "rolling",
+      "deadline": null,
+      "description": "Supports ambitious social science research.",
+      "eligibility": "An eligible UK host is required, and more than half the research focus and effort must be in the social sciences remit.",
+      "last_verified_at": "2026-11-14",
+      "round": "2026"
+    },
+    {
+      "title": "Hilldale Undergraduate/Faculty Research Fellowship",
+      "funder": "University of Wisconsin–Madison",
+      "url": "https://awards.advising.wisc.edu/all-scholarships/hilldale-undergraduatefaculty-research-fellowship/",
+      "category": "Institution",
+      "status": "forecast",
+      "deadline": "2027-02-14",
+      "description": "Supports undergraduate research. Applications open December 14, 2026.",
+      "eligibility": "UW–Madison undergraduates with at least junior standing need a collaborating UW–Madison faculty or staff advisor.",
+      "last_verified_at": "2026-11-14",
+      "round": "2027"
+    },
+    {
+      "title": "ASHRAE Graduate Student Grant-in-Aid Award",
+      "funder": "ASHRAE",
+      "url": "https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program",
+      "category": "Society",
+      "status": "verify",
+      "deadline": "2027-03-01",
+      "description": "Supports graduate research relevant to building systems and HVAC&R. The published submission deadline is 8:00 a.m. EST.",
+      "eligibility": "A faculty advisor submits on behalf of a full-time graduate student. Confirm that the architecture project fits the technical scope.",
+      "last_verified_at": "2026-11-14",
+      "round": "2027–28"
+    }
+  ]
+}

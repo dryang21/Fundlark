@@ -41,6 +41,12 @@ helper runs with Python 3.9+ and standard-library modules only:
 python3 skills/fundlark/scripts/search_federal.py --query "medical physics" --rows 10
 ```
 
+To organize results in the browser, ask the skill to write or refresh a
+`fundlark-library.json` in your workspace. Open **My funding → My application
+tracker → Import funding library**. Reimporting an amended round updates its
+source facts without replacing your notes, target date, or application progress.
+Use **Download backup** to keep a private, restorable copy of the tracker.
+
 No separate paid LLM/search API is bundled. The user's AI plan and any optional
 tools they enable can still incur costs. A cloud AI provider may process CV or
 conversation text supplied to that agent; this is not an offline-model guarantee.

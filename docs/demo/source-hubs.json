@@ -1,0 +1,1148 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-14",
+  "description": "Official funding and research sponsor entry points; NOT individually indexed or verified-open grants. Program eligibility and deadlines require official confirmation.",
+  "sources": [
+    {
+      "id": "us-grants",
+      "name": "Simpler.Grants.gov",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://simpler.grants.gov/search",
+      "description": "Cross-agency federal grant search; verify applicant type and deadlines",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-nsf",
+      "name": "U.S. National Science Foundation",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "computing",
+        "engineering",
+        "physical",
+        "climate",
+        "math",
+        "social",
+        "education",
+        "life"
+      ],
+      "url": "https://www.nsf.gov/funding",
+      "description": "Research grants, fellowships and solicitations across NSF directorates",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-nih",
+      "name": "National Institutes of Health",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "medicine",
+        "life",
+        "social",
+        "computing"
+      ],
+      "url": "https://www.grants.nih.gov/funding/explore-nih-opportunities",
+      "description": "Search biomedical and health funding via NIH filters to Grants.gov",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-neh",
+      "name": "National Endowment for the Humanities",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "humanities",
+        "arts",
+        "education"
+      ],
+      "url": "https://www.neh.gov/grants",
+      "description": "Humanities research, fellowships, education, infrastructure and organizations",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-nea",
+      "name": "National Endowment for the Arts",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "arts",
+        "humanities",
+        "education"
+      ],
+      "url": "https://www.arts.gov/grants",
+      "description": "Arts program opportunities, many intended for organizations rather than individuals",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-usda",
+      "name": "USDA National Institute of Food and Agriculture",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "agriculture",
+        "life",
+        "climate",
+        "education"
+      ],
+      "url": "https://www.nifa.usda.gov/grants/funding-opportunities",
+      "description": "Agriculture, food systems, rural research and education",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-doe",
+      "name": "Department of Energy Office of Science",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "physical",
+        "engineering",
+        "climate",
+        "computing",
+        "math"
+      ],
+      "url": "https://www.energy.gov/science/office-science-funding-opportunities",
+      "description": "Energy, physical sciences and basic science announcements",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-nasa",
+      "name": "NASA NSPIRES",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "physical",
+        "engineering",
+        "climate",
+        "computing",
+        "math"
+      ],
+      "url": "https://nspires.nasaprs.com/external/",
+      "description": "Space science and aeronautics research solicitations",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-epa",
+      "name": "Environmental Protection Agency Grants",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "climate",
+        "medicine",
+        "agriculture",
+        "social"
+      ],
+      "url": "https://www.epa.gov/grants",
+      "description": "Environmental research, environmental health and related grants",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-cdmrp",
+      "name": "Congressionally Directed Medical Research Programs",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "medicine",
+        "life",
+        "engineering"
+      ],
+      "url": "https://cdmrp.health.mil/funding/",
+      "description": "U.S. defense-sponsored health research competitions",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-ed-ies",
+      "name": "Institute of Education Sciences",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "education",
+        "social",
+        "math",
+        "computing"
+      ],
+      "url": "https://ies.ed.gov/funding",
+      "description": "Education science and evaluation funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-doe-arpae",
+      "name": "ARPA-E",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "climate",
+        "physical",
+        "business"
+      ],
+      "url": "https://arpa-e.energy.gov/",
+      "description": "High-impact energy research and technological innovation",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-noaa",
+      "name": "NOAA",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "climate",
+        "life",
+        "agriculture",
+        "physical"
+      ],
+      "url": "https://www.noaa.gov/",
+      "description": "Ocean, weather and climate agency; search program funding pages",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-fulbright",
+      "name": "Fulbright Scholar Program",
+      "region": "United States",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://fulbrightscholars.org/",
+      "description": "International scholarship and research exchanges; citizenship rules vary",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "us-nea-state",
+      "name": "National Assembly of State Arts Agencies",
+      "region": "United States",
+      "kind": "Society",
+      "fields": [
+        "arts",
+        "humanities"
+      ],
+      "url": "https://nasaa-arts.org/",
+      "description": "Directory and information on state arts agencies and funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-ukri",
+      "name": "UK Research and Innovation Funding Finder",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.ukri.org/opportunity/",
+      "description": "All UKRI councils and Innovate UK open and upcoming calls",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-mrc",
+      "name": "Medical Research Council",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "medicine",
+        "life"
+      ],
+      "url": "https://www.ukri.org/councils/mrc/",
+      "description": "Medical research programmes and fellowships through UKRI",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-esrc",
+      "name": "Economic and Social Research Council",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "social",
+        "education",
+        "business"
+      ],
+      "url": "https://www.ukri.org/councils/esrc/",
+      "description": "Social sciences and interdisciplinary research",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-ahrc",
+      "name": "Arts and Humanities Research Council",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "humanities",
+        "arts",
+        "social"
+      ],
+      "url": "https://www.ukri.org/councils/ahrc/",
+      "description": "Arts and humanities research through UKRI",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-epsrc",
+      "name": "Engineering and Physical Sciences Research Council",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "physical",
+        "computing",
+        "math"
+      ],
+      "url": "https://www.ukri.org/councils/epsrc/",
+      "description": "Engineering, physical sciences, computing and mathematics",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-nerc",
+      "name": "Natural Environment Research Council",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "climate",
+        "life",
+        "physical"
+      ],
+      "url": "https://www.ukri.org/councils/nerc/",
+      "description": "Natural environment, climate and earth research",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-bbsrc",
+      "name": "Biotechnology and Biological Sciences Research Council",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "life",
+        "agriculture"
+      ],
+      "url": "https://www.ukri.org/councils/bbsrc/",
+      "description": "Biosciences and agricultural biotechnology",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-innovate",
+      "name": "Innovate UK",
+      "region": "United Kingdom",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "computing",
+        "business",
+        "climate"
+      ],
+      "url": "https://www.ukri.org/councils/innovate-uk/",
+      "description": "Innovation and industrial research partnerships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-wellcome",
+      "name": "Wellcome Funding",
+      "region": "United Kingdom",
+      "kind": "Foundation",
+      "fields": [
+        "medicine",
+        "life",
+        "social",
+        "humanities",
+        "climate"
+      ],
+      "url": "https://wellcome.org/research-funding",
+      "description": "Health research and interdisciplinary early career schemes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-britacad",
+      "name": "British Academy Funding",
+      "region": "United Kingdom",
+      "kind": "Society",
+      "fields": [
+        "humanities",
+        "social",
+        "business",
+        "education"
+      ],
+      "url": "https://www.thebritishacademy.ac.uk/funding/",
+      "description": "Humanities and social science funding and fellowships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-royalsociety",
+      "name": "Royal Society Grants",
+      "region": "United Kingdom",
+      "kind": "Society",
+      "fields": [
+        "physical",
+        "life",
+        "math",
+        "engineering",
+        "computing"
+      ],
+      "url": "https://royalsociety.org/grants/",
+      "description": "Science research support and early-career fellowships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-leverhulme",
+      "name": "Leverhulme Trust",
+      "region": "United Kingdom",
+      "kind": "Foundation",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.leverhulme.ac.uk/",
+      "description": "Research fellowships and grants across disciplines",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "uk-royal-acad-eng",
+      "name": "Royal Academy of Engineering",
+      "region": "United Kingdom",
+      "kind": "Society",
+      "fields": [
+        "engineering",
+        "computing",
+        "business"
+      ],
+      "url": "https://raeng.org.uk/",
+      "description": "Engineering research, innovation and early-career programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "eu-portal",
+      "name": "EU Funding & Tenders Portal",
+      "region": "Europe / EU",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "description": "EU funding calls, research grants, partnerships and tenders",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "eu-erc",
+      "name": "European Research Council",
+      "region": "Europe / EU",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://erc.europa.eu/",
+      "description": "Starting, Consolidator and Advanced Grants for frontier research",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "eu-msca",
+      "name": "Marie Skłodowska-Curie Actions",
+      "region": "Europe / EU",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://marie-sklodowska-curie-actions.ec.europa.eu/",
+      "description": "Doctoral, postdoctoral and researcher-mobility programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "eu-cost",
+      "name": "COST European Cooperation in Science and Technology",
+      "region": "Europe / EU",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.cost.eu/",
+      "description": "Research networks and collaborative activities; not a substitute for research project grants",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "eu-eit",
+      "name": "European Institute of Innovation and Technology",
+      "region": "Europe / EU",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "computing",
+        "climate",
+        "medicine",
+        "business"
+      ],
+      "url": "https://eit.europa.eu/",
+      "description": "Knowledge-innovation communities and innovation funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "de-dfg",
+      "name": "German Research Foundation (DFG)",
+      "region": "Germany",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.dfg.de/en/research-funding/funding-opportunities/programmes",
+      "description": "Research projects, individual investigator and early-career programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ch-snsf",
+      "name": "Swiss National Science Foundation",
+      "region": "Switzerland",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.snf.ch/en",
+      "description": "Swiss research grants and fellowships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "fr-anr",
+      "name": "French National Research Agency",
+      "region": "France",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://anr.fr/en/",
+      "description": "French national calls and research partnerships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ca-calendar",
+      "name": "Canada Tri-Agency Funding Calendar",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.canada.ca/en/research-coordinating-committee/program-calendar.html",
+      "description": "CIHR, NSERC, SSHRC and CFI upcoming opportunities",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ca-cihr",
+      "name": "Canadian Institutes of Health Research",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "medicine",
+        "life",
+        "social"
+      ],
+      "url": "https://cihr-irsc.gc.ca/e/193.html",
+      "description": "Health research awards and funding programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ca-nserc",
+      "name": "Natural Sciences and Engineering Research Council",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "physical",
+        "computing",
+        "math",
+        "life",
+        "climate"
+      ],
+      "url": "https://www.nserc-crsng.gc.ca/",
+      "description": "Natural sciences, engineering, research partnerships and trainees",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ca-sshrc",
+      "name": "Social Sciences and Humanities Research Council",
+      "region": "Canada",
+      "kind": "Government",
+      "fields": [
+        "social",
+        "humanities",
+        "education",
+        "arts",
+        "business"
+      ],
+      "url": "https://www.sshrc-crsh.gc.ca/",
+      "description": "Humanities, social science and education awards",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ca-mitacs",
+      "name": "Mitacs",
+      "region": "Canada",
+      "kind": "Foundation",
+      "fields": [
+        "engineering",
+        "computing",
+        "life",
+        "business",
+        "social"
+      ],
+      "url": "https://www.mitacs.ca/",
+      "description": "Innovation internships and research partnerships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "au-arc",
+      "name": "Australian Research Council",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.arc.gov.au/funding-and-research",
+      "description": "Discovery and Linkage grants; ARC excludes medical research in core NCGP",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "au-nhmrc",
+      "name": "National Health and Medical Research Council",
+      "region": "Australia",
+      "kind": "Government",
+      "fields": [
+        "medicine",
+        "life"
+      ],
+      "url": "https://www.nhmrc.gov.au/funding",
+      "description": "Australian health and medical research grants",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "nz-mbie",
+      "name": "New Zealand Ministry of Business, Innovation and Employment",
+      "region": "New Zealand",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.mbie.govt.nz/science-and-technology/science-and-innovation/",
+      "description": "New Zealand research and innovation portfolio",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "jp-jsps",
+      "name": "Japan Society for the Promotion of Science",
+      "region": "Japan",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.jsps.go.jp/english/",
+      "description": "Japanese scientific research and international fellowship programs",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "sg-nrf",
+      "name": "National Research Foundation Singapore",
+      "region": "Singapore",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.nrf.gov.sg/",
+      "description": "Research and innovation initiatives in Singapore",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "in-dst",
+      "name": "India Department of Science and Technology",
+      "region": "India",
+      "kind": "Government",
+      "fields": [
+        "engineering",
+        "physical",
+        "life",
+        "computing",
+        "climate"
+      ],
+      "url": "https://dst.gov.in/",
+      "description": "Research initiatives and national funding programs",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "br-fapesp",
+      "name": "São Paulo Research Foundation (FAPESP)",
+      "region": "Brazil",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://fapesp.br/calls",
+      "description": "State-level grant calls including young investigators, collaboration and disciplinary awards",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "za-nrf",
+      "name": "South African National Research Foundation",
+      "region": "South Africa",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.nrf.ac.za/funding/",
+      "description": "Research funding programmes, fellowships, chairs and collaborative calls",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "cn-nsfc",
+      "name": "National Natural Science Foundation of China",
+      "region": "China",
+      "kind": "Government",
+      "fields": [
+        "life",
+        "medicine",
+        "physical",
+        "engineering",
+        "math",
+        "computing",
+        "climate"
+      ],
+      "url": "https://www.nsfc.gov.cn/english/site_1/index.html",
+      "description": "Research, early investigator, international scientist and collaboration programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "es-aei",
+      "name": "Spanish State Research Agency (AEI)",
+      "region": "Spain",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.aei.gob.es/convocatorias/buscador-convocatorias",
+      "description": "Spanish national research and early-career fellowship application calls",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "nl-nwo",
+      "name": "Dutch Research Council (NWO)",
+      "region": "Netherlands",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.nwo.nl/en",
+      "description": "Dutch researcher and science funding programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "at-fwf",
+      "name": "Austrian Science Fund (FWF)",
+      "region": "Austria",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.fwf.ac.at/en/",
+      "description": "Austrian basic science project grants and career programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "intl-twas",
+      "name": "The World Academy of Sciences",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "life",
+        "physical",
+        "math",
+        "engineering",
+        "computing",
+        "agriculture"
+      ],
+      "url": "https://twas.org/opportunities",
+      "description": "Funding, training and international fellowships for scientists in the Global South",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "kr-nrf",
+      "name": "National Research Foundation of Korea",
+      "region": "South Korea",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://www.nrf.re.kr/eng/",
+      "description": "National research fellowships and academic programmes in South Korea",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "chile-anid",
+      "name": "National Agency for Research and Development (ANID)",
+      "region": "Chile",
+      "kind": "Government",
+      "fields": [
+        "all"
+      ],
+      "url": "https://anid.cl/",
+      "description": "Chile research funding, doctoral, postdoctoral and international calls",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "ca-cfi",
+      "name": "Canada Foundation for Innovation",
+      "region": "Canada",
+      "kind": "Foundation",
+      "fields": [
+        "medicine",
+        "life",
+        "physical",
+        "engineering",
+        "computing",
+        "climate"
+      ],
+      "url": "https://www.innovation.ca/",
+      "description": "Research equipment and institutional infrastructure programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "intl-hfsp",
+      "name": "Human Frontier Science Program",
+      "region": "International",
+      "kind": "Foundation",
+      "fields": [
+        "life",
+        "medicine",
+        "physical",
+        "computing"
+      ],
+      "url": "https://www.hfsp.org/funding",
+      "description": "International fundamental life-science research and fellowships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "intl-embo",
+      "name": "EMBO",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "life",
+        "medicine"
+      ],
+      "url": "https://www.embo.org/funding/",
+      "description": "Molecular biology fellowships and collaborative research support",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "intl-icgeb",
+      "name": "International Centre for Genetic Engineering and Biotechnology",
+      "region": "International",
+      "kind": "Government",
+      "fields": [
+        "life",
+        "medicine",
+        "agriculture"
+      ],
+      "url": "https://www.icgeb.org/",
+      "description": "Biotechnology training and international collaboration",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-simons",
+      "name": "Simons Foundation",
+      "region": "International",
+      "kind": "Foundation",
+      "fields": [
+        "math",
+        "physical",
+        "life",
+        "computing"
+      ],
+      "url": "https://www.simonsfoundation.org/funding-opportunities/",
+      "description": "Mathematics, theoretical science, life science, autism and research funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-sloan",
+      "name": "Alfred P. Sloan Foundation",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "math",
+        "physical",
+        "computing",
+        "business",
+        "social",
+        "climate"
+      ],
+      "url": "https://sloan.org/grants",
+      "description": "Science, technology, economics, and early-career awards",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-spencer",
+      "name": "Spencer Foundation",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "education",
+        "social",
+        "humanities"
+      ],
+      "url": "https://www.spencer.org/grant_types",
+      "description": "Education research grant programs and fellowships",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-mellon",
+      "name": "Mellon Foundation",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "humanities",
+        "arts",
+        "education",
+        "social"
+      ],
+      "url": "https://www.mellon.org/grants",
+      "description": "Humanities, culture, arts and higher education funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-templeton",
+      "name": "John Templeton Foundation",
+      "region": "International",
+      "kind": "Foundation",
+      "fields": [
+        "physical",
+        "life",
+        "humanities",
+        "social"
+      ],
+      "url": "https://www.templeton.org/grants",
+      "description": "Research in science, philosophy and interdisciplinary inquiry",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-gates",
+      "name": "Gates Foundation",
+      "region": "International",
+      "kind": "Foundation",
+      "fields": [
+        "medicine",
+        "life",
+        "agriculture",
+        "education",
+        "social"
+      ],
+      "url": "https://www.gatesfoundation.org/about/how-we-work/grant-opportunities",
+      "description": "Global health and development grant opportunity announcements",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-czi",
+      "name": "Chan Zuckerberg Initiative",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "life",
+        "medicine",
+        "computing",
+        "education"
+      ],
+      "url": "https://chanzuckerberg.com/science/",
+      "description": "Science and biomedical research programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-aha",
+      "name": "American Heart Association Funding",
+      "region": "United States",
+      "kind": "Society",
+      "fields": [
+        "medicine",
+        "life",
+        "computing"
+      ],
+      "url": "https://professional.heart.org/en/research-programs/aha-funding-opportunities",
+      "description": "Cardiovascular and related health research funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-hhmi",
+      "name": "Howard Hughes Medical Institute",
+      "region": "United States",
+      "kind": "Foundation",
+      "fields": [
+        "life",
+        "medicine",
+        "education"
+      ],
+      "url": "https://www.hhmi.org/programs",
+      "description": "Biomedical science investigator and career programs",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-acs",
+      "name": "American Chemical Society",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "physical",
+        "engineering",
+        "education"
+      ],
+      "url": "https://www.acs.org/",
+      "description": "Chemistry society; navigate to grants and awards pages",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-aps",
+      "name": "American Physical Society",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "physical",
+        "math",
+        "engineering"
+      ],
+      "url": "https://www.aps.org/",
+      "description": "Physics society programs, fellowships and awards",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-acm",
+      "name": "Association for Computing Machinery",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "computing",
+        "math",
+        "education"
+      ],
+      "url": "https://www.acm.org/",
+      "description": "Computing society award and scholarship resources",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "f-agu",
+      "name": "American Geophysical Union",
+      "region": "International",
+      "kind": "Society",
+      "fields": [
+        "climate",
+        "physical",
+        "life"
+      ],
+      "url": "https://www.agu.org/",
+      "description": "Earth and space science society funding and awards",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-google",
+      "name": "Google Academic Research Awards",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "physical",
+        "engineering"
+      ],
+      "url": "https://research.google/programs-and-events/google-academic-research-awards/",
+      "description": "Academic research proposals; calls and eligibility vary by cycle",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-amazon",
+      "name": "Amazon Research Awards",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "engineering",
+        "business"
+      ],
+      "url": "https://www.amazon.science/research-awards/call-for-proposals",
+      "description": "Research awards and calls in computing and adjacent areas",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-nvidia",
+      "name": "NVIDIA Academic Grant Program",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "engineering",
+        "medicine",
+        "physical"
+      ],
+      "url": "https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/",
+      "description": "Academic GPU, computation and research technology support",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-openai",
+      "name": "OpenAI Researcher Access",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "medicine",
+        "social",
+        "humanities"
+      ],
+      "url": "https://openai.com/form/researcher-access-program/",
+      "description": "Research API credit program with specific scope and conditions",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-microsoft",
+      "name": "Microsoft Research Academic Programs",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "engineering",
+        "social",
+        "medicine"
+      ],
+      "url": "https://www.microsoft.com/en-us/research/academic-program/",
+      "description": "Microsoft Research academic collaboration programmes",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-anthropic",
+      "name": "Anthropic AI for Science",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "life",
+        "medicine",
+        "physical"
+      ],
+      "url": "https://www.anthropic.com/ai-for-science",
+      "description": "Claude credit-based support for science research; verify current call",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-meta",
+      "name": "Meta Research",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "social",
+        "medicine"
+      ],
+      "url": "https://research.facebook.com/",
+      "description": "Research programs and collaborative areas, not a guarantee of open funding",
+      "listing_type": "official_source_directory"
+    },
+    {
+      "id": "industry-ibm",
+      "name": "IBM Research",
+      "region": "International",
+      "kind": "Industry",
+      "fields": [
+        "computing",
+        "physical",
+        "engineering",
+        "medicine"
+      ],
+      "url": "https://research.ibm.com/",
+      "description": "Research partnerships and programs; directory, not current grant data",
+      "listing_type": "official_source_directory"
+    }
+  ]
+}

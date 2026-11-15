@@ -1,0 +1,782 @@
+{
+  "schema_version": 1,
+  "description": "Discovery targets only. These are NOT indexed funding opportunities or verified sponsors of current calls.",
+  "entries": [
+    {
+      "name": "OpenAI",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Anthropic",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Google DeepMind",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Google Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Microsoft Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Meta AI",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Amazon Science",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "NVIDIA",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "AWS",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "IBM Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Apple Machine Learning Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Salesforce Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Adobe Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Databricks",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Cohere",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Hugging Face",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "AI2 (Allen Institute for AI)",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Tencent AI Lab",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Baidu Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Alibaba DAMO Academy",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Huawei Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "ByteDance Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Samsung AI Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Sony AI",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Oracle",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "SAP",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "ServiceNow Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Snowflake",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Cloudflare",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Cisco Research",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "MongoDB",
+      "segment": "AI & cloud",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Intel",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "AMD",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Qualcomm",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "TSMC",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "ASML",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Broadcom",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Arm",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Micron",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Texas Instruments",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Applied Materials",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Lam Research",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "KLA",
+      "segment": "Semiconductors & hardware",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Pfizer",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "AstraZeneca",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Roche",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Novartis",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Merck & Co.",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "GSK",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Moderna",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Bristol Myers Squibb",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Eli Lilly",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Bayer",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Sanofi",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Johnson & Johnson",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "AbbVie",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Amgen",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Regeneron",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Genentech",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "BioNTech",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Takeda",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Siemens Healthineers",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "GE HealthCare",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Philips",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Medtronic",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Elekta",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Varian",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Thermo Fisher Scientific",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Illumina",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Abbott",
+      "segment": "Biopharma & healthcare",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Siemens",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Bosch",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Toyota",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "BMW",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Volkswagen",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Shell",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "BP",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "TotalEnergies",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "ExxonMobil",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Schneider Electric",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "ABB",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Hitachi",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Panasonic",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Airbus",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Boeing",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Rolls-Royce",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "General Electric",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Autodesk",
+      "segment": "Energy, mobility & manufacturing",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Bloomberg",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "JPMorgan Chase",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Goldman Sachs",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Visa",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Mastercard",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "AT&T",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Verizon",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Ericsson",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    },
+    {
+      "name": "Nokia",
+      "segment": "Finance & communications",
+      "discovery_status": "not_yet_verified",
+      "funding_program_confirmed": false,
+      "official_funding_page": null,
+      "next_action": "Check for active academic research awards, grants, fellowships, sponsorships, credits, datasets, and joint investigator programs. Do not count as an opportunity until confirmed."
+    }
+  ]
+}

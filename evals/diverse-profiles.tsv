@@ -1,0 +1,66 @@
+id	country	stage	field	institution	societies	description
+us-chemistry	United States	undergrad	chemistry	University of Wisconsin–Madison	ACS	I want to synthesize and test biodegradable polymers for food packaging.
+us-nursing	United States	masters	nursing	University of Washington	Sigma Theta Tau	I study telehealth access and quality of life for rural patients living with chronic illness.
+us-math	United States	phd	mathematics	University of Minnesota	SIAM	I work on numerical analysis and fast solvers for partial differential equations.
+us-education	United States	postdoc	education	University of Michigan	AERA	I study how multilingual elementary students develop reading fluency and how teachers assess literacy.
+us-public-health	United States	staff	public health	Emory University	American Public Health Association	I investigate vaccine access and neighborhood differences in preventive care.
+us-neuroscience	United States	faculty	neuroscience	University of California, San Diego	Society for Neuroscience	I study cognitive aging and memory with functional MRI.
+us-architecture	United States	masters	architecture	Illinois Institute of Technology	AIA	I design low-carbon community buildings and study daylighting and adaptive reuse.
+us-geology	United States	phd	earth science	University of Arizona	Geological Society of America	My dissertation looks at groundwater recharge and drought using stable isotopes.
+us-economics	United States	postdoc	economics	University of Chicago	American Economic Association	I examine the effects of paid family leave on employment and earnings.
+us-oncology	United States	resident	oncology	University of Pittsburgh	ASTRO;ASCO	I study survivorship and toxicities after radiation therapy in head and neck cancer.
+us-biology	United States	undergrad	life sciences	Howard University	Sigma Xi	I am comparing freshwater biodiversity in urban streams using field sampling.
+us-music	United States	phd	music	University of North Texas	Society for Ethnomusicology	I record local oral traditions and study how diaspora communities preserve musical heritage.
+canada-earth	Canada	postdoc	climate	University of Victoria	AGU	I model coastal flooding, extreme precipitation, and climate adaptation for small coastal towns.
+canada-literature	Canada	phd	literature	McGill University	Modern Language Association	My dissertation examines translation and francophone literature in Quebec and the Caribbean.
+canada-imaging	Canada	faculty	medical imaging	University of Toronto	AAPM	I lead research on quantitative MRI and image registration for tumor response.
+canada-cleanenergy	Canada	masters	energy	University of Waterloo	IEEE	I'm building a battery management system for grid energy storage and tracking degradation.
+canada-indigenous	Canada	staff	social science	University of Manitoba		I work with community partners on Indigenous food sovereignty and land stewardship.
+uk-law	United Kingdom	faculty	law	University College London	Society of Legal Scholars	I study how administrative law and privacy regulation shape automated public services.
+uk-marine	United Kingdom	phd	marine science	University of Southampton	Marine Biological Association	I track marine biodiversity and coastal habitat restoration using environmental DNA.
+uk-med	United Kingdom	resident	clinical research	University of Oxford	Royal College of Physicians	I study clinical decision support and medication safety for older hospital patients.
+uk-chem	United Kingdom	postdoc	chemistry	University of Manchester	Royal Society of Chemistry	I develop catalysts for green chemistry and carbon dioxide conversion.
+uk-social	United Kingdom	undergrad	psychology	University of York	British Psychological Society	I am studying social connectedness and sleep in first-year university students.
+uk-stat	United Kingdom	staff	statistics	University of Edinburgh	Royal Statistical Society	I build statistical methods for surveys with missing data and nonresponse bias.
+germany-physics	Germany	phd	physics	Heidelberg University	German Physical Society	I study how ultracold atoms can be used to simulate quantum materials.
+germany-literature	Germany	postdoc	literature	Free University of Berlin	Modern Language Association	I analyze narrative structure in contemporary German literature with computational text analysis.
+germany-chem	Germany	faculty	materials science	RWTH Aachen University	Materials Research Society	I develop low-cost catalysts and recyclable composite materials.
+france-heritage	France	staff	humanities	Sorbonne University		I build open digital archives for cultural heritage and historical manuscripts.
+france-cv	France	phd	computing	Université Paris-Saclay	IEEE;ACM	I study uncertainty estimation in computer vision and trustworthy machine learning.
+spain-ecology	Spain	postdoc	ecology	University of Barcelona	Ecological Society of America	I measure how restoration affects pollinators and native plant communities.
+italy-art	Italy	masters	arts	University of Bologna		I study museum accessibility and design tactile exhibitions for mixed audiences.
+netherlands-policy	Netherlands	faculty	public policy	Leiden University		My work evaluates housing policy and local programs to prevent eviction.
+sweden-materials	Sweden	phd	materials science	KTH Royal Institute of Technology	Materials Research Society	I study corrosion and lightweight metals for recycling and sustainable manufacturing.
+denmark-food	Denmark	postdoc	agriculture	University of Copenhagen		I research crop resilience, soil microbiology, and food security.
+ireland-hci	Ireland	masters	computing	Trinity College Dublin	ACM	I design accessibility tools for users with low vision and test human computer interaction.
+australia-conservation	Australia	undergrad	conservation	University of Queensland	Society for Conservation Biology	I survey endangered species and compare wildlife monitoring methods.
+australia-cyber	Australia	phd	computing	Monash University	IEEE	I study privacy-preserving machine learning and usable authentication.
+australia-geophysics	Australia	faculty	earth science	Australian National University	AGU	I model atmospheric circulation and reconstruct past climates from geological records.
+australia-education	Australia	staff	education	University of Melbourne	Australian Association for Research in Education	I evaluate teacher development and literacy interventions in rural schools.
+newzealand-water	New Zealand	postdoc	environment	University of Canterbury		I investigate watershed restoration and water quality in agricultural catchments.
+india-mathematics	India	faculty	mathematics	Indian Statistical Institute	SIAM	I work on number theory and combinatorial optimization.
+india-undergrad	India	undergrad	engineering	Indian Institute of Technology Bombay	IEEE	I design inexpensive sensors to help farmers monitor irrigation and soil moisture.
+india-postdoc	India	postdoc	life sciences	Indian Institute of Science		I study plant genetics and heat tolerance under changing climates.
+india-public-health	India	staff	public health	Public Health Foundation of India		I study access to maternal health services and barriers to preventive care.
+japan-robotics	Japan	postdoc	robotics	University of Tokyo	IEEE	I build soft robots and study grasping and manipulation for assistive devices.
+japan-physics	Japan	phd	physics	Tohoku University	Physical Society of Japan	I investigate magnetic materials with spectroscopy and develop models of condensed matter.
+korea-electrical	South Korea	faculty	engineering	KAIST	IEEE	I develop efficient power electronics and semiconductor devices for renewable energy.
+singapore-cities	Singapore	staff	urban studies	National University of Singapore		I study urban heat islands and evaluate cooling interventions with geospatial data.
+singapore-ml	Singapore	phd	computing	Nanyang Technological University	ACM	I build multilingual language models for low-resource languages.
+taiwan-nano	Taiwan	masters	materials science	National Taiwan University	IEEE	I fabricate nanomaterials and examine their optical properties.
+china-ev	China	phd	energy	Tsinghua University	IEEE	I research battery degradation, electric vehicle charging, and battery recycling.
+china-education	China	postdoc	education	Peking University		I study bilingual education and develop new classroom assessment methods.
+brazil-agro	Brazil	faculty	agriculture	University of São Paulo		I work on agroforestry and biodiversity in smallholder tropical farming systems.
+brazil-hci	Brazil	phd	computing	Federal University of Minas Gerais	ACM	I study human computer interaction and accessibility of public digital services.
+chile-astronomy	Chile	postdoc	astronomy	Pontificia Universidad Católica de Chile	International Astronomical Union	I develop spectroscopic methods for detecting exoplanets with ground-based telescopes.
+mexico-epidemiology	Mexico	masters	public health	National Autonomous University of Mexico		I study diabetes prevention and use epidemiology to examine neighborhood health inequalities.
+colombia-peace	Colombia	phd	social science	Universidad de los Andes		I conduct oral histories of displacement and research peacebuilding in rural communities.
+southafrica-society	South Africa	postdoc	social science	University of Cape Town		I study inequality, public policy, and access to early childhood education.
+southafrica-water	South Africa	faculty	environment	Stellenbosch University		I research drought resilience, river hydrology, and water governance.
+kenya-crops	Kenya	phd	agriculture	University of Nairobi		I research drought-tolerant crops and how extension programmes improve smallholder food security.
+ghana-engineering	Ghana	undergrad	engineering	Kwame Nkrumah University of Science and Technology	ASME	I design small off-grid solar irrigation pumps and test mechanical components.
+uganda-health	Uganda	staff	public health	Makerere University		I study rural health systems, access to diagnostics, and maternal care.
+egypt-heritage	Egypt	masters	humanities	Cairo University		My research uses archaeology and conservation to document heritage sites.
+morocco-cleanwater	Morocco	faculty	engineering	Mohammed VI Polytechnic University		I compare membrane filtration systems for water treatment and resource recovery.
+norway-philosophy	Norway	postdoc	philosophy	University of Oslo		I write on philosophy of science, scientific explanation, and ethics of evidence.
+no-stage-international	Unknown		materials science			My project uses low-cost recycled composite materials for sustainable housing. I want to find funding, but I have not added my job title or institution.

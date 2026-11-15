@@ -1,0 +1,2271 @@
+{
+  "schema_version": 1,
+  "description": "Candidate societies/foundations to review for official academic grant and fellowship programs; organizations are not opportunities.",
+  "entries": [
+    {
+      "name": "Association for Computing Machinery",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "IEEE Computer Society",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association for the Advancement of Artificial Intelligence",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association for Computational Linguistics",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association for Women in Mathematics and Computing",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "IEEE Computational Intelligence Society",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "IEEE Robotics and Automation Society",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Machine Learning Society",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association for Information Science and Technology",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "USENIX Association",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Computer Research Association",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Society for Bayesian Analysis",
+      "kind": "Society",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Schmidt Sciences",
+      "kind": "Foundation",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Simons Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Computer science & AI",
+        "Physics chemistry & materials",
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Patrick J. McGovern Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "AI for Good Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Mozilla Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Open Philanthropy",
+      "kind": "Foundation",
+      "fields": [
+        "Computer science & AI"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Association of Physicists in Medicine",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society for Radiation Oncology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Radiological Society of North America",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Association for Cancer Research",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society of Clinical Oncology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Heart Association",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American College of Radiology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Imaging Informatics in Medicine",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Medical Informatics Association",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Society for Radiotherapy and Oncology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Society of Radiology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Academy of Neurology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society of Hematology",
+      "kind": "Society",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Cancer Society",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Leukemia & Lymphoma Society",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Susan G. Komen",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Alzheimer’s Association",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Cystic Fibrosis Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Lung Cancer Research Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Prostate Cancer Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Gates Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health",
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Robert Wood Johnson Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health",
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Wellcome",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Chan Zuckerberg Initiative",
+      "kind": "Foundation",
+      "fields": [
+        "Medicine & public health"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Neuroscience",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society for Cell Biology",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Genetics Society of America",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Experimental Biology",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Molecular Biology and Evolution",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Ecological Society of America",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences",
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Molecular Biology Organization",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Human Genome Organisation",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Federation of European Biochemical Societies",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Society for Stem Cell Research",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Biochemical Society",
+      "kind": "Society",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Human Frontier Science Program",
+      "kind": "Foundation",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Howard Hughes Medical Institute",
+      "kind": "Foundation",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Burroughs Wellcome Fund",
+      "kind": "Foundation",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Gordon and Betty Moore Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Biology & life sciences",
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "The Kavli Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "The Pew Charitable Trusts",
+      "kind": "Foundation",
+      "fields": [
+        "Biology & life sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Institute of Electrical and Electronics Engineers",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society of Mechanical Engineers",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Institute of Chemical Engineers",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "SPIE",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Optica",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society for Engineering Education",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Institution of Engineering and Technology",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Institute of Industrial and Systems Engineers",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society of Automotive Engineers International",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Royal Academy of Engineering",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "The Engineering Institute of Canada",
+      "kind": "Society",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "James S. McDonnell Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Lemelson Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Kavli Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Sloan Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Engineering & technology"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Physical Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Chemical Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Materials Research Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Institute of Physics",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Royal Society of Chemistry",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Physical Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Astronomical Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Vacuum Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Electrochemical Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Nuclear Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Minerals Metals & Materials Society",
+      "kind": "Society",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Research Corporation for Science Advancement",
+      "kind": "Foundation",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Alfred P. Sloan Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Camille and Henry Dreyfus Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Alexander von Humboldt Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Physics chemistry & materials"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Geophysical Union",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Geosciences Union",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Geological Society of America",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Geological Society of London",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Meteorological Society",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Conservation Biology",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Union for Conservation of Nature",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Oceanography Society",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society of Environmental Toxicology and Chemistry",
+      "kind": "Society",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "National Geographic Society",
+      "kind": "Foundation",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "National Fish and Wildlife Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Packard Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Oak Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Climate earth & environment"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Mathematical Society",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Industrial and Applied Mathematics",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Mathematical Association of America",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Institute of Mathematical Statistics",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "London Mathematical Society",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Royal Statistical Society",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Mathematical Society",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Statistical Institute",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Canadian Mathematical Society",
+      "kind": "Society",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Clay Mathematics Institute",
+      "kind": "Foundation",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Fields Institute",
+      "kind": "Foundation",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Heilbronn Institute for Mathematical Research",
+      "kind": "Foundation",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Oberwolfach Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Mathematics & statistics"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Sociological Association",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Psychological Association",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association for Psychological Science",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Economic Association",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Political Science Association",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Sociological Association",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Research in Child Development",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Population Association of America",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Personality and Social Psychology",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Communication Association",
+      "kind": "Society",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Russell Sage Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Social and behavioral sciences",
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Wenner-Gren Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Ford Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Social and behavioral sciences",
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "William T. Grant Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Social and behavioral sciences",
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Templeton Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Social and behavioral sciences"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Volkswagen Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Social and behavioral sciences",
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Historical Association",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Modern Language Association",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Philosophical Association",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Archaeological Institute of America",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Classical Studies",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Linguistic Society of America",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Royal Historical Society",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Council of Learned Societies",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society of Biblical Literature",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association of Art Historians",
+      "kind": "Society",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Mellon Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Getty Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Philosophical Society",
+      "kind": "Foundation",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "The Huntington",
+      "kind": "Foundation",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Gerda Henkel Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "John Simon Guggenheim Memorial Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Humanities and languages"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Educational Research Association",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "European Educational Research Association",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Comparative and International Education Society",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "National Council of Teachers of Mathematics",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Association for the Study of Higher Education",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "British Educational Research Association",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Society of the Learning Sciences",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Association of Colleges for Teacher Education",
+      "kind": "Society",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Spencer Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Jacobs Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Kellogg Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Arnold Ventures",
+      "kind": "Foundation",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "National Education Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Education and learning"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society of Agronomy",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Crop Science Society of America",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Soil Science Society of America",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society for Horticultural Science",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Union of Forest Research Organizations",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Institute of Food Technologists",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Society for Plant Pathology",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Society of Animal Science",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Applied Microbiology",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Royal Society of Biology",
+      "kind": "Society",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Foundation for Food & Agriculture Research",
+      "kind": "Foundation",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Rockefeller Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "World Food Prize Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Global Crop Diversity Trust",
+      "kind": "Foundation",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Syngenta Foundation for Sustainable Agriculture",
+      "kind": "Foundation",
+      "fields": [
+        "Agriculture and food"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "College Art Association",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society of Architectural Historians",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Ethnomusicology",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Cinema and Media Studies",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Alliance of Museums",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Council of Museums",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Design Research Society",
+      "kind": "Society",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Creative Capital",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Graham Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Andy Warhol Foundation for the Visual Arts",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "New York Foundation for the Arts",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Pollock-Krasner Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Canada Council for the Arts",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Arts Council England",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Japan Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Arts media & design"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Academy of Management",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Finance Association",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Law and Society Association",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "International Studies Association",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Accounting Association",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Academy of International Business",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Marketing Association",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Human Resource Management",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Society for Risk Analysis",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "American Bar Association",
+      "kind": "Society",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Kauffman Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Brookings Institution",
+      "kind": "Foundation",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Open Society Foundations",
+      "kind": "Foundation",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Hewlett Foundation",
+      "kind": "Foundation",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    },
+    {
+      "name": "Peterson Institute for International Economics",
+      "kind": "Foundation",
+      "fields": [
+        "Business law & policy"
+      ],
+      "status": "candidate_not_verified",
+      "specific_funding_link": null,
+      "program_count_verified": 0,
+      "review_needed": true
+    }
+  ]
+}

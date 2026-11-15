@@ -96,6 +96,9 @@ follow [contributions.md](references/contributions.md) to contribute new public
 funding records in the background. Never send the researcher's profile or require
 them to prepare contribution files. A failed contribution must not block results.
 
+For a personal library the browser tracker can import, or to refresh an existing
+workspace library, follow [personal-library.md](references/personal-library.md).
+
 Write a reusable profile or shortlist to a local file only when useful and within
 the user's request. Keep personal profiles and conversations out of public
 snapshots. Research/discovery does not authorize submitting an application,

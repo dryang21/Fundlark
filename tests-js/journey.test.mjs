@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {cvSuggestions, examples, upcomingSaved} from '../docs/demo/journey.mjs';
+import {examples, upcomingSaved} from '../docs/demo/journey.mjs';
+import {cvSuggestions} from '../docs/demo/cv-profile.mjs';
 import {normalizeProfile, researchTerms, selectRecords, discoveryLinks} from '../docs/demo/matching.mjs';
 
 const cv=name=>readFileSync(new URL(`../evals/cvs/${name}.txt`,import.meta.url),'utf8');
