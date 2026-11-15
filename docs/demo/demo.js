@@ -17,6 +17,15 @@ import {researchTerms, normalizeProfile, statusOf, mergeCatalog, opportunityKey,
   shortlistText, publicRecordSnapshot, restoreShortlist, linkedPrograms, configureSocietyAliases} from './matching.mjs?v=personal-2';
 
 const $ = selector => document.querySelector(selector);
+// After a release, a browser may pair a cached older page with this newer script.
+// Reload once to fetch the matching page instead of failing on missing elements.
+const PAGE_MARKERS=['#exploreQuery','#searchInterpretation','#exploreResults','#requestForm'];
+if(PAGE_MARKERS.some(selector=>!document.querySelector(selector))){
+  let retried=false;
+  try{retried=sessionStorage.getItem('fundlark.page-reload')==='1';sessionStorage.setItem('fundlark.page-reload','1');}catch{retried=true;}
+  if(!retried){location.reload();throw new Error('Reloading to match the current page version');}
+}
+try{sessionStorage.removeItem('fundlark.page-reload');}catch{}
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = raw => {try {const url=new URL(raw);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
 const labels = {open:'Listed open — confirm before applying',rolling:'Listed rolling — confirm availability',closed:'Past round / closed',forecast:'Upcoming call — not open yet',verify:'Current application window unconfirmed'};
@@ -184,7 +193,9 @@ function goToExplorePage(event){
 const FUNDING_WORDS=/^(fellowships?|grants?|awards?|scholarships?|stipends?|prizes?|travel|funding|fund|bursar(y|ies)|seed|credits?)$/i;
 const STAGE_NAMES={undergrad:'undergraduate',masters:"master's",phd:'PhD / graduate',postdoc:'postdoc',faculty:'faculty',resident:'resident'};
 function renderInterpretation(){
-  const text=$('#exploreQuery').value.trim(),target=$('#searchInterpretation');
+  const target=$('#searchInterpretation');
+  if(!target)return;
+  const text=$('#exploreQuery').value.trim();
   if(!text){target.textContent='Type a topic, funder or sentence about your work, or pick an example above.';return;}
   // Funding words describe the kind of support, not the research topic.
   const kinds=researchTerms(text).filter(term=>FUNDING_WORDS.test(term));
@@ -370,12 +381,13 @@ async function init(){
     refreshSupportTypes();
     for(const entry of saved)if(!entry.record){const record=records.find(o=>opportunityKey(o)===entry.key);if(record)entry.record=publicRecordSnapshot(record);}
     renderCatalogStatus();
-    // A shared link such as ?q=graduate+fellowship opens with that search.
-    const query=new URLSearchParams(location.search).get('q');
-    if(query)$('#exploreQuery').value=query.slice(0,1200);
-    render();
-    renderRoutes();
-  }catch {$('#snapshotStatus').textContent='The catalog could not be loaded.';$('#exploreCatalogScope').textContent='The catalog could not be loaded.';$('#exploreResults').innerHTML='<p>Catalog temporarily unavailable. Try again or use the official funder directory.</p>';}
+  }catch {$('#snapshotStatus').textContent='The catalog could not be loaded.';$('#exploreCatalogScope').textContent='The catalog could not be loaded.';$('#exploreResults').innerHTML='<p>Catalog temporarily unavailable. Try again or use the official funder directory.</p>';updateSharing();return;}
+  // A shared link such as ?q=graduate+fellowship opens with that search.
+  const query=new URLSearchParams(location.search).get('q');
+  if(query)$('#exploreQuery').value=query.slice(0,1200);
+  // Display problems are reported as such, not as a catalog outage.
+  try{render();renderRoutes();}
+  catch(error){console.error(error);$('#exploreResults').innerHTML='<p>Results could not be displayed. Reload the page (Cmd/Ctrl+Shift+R) to get the latest version.</p>';}
   await initCommunity();
 }
 
