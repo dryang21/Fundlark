@@ -133,7 +133,8 @@ About **1,400 current calls** (around 500 open now), plus past rounds for refere
 
 ## Privacy
 
-- The website has no accounts and no tracking. Your tracker and request details stay in your browser.
+- The website has no accounts. Your tracker and request details stay in your browser.
+- The public demo uses [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/about/) to count visits and see where visitors came from. The analytics script does not run on prefilled search links or URLs with query parameters. Fundlark does not send form inputs, saved grants, or tracker notes to analytics. Local copies do not run analytics.
 - The website never sends your research description anywhere. It only goes into the text you choose to copy. The optional worldwide institution search sends just the name you type to the Research Organization Registry.
 - The skill runs in your own AI assistant, under that provider's privacy terms. It sends only public topic keywords to funder search services, never your CV or conversation.
 
